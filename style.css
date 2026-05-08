@@ -252,6 +252,44 @@ main {
   font-family: 'Newsreader', 'Times New Roman', serif;
 }
 
+/* ── Footer parade ──────────────────────────────────── */
+
+.footer-parade {
+  position: relative;
+  height: 32px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+}
+
+.footer-parade::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 32px;
+  width: calc(100% + 640px);
+  opacity: 0.4;
+  background-repeat: repeat-x;
+  background-size: 640px 32px;
+  background-position: 0 center;
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 32' fill='none' stroke='%23b8924a' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><circle cx='40' cy='7' r='4'/><line x1='40' y1='11' x2='40' y2='21'/><line x1='40' y1='15' x2='33' y2='10'/><line x1='40' y1='15' x2='47' y2='10'/><line x1='40' y1='21' x2='34' y2='29'/><line x1='40' y1='21' x2='46' y2='29'/><circle cx='120' cy='7' r='4'/><line x1='120' y1='11' x2='122' y2='20'/><line x1='121' y1='15' x2='114' y2='17'/><line x1='121' y1='15' x2='127' y2='11'/><line x1='122' y1='20' x2='115' y2='28'/><line x1='122' y1='20' x2='128' y2='27'/><path d='M200 22 C196 17 188 12 190 7 C192 3 197 4 200 8 C203 4 208 3 210 7 C212 12 204 17 200 22Z'/><circle cx='280' cy='16' r='5'/><line x1='280' y1='7' x2='280' y2='4'/><line x1='280' y1='25' x2='280' y2='28'/><line x1='269' y1='16' x2='266' y2='16'/><line x1='291' y1='16' x2='294' y2='16'/><line x1='273' y1='9' x2='271' y2='7'/><line x1='287' y1='23' x2='289' y2='25'/><line x1='287' y1='9' x2='289' y2='7'/><line x1='273' y1='23' x2='271' y2='25'/><circle cx='360' cy='7' r='4'/><line x1='360' y1='11' x2='360' y2='21'/><line x1='360' y1='15' x2='351' y2='15'/><line x1='360' y1='15' x2='369' y2='15'/><line x1='360' y1='21' x2='354' y2='29'/><line x1='360' y1='21' x2='366' y2='29'/><circle cx='440' cy='6' r='4'/><line x1='440' y1='10' x2='440' y2='19'/><line x1='440' y1='13' x2='433' y2='9'/><line x1='440' y1='13' x2='447' y2='9'/><line x1='440' y1='19' x2='429' y2='29'/><line x1='440' y1='19' x2='451' y2='29'/><ellipse cx='524' cy='21' rx='10' ry='5'/><circle cx='511' cy='17' r='4'/><line x1='515' y1='16' x2='515' y2='17'/><line x1='517' y1='24' x2='515' y2='29'/><line x1='521' y1='25' x2='520' y2='29'/><line x1='527' y1='25' x2='527' y2='29'/><line x1='532' y1='24' x2='534' y2='29'/><line x1='533' y1='18' x2='537' y2='14'/><path d='M600 16 C600 16 598 11 602 9 C606 7 609 11 608 15 C607 18 604 20 600 20 C596 20 594 16 596 12 C598 8 602 6 606 5'/></svg>");
+  animation: parade 26s linear infinite;
+  will-change: transform;
+}
+
+[data-theme="dark"] .footer-parade::before {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 32' fill='none' stroke='%23c49a52' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'><circle cx='40' cy='7' r='4'/><line x1='40' y1='11' x2='40' y2='21'/><line x1='40' y1='15' x2='33' y2='10'/><line x1='40' y1='15' x2='47' y2='10'/><line x1='40' y1='21' x2='34' y2='29'/><line x1='40' y1='21' x2='46' y2='29'/><circle cx='120' cy='7' r='4'/><line x1='120' y1='11' x2='122' y2='20'/><line x1='121' y1='15' x2='114' y2='17'/><line x1='121' y1='15' x2='127' y2='11'/><line x1='122' y1='20' x2='115' y2='28'/><line x1='122' y1='20' x2='128' y2='27'/><path d='M200 22 C196 17 188 12 190 7 C192 3 197 4 200 8 C203 4 208 3 210 7 C212 12 204 17 200 22Z'/><circle cx='280' cy='16' r='5'/><line x1='280' y1='7' x2='280' y2='4'/><line x1='280' y1='25' x2='280' y2='28'/><line x1='269' y1='16' x2='266' y2='16'/><line x1='291' y1='16' x2='294' y2='16'/><line x1='273' y1='9' x2='271' y2='7'/><line x1='287' y1='23' x2='289' y2='25'/><line x1='287' y1='9' x2='289' y2='7'/><line x1='273' y1='23' x2='271' y2='25'/><circle cx='360' cy='7' r='4'/><line x1='360' y1='11' x2='360' y2='21'/><line x1='360' y1='15' x2='351' y2='15'/><line x1='360' y1='15' x2='369' y2='15'/><line x1='360' y1='21' x2='354' y2='29'/><line x1='360' y1='21' x2='366' y2='29'/><circle cx='440' cy='6' r='4'/><line x1='440' y1='10' x2='440' y2='19'/><line x1='440' y1='13' x2='433' y2='9'/><line x1='440' y1='13' x2='447' y2='9'/><line x1='440' y1='19' x2='429' y2='29'/><line x1='440' y1='19' x2='451' y2='29'/><ellipse cx='524' cy='21' rx='10' ry='5'/><circle cx='511' cy='17' r='4'/><line x1='515' y1='16' x2='515' y2='17'/><line x1='517' y1='24' x2='515' y2='29'/><line x1='521' y1='25' x2='520' y2='29'/><line x1='527' y1='25' x2='527' y2='29'/><line x1='532' y1='24' x2='534' y2='29'/><line x1='533' y1='18' x2='537' y2='14'/><path d='M600 16 C600 16 598 11 602 9 C606 7 609 11 608 15 C607 18 604 20 600 20 C596 20 594 16 596 12 C598 8 602 6 606 5'/></svg>");
+}
+
+@keyframes parade {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-640px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-parade::before { animation: none; }
+}
+
 /* ── Author photo (bottom) ──────────────────────────── */
 
 .author-photo-wrap {
