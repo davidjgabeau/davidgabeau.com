@@ -266,6 +266,8 @@ ul {
 }
 
 .writing-list li {
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -284,6 +286,10 @@ ul {
 
 .writing-list li:hover {
   background-color: rgba(184, 146, 74, 0.06);
+}
+
+.writing-list li:active {
+  background-color: rgba(184, 146, 74, 0.1);
 }
 
 .writing-list li:first-child {
@@ -364,6 +370,42 @@ footer {
   color: #a09e97;
 }
 
+/* ── Progress bar ───────────────────────────────────── */
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #b8924a;
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 100;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+/* ── Touch ripple ───────────────────────────────────── */
+
+.ripple {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(184, 146, 74, 0.25);
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple-expand 0.55s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes ripple-expand {
+  to {
+    transform: translate(-50%, -50%) scale(200);
+    opacity: 0;
+  }
+}
+
 /* ── Scroll-in ──────────────────────────────────────── */
 
 .js-hidden {
@@ -380,6 +422,10 @@ footer {
 /* ── Responsive ─────────────────────────────────────── */
 
 @media (max-width: 767px) {
+  .js-hidden {
+    transform: translateY(20px);
+  }
+
   .container {
     padding-left: 20px;
     padding-right: 20px;

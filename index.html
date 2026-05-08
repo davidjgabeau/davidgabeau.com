@@ -175,7 +175,10 @@
     </div>
   </footer>
   <script>
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Section scroll-in
+    if (!reducedMotion) {
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(e => {
           if (e.isIntersecting) {
@@ -189,6 +192,32 @@
         s.classList.add('js-hidden');
         s.style.transitionDelay = (i * 40) + 'ms';
         observer.observe(s);
+      });
+    }
+
+    // Reading progress bar
+    const bar = document.createElement('div');
+    bar.className = 'progress-bar';
+    document.body.prepend(bar);
+
+    window.addEventListener('scroll', () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
+    }, { passive: true });
+
+    // Touch ripple on writing/talks rows
+    if (!reducedMotion) {
+      document.querySelectorAll('.writing-list li').forEach(li => {
+        li.addEventListener('touchstart', function(e) {
+          const rect = li.getBoundingClientRect();
+          const t = e.touches[0];
+          const ripple = document.createElement('span');
+          ripple.className = 'ripple';
+          ripple.style.left = (t.clientX - rect.left) + 'px';
+          ripple.style.top  = (t.clientY - rect.top)  + 'px';
+          li.appendChild(ripple);
+          ripple.addEventListener('animationend', () => ripple.remove());
+        }, { passive: true });
       });
     }
   </script>
