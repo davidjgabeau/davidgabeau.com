@@ -262,14 +262,10 @@ main {
 }
 
 .author-photo {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center 12%;
+  width: 80px;
+  height: 80px;
   display: block;
-  filter: grayscale(100%);
-  opacity: 0.75;
+  opacity: 0.82;
   transition: opacity 0.3s ease;
 }
 
