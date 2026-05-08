@@ -125,11 +125,17 @@ nav .nav-link:hover {
   color: #1f1e1d;
 }
 
-.nav-count {
-  font-size: 0.75rem;
+.nav-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.nav-sub {
+  font-size: 0.7rem;
   color: #a09e97;
-  margin-left: 0.3em;
-  font-style: italic;
+  line-height: 1;
 }
 
 /* ── Main ───────────────────────────────────────────── */
