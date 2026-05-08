@@ -386,25 +386,6 @@ footer {
   pointer-events: none;
 }
 
-/* ── Touch ripple ───────────────────────────────────── */
-
-.ripple {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: rgba(184, 146, 74, 0.25);
-  transform: translate(-50%, -50%) scale(0);
-  animation: ripple-expand 0.55s ease-out forwards;
-  pointer-events: none;
-}
-
-@keyframes ripple-expand {
-  to {
-    transform: translate(-50%, -50%) scale(200);
-    opacity: 0;
-  }
-}
 
 /* ── Scroll-in ──────────────────────────────────────── */
 
