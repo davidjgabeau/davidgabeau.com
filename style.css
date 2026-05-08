@@ -47,6 +47,12 @@ a:hover {
   color: #5e5d59;
 }
 
+a:focus-visible {
+  outline: 2px solid #b8924a;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 /* ── Container ──────────────────────────────────────── */
 
 .container {
@@ -89,7 +95,7 @@ header {
 
 nav .nav-link {
   font-size: 0.9rem;
-  color: #87867f;
+  color: #5e5d59;
   text-decoration: underline;
   text-decoration-color: currentColor;
   transition: color 0.15s;
@@ -174,27 +180,23 @@ ul {
 .bullet-list {
   display: flex;
   flex-direction: column;
-  gap: 0.6em;
+  gap: 0.5em;
 }
 
 .bullet-list li {
-  display: flex;
-  align-items: baseline;
-  gap: 0.5em;
-  line-height: 1.45;
+  padding-left: 1.1em;
+  text-indent: -1.1em;
+  line-height: 1.5;
 }
 
 .bullet-list li::before {
-  content: '•';
+  content: '• ';
   color: #b8924a;
-  flex-shrink: 0;
-  font-size: 0.85em;
-  position: relative;
-  top: -0.05em;
+  font-size: 0.9em;
 }
 
 .bullet-list li a {
-  margin-right: 0.1em;
+  margin-right: 0.15em;
 }
 
 .meta {
@@ -308,7 +310,9 @@ footer {
 
   .writing-list li {
     flex-direction: column;
-    gap: 0.2em;
+    gap: 0.15em;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
   }
 
   .date {
