@@ -33,7 +33,7 @@ export default function handler() {
         }, 'Founder & CEO, Tapestry'),
         e('div', {
           style: { fontSize: 26, color: '#87867f', marginTop: 12 },
-        }, 'Open social graph for AI and social applications')
+        }, 'Open social graph for AI and onchain applications')
       ),
       e('div', {
         style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between' },
