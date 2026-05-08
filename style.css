@@ -24,6 +24,25 @@
 
 html { height: 100%; }
 
+/* ── Animations ─────────────────────────────────────── */
+
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes line-expand {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 body {
   background-color: #f0eee6;
   color: #1f1e1d;
@@ -70,6 +89,7 @@ header {
   padding-top: 24px;
   padding-bottom: 20px;
   margin-bottom: 8px;
+  animation: fadein 0.4s ease-out both;
 }
 
 .header-inner {
@@ -105,6 +125,19 @@ nav .nav-link:hover {
   color: #1f1e1d;
 }
 
+.nav-count {
+  font-size: 0.75rem;
+  color: #a09e97;
+  margin-left: 0.3em;
+  font-style: italic;
+}
+
+/* ── Main ───────────────────────────────────────────── */
+
+main {
+  animation: fadein 0.45s ease-out 0.05s both;
+}
+
 /* ── Monogram ───────────────────────────────────────── */
 
 .monogram {
@@ -122,6 +155,16 @@ nav .nav-link:hover {
   flex: 1;
   height: 1px;
   background-color: #c9b98a;
+}
+
+.monogram::before {
+  transform-origin: right center;
+  animation: line-expand 0.6s ease-out 0.3s both;
+}
+
+.monogram::after {
+  transform-origin: left center;
+  animation: line-expand 0.6s ease-out 0.3s both;
 }
 
 .monogram-text {
@@ -226,6 +269,15 @@ ul {
   border-bottom: 1px solid #e4e1d8;
   line-height: 1.4;
   font-size: 0.975rem;
+  transition: background-color 0.15s ease;
+  margin-left: -12px;
+  margin-right: -12px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.writing-list li:hover {
+  background-color: rgba(184, 146, 74, 0.06);
 }
 
 .writing-list li:first-child {
@@ -241,10 +293,15 @@ ul {
 
 .writing-list li a {
   text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  transition: background-size 0.25s ease, color 0.15s;
 }
 
 .writing-list li a:hover {
-  text-decoration: underline;
+  background-size: 100% 1px;
   color: #1f1e1d;
 }
 
@@ -299,6 +356,19 @@ footer {
 .footer-copy {
   font-size: 0.8rem;
   color: #a09e97;
+}
+
+/* ── Scroll-in ──────────────────────────────────────── */
+
+.js-hidden {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.js-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ── Responsive ─────────────────────────────────────── */

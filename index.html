@@ -68,7 +68,7 @@
         <h1 class="header-name">David Gabeau</h1>
       </a>
       <nav>
-        <a href="https://blog.usetapestry.dev" target="_blank" rel="noopener noreferrer" class="nav-link">Newsletter</a>
+        <a href="https://blog.usetapestry.dev" target="_blank" rel="noopener noreferrer" class="nav-link">Newsletter <span class="nav-count">14k+</span></a>
       </nav>
     </div>
   </header>
@@ -172,5 +172,23 @@
       <p class="footer-copy">© 2026 David Gabeau</p>
     </div>
   </footer>
+  <script>
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.replace('js-hidden', 'js-visible');
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      document.querySelectorAll('section').forEach((s, i) => {
+        s.classList.add('js-hidden');
+        s.style.transitionDelay = (i * 40) + 'ms';
+        observer.observe(s);
+      });
+    }
+  </script>
 </body>
 </html>
