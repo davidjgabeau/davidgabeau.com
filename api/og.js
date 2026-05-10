@@ -5,7 +5,17 @@ export const config = { runtime: 'edge' };
 
 const e = React.createElement;
 
-export default function handler() {
+export default async function handler() {
+  // Load Newsreader 700 from Google Fonts
+  let fontData;
+  try {
+    const css = await fetch(
+      'https://fonts.googleapis.com/css2?family=Newsreader:wght@700'
+    ).then(r => r.text());
+    const url = css.match(/url\(([^)]+\.woff2)\)/)?.[1];
+    if (url) fontData = await fetch(url).then(r => r.arrayBuffer());
+  } catch (_) {}
+
   return new ImageResponse(
     e('div', {
       style: {
@@ -14,34 +24,42 @@ export default function handler() {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-end',
         padding: '80px 96px',
       },
     },
-      e('div', { style: { display: 'flex', flexDirection: 'column' } },
-        e('div', {
-          style: {
-            fontSize: 76,
-            fontWeight: 700,
-            color: '#1f1e1d',
-            lineHeight: 1.05,
-            letterSpacing: '-1px',
-          },
-        }, 'David Gabeau'),
-        e('div', {
-          style: { fontSize: 34, color: '#5e5d59', marginTop: 22, lineHeight: 1.4 },
-        }, 'Founder & CEO, Tapestry'),
-        e('div', {
-          style: { fontSize: 26, color: '#87867f', marginTop: 12 },
-        }, 'Open social graph for AI and onchain applications')
-      ),
       e('div', {
-        style: { display: 'flex', alignItems: 'center', justifyContent: 'space-between' },
+        style: {
+          display: 'flex',
+          flexDirection: 'column',
+          fontFamily: fontData ? 'Newsreader' : 'Georgia, serif',
+          fontWeight: 700,
+          color: '#1f1e1d',
+          lineHeight: 1.0,
+          fontSize: 144,
+          letterSpacing: '-2px',
+          marginBottom: 32,
+        },
       },
-        e('div', { style: { fontSize: 22, color: '#a09e97' } }, 'davidgabeau.com'),
-        e('div', { style: { fontSize: 28, color: '#b8924a' } }, '✶')
-      )
+        e('span', null, 'David'),
+        e('span', null, 'Gabeau'),
+      ),
+      e('span', {
+        style: {
+          fontSize: 24,
+          color: '#a09e97',
+          fontFamily: fontData ? 'Newsreader' : 'Georgia, serif',
+          fontWeight: 400,
+          letterSpacing: '0',
+        },
+      }, 'davidgabeau.com')
     ),
-    { width: 1200, height: 630 }
+    {
+      width: 1200,
+      height: 630,
+      fonts: fontData
+        ? [{ name: 'Newsreader', data: fontData, weight: 700, style: 'normal' }]
+        : [],
+    }
   );
 }
