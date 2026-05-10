@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Gabeau — Claude Evangelist Application</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { claude: '#E8600A' },
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background: #0a0a0a; color: #e5e5e5; font-family: 'Inter', sans-serif; }
+    .orange { color: #E8600A; }
+    .bg-orange { background: #E8600A; }
+    .border-orange { border-color: #E8600A; }
+    .card-border { border-top: 2px solid #E8600A; }
+    ::selection { background: rgba(232,96,10,0.3); }
+    .timeline-line { border-left: 1px solid #2a2a2a; }
+    .dot { background: #E8600A; }
+    pre { white-space: pre-wrap; word-break: break-word; }
+  </style>
+</head>
+<body>
+
+<!-- DISCLAIMER -->
+<div style="background:#111111; border-bottom:1px solid #1e1e1e;" class="py-2 px-4 text-center text-xs text-neutral-400 leading-relaxed">
+  This page was built as part of my application for the Claude Evangelist, Applied AI (Startups) role at Anthropic. The demos are live and use the Claude API.
+</div>
+
+<!-- HERO -->
+<section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden px-6">
+  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(232,96,10,0.07) 0%, transparent 70%);"></div>
+  <div class="max-w-3xl mx-auto text-center relative z-10">
+    <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight tracking-tight mb-6">
+      This is how I think<br>about the role.
+    </h1>
+    <p class="text-lg md:text-xl text-neutral-400 leading-relaxed mb-4 max-w-2xl mx-auto">
+      Before internal conversations, before seeing the data, before understanding the constraints. The strategy will change. The instincts won't.
+    </p>
+    <p class="text-sm text-neutral-500 mb-10">
+      David Gabeau. Founder. Builder. Claude user. Applying for Claude Evangelist, Applied AI (Startups) at Anthropic.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="#strategy" class="px-6 py-3 border border-neutral-700 text-white text-sm font-medium hover:border-neutral-500 transition-colors rounded-sm">
+        See the Strategy
+      </a>
+      <a href="https://aiatlasnyc.com/ask" target="_blank" rel="noopener noreferrer"
+         class="px-6 py-3 text-white text-sm font-medium rounded-sm transition-opacity hover:opacity-90"
+         style="background:#E8600A;">
+        Try Ask Atlas
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STRATEGY -->
+<section id="strategy" class="py-24 px-6 border-t border-neutral-900">
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-12">
+      <p class="text-xs font-semibold tracking-widest uppercase orange mb-3">The Strategy</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Three Channels. One Metric.</h2>
+      <p class="text-neutral-400">Net new startups activated on the Claude API.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Column 1 -->
+      <div class="card-border bg-neutral-950 border border-neutral-800 p-6">
+        <h3 class="text-lg font-semibold text-white mb-4">IRL Activation</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed mb-5">
+          Every event has one goal: developers who show up curious leave with a working Claude integration. Awareness is not the metric. Active API usage is.
+        </p>
+        <p class="text-neutral-400 text-sm leading-relaxed mb-5">
+          Every touchpoint follows the same funnel: ecosystem event, API signup, first working build, GTM handoff, retention. That funnel gets documented, measured, and improved after every event.
+        </p>
+        <ul class="space-y-3 text-sm text-neutral-400">
+          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>Claude Summer Series: four demo days at top NYC fund offices (a16z, Bessemer, Hugging Face, BoxGroup). Each event ends with working repos, not slide decks.</span></li>
+          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>Fall Build-athons at Columbia, NYU, and CUNY. Target: 80% of teams ship a working Claude integration by Sunday night.</span></li>
+          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>Monthly technical office hours. Open to any NYC startup building on Claude. Real debugging, real activation.</span></li>
+          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>NYC Claude Slack. Selective invite, high signal. Weekly drops of events, credits, and API updates.</span></li>
+        </ul>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="card-border bg-neutral-950 border border-neutral-800 p-6">
+        <h3 class="text-lg font-semibold text-white mb-4">Technical Content</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed mb-5">
+          Content written by someone who has shipped Claude in production. Not someone who read the docs.
+        </p>
+        <ul class="space-y-3 text-sm text-neutral-400">
+          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>Series 1: Tool use and function calling. Two posts, two audiences. Beginner: your first Claude tool integration. Production: multi-tool agents in production, what we learned at Zumi. Both include working repos.</span></li>
+          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>Series 2: NYC Founders Building on Claude. Short, specific, technical spotlights on startups using the API. Pitched to Anthropic marketing for amplification.</span></li>
+          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>Live demos at every event. Working prototypes built for each audience. Code founders can fork and build on the same day.</span></li>
+          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>Regular syncs with Anthropic Product team to stay current on what is actually shipping.</span></li>
+        </ul>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="card-border bg-neutral-950 border border-neutral-800 p-6">
+        <h3 class="text-lg font-semibold text-white mb-4">Ecosystem Intelligence</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed mb-5">
+          Most evangelism is outbound. This channel is what makes the whole system compound.
+        </p>
+        <ul class="space-y-3 text-sm text-neutral-400">
+          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>VC network activation. 1:1 calls and group dinners with partners at USV, a16z, Lerer Hippeau, Bessemer, and BoxGroup. Every intro has a clear handoff to Startups GTM.</span></li>
+          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>Weekly sync with Startups GTM. Every warm intro gets a clear next step. No leads fall through.</span></li>
+          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>Monthly ecosystem signal reports to product and GTM teams. What are NYC founders building? Where is Claude winning? Where is it losing?</span></li>
+          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>AI Atlas NYC is the infrastructure for this. A real-time map of the NYC AI startup ecosystem. The signal already exists. The job is surfacing it back to the right people inside Anthropic.</span></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DEMOS -->
+<section id="demos" class="py-24 px-6 border-t border-neutral-900">
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-12">
+      <p class="text-xs font-semibold tracking-widest uppercase orange mb-3">Built to Show, Not Tell</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Two Live Demos</h2>
+      <p class="text-neutral-400">Both use the Claude API. Both exist because the role requires building things, not describing them.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <!-- Ask Atlas -->
+      <div class="card-border bg-neutral-950 border border-neutral-800 p-6 flex flex-col">
+        <h3 class="text-lg font-semibold text-white mb-3">Ask Atlas NYC</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed mb-6">
+          Natural language queries over 52 NYC AI startups. Ask which companies are building in fintech. Ask where the white space is. Ask which founders you should be watching.
+        </p>
+        <div class="space-y-2 mb-6">
+          <p class="text-xs text-neutral-500 uppercase tracking-wide mb-2">Example queries</p>
+          <button onclick="document.getElementById('atlas-link').click()" class="w-full text-left text-xs px-3 py-2 border border-neutral-800 text-neutral-400 hover:border-neutral-600 hover:text-neutral-300 transition-colors rounded-sm">
+            Which NYC AI startups are building in healthcare?
+          </button>
+          <button onclick="document.getElementById('atlas-link').click()" class="w-full text-left text-xs px-3 py-2 border border-neutral-800 text-neutral-400 hover:border-neutral-600 hover:text-neutral-300 transition-colors rounded-sm">
+            Where is the white space in agent infrastructure?
+          </button>
+          <button onclick="document.getElementById('atlas-link').click()" class="w-full text-left text-xs px-3 py-2 border border-neutral-800 text-neutral-400 hover:border-neutral-600 hover:text-neutral-300 transition-colors rounded-sm">
+            Which companies would make good Claude API customers?
+          </button>
+        </div>
+        <div class="mt-auto">
+          <a id="atlas-link" href="https://aiatlasnyc.com/ask" target="_blank" rel="noopener noreferrer"
+             class="inline-block px-5 py-2.5 text-white text-sm font-medium rounded-sm transition-opacity hover:opacity-90"
+             style="background:#E8600A;">
+            Try Ask Atlas
+          </a>
+        </div>
+      </div>
+
+      <!-- Starter Kit Generator -->
+      <div class="card-border bg-neutral-950 border border-neutral-800 p-6 flex flex-col">
+        <h3 class="text-lg font-semibold text-white mb-3">Claude Starter Kit Generator</h3>
+        <p class="text-neutral-400 text-sm leading-relaxed mb-6">
+          Enter your startup and stack. Get a custom guide for building on Claude. This is the evangelist job in software form.
+        </p>
+        <div class="space-y-3 mb-4">
+          <input id="sk-startup" type="text" placeholder="Startup name"
+            class="w-full bg-neutral-900 border border-neutral-800 text-white text-sm px-3 py-2.5 rounded-sm placeholder-neutral-600 focus:outline-none focus:border-neutral-600 transition-colors">
+          <input id="sk-building" type="text" placeholder="What you're building"
+            class="w-full bg-neutral-900 border border-neutral-800 text-white text-sm px-3 py-2.5 rounded-sm placeholder-neutral-600 focus:outline-none focus:border-neutral-600 transition-colors">
+          <input id="sk-stack" type="text" placeholder="Current stack (e.g. Next.js, Postgres, Vercel)"
+            class="w-full bg-neutral-900 border border-neutral-800 text-white text-sm px-3 py-2.5 rounded-sm placeholder-neutral-600 focus:outline-none focus:border-neutral-600 transition-colors">
+        </div>
+        <button id="sk-btn" onclick="generateKit()"
+          class="px-5 py-2.5 text-white text-sm font-medium rounded-sm transition-opacity hover:opacity-90 mb-4"
+          style="background:#E8600A;">
+          Generate Guide
+        </button>
+        <div id="sk-output" class="hidden bg-neutral-900 border border-neutral-800 rounded-sm p-4 text-sm text-neutral-300 leading-relaxed font-mono overflow-y-auto" style="max-height:280px;"></div>
+        <p id="sk-error" class="hidden text-sm text-red-400 mt-2"></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 90 DAYS -->
+<section id="90days" class="py-24 px-6 border-t border-neutral-900">
+  <div class="max-w-3xl mx-auto">
+    <div class="mb-12">
+      <p class="text-xs font-semibold tracking-widest uppercase orange mb-3">The Plan</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white">First 90 Days</h2>
+    </div>
+    <div class="relative pl-8 timeline-line space-y-10">
+
+      <div class="relative">
+        <div class="dot absolute -left-9 top-1.5 w-2 h-2 rounded-full"></div>
+        <p class="text-xs font-semibold orange mb-1">Weeks 1–2</p>
+        <p class="text-neutral-300 text-sm leading-relaxed">Map the NYC AI ecosystem. Cross-reference AI Atlas NYC data with VC portfolio databases. Identify the top 50 early-stage startups building with AI. Prioritize by stage, category, and current model usage.</p>
+      </div>
+
+      <div class="relative">
+        <div class="dot absolute -left-9 top-1.5 w-2 h-2 rounded-full"></div>
+        <p class="text-xs font-semibold orange mb-1">Weeks 2–4</p>
+        <p class="text-neutral-300 text-sm leading-relaxed">Reactivate the venture network. 1:1 calls with partners and analysts at USV, a16z, Lerer Hippeau, Bessemer, and BoxGroup. Target: five portfolio company introductions with clear GTM handoffs in the first 30 days.</p>
+      </div>
+
+      <div class="relative">
+        <div class="dot absolute -left-9 top-1.5 w-2 h-2 rounded-full"></div>
+        <p class="text-xs font-semibold orange mb-1">Week 2</p>
+        <p class="text-neutral-300 text-sm leading-relaxed">Establish a weekly sync with the Startups GTM team. Map the handoff process from warm intro to active API usage. Nothing falls through.</p>
+      </div>
+
+      <div class="relative">
+        <div class="dot absolute -left-9 top-1.5 w-2 h-2 rounded-full"></div>
+        <p class="text-xs font-semibold orange mb-1">Month 1</p>
+        <p class="text-neutral-300 text-sm leading-relaxed">Launch NYC Claude Slack. Seed with 25 high-quality members. First weekly drop within 48 hours of launch.</p>
+      </div>
+
+      <div class="relative">
+        <div class="dot absolute -left-9 top-1.5 w-2 h-2 rounded-full"></div>
+        <p class="text-xs font-semibold orange mb-1">Month 1</p>
+        <p class="text-neutral-300 text-sm leading-relaxed">First workshop confirmed at ERA or Techstars NYC. Founders ship a working Claude integration by end of session.</p>
+      </div>
+
+      <div class="relative">
+        <div class="dot absolute -left-9 top-1.5 w-2 h-2 rounded-full"></div>
+        <p class="text-xs font-semibold orange mb-1">Month 2</p>
+        <p class="text-neutral-300 text-sm leading-relaxed">Publish the first two posts on tool use and function calling. Distributed to 15,000 existing blog subscribers on day one.</p>
+      </div>
+
+      <div class="relative">
+        <div class="dot absolute -left-9 top-1.5 w-2 h-2 rounded-full"></div>
+        <p class="text-xs font-semibold orange mb-1">Month 2</p>
+        <p class="text-neutral-300 text-sm leading-relaxed">First startup spotlight published. Pitched to Anthropic marketing for social amplification.</p>
+      </div>
+
+      <div class="relative">
+        <div class="dot absolute -left-9 top-1.5 w-2 h-2 rounded-full"></div>
+        <p class="text-xs font-semibold orange mb-1">Month 2</p>
+        <p class="text-neutral-300 text-sm leading-relaxed">First monthly ecosystem signal report delivered to product and GTM teams.</p>
+      </div>
+
+      <div class="relative">
+        <div class="dot absolute -left-9 top-1.5 w-2 h-2 rounded-full"></div>
+        <p class="text-xs font-semibold orange mb-1">Month 3</p>
+        <p class="text-neutral-300 text-sm leading-relaxed">Claude Summer Series announced. Four events, four fund partners confirmed. First event on the calendar before end of month three.</p>
+      </div>
+
+      <div class="relative">
+        <div class="dot absolute -left-9 top-1.5 w-2 h-2 rounded-full"></div>
+        <p class="text-xs font-semibold orange mb-1">Month 3</p>
+        <p class="text-neutral-300 text-sm leading-relaxed">Fall build-athon proposal submitted to Columbia or CUNY. September programming locked.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- METRICS -->
+<section id="metrics" class="py-24 px-6 border-t border-neutral-900">
+  <div class="max-w-4xl mx-auto">
+    <div class="mb-12">
+      <p class="text-xs font-semibold tracking-widest uppercase orange mb-3">How Success Is Measured</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white">The Metrics</h2>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full text-sm border-collapse">
+        <thead>
+          <tr style="background:#E8600A;">
+            <th class="text-left px-4 py-3 text-white font-semibold">Metric</th>
+            <th class="text-center px-4 py-3 text-white font-semibold whitespace-nowrap">30 Days</th>
+            <th class="text-center px-4 py-3 text-white font-semibold whitespace-nowrap">90 Days</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-neutral-800 bg-neutral-950">
+            <td class="px-4 py-3 text-neutral-300">Net new NYC startups activated on the API</td>
+            <td class="px-4 py-3 text-center text-white font-medium">10</td>
+            <td class="px-4 py-3 text-center text-white font-medium">40</td>
+          </tr>
+          <tr class="border-b border-neutral-800">
+            <td class="px-4 py-3 text-neutral-300">VC partnerships with clear GTM handoff</td>
+            <td class="px-4 py-3 text-center text-white font-medium">3</td>
+            <td class="px-4 py-3 text-center text-white font-medium">8</td>
+          </tr>
+          <tr class="border-b border-neutral-800 bg-neutral-950">
+            <td class="px-4 py-3 text-neutral-300">Events hosted or confirmed</td>
+            <td class="px-4 py-3 text-center text-white font-medium">1</td>
+            <td class="px-4 py-3 text-center text-white font-medium">4</td>
+          </tr>
+          <tr class="border-b border-neutral-800">
+            <td class="px-4 py-3 text-neutral-300">NYC Claude Slack members</td>
+            <td class="px-4 py-3 text-center text-white font-medium">25</td>
+            <td class="px-4 py-3 text-center text-white font-medium">100</td>
+          </tr>
+          <tr class="border-b border-neutral-800 bg-neutral-950">
+            <td class="px-4 py-3 text-neutral-300">Technical content pieces published</td>
+            <td class="px-4 py-3 text-center text-white font-medium">0</td>
+            <td class="px-4 py-3 text-center text-white font-medium">4</td>
+          </tr>
+          <tr class="border-b border-neutral-800">
+            <td class="px-4 py-3 text-neutral-300">Ecosystem signal reports delivered</td>
+            <td class="px-4 py-3 text-center text-white font-medium">1</td>
+            <td class="px-4 py-3 text-center text-white font-medium">3</td>
+          </tr>
+          <tr class="border-b border-neutral-800 bg-neutral-950">
+            <td class="px-4 py-3 text-neutral-300">Portfolio company intros with GTM handoff</td>
+            <td class="px-4 py-3 text-center text-white font-medium">5</td>
+            <td class="px-4 py-3 text-center text-white font-medium">20</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMER SERIES -->
+<section id="summer" class="py-24 px-6 border-t border-neutral-900">
+  <div class="max-w-6xl mx-auto">
+    <div class="mb-12">
+      <p class="text-xs font-semibold tracking-widest uppercase orange mb-3">IRL Activation</p>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Claude Summer Series NYC 2026</h2>
+      <p class="text-neutral-400">Four category-specific demo days at top fund offices across NYC. Nothing like this exists in the NYC AI ecosystem today.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+      <div class="card-border bg-neutral-950 border border-neutral-800 p-6 relative">
+        <span class="absolute top-4 right-4 text-xs font-semibold orange border border-neutral-700 px-2 py-0.5 rounded-sm">Concept</span>
+        <p class="text-xs text-neutral-500 mb-1">a16z NYC</p>
+        <h3 class="text-base font-semibold text-white mb-2">Claude Consumer Day</h3>
+        <p class="text-sm text-neutral-400 mb-3">Building the next generation of AI-native consumer products</p>
+        <p class="text-xs text-neutral-500">Demo day — six founders, eight minutes each.</p>
+      </div>
+
+      <div class="card-border bg-neutral-950 border border-neutral-800 p-6 relative">
+        <span class="absolute top-4 right-4 text-xs font-semibold orange border border-neutral-700 px-2 py-0.5 rounded-sm">Concept</span>
+        <p class="text-xs text-neutral-500 mb-1">Bessemer Venture Partners NYC</p>
+        <h3 class="text-base font-semibold text-white mb-2">Claude × Fintech: The Agentic Stack</h3>
+        <p class="text-sm text-neutral-400 mb-3">How AI agents are rebuilding financial infrastructure</p>
+        <p class="text-xs text-neutral-500">Lightning talks plus live demos — four companies.</p>
+      </div>
+
+      <div class="card-border bg-neutral-950 border border-neutral-800 p-6 relative">
+        <span class="absolute top-4 right-4 text-xs font-semibold orange border border-neutral-700 px-2 py-0.5 rounded-sm">Concept</span>
+        <p class="text-xs text-neutral-500 mb-1">Hugging Face NYC</p>
+        <h3 class="text-base font-semibold text-white mb-2">What's New in Inference</h3>
+        <p class="text-sm text-neutral-400 mb-3">Claude × Hugging Face. What is actually shipping.</p>
+        <p class="text-xs text-neutral-500">Eight speakers, five minutes each, no slides.</p>
+      </div>
+
+      <div class="card-border bg-neutral-950 border border-neutral-800 p-6 relative">
+        <span class="absolute top-4 right-4 text-xs font-semibold orange border border-neutral-700 px-2 py-0.5 rounded-sm">Concept</span>
+        <p class="text-xs text-neutral-500 mb-1">BoxGroup NYC</p>
+        <h3 class="text-base font-semibold text-white mb-2">Claude × Health: Research to Revenue</h3>
+        <p class="text-sm text-neutral-400 mb-3">AI agents in clinical workflows and drug discovery</p>
+        <p class="text-xs text-neutral-500">Panel plus demos — three companies, one investor panel.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-12 px-6 border-t border-neutral-900">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-neutral-500">
+    <div>
+      <a href="https://davidgabeau.com" class="text-neutral-400 hover:text-white transition-colors">David Gabeau</a>
+    </div>
+    <div class="md:text-center">Built with Claude Code</div>
+    <div class="md:text-right leading-relaxed">
+      Created as part of a job application for the Claude Evangelist, Applied AI (Startups) role at Anthropic. Not affiliated with or endorsed by Anthropic.
+    </div>
+  </div>
+</footer>
+
+<script>
+async function generateKit() {
+  const startup = document.getElementById('sk-startup').value.trim();
+  const building = document.getElementById('sk-building').value.trim();
+  const stack = document.getElementById('sk-stack').value.trim();
+  const output = document.getElementById('sk-output');
+  const error = document.getElementById('sk-error');
+  const btn = document.getElementById('sk-btn');
+
+  error.classList.add('hidden');
+
+  if (!startup || !building || !stack) {
+    error.textContent = 'Please fill in all three fields.';
+    error.classList.remove('hidden');
+    return;
+  }
+
+  btn.textContent = 'Generating...';
+  btn.disabled = true;
+  output.textContent = '';
+  output.classList.remove('hidden');
+
+  try {
+    const res = await fetch('/api/claude-starter-kit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ startup, building, stack }),
+    });
+
+    if (!res.ok) {
+      throw new Error(await res.text());
+    }
+
+    const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      output.textContent += decoder.decode(value, { stream: true });
+      output.scrollTop = output.scrollHeight;
+    }
+  } catch (err) {
+    error.textContent = 'Something went wrong: ' + err.message;
+    error.classList.remove('hidden');
+    output.classList.add('hidden');
+  } finally {
+    btn.textContent = 'Generate Guide';
+    btn.disabled = false;
+  }
+}
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' && document.activeElement.closest('#demos')) {
+    generateKit();
+  }
+});
+</script>
+
+</body>
+</html>
