@@ -331,36 +331,98 @@
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
 
-      <div class="card-border bg-neutral-950 border border-neutral-800 p-6 relative">
-        <span class="absolute top-4 right-4 text-xs font-semibold orange border border-neutral-700 px-2 py-0.5 rounded-sm">Concept</span>
-        <p class="text-xs text-neutral-500 mb-1">a16z NYC</p>
-        <h3 class="text-base font-semibold text-white mb-2">Claude Consumer Day</h3>
-        <p class="text-sm text-neutral-400 mb-3">Building the next generation of AI-native consumer products</p>
-        <p class="text-xs text-neutral-500">Demo day — six founders, eight minutes each.</p>
+      <!-- Consumer Day: warm cream, editorial serif, orange illustration feel -->
+      <div class="relative overflow-hidden" style="background:#f5efe6; min-height:320px; padding:2rem;">
+        <span class="absolute top-4 right-4 text-xs font-semibold px-2 py-0.5 rounded-sm" style="color:#E8600A; border:1px solid rgba(232,96,10,0.4); font-family:monospace; letter-spacing:0.05em;">Concept</span>
+        <!-- Starburst SVG top-right -->
+        <svg style="position:absolute;top:2.5rem;right:3rem;opacity:0.18;width:80px;height:80px;" viewBox="0 0 80 80" fill="none">
+          <g stroke="#E8600A" stroke-width="3" stroke-linecap="round">
+            <line x1="40" y1="5" x2="40" y2="25"/><line x1="40" y1="55" x2="40" y2="75"/>
+            <line x1="5" y1="40" x2="25" y2="40"/><line x1="55" y1="40" x2="75" y2="40"/>
+            <line x1="15" y1="15" x2="29" y2="29"/><line x1="51" y1="51" x2="65" y2="65"/>
+            <line x1="65" y1="15" x2="51" y2="29"/><line x1="29" y1="51" x2="15" y2="65"/>
+          </g>
+        </svg>
+        <p class="text-xs font-semibold tracking-widest uppercase mb-1" style="color:#E8600A; letter-spacing:0.12em;">Summer 2026 · a16z NYC</p>
+        <div style="width:2rem; height:1px; background:#E8600A; margin:0.5rem 0 1rem;"></div>
+        <h3 class="font-bold mb-1" style="font-size:1.6rem; line-height:1.1; color:#1a1208;">Claude<br><span style="color:#E8600A;">Consumer</span><br>Day</h3>
+        <div style="width:100%; height:1px; background:rgba(0,0,0,0.12); margin:1rem 0;"></div>
+        <p class="text-sm mb-4" style="color:#3d2e1a;">Building the next generation of AI-native consumer products</p>
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <div style="width:1.5rem; height:1.5rem; border:1.5px solid #E8600A; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
+            <div style="width:0.5rem; height:0.5rem; background:#E8600A; border-radius:50%;"></div>
+          </div>
+          <p class="text-xs font-semibold" style="color:#5a4130; letter-spacing:0.06em; text-transform:uppercase;">Demo Day — 6 Founders, 8 Min Each</p>
+        </div>
       </div>
 
-      <div class="card-border bg-neutral-950 border border-neutral-800 p-6 relative">
-        <span class="absolute top-4 right-4 text-xs font-semibold orange border border-neutral-700 px-2 py-0.5 rounded-sm">Concept</span>
-        <p class="text-xs text-neutral-500 mb-1">Bessemer Venture Partners NYC</p>
-        <h3 class="text-base font-semibold text-white mb-2">Claude × Fintech: The Agentic Stack</h3>
-        <p class="text-sm text-neutral-400 mb-3">How AI agents are rebuilding financial infrastructure</p>
-        <p class="text-xs text-neutral-500">Lightning talks plus live demos — four companies.</p>
+      <!-- Fintech: pure black, electric blue, tech grid -->
+      <div class="relative overflow-hidden" style="background:#050508; min-height:320px; padding:2rem; border:1px solid #1a1a2e;">
+        <span class="absolute top-4 right-4 text-xs font-semibold px-2 py-0.5 rounded-sm" style="color:#4d9fff; border:1px solid rgba(77,159,255,0.4); font-family:monospace; letter-spacing:0.05em;">Concept</span>
+        <!-- Abstract stack grid top-right -->
+        <svg style="position:absolute;top:1.5rem;right:1.5rem;opacity:0.25;width:90px;height:80px;" viewBox="0 0 90 80" fill="none">
+          <polygon points="45,5 85,25 45,45 5,25" stroke="#4d9fff" stroke-width="1.5" fill="none"/>
+          <polygon points="45,20 85,40 45,60 5,40" stroke="#4d9fff" stroke-width="1.5" fill="none" opacity="0.7"/>
+          <polygon points="45,35 85,55 45,75 5,55" stroke="#4d9fff" stroke-width="1.5" fill="none" opacity="0.4"/>
+          <circle cx="45" cy="5" r="2" fill="#4d9fff"/>
+          <circle cx="45" cy="20" r="2" fill="#4d9fff" opacity="0.7"/>
+          <circle cx="45" cy="35" r="2" fill="#4d9fff" opacity="0.4"/>
+        </svg>
+        <p class="text-xs font-semibold tracking-widest uppercase mb-1" style="color:#4d9fff; letter-spacing:0.12em;">Fall 2026 · Bessemer NYC</p>
+        <div style="width:2rem; height:1px; background:#4d9fff; margin:0.5rem 0 1rem; opacity:0.6;"></div>
+        <h3 class="font-bold mb-1" style="font-size:1.4rem; line-height:1.1; color:#ffffff;">Claude × Fintech:<br><span style="color:#4d9fff;">The Agentic<br>Stack</span></h3>
+        <div style="width:100%; height:1px; background:rgba(77,159,255,0.2); margin:1rem 0;"></div>
+        <p class="text-sm mb-4" style="color:#8899aa;">How AI agents are rebuilding financial infrastructure</p>
+        <div style="display:flex; gap:1.5rem; align-items:center;">
+          <div style="display:flex; align-items:center; gap:0.5rem;">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L13 7L7 13M1 7H13" stroke="#4d9fff" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <p class="text-xs font-semibold" style="color:#4d9fff; letter-spacing:0.06em; text-transform:uppercase;">Lightning + Live Demo</p>
+          </div>
+          <p class="text-xs" style="color:#556677; text-transform:uppercase; letter-spacing:0.06em;">4 Companies</p>
+        </div>
       </div>
 
-      <div class="card-border bg-neutral-950 border border-neutral-800 p-6 relative">
-        <span class="absolute top-4 right-4 text-xs font-semibold orange border border-neutral-700 px-2 py-0.5 rounded-sm">Concept</span>
-        <p class="text-xs text-neutral-500 mb-1">Hugging Face NYC</p>
-        <h3 class="text-base font-semibold text-white mb-2">What's New in Inference</h3>
-        <p class="text-sm text-neutral-400 mb-3">Claude × Hugging Face. What is actually shipping.</p>
-        <p class="text-xs text-neutral-500">Eight speakers, five minutes each, no slides.</p>
+      <!-- Inference: bright yellow, bold black, terminal / playful -->
+      <div class="relative overflow-hidden" style="background:#f5c800; min-height:320px; padding:2rem;">
+        <span class="absolute top-4 right-4 text-xs font-semibold px-2 py-0.5" style="color:#111; border:1.5px solid #111; font-family:monospace; letter-spacing:0.05em;">Concept</span>
+        <p class="text-xs font-semibold tracking-widest uppercase mb-1" style="color:#c44c00; letter-spacing:0.12em; font-family:monospace;">Fall 2026 · Hugging Face NYC</p>
+        <div style="width:2rem; height:2px; background:#111; margin:0.5rem 0 1rem;"></div>
+        <h3 class="font-black mb-1" style="font-size:1.55rem; line-height:1.05; color:#0a0a0a; font-family:monospace;">What's New<br>in Inference</h3>
+        <div style="background:#0a0a0a; border-radius:2px; padding:0.4rem 0.75rem; margin:1rem 0; display:inline-flex; align-items:center; gap:0.5rem;">
+          <span style="color:#c44c00; font-family:monospace; font-size:0.8rem; font-weight:700;">&gt;_</span>
+          <span style="color:#f5c800; font-family:monospace; font-size:0.7rem; letter-spacing:0.06em;">FAST TALKS. REAL SHIP. NO SLIDES.</span>
+        </div>
+        <p class="text-sm font-medium mb-4" style="color:#1a1200;">Claude × Hugging Face — what is actually shipping.</p>
+        <div style="display:flex; gap:1rem; align-items:center;">
+          <div style="width:1rem; height:1rem; background:#c44c00; clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);"></div>
+          <p class="text-xs font-black" style="color:#0a0a0a; letter-spacing:0.08em; text-transform:uppercase; font-family:monospace;">8 Speakers · 5 Min Each · No Slides</p>
+        </div>
       </div>
 
-      <div class="card-border bg-neutral-950 border border-neutral-800 p-6 relative">
-        <span class="absolute top-4 right-4 text-xs font-semibold orange border border-neutral-700 px-2 py-0.5 rounded-sm">Concept</span>
-        <p class="text-xs text-neutral-500 mb-1">BoxGroup NYC</p>
-        <h3 class="text-base font-semibold text-white mb-2">Claude × Health: Research to Revenue</h3>
-        <p class="text-sm text-neutral-400 mb-3">AI agents in clinical workflows and drug discovery</p>
-        <p class="text-xs text-neutral-500">Panel plus demos — three companies, one investor panel.</p>
+      <!-- Health: light blue-white, clean clinical, science feel -->
+      <div class="relative overflow-hidden" style="background:#f0f5fa; min-height:320px; padding:2rem;">
+        <span class="absolute top-4 right-4 text-xs font-semibold px-2 py-0.5 rounded-sm" style="color:#1a4d7a; border:1px solid rgba(26,77,122,0.3); letter-spacing:0.05em;">Concept</span>
+        <!-- DNA helix suggestion -->
+        <svg style="position:absolute;top:1rem;right:1.5rem;opacity:0.12;width:50px;height:110px;" viewBox="0 0 50 110" fill="none">
+          <path d="M10 5 Q40 20 10 35 Q40 50 10 65 Q40 80 10 95" stroke="#1a4d7a" stroke-width="2" fill="none"/>
+          <path d="M40 5 Q10 20 40 35 Q10 50 40 65 Q10 80 40 95" stroke="#1a4d7a" stroke-width="2" fill="none"/>
+          <line x1="10" y1="20" x2="40" y2="20" stroke="#1a4d7a" stroke-width="1.5"/>
+          <line x1="10" y1="35" x2="40" y2="35" stroke="#1a4d7a" stroke-width="1.5"/>
+          <line x1="10" y1="50" x2="40" y2="50" stroke="#1a4d7a" stroke-width="1.5"/>
+          <line x1="10" y1="65" x2="40" y2="65" stroke="#1a4d7a" stroke-width="1.5"/>
+          <line x1="10" y1="80" x2="40" y2="80" stroke="#1a4d7a" stroke-width="1.5"/>
+        </svg>
+        <p class="text-xs font-semibold tracking-widest uppercase mb-1" style="color:#2a6fa8; letter-spacing:0.12em;">Winter 2026 · BoxGroup NYC</p>
+        <div style="width:2rem; height:1px; background:#2a6fa8; margin:0.5rem 0 1rem;"></div>
+        <h3 class="font-bold mb-1" style="font-size:1.5rem; line-height:1.1; color:#0a1e30;">Claude × Health:<br>From Research<br>to Revenue</h3>
+        <div style="width:100%; height:1px; background:rgba(26,77,122,0.15); margin:1rem 0;"></div>
+        <p class="text-sm mb-4" style="color:#2a4a66;">AI agents in clinical workflows, drug discovery, and health infrastructure</p>
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <div style="width:1.25rem; height:1.25rem; border:1.5px solid #2a6fa8; border-radius:2px; display:flex; align-items:center; justify-content:center;">
+            <div style="width:0.4rem; height:0.4rem; background:#2a6fa8; border-radius:50%;"></div>
+          </div>
+          <p class="text-xs font-semibold" style="color:#2a4a66; letter-spacing:0.06em; text-transform:uppercase;">Panel + Demos — 3 Companies, 1 Investor Panel</p>
+        </div>
       </div>
 
     </div>
