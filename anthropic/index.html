@@ -3,503 +3,815 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>David Gabeau — Claude Evangelist Application</title>
+  <title>5 Steps to Building Anthropic's NYC Startup Ecosystem — David Gabeau</title>
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: { claude: '#E8600A' },
-          fontFamily: { sans: ['Inter', 'sans-serif'] },
-        }
-      }
-    }
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #FAFAF8;
+      --text: #111111;
+      --body: #333333;
+      --muted: #999999;
+      --orange: #E8600A;
+      --watermark: #F0EDE8;
+      --divider: #E8E4DF;
+      --card-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+
     html { scroll-behavior: smooth; }
-    body { background: #0a0a0a; color: #e5e5e5; font-family: 'Inter', sans-serif; }
-    .orange { color: #E8600A; }
-    .bg-orange { background: #E8600A; }
-    .border-orange { border-color: #E8600A; }
-    .card-border { border-top: 2px solid #E8600A; }
-    ::selection { background: rgba(232,96,10,0.3); }
-    .timeline-line { border-left: 1px solid #2a2a2a; }
-    .dot { background: #E8600A; }
-    pre { white-space: pre-wrap; word-break: break-word; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 18px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---- DISCLAIMER ---- */
+    .disclaimer {
+      text-align: center;
+      font-size: 11px;
+      color: var(--muted);
+      padding: 10px 16px;
+      letter-spacing: 0.01em;
+    }
+
+    /* ---- STICKY NAV ---- */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 48px;
+      background: #ffffff;
+      border-bottom: 1px solid var(--divider);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      z-index: 100;
+      opacity: 0;
+      transform: translateY(-100%);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .nav.visible { opacity: 1; transform: translateY(0); }
+    .nav-name {
+      font-size: 13px;
+      color: #555;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .nav-name:hover { color: var(--orange); }
+    .nav-dots {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .nav-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #D0CCC8;
+      cursor: pointer;
+      border: none;
+      padding: 0;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .nav-dot.active { background: var(--orange); transform: scale(1.2); }
+    @media (max-width: 640px) { .nav-dots { display: none; } }
+
+    /* ---- HERO ---- */
+    .hero {
+      max-height: 55vh;
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px 40px;
+    }
+    .hero-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 20px;
+    }
+    .hero-title {
+      font-size: clamp(28px, 5vw, 52px);
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--text);
+      max-width: 760px;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.6;
+    }
+    .scroll-cue {
+      margin-top: 36px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .scroll-arrow {
+      width: 18px;
+      height: 18px;
+      border-right: 2px solid var(--orange);
+      border-bottom: 2px solid var(--orange);
+      transform: rotate(45deg);
+      animation: bounce 1.6s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); }
+      50% { transform: rotate(45deg) translateY(5px); }
+    }
+
+    .hero-rule { border: none; border-top: 1px solid var(--divider); }
+
+    /* ---- STEPS ---- */
+    .step {
+      position: relative;
+      padding: 100px 24px 80px;
+      max-width: 860px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .step + .step { border-top: 1px solid var(--divider); }
+
+    .step-watermark {
+      position: absolute;
+      top: 60px;
+      right: -20px;
+      font-size: clamp(100px, 18vw, 180px);
+      font-weight: 800;
+      color: var(--watermark);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      user-select: none;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .step-inner { position: relative; z-index: 1; }
+
+    .step-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 16px;
+    }
+
+    .step-title {
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 28px;
+      max-width: 640px;
+    }
+
+    .step-body {
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--body);
+      max-width: 620px;
+    }
+    .step-body p + p { margin-top: 20px; }
+
+    @media (max-width: 640px) {
+      .step { padding: 64px 20px 52px; }
+      .step-body { font-size: 16px; }
+      .step-watermark { font-size: 100px; top: 40px; right: -10px; }
+    }
+
+    /* ---- SCROLL ANIMATIONS ---- */
+    .anim { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .anim.in { opacity: 1; transform: translateY(0); }
+    .anim-delay-1 { transition-delay: 0.1s; }
+    .anim-delay-2 { transition-delay: 0.2s; }
+    .anim-delay-3 { transition-delay: 0.3s; }
+    .anim-delay-4 { transition-delay: 0.4s; }
+
+    /* ---- DEMO CARD ---- */
+    .demo-card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      border-top: 3px solid var(--orange);
+      padding: 24px;
+      margin-top: 40px;
+    }
+    .demo-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 16px;
+    }
+    .demo-input {
+      width: 100%;
+      border: 1px solid var(--divider);
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s;
+      margin-bottom: 12px;
+    }
+    .demo-input:focus { border-color: var(--orange); }
+    .demo-input::placeholder { color: #aaa; }
+
+    .chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .chip {
+      background: #F5F2EE;
+      border: none;
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      color: var(--body);
+      transition: background 0.15s;
+    }
+    .chip:hover { background: #E8E4DF; }
+
+    .demo-btn {
+      background: var(--orange);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 11px 22px;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      width: 100%;
+    }
+    .demo-btn:hover { opacity: 0.88; }
+    .demo-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .demo-output {
+      display: none;
+      background: #fff;
+      border: 1px solid var(--divider);
+      border-left: 3px solid var(--orange);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 16px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--body);
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .demo-output.active { display: block; }
+    .output-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 10px;
+    }
+
+    /* ---- STEP 02 STATS ---- */
+    .stats-row {
+      display: flex;
+      align-items: stretch;
+      justify-content: space-around;
+      margin-top: 44px;
+      gap: 0;
+    }
+    .stat {
+      text-align: center;
+      flex: 1;
+      padding: 0 24px;
+    }
+    .stat + .stat {
+      border-left: 1px solid var(--divider);
+    }
+    .stat-num {
+      font-size: 52px;
+      font-weight: 800;
+      color: var(--orange);
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+    .stat-label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+    @media (max-width: 640px) {
+      .stats-row { flex-direction: column; gap: 28px; }
+      .stat + .stat { border-left: none; border-top: 1px solid var(--divider); padding-top: 28px; }
+    }
+
+    /* ---- FLYER GRID ---- */
+    .flyer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 44px;
+      max-width: 640px;
+    }
+    .flyer-card {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      cursor: default;
+    }
+    .flyer-card:nth-child(1) { transform: rotate(1.5deg); }
+    .flyer-card:nth-child(2) { transform: rotate(-1.5deg); }
+    .flyer-card:nth-child(3) { transform: rotate(1deg); }
+    .flyer-card:nth-child(4) { transform: rotate(-1deg); }
+    .flyer-card:hover {
+      transform: rotate(0deg) scale(1.03) !important;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    }
+    .flyer-card img { width: 100%; height: auto; display: block; }
+    .flyer-note {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+      max-width: 640px;
+    }
+    @media (max-width: 640px) {
+      .flyer-grid { grid-template-columns: 1fr; max-width: 100%; }
+      .flyer-card,
+      .flyer-card:nth-child(1),
+      .flyer-card:nth-child(2),
+      .flyer-card:nth-child(3),
+      .flyer-card:nth-child(4) { transform: none !important; }
+    }
+
+    /* ---- METRICS TABLE ---- */
+    .metrics-wrap {
+      margin-top: 44px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      overflow-x: auto;
+    }
+    .metrics-table {
+      width: 100%;
+      min-width: 500px;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+    .metrics-table thead tr {
+      background: var(--orange);
+      color: white;
+    }
+    .metrics-table thead th {
+      padding: 14px 20px;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .metrics-table tbody tr:nth-child(odd) { background: #fff; }
+    .metrics-table tbody tr:nth-child(even) { background: var(--bg); }
+    .metrics-table tbody td {
+      padding: 14px 20px;
+      border-bottom: 1px solid #F0EDE8;
+      color: var(--body);
+    }
+    .metrics-table tbody td:first-child { color: var(--text); font-weight: 500; }
+    .metrics-callout {
+      margin-top: 28px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: -0.01em;
+    }
+
+    /* ---- CLOSING ---- */
+    .closing {
+      border-top: 1px solid var(--divider);
+      padding: 80px 24px;
+      text-align: center;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .closing-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+    .closing-sub {
+      font-size: 16px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .closing-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+    .closing-links a {
+      font-size: 15px;
+      color: var(--body);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .closing-links a:hover { color: var(--orange); }
+    .closing-fine {
+      font-size: 11px;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    /* ---- PULSE ANIMATION ---- */
+    @keyframes pulse-opacity {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .pulsing { animation: pulse-opacity 1.2s ease-in-out infinite; }
   </style>
 </head>
 <body>
 
 <!-- DISCLAIMER -->
-<div style="background:#111111; border-bottom:1px solid #1e1e1e;" class="py-2 px-4 text-center text-xs text-neutral-400 leading-relaxed">
-  This page was built as part of my application for the Claude Evangelist, Applied AI (Startups) role at Anthropic. The demos are live and use the Claude API.
+<div class="disclaimer">
+  Built as part of a job application for Claude Evangelist, Applied AI (Startups) at Anthropic. Not affiliated with Anthropic.
 </div>
 
+<!-- STICKY NAV -->
+<nav class="nav" id="sticky-nav" aria-label="Section navigation">
+  <a href="https://davidgabeau.com" class="nav-name">David Gabeau</a>
+  <div class="nav-dots" role="list">
+    <button class="nav-dot" onclick="scrollToStep(1)" aria-label="Step 1" title="Know the Ecosystem"></button>
+    <button class="nav-dot" onclick="scrollToStep(2)" aria-label="Step 2" title="Activate the Network"></button>
+    <button class="nav-dot" onclick="scrollToStep(3)" aria-label="Step 3" title="Run the Programs"></button>
+    <button class="nav-dot" onclick="scrollToStep(4)" aria-label="Step 4" title="Ship the Content"></button>
+    <button class="nav-dot" onclick="scrollToStep(5)" aria-label="Step 5" title="Close the Loop"></button>
+  </div>
+</nav>
+
 <!-- HERO -->
-<section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden px-6">
-  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(232,96,10,0.07) 0%, transparent 70%);"></div>
-  <div class="max-w-3xl mx-auto text-center relative z-10">
-    <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight tracking-tight mb-6">
-      This is how I think<br>about the role.
-    </h1>
-    <p class="text-lg md:text-xl text-neutral-400 leading-relaxed mb-4 max-w-2xl mx-auto">
-      Before internal conversations, before seeing the data, before understanding the constraints. The strategy will change. The instincts won't.
-    </p>
-    <p class="text-sm text-neutral-500 mb-10">
-      David Gabeau. Founder. Builder. Claude user. Applying for Claude Evangelist, Applied AI (Startups) at Anthropic.
-    </p>
-    <div class="flex flex-col sm:flex-row gap-3 justify-center">
-      <a href="#strategy" class="px-6 py-3 border border-neutral-700 text-white text-sm font-medium hover:border-neutral-500 transition-colors rounded-sm">
-        See the Strategy
-      </a>
-      <a href="https://aiatlasnyc.com/ask" target="_blank" rel="noopener noreferrer"
-         class="px-6 py-3 text-white text-sm font-medium rounded-sm transition-opacity hover:opacity-90"
-         style="background:#E8600A;">
-        Try Ask Atlas
-      </a>
+<section class="hero" id="hero">
+  <p class="hero-label anim">A Playbook by David Gabeau</p>
+  <h1 class="hero-title anim anim-delay-1">5 Steps to Building Anthropic's NYC Startup Ecosystem</h1>
+  <p class="hero-sub anim anim-delay-2">Before the first internal meeting. Before seeing the data. These are the instincts.</p>
+  <div class="scroll-cue anim anim-delay-3" aria-hidden="true">
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<hr class="hero-rule">
+
+<!-- STEP 01 -->
+<section class="step" id="step-1">
+  <div class="step-watermark" aria-hidden="true">01</div>
+  <div class="step-inner">
+    <p class="step-eyebrow anim">Step 01 — Ecosystem Intelligence</p>
+    <h2 class="step-title anim anim-delay-1">You can't activate what you can't see.</h2>
+    <div class="step-body anim anim-delay-2">
+      <p>Before the first event, the first VC call, the first piece of content — map what's already there. Who is building in NYC. What categories are crowded. Where the white space is. What founders are already using Claude and don't know it.</p>
+      <p>AI Atlas NYC is the infrastructure for this. A real-time map of NYC AI startups across 11 categories. Ask it anything about the ecosystem. The signal already exists. The job is surfacing it back to the right people inside Anthropic.</p>
+    </div>
+
+    <div class="demo-card anim anim-delay-3">
+      <p class="demo-label">Try It — Ask Atlas</p>
+      <input type="text" class="demo-input" id="atlas-input" placeholder="Ask about the NYC AI ecosystem..." onkeydown="if(event.key==='Enter') askAtlas()">
+      <div class="chips">
+        <button class="chip" onclick="fillAtlas('Which NYC AI startups are building in fintech?')">Which NYC AI startups are building in fintech?</button>
+        <button class="chip" onclick="fillAtlas('Where is the white space in agent infrastructure?')">Where is the white space in agent infrastructure?</button>
+        <button class="chip" onclick="fillAtlas('Which companies would make good Claude API customers?')">Which companies would make good Claude API customers?</button>
+      </div>
+      <button class="demo-btn" id="atlas-btn" onclick="askAtlas()">Ask Atlas</button>
+      <div class="demo-output" id="atlas-output">
+        <div class="output-label">Atlas</div>
+        <div id="atlas-text"></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- STRATEGY -->
-<section id="strategy" class="py-24 px-6 border-t border-neutral-900">
-  <div class="max-w-6xl mx-auto">
-    <div class="mb-12">
-      <p class="text-xs font-semibold tracking-widest uppercase orange mb-3">The Strategy</p>
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Three Channels. One Metric.</h2>
-      <p class="text-neutral-400">Net new startups activated on the Claude API.</p>
+<!-- STEP 02 -->
+<section class="step" id="step-2">
+  <div class="step-watermark" aria-hidden="true">02</div>
+  <div class="step-inner">
+    <p class="step-eyebrow anim">Step 02 — Network Activation</p>
+    <h2 class="step-title anim anim-delay-1">The fastest path to 40 activations is one right conversation.</h2>
+    <div class="step-body anim anim-delay-2">
+      <p>Cold outreach does not build developer communities. Trusted relationships do.</p>
+      <p>The NYC AI startup ecosystem runs through a small number of funds and accelerators. USV. a16z. Lerer Hippeau. Bessemer. BoxGroup. ERA. Techstars NYC. If the partners at those firms think of you first when a portfolio company asks what AI to build on, you have distribution that no content budget can buy.</p>
+      <p>Every VC relationship gets a clear mechanism: warm intro to the startup, handoff to Startups GTM, activation path mapped. Nothing falls through.</p>
+      <p>Alongside the fund network: a selective NYC Claude Slack. High signal, low noise. Weekly drops of events, API credits, and founder introductions. The community that makes choosing Claude feel like joining something, not just signing up for an API key.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-      <!-- Column 1 -->
-      <div class="card-border bg-neutral-950 border border-neutral-800 p-6">
-        <h3 class="text-lg font-semibold text-white mb-4">IRL Activation</h3>
-        <p class="text-neutral-400 text-sm leading-relaxed mb-5">
-          Every event has one goal: developers who show up curious leave with a working Claude integration. Awareness is not the metric. Active API usage is.
-        </p>
-        <p class="text-neutral-400 text-sm leading-relaxed mb-5">
-          Every touchpoint follows the same funnel: ecosystem event, API signup, first working build, GTM handoff, retention. That funnel gets documented, measured, and improved after every event.
-        </p>
-        <ul class="space-y-3 text-sm text-neutral-400">
-          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>Claude Summer Series: four demo days at top NYC fund offices (a16z, Bessemer, Hugging Face, BoxGroup). Each event ends with working repos, not slide decks.</span></li>
-          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>Fall Build-athons at Columbia, NYU, and CUNY. Target: 80% of teams ship a working Claude integration by Sunday night.</span></li>
-          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>Monthly technical office hours. Open to any NYC startup building on Claude. Real debugging, real activation.</span></li>
-          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>NYC Claude Slack. Selective invite, high signal. Weekly drops of events, credits, and API updates.</span></li>
-        </ul>
+    <div class="stats-row anim anim-delay-3">
+      <div class="stat">
+        <div class="stat-num">8</div>
+        <div class="stat-label">VC partnerships by month 3</div>
       </div>
-
-      <!-- Column 2 -->
-      <div class="card-border bg-neutral-950 border border-neutral-800 p-6">
-        <h3 class="text-lg font-semibold text-white mb-4">Technical Content</h3>
-        <p class="text-neutral-400 text-sm leading-relaxed mb-5">
-          Content written by someone who has shipped Claude in production. Not someone who read the docs.
-        </p>
-        <ul class="space-y-3 text-sm text-neutral-400">
-          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>Series 1: Tool use and function calling. Two posts, two audiences. Beginner: your first Claude tool integration. Production: multi-tool agents in production, what we learned at Zumi. Both include working repos.</span></li>
-          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>Series 2: NYC Founders Building on Claude. Short, specific, technical spotlights on startups using the API. Pitched to Anthropic marketing for amplification.</span></li>
-          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>Live demos at every event. Working prototypes built for each audience. Code founders can fork and build on the same day.</span></li>
-          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>Regular syncs with Anthropic Product team to stay current on what is actually shipping.</span></li>
-        </ul>
+      <div class="stat">
+        <div class="stat-num">20</div>
+        <div class="stat-label">portfolio intros with GTM handoff</div>
       </div>
-
-      <!-- Column 3 -->
-      <div class="card-border bg-neutral-950 border border-neutral-800 p-6">
-        <h3 class="text-lg font-semibold text-white mb-4">Ecosystem Intelligence</h3>
-        <p class="text-neutral-400 text-sm leading-relaxed mb-5">
-          Most evangelism is outbound. This channel is what makes the whole system compound.
-        </p>
-        <ul class="space-y-3 text-sm text-neutral-400">
-          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>VC network activation. 1:1 calls and group dinners with partners at USV, a16z, Lerer Hippeau, Bessemer, and BoxGroup. Every intro has a clear handoff to Startups GTM.</span></li>
-          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>Weekly sync with Startups GTM. Every warm intro gets a clear next step. No leads fall through.</span></li>
-          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>Monthly ecosystem signal reports to product and GTM teams. What are NYC founders building? Where is Claude winning? Where is it losing?</span></li>
-          <li class="flex gap-2"><span class="orange mt-0.5 flex-shrink-0">—</span><span>AI Atlas NYC is the infrastructure for this. A real-time map of the NYC AI startup ecosystem. The signal already exists. The job is surfacing it back to the right people inside Anthropic.</span></li>
-        </ul>
+      <div class="stat">
+        <div class="stat-num">100</div>
+        <div class="stat-label">Slack members by day 90</div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- DEMOS -->
-<section id="demos" class="py-24 px-6 border-t border-neutral-900">
-  <div class="max-w-6xl mx-auto">
-    <div class="mb-12">
-      <p class="text-xs font-semibold tracking-widest uppercase orange mb-3">Built to Show, Not Tell</p>
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Two Live Demos</h2>
-      <p class="text-neutral-400">Both use the Claude API. Both exist because the role requires building things, not describing them.</p>
+<!-- STEP 03 -->
+<section class="step" id="step-3">
+  <div class="step-watermark" aria-hidden="true">03</div>
+  <div class="step-inner">
+    <p class="step-eyebrow anim">Step 03 — IRL Activation</p>
+    <h2 class="step-title anim anim-delay-1">Events that end with repos, not slide decks.</h2>
+    <div class="step-body anim anim-delay-2">
+      <p>Every event has one goal: developers who show up curious leave with a working Claude integration.</p>
+      <p>The Claude Summer Series is four category-specific demo days at top NYC fund offices. Each one anchors Claude to a vertical where it wins. Consumer at a16z. Fintech at Bessemer. Dev tools at Hugging Face. Health at BoxGroup.</p>
+      <p>In the fall: build-athons at Columbia, NYU, and CUNY. Live-streamed demo days. Target: 80% of teams shipping a working Claude integration by Sunday night.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-      <!-- Ask Atlas -->
-      <div class="card-border bg-neutral-950 border border-neutral-800 p-6 flex flex-col">
-        <h3 class="text-lg font-semibold text-white mb-3">Ask Atlas NYC</h3>
-        <p class="text-neutral-400 text-sm leading-relaxed mb-6">
-          Natural language queries over 52 NYC AI startups. Ask which companies are building in fintech. Ask where the white space is. Ask which founders you should be watching.
-        </p>
-        <div class="space-y-2 mb-6">
-          <p class="text-xs text-neutral-500 uppercase tracking-wide mb-2">Example queries</p>
-          <button onclick="document.getElementById('atlas-link').click()" class="w-full text-left text-xs px-3 py-2 border border-neutral-800 text-neutral-400 hover:border-neutral-600 hover:text-neutral-300 transition-colors rounded-sm">
-            Which NYC AI startups are building in healthcare?
-          </button>
-          <button onclick="document.getElementById('atlas-link').click()" class="w-full text-left text-xs px-3 py-2 border border-neutral-800 text-neutral-400 hover:border-neutral-600 hover:text-neutral-300 transition-colors rounded-sm">
-            Where is the white space in agent infrastructure?
-          </button>
-          <button onclick="document.getElementById('atlas-link').click()" class="w-full text-left text-xs px-3 py-2 border border-neutral-800 text-neutral-400 hover:border-neutral-600 hover:text-neutral-300 transition-colors rounded-sm">
-            Which companies would make good Claude API customers?
-          </button>
-        </div>
-        <div class="mt-auto">
-          <a id="atlas-link" href="https://aiatlasnyc.com/ask" target="_blank" rel="noopener noreferrer"
-             class="inline-block px-5 py-2.5 text-white text-sm font-medium rounded-sm transition-opacity hover:opacity-90"
-             style="background:#E8600A;">
-            Try Ask Atlas
-          </a>
-        </div>
+    <div class="flyer-grid anim anim-delay-3">
+      <div class="flyer-card">
+        <img src="/anthropic/flyer-consumer.png" alt="Claude Consumer Day — a16z NYC" loading="lazy">
       </div>
-
-      <!-- Starter Kit Generator -->
-      <div class="card-border bg-neutral-950 border border-neutral-800 p-6 flex flex-col">
-        <h3 class="text-lg font-semibold text-white mb-3">Claude Starter Kit Generator</h3>
-        <p class="text-neutral-400 text-sm leading-relaxed mb-6">
-          Enter your startup and stack. Get a custom guide for building on Claude. This is the evangelist job in software form.
-        </p>
-        <div class="space-y-3 mb-4">
-          <input id="sk-startup" type="text" placeholder="Startup name"
-            class="w-full bg-neutral-900 border border-neutral-800 text-white text-sm px-3 py-2.5 rounded-sm placeholder-neutral-600 focus:outline-none focus:border-neutral-600 transition-colors">
-          <input id="sk-building" type="text" placeholder="What you're building"
-            class="w-full bg-neutral-900 border border-neutral-800 text-white text-sm px-3 py-2.5 rounded-sm placeholder-neutral-600 focus:outline-none focus:border-neutral-600 transition-colors">
-          <input id="sk-stack" type="text" placeholder="Current stack (e.g. Next.js, Postgres, Vercel)"
-            class="w-full bg-neutral-900 border border-neutral-800 text-white text-sm px-3 py-2.5 rounded-sm placeholder-neutral-600 focus:outline-none focus:border-neutral-600 transition-colors">
-        </div>
-        <button id="sk-btn" onclick="generateKit()"
-          class="px-5 py-2.5 text-white text-sm font-medium rounded-sm transition-opacity hover:opacity-90 mb-4"
-          style="background:#E8600A;">
-          Generate Guide
-        </button>
-        <div id="sk-output" class="hidden bg-neutral-900 border border-neutral-800 rounded-sm p-4 text-sm text-neutral-300 leading-relaxed font-mono overflow-y-auto" style="max-height:280px;"></div>
-        <p id="sk-error" class="hidden text-sm text-red-400 mt-2"></p>
+      <div class="flyer-card">
+        <img src="/anthropic/flyer-fintech.png" alt="Claude x Fintech: The Agentic Stack — Bessemer NYC" loading="lazy">
       </div>
+      <div class="flyer-card">
+        <img src="/anthropic/flyer-inference.png" alt="What's New in Inference — Hugging Face NYC" loading="lazy">
+      </div>
+      <div class="flyer-card">
+        <img src="/anthropic/flyer-health.png" alt="Claude x Health: Research to Revenue — BoxGroup NYC" loading="lazy">
+      </div>
+    </div>
+    <p class="flyer-note anim anim-delay-4">Concepts only. Events subject to internal planning and approval.</p>
+  </div>
+</section>
 
+<!-- STEP 04 -->
+<section class="step" id="step-4">
+  <div class="step-watermark" aria-hidden="true">04</div>
+  <div class="step-inner">
+    <p class="step-eyebrow anim">Step 04 — Technical Content</p>
+    <h2 class="step-title anim anim-delay-1">Written by someone who has shipped this. Not someone who read the docs.</h2>
+    <div class="step-body anim anim-delay-2">
+      <p>Two blog series to start.</p>
+      <p>Series one: tool use and function calling. The most important concept for any founder building an agentic product. Two posts, two audiences. Beginner and production level. Both with working repos. Distributed to 15,000 existing blog subscribers on day one.</p>
+      <p>Series two: NYC Founders Building on Claude. Short, specific, technical spotlights. What they built, which models they use, what they learned. Pitched to Anthropic marketing for amplification through Claude's social channels.</p>
+      <p>The demo below is the evangelist job in software form: a founder enters their startup, Claude generates a custom integration guide. This is what office hours look like at scale.</p>
+    </div>
+
+    <div class="demo-card anim anim-delay-3">
+      <p class="demo-label">Try It — Claude Starter Kit Generator</p>
+      <input type="text" class="demo-input" id="kit-startup" placeholder="Startup name (e.g. Acme AI)">
+      <input type="text" class="demo-input" id="kit-building" placeholder="What you're building">
+      <input type="text" class="demo-input" id="kit-stack" placeholder="Current stack (e.g. Next.js, Supabase, Vercel)">
+      <button class="demo-btn" id="kit-btn" onclick="generateKit()">Generate Integration Guide</button>
+      <div class="demo-output" id="kit-output">
+        <div class="output-label">Your Claude Guide</div>
+        <div id="kit-text"></div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 90 DAYS -->
-<section id="90days" class="py-24 px-6 border-t border-neutral-900">
-  <div class="max-w-3xl mx-auto">
-    <div class="mb-12">
-      <p class="text-xs font-semibold tracking-widest uppercase orange mb-3">The Plan</p>
-      <h2 class="text-3xl md:text-4xl font-bold text-white">First 90 Days</h2>
+<!-- STEP 05 -->
+<section class="step" id="step-5">
+  <div class="step-watermark" aria-hidden="true">05</div>
+  <div class="step-inner">
+    <p class="step-eyebrow anim">Step 05 — Measure Everything</p>
+    <h2 class="step-title anim anim-delay-1">Every touchpoint feeds the signal back.</h2>
+    <div class="step-body anim anim-delay-2">
+      <p>The metric is net new startups activated on the Claude API. Everything else is a leading indicator.</p>
+      <p>But the loop only closes if ecosystem signal goes back to the right people. What are NYC founders building? Where is Claude winning? Where is it losing and why? What features are founders asking for that do not exist yet?</p>
+      <p>A monthly signal report to product and GTM teams. Not a vanity deck. Actual developer sentiment, actual gaps, actual requests. The evangelist role is not just outbound. It is the feedback mechanism that makes the product better for the people it is trying to serve.</p>
     </div>
-    <div class="relative pl-8 timeline-line space-y-10">
 
-      <div class="relative">
-        <div class="dot absolute -left-9 top-1.5 w-2 h-2 rounded-full"></div>
-        <p class="text-xs font-semibold orange mb-1">Weeks 1–2</p>
-        <p class="text-neutral-300 text-sm leading-relaxed">Map the NYC AI ecosystem. Cross-reference AI Atlas NYC data with VC portfolio databases. Identify the top 50 early-stage startups building with AI. Prioritize by stage, category, and current model usage.</p>
+    <div class="anim anim-delay-3">
+      <div class="metrics-wrap">
+        <table class="metrics-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>30 Days</th>
+              <th>90 Days</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Net new NYC startups activated on the API</td><td>10</td><td>40</td></tr>
+            <tr><td>VC partnerships with clear GTM handoff</td><td>3</td><td>8</td></tr>
+            <tr><td>Events hosted or confirmed</td><td>1</td><td>4</td></tr>
+            <tr><td>NYC Claude Slack members</td><td>25</td><td>100</td></tr>
+            <tr><td>Technical content pieces published</td><td>0</td><td>4</td></tr>
+            <tr><td>Ecosystem signal reports delivered</td><td>1</td><td>3</td></tr>
+            <tr><td>Portfolio intros with GTM handoff</td><td>5</td><td>20</td></tr>
+          </tbody>
+        </table>
       </div>
-
-      <div class="relative">
-        <div class="dot absolute -left-9 top-1.5 w-2 h-2 rounded-full"></div>
-        <p class="text-xs font-semibold orange mb-1">Weeks 2–4</p>
-        <p class="text-neutral-300 text-sm leading-relaxed">Reactivate the venture network. 1:1 calls with partners and analysts at USV, a16z, Lerer Hippeau, Bessemer, and BoxGroup. Target: five portfolio company introductions with clear GTM handoffs in the first 30 days.</p>
-      </div>
-
-      <div class="relative">
-        <div class="dot absolute -left-9 top-1.5 w-2 h-2 rounded-full"></div>
-        <p class="text-xs font-semibold orange mb-1">Week 2</p>
-        <p class="text-neutral-300 text-sm leading-relaxed">Establish a weekly sync with the Startups GTM team. Map the handoff process from warm intro to active API usage. Nothing falls through.</p>
-      </div>
-
-      <div class="relative">
-        <div class="dot absolute -left-9 top-1.5 w-2 h-2 rounded-full"></div>
-        <p class="text-xs font-semibold orange mb-1">Month 1</p>
-        <p class="text-neutral-300 text-sm leading-relaxed">Launch NYC Claude Slack. Seed with 25 high-quality members. First weekly drop within 48 hours of launch.</p>
-      </div>
-
-      <div class="relative">
-        <div class="dot absolute -left-9 top-1.5 w-2 h-2 rounded-full"></div>
-        <p class="text-xs font-semibold orange mb-1">Month 1</p>
-        <p class="text-neutral-300 text-sm leading-relaxed">First workshop confirmed at ERA or Techstars NYC. Founders ship a working Claude integration by end of session.</p>
-      </div>
-
-      <div class="relative">
-        <div class="dot absolute -left-9 top-1.5 w-2 h-2 rounded-full"></div>
-        <p class="text-xs font-semibold orange mb-1">Month 2</p>
-        <p class="text-neutral-300 text-sm leading-relaxed">Publish the first two posts on tool use and function calling. Distributed to 15,000 existing blog subscribers on day one.</p>
-      </div>
-
-      <div class="relative">
-        <div class="dot absolute -left-9 top-1.5 w-2 h-2 rounded-full"></div>
-        <p class="text-xs font-semibold orange mb-1">Month 2</p>
-        <p class="text-neutral-300 text-sm leading-relaxed">First startup spotlight published. Pitched to Anthropic marketing for social amplification.</p>
-      </div>
-
-      <div class="relative">
-        <div class="dot absolute -left-9 top-1.5 w-2 h-2 rounded-full"></div>
-        <p class="text-xs font-semibold orange mb-1">Month 2</p>
-        <p class="text-neutral-300 text-sm leading-relaxed">First monthly ecosystem signal report delivered to product and GTM teams.</p>
-      </div>
-
-      <div class="relative">
-        <div class="dot absolute -left-9 top-1.5 w-2 h-2 rounded-full"></div>
-        <p class="text-xs font-semibold orange mb-1">Month 3</p>
-        <p class="text-neutral-300 text-sm leading-relaxed">Claude Summer Series announced. Four events, four fund partners confirmed. First event on the calendar before end of month three.</p>
-      </div>
-
-      <div class="relative">
-        <div class="dot absolute -left-9 top-1.5 w-2 h-2 rounded-full"></div>
-        <p class="text-xs font-semibold orange mb-1">Month 3</p>
-        <p class="text-neutral-300 text-sm leading-relaxed">Fall build-athon proposal submitted to Columbia or CUNY. September programming locked.</p>
-      </div>
-
+      <p class="metrics-callout">One metric above all: net new logos activated.</p>
     </div>
   </div>
 </section>
 
-<!-- METRICS -->
-<section id="metrics" class="py-24 px-6 border-t border-neutral-900">
-  <div class="max-w-4xl mx-auto">
-    <div class="mb-12">
-      <p class="text-xs font-semibold tracking-widest uppercase orange mb-3">How Success Is Measured</p>
-      <h2 class="text-3xl md:text-4xl font-bold text-white">The Metrics</h2>
-    </div>
-    <div class="overflow-x-auto">
-      <table class="w-full text-sm border-collapse">
-        <thead>
-          <tr style="background:#E8600A;">
-            <th class="text-left px-4 py-3 text-white font-semibold">Metric</th>
-            <th class="text-center px-4 py-3 text-white font-semibold whitespace-nowrap">30 Days</th>
-            <th class="text-center px-4 py-3 text-white font-semibold whitespace-nowrap">90 Days</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-b border-neutral-800 bg-neutral-950">
-            <td class="px-4 py-3 text-neutral-300">Net new NYC startups activated on the API</td>
-            <td class="px-4 py-3 text-center text-white font-medium">10</td>
-            <td class="px-4 py-3 text-center text-white font-medium">40</td>
-          </tr>
-          <tr class="border-b border-neutral-800">
-            <td class="px-4 py-3 text-neutral-300">VC partnerships with clear GTM handoff</td>
-            <td class="px-4 py-3 text-center text-white font-medium">3</td>
-            <td class="px-4 py-3 text-center text-white font-medium">8</td>
-          </tr>
-          <tr class="border-b border-neutral-800 bg-neutral-950">
-            <td class="px-4 py-3 text-neutral-300">Events hosted or confirmed</td>
-            <td class="px-4 py-3 text-center text-white font-medium">1</td>
-            <td class="px-4 py-3 text-center text-white font-medium">4</td>
-          </tr>
-          <tr class="border-b border-neutral-800">
-            <td class="px-4 py-3 text-neutral-300">NYC Claude Slack members</td>
-            <td class="px-4 py-3 text-center text-white font-medium">25</td>
-            <td class="px-4 py-3 text-center text-white font-medium">100</td>
-          </tr>
-          <tr class="border-b border-neutral-800 bg-neutral-950">
-            <td class="px-4 py-3 text-neutral-300">Technical content pieces published</td>
-            <td class="px-4 py-3 text-center text-white font-medium">0</td>
-            <td class="px-4 py-3 text-center text-white font-medium">4</td>
-          </tr>
-          <tr class="border-b border-neutral-800">
-            <td class="px-4 py-3 text-neutral-300">Ecosystem signal reports delivered</td>
-            <td class="px-4 py-3 text-center text-white font-medium">1</td>
-            <td class="px-4 py-3 text-center text-white font-medium">3</td>
-          </tr>
-          <tr class="border-b border-neutral-800 bg-neutral-950">
-            <td class="px-4 py-3 text-neutral-300">Portfolio company intros with GTM handoff</td>
-            <td class="px-4 py-3 text-center text-white font-medium">5</td>
-            <td class="px-4 py-3 text-center text-white font-medium">20</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<!-- CLOSING -->
+<div class="closing">
+  <h2 class="closing-title anim">Built with Claude Code.</h2>
+  <p class="closing-sub anim anim-delay-1">Every demo on this page uses the live Claude API.</p>
+  <div class="closing-links anim anim-delay-2">
+    <a href="https://davidgabeau.com">davidgabeau.com</a>
+    <a href="https://aiatlasnyc.com" target="_blank" rel="noopener noreferrer">aiatlasnyc.com</a>
   </div>
-</section>
-
-<!-- SUMMER SERIES -->
-<section id="summer" class="py-24 px-6 border-t border-neutral-900">
-  <div class="max-w-6xl mx-auto">
-    <div class="mb-12">
-      <p class="text-xs font-semibold tracking-widest uppercase orange mb-3">IRL Activation</p>
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-3">Claude Summer Series NYC 2026</h2>
-      <p class="text-neutral-400">Four category-specific demo days at top fund offices across NYC. Nothing like this exists in the NYC AI ecosystem today.</p>
-    </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-
-      <!-- Consumer Day: warm cream, editorial serif, orange illustration feel -->
-      <div class="relative overflow-hidden" style="background:#f5efe6; min-height:320px; padding:2rem;">
-        <span class="absolute top-4 right-4 text-xs font-semibold px-2 py-0.5 rounded-sm" style="color:#E8600A; border:1px solid rgba(232,96,10,0.4); font-family:monospace; letter-spacing:0.05em;">Concept</span>
-        <!-- Starburst SVG top-right -->
-        <svg style="position:absolute;top:2.5rem;right:3rem;opacity:0.18;width:80px;height:80px;" viewBox="0 0 80 80" fill="none">
-          <g stroke="#E8600A" stroke-width="3" stroke-linecap="round">
-            <line x1="40" y1="5" x2="40" y2="25"/><line x1="40" y1="55" x2="40" y2="75"/>
-            <line x1="5" y1="40" x2="25" y2="40"/><line x1="55" y1="40" x2="75" y2="40"/>
-            <line x1="15" y1="15" x2="29" y2="29"/><line x1="51" y1="51" x2="65" y2="65"/>
-            <line x1="65" y1="15" x2="51" y2="29"/><line x1="29" y1="51" x2="15" y2="65"/>
-          </g>
-        </svg>
-        <p class="text-xs font-semibold tracking-widest uppercase mb-1" style="color:#E8600A; letter-spacing:0.12em;">Summer 2026 · a16z NYC</p>
-        <div style="width:2rem; height:1px; background:#E8600A; margin:0.5rem 0 1rem;"></div>
-        <h3 class="font-bold mb-1" style="font-size:1.6rem; line-height:1.1; color:#1a1208;">Claude<br><span style="color:#E8600A;">Consumer</span><br>Day</h3>
-        <div style="width:100%; height:1px; background:rgba(0,0,0,0.12); margin:1rem 0;"></div>
-        <p class="text-sm mb-4" style="color:#3d2e1a;">Building the next generation of AI-native consumer products</p>
-        <div style="display:flex; align-items:center; gap:0.75rem;">
-          <div style="width:1.5rem; height:1.5rem; border:1.5px solid #E8600A; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center;">
-            <div style="width:0.5rem; height:0.5rem; background:#E8600A; border-radius:50%;"></div>
-          </div>
-          <p class="text-xs font-semibold" style="color:#5a4130; letter-spacing:0.06em; text-transform:uppercase;">Demo Day — 6 Founders, 8 Min Each</p>
-        </div>
-      </div>
-
-      <!-- Fintech: pure black, electric blue, tech grid -->
-      <div class="relative overflow-hidden" style="background:#050508; min-height:320px; padding:2rem; border:1px solid #1a1a2e;">
-        <span class="absolute top-4 right-4 text-xs font-semibold px-2 py-0.5 rounded-sm" style="color:#4d9fff; border:1px solid rgba(77,159,255,0.4); font-family:monospace; letter-spacing:0.05em;">Concept</span>
-        <!-- Abstract stack grid top-right -->
-        <svg style="position:absolute;top:1.5rem;right:1.5rem;opacity:0.25;width:90px;height:80px;" viewBox="0 0 90 80" fill="none">
-          <polygon points="45,5 85,25 45,45 5,25" stroke="#4d9fff" stroke-width="1.5" fill="none"/>
-          <polygon points="45,20 85,40 45,60 5,40" stroke="#4d9fff" stroke-width="1.5" fill="none" opacity="0.7"/>
-          <polygon points="45,35 85,55 45,75 5,55" stroke="#4d9fff" stroke-width="1.5" fill="none" opacity="0.4"/>
-          <circle cx="45" cy="5" r="2" fill="#4d9fff"/>
-          <circle cx="45" cy="20" r="2" fill="#4d9fff" opacity="0.7"/>
-          <circle cx="45" cy="35" r="2" fill="#4d9fff" opacity="0.4"/>
-        </svg>
-        <p class="text-xs font-semibold tracking-widest uppercase mb-1" style="color:#4d9fff; letter-spacing:0.12em;">Fall 2026 · Bessemer NYC</p>
-        <div style="width:2rem; height:1px; background:#4d9fff; margin:0.5rem 0 1rem; opacity:0.6;"></div>
-        <h3 class="font-bold mb-1" style="font-size:1.4rem; line-height:1.1; color:#ffffff;">Claude × Fintech:<br><span style="color:#4d9fff;">The Agentic<br>Stack</span></h3>
-        <div style="width:100%; height:1px; background:rgba(77,159,255,0.2); margin:1rem 0;"></div>
-        <p class="text-sm mb-4" style="color:#8899aa;">How AI agents are rebuilding financial infrastructure</p>
-        <div style="display:flex; gap:1.5rem; align-items:center;">
-          <div style="display:flex; align-items:center; gap:0.5rem;">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L13 7L7 13M1 7H13" stroke="#4d9fff" stroke-width="1.5" stroke-linecap="round"/></svg>
-            <p class="text-xs font-semibold" style="color:#4d9fff; letter-spacing:0.06em; text-transform:uppercase;">Lightning + Live Demo</p>
-          </div>
-          <p class="text-xs" style="color:#556677; text-transform:uppercase; letter-spacing:0.06em;">4 Companies</p>
-        </div>
-      </div>
-
-      <!-- Inference: bright yellow, bold black, terminal / playful -->
-      <div class="relative overflow-hidden" style="background:#f5c800; min-height:320px; padding:2rem;">
-        <span class="absolute top-4 right-4 text-xs font-semibold px-2 py-0.5" style="color:#111; border:1.5px solid #111; font-family:monospace; letter-spacing:0.05em;">Concept</span>
-        <p class="text-xs font-semibold tracking-widest uppercase mb-1" style="color:#c44c00; letter-spacing:0.12em; font-family:monospace;">Fall 2026 · Hugging Face NYC</p>
-        <div style="width:2rem; height:2px; background:#111; margin:0.5rem 0 1rem;"></div>
-        <h3 class="font-black mb-1" style="font-size:1.55rem; line-height:1.05; color:#0a0a0a; font-family:monospace;">What's New<br>in Inference</h3>
-        <div style="background:#0a0a0a; border-radius:2px; padding:0.4rem 0.75rem; margin:1rem 0; display:inline-flex; align-items:center; gap:0.5rem;">
-          <span style="color:#c44c00; font-family:monospace; font-size:0.8rem; font-weight:700;">&gt;_</span>
-          <span style="color:#f5c800; font-family:monospace; font-size:0.7rem; letter-spacing:0.06em;">FAST TALKS. REAL SHIP. NO SLIDES.</span>
-        </div>
-        <p class="text-sm font-medium mb-4" style="color:#1a1200;">Claude × Hugging Face — what is actually shipping.</p>
-        <div style="display:flex; gap:1rem; align-items:center;">
-          <div style="width:1rem; height:1rem; background:#c44c00; clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);"></div>
-          <p class="text-xs font-black" style="color:#0a0a0a; letter-spacing:0.08em; text-transform:uppercase; font-family:monospace;">8 Speakers · 5 Min Each · No Slides</p>
-        </div>
-      </div>
-
-      <!-- Health: light blue-white, clean clinical, science feel -->
-      <div class="relative overflow-hidden" style="background:#f0f5fa; min-height:320px; padding:2rem;">
-        <span class="absolute top-4 right-4 text-xs font-semibold px-2 py-0.5 rounded-sm" style="color:#1a4d7a; border:1px solid rgba(26,77,122,0.3); letter-spacing:0.05em;">Concept</span>
-        <!-- DNA helix suggestion -->
-        <svg style="position:absolute;top:1rem;right:1.5rem;opacity:0.12;width:50px;height:110px;" viewBox="0 0 50 110" fill="none">
-          <path d="M10 5 Q40 20 10 35 Q40 50 10 65 Q40 80 10 95" stroke="#1a4d7a" stroke-width="2" fill="none"/>
-          <path d="M40 5 Q10 20 40 35 Q10 50 40 65 Q10 80 40 95" stroke="#1a4d7a" stroke-width="2" fill="none"/>
-          <line x1="10" y1="20" x2="40" y2="20" stroke="#1a4d7a" stroke-width="1.5"/>
-          <line x1="10" y1="35" x2="40" y2="35" stroke="#1a4d7a" stroke-width="1.5"/>
-          <line x1="10" y1="50" x2="40" y2="50" stroke="#1a4d7a" stroke-width="1.5"/>
-          <line x1="10" y1="65" x2="40" y2="65" stroke="#1a4d7a" stroke-width="1.5"/>
-          <line x1="10" y1="80" x2="40" y2="80" stroke="#1a4d7a" stroke-width="1.5"/>
-        </svg>
-        <p class="text-xs font-semibold tracking-widest uppercase mb-1" style="color:#2a6fa8; letter-spacing:0.12em;">Winter 2026 · BoxGroup NYC</p>
-        <div style="width:2rem; height:1px; background:#2a6fa8; margin:0.5rem 0 1rem;"></div>
-        <h3 class="font-bold mb-1" style="font-size:1.5rem; line-height:1.1; color:#0a1e30;">Claude × Health:<br>From Research<br>to Revenue</h3>
-        <div style="width:100%; height:1px; background:rgba(26,77,122,0.15); margin:1rem 0;"></div>
-        <p class="text-sm mb-4" style="color:#2a4a66;">AI agents in clinical workflows, drug discovery, and health infrastructure</p>
-        <div style="display:flex; align-items:center; gap:0.75rem;">
-          <div style="width:1.25rem; height:1.25rem; border:1.5px solid #2a6fa8; border-radius:2px; display:flex; align-items:center; justify-content:center;">
-            <div style="width:0.4rem; height:0.4rem; background:#2a6fa8; border-radius:50%;"></div>
-          </div>
-          <p class="text-xs font-semibold" style="color:#2a4a66; letter-spacing:0.06em; text-transform:uppercase;">Panel + Demos — 3 Companies, 1 Investor Panel</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="py-12 px-6 border-t border-neutral-900">
-  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-xs text-neutral-500">
-    <div>
-      <a href="https://davidgabeau.com" class="text-neutral-400 hover:text-white transition-colors">David Gabeau</a>
-    </div>
-    <div class="md:text-center">Built with Claude Code</div>
-    <div class="md:text-right leading-relaxed">
-      Created as part of a job application for the Claude Evangelist, Applied AI (Startups) role at Anthropic. Not affiliated with or endorsed by Anthropic.
-    </div>
-  </div>
-</footer>
+  <p class="closing-fine anim anim-delay-3">This page was created as part of a job application for the Claude Evangelist, Applied AI (Startups) role at Anthropic. Not affiliated with or endorsed by Anthropic.</p>
+</div>
 
 <script>
-async function generateKit() {
-  const startup = document.getElementById('sk-startup').value.trim();
-  const building = document.getElementById('sk-building').value.trim();
-  const stack = document.getElementById('sk-stack').value.trim();
-  const output = document.getElementById('sk-output');
-  const error = document.getElementById('sk-error');
-  const btn = document.getElementById('sk-btn');
-
-  error.classList.add('hidden');
-
-  if (!startup || !building || !stack) {
-    error.textContent = 'Please fill in all three fields.';
-    error.classList.remove('hidden');
-    return;
-  }
-
-  btn.textContent = 'Generating...';
-  btn.disabled = true;
-  output.textContent = '';
-  output.classList.remove('hidden');
-
-  try {
-    const res = await fetch('/api/claude-starter-kit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ startup, building, stack }),
+  // ---- SCROLL ANIMATIONS ----
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+      }
     });
+  }, { threshold: 0.1 });
 
-    if (!res.ok) {
-      throw new Error(await res.text());
+  document.querySelectorAll('.anim').forEach(el => observer.observe(el));
+
+  // Trigger hero immediately
+  document.querySelectorAll('.hero .anim').forEach((el, i) => {
+    setTimeout(() => el.classList.add('in'), i * 100);
+  });
+
+  // ---- STICKY NAV ----
+  const nav = document.getElementById('sticky-nav');
+  const hero = document.getElementById('hero');
+  const dots = document.querySelectorAll('.nav-dot');
+  const stepIds = ['step-1','step-2','step-3','step-4','step-5'];
+
+  function updateNav() {
+    const heroBottom = hero.getBoundingClientRect().bottom;
+    if (heroBottom < 0) {
+      nav.classList.add('visible');
+    } else {
+      nav.classList.remove('visible');
     }
 
-    const reader = res.body.getReader();
-    const decoder = new TextDecoder();
+    // active dot
+    let active = -1;
+    stepIds.forEach((id, i) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= window.innerHeight * 0.5 && rect.bottom > 0) active = i;
+    });
+    dots.forEach((d, i) => d.classList.toggle('active', i === active));
+  }
 
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      output.textContent += decoder.decode(value, { stream: true });
-      output.scrollTop = output.scrollHeight;
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav();
+
+  function scrollToStep(n) {
+    const el = document.getElementById('step-' + n);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // ---- ASK ATLAS ----
+  function fillAtlas(text) {
+    document.getElementById('atlas-input').value = text;
+  }
+
+  async function askAtlas() {
+    const input = document.getElementById('atlas-input');
+    const btn = document.getElementById('atlas-btn');
+    const output = document.getElementById('atlas-output');
+    const textEl = document.getElementById('atlas-text');
+    const query = input.value.trim();
+    if (!query) return;
+
+    btn.disabled = true;
+    btn.textContent = 'Asking...';
+    btn.classList.add('pulsing');
+    output.classList.add('active');
+    textEl.textContent = '';
+
+    try {
+      const res = await fetch('/api/ask-atlas', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query }),
+      });
+
+      if (!res.ok) {
+        textEl.textContent = 'Something went wrong. Please try again.';
+        return;
+      }
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        textEl.textContent += decoder.decode(value, { stream: true });
+      }
+    } catch (err) {
+      textEl.textContent = 'Error: ' + err.message;
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Ask Atlas';
+      btn.classList.remove('pulsing');
     }
-  } catch (err) {
-    error.textContent = 'Something went wrong: ' + err.message;
-    error.classList.remove('hidden');
-    output.classList.add('hidden');
-  } finally {
-    btn.textContent = 'Generate Guide';
-    btn.disabled = false;
   }
-}
 
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter' && document.activeElement.closest('#demos')) {
-    generateKit();
+  // ---- STARTER KIT GENERATOR ----
+  async function generateKit() {
+    const startup = document.getElementById('kit-startup').value.trim();
+    const building = document.getElementById('kit-building').value.trim();
+    const stack = document.getElementById('kit-stack').value.trim();
+    const btn = document.getElementById('kit-btn');
+    const output = document.getElementById('kit-output');
+    const textEl = document.getElementById('kit-text');
+
+    if (!startup || !building || !stack) {
+      alert('Please fill in all three fields.');
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Generating...';
+    btn.classList.add('pulsing');
+    output.classList.add('active');
+    textEl.textContent = '';
+
+    try {
+      const res = await fetch('/api/claude-starter-kit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ startup, building, stack }),
+      });
+
+      if (!res.ok) {
+        textEl.textContent = 'Something went wrong. Please try again.';
+        return;
+      }
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        textEl.textContent += decoder.decode(value, { stream: true });
+      }
+    } catch (err) {
+      textEl.textContent = 'Error: ' + err.message;
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Generate Integration Guide';
+      btn.classList.remove('pulsing');
+    }
   }
-});
+
+  // Enter key for kit inputs
+  ['kit-startup','kit-building','kit-stack'].forEach(id => {
+    document.getElementById(id).addEventListener('keydown', e => {
+      if (e.key === 'Enter') generateKit();
+    });
+  });
 </script>
-
 </body>
 </html>
