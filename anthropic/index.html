@@ -88,7 +88,7 @@
 
     /* ---- HERO ---- */
     .hero {
-      max-height: 55vh;
+      max-height: none;
       min-height: 340px;
       display: flex;
       flex-direction: column;
@@ -208,6 +208,7 @@
     .anim-delay-2 { transition-delay: 0.2s; }
     .anim-delay-3 { transition-delay: 0.3s; }
     .anim-delay-4 { transition-delay: 0.4s; }
+    .anim-delay-5 { transition-delay: 0.5s; }
 
     /* ---- DEMO CARD ---- */
     .demo-card {
@@ -487,10 +488,14 @@
 
 <!-- HERO -->
 <section class="hero" id="hero">
-  <p class="hero-label anim">A Playbook by David Gabeau</p>
-  <h1 class="hero-title anim anim-delay-1">5 Steps to Building Anthropic's NYC Startup Ecosystem</h1>
-  <p class="hero-sub anim anim-delay-2">Before the first internal meeting. Before seeing the data. These are the instincts.</p>
-  <div class="scroll-cue anim anim-delay-3" aria-hidden="true">
+  <img src="https://davidgabeau.com/images/david.png" alt="David Gabeau" class="anim" style="width:80px;height:80px;border-radius:50%;border:2px solid #E8E4DF;object-fit:cover;margin-bottom:16px;">
+  <p class="hero-label anim anim-delay-1">A Playbook by David Gabeau</p>
+  <h1 class="hero-title anim anim-delay-2">5 Steps to Building Anthropic's NYC Startup Ecosystem</h1>
+  <div class="hero-sub anim anim-delay-3" style="text-align:left;max-width:600px;margin:0 auto;">
+    <p style="margin-bottom:16px;">Hi, my name is David Gabeau and I'm applying to be Anthropic's Claude Evangelist for NYC because I believe the proliferation of safe and beneficial AI is the defining work of our time. For the past four years I've been building Tapestry, an open social protocol, the developer ecosystem around it, and a 12-person team shipping AI products to 160,000 people.</p>
+    <p>I build with Claude every day and it would be a privilege to show founders building right now why they should do the same. This website is a non-exhaustive demo of how I would think about building Anthropic's NYC startup function from zero.</p>
+  </div>
+  <div class="scroll-cue anim anim-delay-4" aria-hidden="true">
     <div class="scroll-arrow"></div>
   </div>
 </section>
