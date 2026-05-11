@@ -2,11 +2,12 @@ import { ImageResponse } from '@vercel/og';
 
 export const config = { runtime: 'edge' };
 
-// jsdelivr serves @fontsource font files reliably from edge runtimes,
-// where fonts.googleapis.com tends to be blocked or returns empty bodies.
-async function loadFont(url) {
+// Bundle font files with the deployment via new URL + import.meta.url.
+// External fetches to fonts.googleapis.com / cdn.jsdelivr.net are unreliable
+// from Vercel Edge, so we ship the woff files directly in the repo.
+async function loadBundledFont(filename) {
   try {
-    const res = await fetch(url, { cache: 'force-cache' });
+    const res = await fetch(new URL(`./fonts/${filename}`, import.meta.url));
     if (!res.ok) return null;
     return await res.arrayBuffer();
   } catch {
@@ -20,10 +21,10 @@ export default async function handler(req) {
 
   try {
     const [newsreader, inter600, inter400, caveat] = await Promise.all([
-      loadFont('https://cdn.jsdelivr.net/npm/@fontsource/newsreader@5.0.10/files/newsreader-latin-700-normal.woff'),
-      loadFont('https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.10/files/inter-latin-600-normal.woff'),
-      loadFont('https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.10/files/inter-latin-400-normal.woff'),
-      loadFont('https://cdn.jsdelivr.net/npm/@fontsource/caveat@5.0.10/files/caveat-latin-700-normal.woff'),
+      loadBundledFont('Newsreader-700.woff'),
+      loadBundledFont('Inter-600.woff'),
+      loadBundledFont('Inter-400.woff'),
+      loadBundledFont('Caveat-700.woff'),
     ]);
 
     const fonts = [];
@@ -33,12 +34,12 @@ export default async function handler(req) {
     if (caveat)     fonts.push({ name: 'Caveat',     data: caveat,     weight: 700, style: 'normal' });
 
     if (fonts.length === 0) {
-      throw new Error('All font fetches failed — cannot render OG image without at least one font.');
+      throw new Error('No bundled fonts could be loaded.');
     }
 
-    const serif = newsreader ? 'Newsreader' : (fonts[0] ? fonts[0].name : 'serif');
-    const sans = inter600 || inter400 ? 'Inter' : (fonts[0] ? fonts[0].name : 'sans-serif');
-    const hand = caveat ? 'Caveat' : (fonts[0] ? fonts[0].name : 'cursive');
+    const serif = newsreader ? 'Newsreader' : fonts[0].name;
+    const sans  = (inter600 || inter400) ? 'Inter' : fonts[0].name;
+    const hand  = caveat ? 'Caveat' : fonts[0].name;
 
     return new ImageResponse(
       {
