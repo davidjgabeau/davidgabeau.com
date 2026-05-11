@@ -2181,6 +2181,426 @@
       #step-3 .flyer-card:nth-child(4) { transform: none !important; }
     }
 
+    /* ===== STEP 05 EDITORIAL REDESIGN ===== */
+    #step-5 {
+      max-width: 1180px;
+      padding: 100px 32px 130px;
+      overflow: hidden;
+    }
+    @media (max-width: 880px) { #step-5 { padding: 80px 28px 100px; } }
+    @media (max-width: 640px) { #step-5 { padding: 60px 20px 84px; } }
+
+    #step-5 .step-inner { position: relative; }
+    #step-5 .step-watermark {
+      font-size: clamp(160px, 24vw, 320px);
+      top: -30px;
+      right: -10px;
+      opacity: 0.7;
+      color: #EFE6D6;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+    }
+    @media (max-width: 640px) {
+      #step-5 .step-watermark { font-size: 130px; top: -10px; right: -14px; opacity: 0.5; }
+    }
+
+    #step-5 .step-title {
+      font-size: clamp(36px, 5.5vw, 60px);
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      max-width: 720px;
+      margin-bottom: 32px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Body two-column */
+    .step5-body-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+      max-width: 1080px;
+      position: relative;
+      z-index: 2;
+    }
+    .step5-body-grid p { font-size: 17px; color: var(--body); line-height: 1.7; }
+    @media (min-width: 880px) {
+      .step5-body-grid { grid-template-columns: 1fr 1fr; gap: 56px; }
+      .step5-body-grid p { font-size: 18px; }
+    }
+
+    .step5-note {
+      font-size: 14px;
+      color: var(--muted);
+      font-style: italic;
+      margin: 28px 0 20px;
+      position: relative;
+      z-index: 2;
+    }
+    @media (min-width: 880px) {
+      .step5-note { margin: 36px 0 24px; font-size: 15px; }
+    }
+
+    /* Cards grid */
+    .step5-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      position: relative;
+      z-index: 2;
+    }
+    @media (min-width: 1024px) {
+      .step5-cards-grid {
+        grid-template-columns: 1.65fr 1fr;
+        gap: 28px;
+        align-items: start;
+      }
+    }
+
+    /* Funnel dashboard card */
+    .funnel-card {
+      background: var(--card-bg);
+      border: 1px solid var(--divider);
+      border-radius: 22px;
+      padding: 22px 22px 8px;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      z-index: 2;
+    }
+    @media (min-width: 880px) {
+      .funnel-card { padding: 24px 28px 12px; }
+    }
+    .funnel-card-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .funnel-card-headicon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--orange);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .funnel-card-headicon svg { width: 18px; height: 18px; }
+    .funnel-card-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+    @media (min-width: 880px) {
+      .funnel-card-title { font-size: 22px; }
+    }
+
+    /* Desktop table */
+    .funnel-table { width: 100%; border-collapse: collapse; }
+    .funnel-table thead th {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--orange);
+      text-align: left;
+      padding: 8px 14px 12px;
+      border-bottom: 1px solid var(--divider);
+    }
+    .funnel-table thead th:first-child { padding-left: 50px; }
+    .funnel-table tbody tr { border-bottom: 1px solid #F0E8DA; }
+    .funnel-table tbody tr:last-child { border-bottom: none; }
+    .funnel-table tbody td {
+      padding: 16px 14px;
+      font-size: 14px;
+      color: var(--body);
+      line-height: 1.5;
+      vertical-align: top;
+    }
+    .funnel-stage-cell {
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+    .funnel-stage-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1.5px solid var(--peach);
+      background: #FFF7EE;
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: -3px;
+    }
+    .funnel-stage-icon svg { width: 14px; height: 14px; }
+    .funnel-stage-text {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 14.5px;
+      line-height: 1.3;
+      padding-top: 5px;
+    }
+    .funnel-measure,
+    .funnel-why { color: var(--body); font-size: 13.5px; }
+    @media (min-width: 880px) {
+      .funnel-table tbody td { font-size: 14.5px; }
+      .funnel-measure, .funnel-why { font-size: 14px; }
+    }
+
+    /* Mobile: stack rows */
+    @media (max-width: 879px) {
+      .funnel-table thead { display: none; }
+      .funnel-table,
+      .funnel-table tbody,
+      .funnel-table tr,
+      .funnel-table td { display: block; width: 100%; }
+      .funnel-table tbody tr {
+        padding: 16px 0;
+        border-bottom: 1px solid var(--divider);
+      }
+      .funnel-table tbody tr:last-child { border-bottom: none; }
+      .funnel-table tbody td { padding: 0; }
+      .funnel-table td.funnel-stage-cell-td {
+        display: block;
+        margin-bottom: 8px;
+      }
+      .funnel-measure {
+        font-size: 14px;
+        color: var(--body);
+        padding-left: 42px;
+        line-height: 1.5;
+        margin-top: 2px;
+      }
+      .funnel-why {
+        font-size: 12.5px;
+        color: var(--secondary);
+        padding-left: 42px;
+        font-style: italic;
+        line-height: 1.45;
+        margin-top: 6px;
+      }
+      .funnel-stage-text { padding-top: 4px; font-size: 15px; }
+    }
+
+    /* Loop card */
+    .loop-card {
+      background: var(--card-bg);
+      border: 1px solid var(--divider);
+      border-radius: 22px;
+      padding: 24px 26px 18px;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      z-index: 2;
+    }
+    @media (max-width: 640px) {
+      .loop-card { padding: 20px 20px 14px; }
+    }
+    .loop-card-title {
+      font-size: 19px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      line-height: 1.22;
+      padding-bottom: 10px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid var(--divider);
+      position: relative;
+    }
+    .loop-card-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 64px;
+      height: 5px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 5' fill='none'><path d='M2 3 C 12 1, 22 4, 32 3 S 54 1, 62 3' stroke='%23E8600A' stroke-width='2' stroke-linecap='round' fill='none'/></svg>");
+      background-repeat: no-repeat;
+    }
+    .loop-steps { position: relative; }
+    .loop-step {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 14px;
+      padding: 11px 0 9px;
+      align-items: start;
+      position: relative;
+    }
+    .loop-step-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1.5px solid var(--peach);
+      background: #FFF7EE;
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .loop-step-icon svg { width: 15px; height: 15px; }
+    .loop-step:not(:last-child) .loop-step-icon::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 100%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 22px;
+      border-left: 1px dashed #E8C5A8;
+    }
+    .loop-step:not(:last-child) .loop-step-icon::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: calc(100% + 18px);
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 5px solid var(--orange);
+      opacity: 0.7;
+    }
+    .loop-step-text { padding-top: 5px; }
+    .loop-step-title {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2px;
+      letter-spacing: -0.005em;
+    }
+    .loop-step-desc {
+      font-size: 12.5px;
+      color: var(--secondary);
+      line-height: 1.45;
+    }
+    @media (min-width: 880px) {
+      .loop-step-title { font-size: 15px; }
+      .loop-step-desc { font-size: 13px; }
+    }
+
+    /* Decorations */
+    .step5-note-hand {
+      position: absolute;
+      top: 130px;
+      right: 6%;
+      font-family: var(--font-hand);
+      color: var(--orange);
+      font-size: 21px;
+      line-height: 1.2;
+      max-width: 180px;
+      transform: rotate(-2deg);
+      z-index: 3;
+      pointer-events: none;
+      font-weight: 600;
+    }
+    .step5-note-underline {
+      display: inline-block;
+      width: 100px;
+      height: 6px;
+      margin-top: 4px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6' fill='none'><path d='M2 3 C 22 1, 42 5, 62 3 S 90 1, 98 3' stroke='%23E8600A' stroke-width='2' stroke-linecap='round' fill='none'/></svg>");
+      background-repeat: no-repeat;
+    }
+    .step5-sticky-note {
+      position: absolute;
+      bottom: 60px;
+      right: 4%;
+      background: var(--sticky-note);
+      padding: 20px 22px 22px;
+      font-family: var(--font-hand);
+      font-size: 21px;
+      line-height: 1.25;
+      color: #3A2E10;
+      transform: rotate(2deg);
+      box-shadow: 0 6px 18px rgba(72,52,20,0.14);
+      max-width: 200px;
+      z-index: 3;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+    .step5-sticky-note::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      right: 22px;
+      width: 28px;
+      height: 14px;
+      background: rgba(184, 154, 78, 0.4);
+      border-radius: 1px;
+      transform: rotate(-6deg);
+    }
+    .step5-sticky-note-line {
+      display: inline-block;
+      width: 50px;
+      height: 6px;
+      margin-top: 6px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 6' fill='none'><path d='M2 3 C 12 1, 22 5, 32 3 S 52 1, 58 3' stroke='%233A2E10' stroke-width='1.5' stroke-linecap='round' fill='none'/></svg>");
+      background-repeat: no-repeat;
+    }
+
+    .step5-chart-doodle {
+      position: absolute;
+      left: 24px;
+      bottom: 32px;
+      width: 220px;
+      height: 80px;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .step5-chart-doodle svg { width: 100%; height: 100%; }
+    .step5-chart-label {
+      position: absolute;
+      left: 200px;
+      bottom: 36px;
+      font-family: var(--font-hand);
+      color: var(--orange);
+      font-size: 19px;
+      line-height: 1.1;
+      max-width: 140px;
+      transform: rotate(-2deg);
+      pointer-events: none;
+      z-index: 2;
+      font-weight: 600;
+    }
+
+    @media (max-width: 1100px) {
+      .step5-note-hand { right: 3%; max-width: 170px; font-size: 19px; }
+      .step5-sticky-note { right: 2%; max-width: 190px; font-size: 19px; }
+    }
+    @media (max-width: 879px) {
+      .step5-note-hand {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 6px 0 20px;
+        max-width: 220px;
+      }
+      .step5-sticky-note {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin: 32px 0 0 auto;
+        transform: rotate(-1.5deg);
+      }
+      .step5-chart-doodle { width: 180px; height: 60px; left: 0; bottom: 24px; }
+      .step5-chart-label { left: 160px; bottom: 28px; font-size: 17px; }
+    }
+    @media (max-width: 640px) {
+      .step5-chart-doodle { width: 140px; height: 50px; }
+      .step5-chart-label { left: 120px; bottom: 18px; font-size: 15px; max-width: 110px; }
+    }
+
     @keyframes pulse-opacity {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.5; }
@@ -2943,42 +3363,76 @@
 
 <!-- STEP 05 -->
 <section class="step" id="step-5">
+  <!-- Watermark -->
   <div class="step-watermark" aria-hidden="true">05</div>
+
+  <!-- Handwritten annotation upper right -->
+  <div class="step5-note-hand" aria-hidden="true">
+    Measure what<br>compounds.
+    <span class="step5-note-underline" aria-hidden="true"></span>
+  </div>
+
+  <!-- Sticky note bottom right -->
+  <div class="step5-sticky-note" aria-hidden="true">
+    The loop<br>only works<br>if you close it.
+    <span class="step5-sticky-note-line" aria-hidden="true"></span>
+  </div>
+
+  <!-- Chart doodle bottom left -->
+  <div class="step5-chart-doodle" aria-hidden="true">
+    <svg viewBox="0 0 220 80" fill="none" preserveAspectRatio="xMidYMid meet">
+      <!-- dashed Y axis -->
+      <path d="M14 6 L 14 70" stroke="#E8600A" stroke-width="1.4" stroke-dasharray="3 3" stroke-linecap="round"/>
+      <!-- dashed X axis -->
+      <path d="M14 70 L 210 70" stroke="#E8600A" stroke-width="1.4" stroke-dasharray="3 3" stroke-linecap="round"/>
+      <!-- trend line -->
+      <path d="M18 64 L 38 58 L 54 60 L 72 50 L 90 52 L 108 42 L 126 38 L 144 30 L 162 24 L 180 18" stroke="#E8600A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <!-- arrow head -->
+      <path d="M170 14 L 184 14 L 178 22" stroke="#E8600A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <!-- dots -->
+      <g fill="#E8600A">
+        <circle cx="38" cy="58" r="2.4"/>
+        <circle cx="54" cy="60" r="2.4"/>
+        <circle cx="72" cy="50" r="2.4"/>
+        <circle cx="90" cy="52" r="2.4"/>
+        <circle cx="108" cy="42" r="2.4"/>
+        <circle cx="126" cy="38" r="2.4"/>
+        <circle cx="144" cy="30" r="2.4"/>
+        <circle cx="162" cy="24" r="2.4"/>
+      </g>
+    </svg>
+  </div>
+  <div class="step5-chart-label" aria-hidden="true">Activation<br>over time.</div>
+
   <div class="step-inner">
-    <p class="step-eyebrow anim">Step 05 — Measure Everything</p>
-    <h2 class="step-title anim anim-delay-1">I would measure everything and close the loop.</h2>
-    <div class="step-body anim anim-delay-2">
+    <div class="step1-eyebrow-row anim">
+      <svg class="step1-eyebrow-spark" aria-hidden="true" viewBox="0 0 22 22" fill="none">
+        <path d="M11 1 L12.8 9.2 L 21 11 L 12.8 12.8 L 11 21 L 9.2 12.8 L 1 11 L 9.2 9.2 Z" fill="currentColor"/>
+      </svg>
+      <span class="step1-eyebrow-text">Step 05 · Measure Everything</span>
+    </div>
+    <h2 class="step-title anim anim-delay-1">I would measure everything and close <span class="title-mark">the loop</span>.</h2>
+
+    <div class="step5-body-grid anim anim-delay-2">
       <p>Net new startups activated on the Claude API is the primary metric. Everything else feeds into it. How many VC partnerships are generating warm intros. How many events converted attendees into active builders. How many founders in the Slack community are shipping on Claude. What the content is reaching and who is acting on it.</p>
       <p>The evangelist role is also the feedback mechanism. What are NYC founders building? Where is Claude winning? Where is it losing and why? A monthly signal report back to product and GTM teams keeps the loop closed.</p>
     </div>
 
-    <div class="anim anim-delay-3">
-      <p style="font-size:0.82rem;color:var(--muted);font-style:italic;margin-bottom:12px;">A non-exhaustive list of what I would track.</p>
-      <div class="metrics-wrap">
-        <table class="metrics-table">
-          <thead>
-            <tr>
-              <th>Metric</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Net new NYC startups activated on the API</td></tr>
-            <tr><td>VC partnerships with clear GTM handoff</td></tr>
-            <tr><td>Events hosted or confirmed</td></tr>
-            <tr><td>NYC Claude Slack members</td></tr>
-            <tr><td>Technical content pieces published</td></tr>
-            <tr><td>Ecosystem signal reports delivered</td></tr>
-            <tr><td>Portfolio intros with GTM handoff</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <p class="step5-note">A non-exhaustive list of what I would track.</p>
 
-    <div class="step-subsection anim anim-delay-4" style="max-width:100%;">
-      <p class="step-sub-label">Example funnel dashboard</p>
-      <p style="font-size:16px;color:var(--body);line-height:1.65;margin-bottom:18px;">I would want a simple dashboard that connects ecosystem activity to startup adoption. The point is not to over-measure every interaction. The point is to know which programs are creating first builds and net new logos.</p>
-      <div class="metrics-wrap">
-        <table class="metrics-table">
+    <div class="step5-cards-grid anim anim-delay-3">
+      <!-- Funnel dashboard card -->
+      <div class="funnel-card">
+        <div class="funnel-card-head">
+          <span class="funnel-card-headicon" aria-hidden="true">
+            <svg viewBox="0 0 18 18" fill="none">
+              <path d="M3 14 L 3 9 M 8 14 L 8 6 M 13 14 L 13 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <span class="funnel-card-title">Example funnel dashboard</span>
+        </div>
+
+        <table class="funnel-table">
           <thead>
             <tr>
               <th>Funnel stage</th>
@@ -2988,44 +3442,189 @@
           </thead>
           <tbody>
             <tr>
-              <td>Ecosystem reach</td>
-              <td>Partner meetings, founder intros, event RSVPs, content visitors</td>
-              <td>Shows whether the right surface area is growing</td>
+              <td class="funnel-stage-cell-td">
+                <div class="funnel-stage-cell">
+                  <span class="funnel-stage-icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none">
+                      <circle cx="5" cy="6" r="2.2" stroke="currentColor" stroke-width="1.4"/>
+                      <circle cx="11" cy="6" r="2.2" stroke="currentColor" stroke-width="1.4"/>
+                      <circle cx="8" cy="4.4" r="2.2" stroke="currentColor" stroke-width="1.4"/>
+                      <path d="M2 14 Q 5 11 8 11 Q 11 11 14 14" stroke="currentColor" stroke-width="1.4" fill="none"/>
+                    </svg>
+                  </span>
+                  <span class="funnel-stage-text">Ecosystem reach</span>
+                </div>
+              </td>
+              <td class="funnel-measure">Events hosted or confirmed, technical content pieces published, Slack member growth</td>
+              <td class="funnel-why">Builds awareness and credibility at scale. Seeds the top of the funnel.</td>
             </tr>
             <tr>
-              <td>Qualified conversations</td>
-              <td>Startups with a clear Claude-relevant use case</td>
-              <td>Separates real opportunities from general interest</td>
+              <td class="funnel-stage-cell-td">
+                <div class="funnel-stage-cell">
+                  <span class="funnel-stage-icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none">
+                      <path d="M2 4 Q 2 2 4 2 L 12 2 Q 14 2 14 4 L 14 10 Q 14 12 12 12 L 7 12 L 4 14.5 L 4 12 Q 2 12 2 10 Z" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span class="funnel-stage-text">Qualified startup conversations</span>
+                </div>
+              </td>
+              <td class="funnel-measure">VC partnerships with clear GTM handoff, portfolio intros with GTM handoff</td>
+              <td class="funnel-why">Creates warm intros and qualified engagement with builders.</td>
             </tr>
             <tr>
-              <td>First activation</td>
-              <td>API keys created, first successful API calls, Claude Code projects started</td>
-              <td>Shows whether interest is turning into building</td>
+              <td class="funnel-stage-cell-td">
+                <div class="funnel-stage-cell">
+                  <span class="funnel-stage-icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none">
+                      <path d="M5.5 4 L 2 8 L 5.5 12 M 10.5 4 L 14 8 L 10.5 12" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    </svg>
+                  </span>
+                  <span class="funnel-stage-text">First technical activation</span>
+                </div>
+              </td>
+              <td class="funnel-measure">Startups who try Claude via API or complete first integration</td>
+              <td class="funnel-why">Early activation is the best predictor of future usage.</td>
             </tr>
             <tr>
-              <td>Active usage</td>
-              <td>Weekly active developers, repeat API usage, prototypes reaching users</td>
-              <td>Shows whether the first build had enough value to continue</td>
+              <td class="funnel-stage-cell-td">
+                <div class="funnel-stage-cell">
+                  <span class="funnel-stage-icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none">
+                      <path d="M9 1.5 L 4 9 L 8 9 L 7 14.5 L 12 7 L 8 7 Z" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span class="funnel-stage-text">Activated usage</span>
+                </div>
+              </td>
+              <td class="funnel-measure">Net new NYC startups activated on the API</td>
+              <td class="funnel-why">The primary metric. Shows real traction, not just interest.</td>
             </tr>
             <tr>
-              <td>Production signal</td>
-              <td>Production workloads, meaningful usage growth</td>
-              <td>Shows which accounts are becoming durable Claude users</td>
+              <td class="funnel-stage-cell-td">
+                <div class="funnel-stage-cell">
+                  <span class="funnel-stage-icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none">
+                      <path d="M2 12 L 6 8 L 9 10 L 14 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                      <path d="M10 4 L 14 4 L 14 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    </svg>
+                  </span>
+                  <span class="funnel-stage-text">Production signal</span>
+                </div>
+              </td>
+              <td class="funnel-measure">Active usage over time, number of requests, features adopted</td>
+              <td class="funnel-why">Identifies startups building real workflows on Claude.</td>
             </tr>
             <tr>
-              <td>GTM handoff</td>
-              <td>Qualified accounts routed to Startups GTM, follow-up completed</td>
-              <td>Connects ecosystem work to Anthropic's revenue motion</td>
+              <td class="funnel-stage-cell-td">
+                <div class="funnel-stage-cell">
+                  <span class="funnel-stage-icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none">
+                      <path d="M1 9 L 4 6 L 6 8 L 5 10 L 7 12 L 9 10 L 8 9 L 9 8 L 11 10 L 13 8 L 14 9" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                      <path d="M4 6 L 4 4 M 12 9 L 13 6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+                    </svg>
+                  </span>
+                  <span class="funnel-stage-text">GTM handoff</span>
+                </div>
+              </td>
+              <td class="funnel-measure">Handoffs to AEs or field teams, opportunities created</td>
+              <td class="funnel-why">Converts product pull into a pipeline and revenue motion.</td>
             </tr>
             <tr>
-              <td>Feedback loop</td>
-              <td>Product asks, docs gaps, model feedback</td>
-              <td>Makes the ecosystem motion smarter over time</td>
+              <td class="funnel-stage-cell-td">
+                <div class="funnel-stage-cell">
+                  <span class="funnel-stage-icon" aria-hidden="true">
+                    <svg viewBox="0 0 16 16" fill="none">
+                      <path d="M13 8 A 5 5 0 1 1 8 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+                      <path d="M8 1.5 L 8.5 3 L 7 3.8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    </svg>
+                  </span>
+                  <span class="funnel-stage-text">Feedback loop</span>
+                </div>
+              </td>
+              <td class="funnel-measure">Ecosystem signal reports delivered, insights shared with product and GTM</td>
+              <td class="funnel-why">Closes the loop so product and GTM can improve and iterate.</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p style="margin-top:20px;font-size:15px;color:var(--body);line-height:1.7;font-style:italic;max-width:620px;">Example: a Claude Code workshop with 40 founders should not be judged only by attendance. I would want to know how many created API keys, how many completed a first build, how many used Claude again the following week, and which accounts needed a GTM follow-up.</p>
+
+      <!-- Loop card -->
+      <div class="loop-card">
+        <div class="loop-card-title">Closing the loop with<br>GTM and Product</div>
+        <div class="loop-steps">
+          <div class="loop-step">
+            <span class="loop-step-icon" aria-hidden="true">
+              <svg viewBox="0 0 15 15" fill="none">
+                <circle cx="7.5" cy="3" r="1.8" stroke="currentColor" stroke-width="1.2" fill="none"/>
+                <circle cx="3" cy="11" r="1.8" stroke="currentColor" stroke-width="1.2" fill="none"/>
+                <circle cx="12" cy="11" r="1.8" stroke="currentColor" stroke-width="1.2" fill="none"/>
+                <path d="M7.5 4.6 L 4 9.4 M 7.5 4.6 L 11 9.4 M 4.5 11 L 10.5 11" stroke="currentColor" stroke-width="1.2"/>
+              </svg>
+            </span>
+            <div class="loop-step-text">
+              <div class="loop-step-title">Ecosystem touchpoint</div>
+              <div class="loop-step-desc">Events, content, partnerships, community</div>
+            </div>
+          </div>
+          <div class="loop-step">
+            <span class="loop-step-icon" aria-hidden="true">
+              <svg viewBox="0 0 15 15" fill="none">
+                <path d="M5 4 L 2 7.5 L 5 11 M 10 4 L 13 7.5 L 10 11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+            <div class="loop-step-text">
+              <div class="loop-step-title">Technical activation</div>
+              <div class="loop-step-desc">Startups try Claude via API</div>
+            </div>
+          </div>
+          <div class="loop-step">
+            <span class="loop-step-icon" aria-hidden="true">
+              <svg viewBox="0 0 15 15" fill="none">
+                <path d="M2 11 L 5.5 7.5 L 8 9.5 L 13 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                <path d="M9 4 L 13 4 L 13 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+            <div class="loop-step-text">
+              <div class="loop-step-title">Usage signal</div>
+              <div class="loop-step-desc">Active usage and feature adoption</div>
+            </div>
+          </div>
+          <div class="loop-step">
+            <span class="loop-step-icon" aria-hidden="true">
+              <svg viewBox="0 0 15 15" fill="none">
+                <path d="M1 8 L 3.5 5.5 L 5.5 7 L 4.5 8.5 L 6.5 10.5 L 8 9 L 7 8 L 8 7 L 10 9 L 12 7 L 13 8" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              </svg>
+            </span>
+            <div class="loop-step-text">
+              <div class="loop-step-title">GTM handoff</div>
+              <div class="loop-step-desc">Intro to field team and opportunity</div>
+            </div>
+          </div>
+          <div class="loop-step">
+            <span class="loop-step-icon" aria-hidden="true">
+              <svg viewBox="0 0 15 15" fill="none">
+                <path d="M1.5 4 Q 1.5 2 3.5 2 L 11.5 2 Q 13.5 2 13.5 4 L 13.5 9 Q 13.5 11 11.5 11 L 6.5 11 L 3.5 13.5 L 3.5 11 Q 1.5 11 1.5 9 Z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <div class="loop-step-text">
+              <div class="loop-step-title">Product feedback</div>
+              <div class="loop-step-desc">Insights and trends shared back</div>
+            </div>
+          </div>
+          <div class="loop-step">
+            <span class="loop-step-icon" aria-hidden="true">
+              <svg viewBox="0 0 15 15" fill="none">
+                <path d="M7.5 1 L 8.7 6.3 L 14 7.5 L 8.7 8.7 L 7.5 14 L 6.3 8.7 L 1 7.5 L 6.3 6.3 Z" fill="currentColor"/>
+              </svg>
+            </span>
+            <div class="loop-step-text">
+              <div class="loop-step-title">Better programming</div>
+              <div class="loop-step-desc">Sharper GTM and better product</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
