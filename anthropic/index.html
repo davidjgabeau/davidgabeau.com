@@ -605,6 +605,113 @@
       .atlas-legend-item { font-size: 10px; }
     }
 
+    /* ---- STEP SUBSECTION ---- */
+    .step-subsection {
+      margin-top: 36px;
+      max-width: 620px;
+    }
+    .step-sub-label {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .step-bullets {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .step-bullets li {
+      font-size: 16px;
+      color: var(--body);
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .step-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+    @media (max-width: 640px) {
+      .step-bullets li { font-size: 15px; }
+    }
+
+    /* ---- 30-60-90 PLAN CARDS ---- */
+    .plan-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .plan-card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      border-top: 3px solid var(--orange);
+      padding: 24px;
+    }
+    .plan-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+    .plan-card-body {
+      font-size: 14px;
+      color: var(--body);
+      line-height: 1.65;
+      margin-bottom: 16px;
+    }
+    .plan-card-bullets {
+      list-style: none;
+      padding: 0;
+      border-top: 1px solid var(--divider);
+      padding-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .plan-card-bullets li {
+      font-size: 13px;
+      color: var(--body);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .plan-card-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+    @media (max-width: 860px) {
+      .plan-cards { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .plan-card { padding: 18px; }
+    }
+    .plan-final {
+      margin-top: 32px;
+      font-size: 16px;
+      color: var(--body);
+      line-height: 1.75;
+      max-width: 620px;
+    }
+
     /* ---- PULSE ANIMATION ---- */
     @keyframes pulse-opacity {
       0%, 100% { opacity: 1; }
@@ -722,6 +829,17 @@
         <div class="stat-label">Slack members by day 90</div>
       </div>
     </div>
+
+    <div class="step-subsection anim anim-delay-4">
+      <p class="step-sub-label">Partner surfaces I would prioritize</p>
+      <ul class="step-bullets">
+        <li>Early-stage funds with high AI-founder density</li>
+        <li>Accelerators and founder programs with technical cohorts</li>
+        <li>University labs and student founder communities</li>
+        <li>Builder houses, demo nights, and operator-led communities</li>
+        <li>Vertical communities in healthcare, fintech, developer tools, consumer AI, and infrastructure</li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -737,9 +855,13 @@
       <p>Separately, build-athons at Columbia, NYU, and CUNY bring in the next generation. Two-day format, live-streamed demo days. The goal is simple: everyone leaves with something they built on Claude.</p>
     </div>
 
-    <p class="anim anim-delay-3" style="font-size:0.82rem;color:var(--muted);font-style:italic;text-align:center;margin-top:36px;margin-bottom:0;">The events below are concepts. The thinking behind them is not.</p>
+    <div class="step-subsection anim anim-delay-3">
+      <p>For each event I would define the builder outcome before defining the format. A good event should answer: who is this for, what will they build, what Claude use case will they understand better, and what follow-up should happen within 48 hours.</p>
+    </div>
 
-    <div class="flyer-grid anim anim-delay-4">
+    <p class="anim anim-delay-4" style="font-size:0.82rem;color:var(--muted);font-style:italic;text-align:center;margin-top:36px;margin-bottom:0;">The events below are concepts. The thinking behind them is not.</p>
+
+    <div class="flyer-grid anim anim-delay-5">
       <div class="flyer-card">
         <img src="/anthropic/flyer-consumer.png" alt="Claude Consumer Day — a16z NYC" loading="lazy">
       </div>
@@ -753,7 +875,7 @@
         <img src="/anthropic/flyer-health.png" alt="Claude x Health: Research to Revenue — BoxGroup NYC" loading="lazy">
       </div>
     </div>
-    <p class="flyer-note anim anim-delay-5">Concepts only. Events subject to internal planning and approval.</p>
+    <p class="flyer-note anim">Concepts only. Events subject to internal planning and approval.</p>
   </div>
 </section>
 
@@ -768,9 +890,21 @@
       <p>But the best way to show a founder what Claude can do is to let them experience it. Here is a demo I built with Claude Code. Founders can enter their startup details and get a plan for how to best use Claude.</p>
     </div>
 
-    <p class="anim anim-delay-3" style="font-size:0.82rem;color:var(--muted);font-style:italic;text-align:center;margin-top:36px;margin-bottom:0;">This is a concept demo. It shows how I think about getting Claude into the hands of the community, not a finished product.</p>
+    <div class="step-subsection anim anim-delay-3">
+      <p class="step-sub-label">The content should answer the founder's real question</p>
+      <p style="font-size:16px;color:var(--body);line-height:1.65;margin-bottom:14px;">Most founders do not need another abstract explanation of frontier models. They need to know whether Claude can help with a specific product or workflow this week.</p>
+      <ul class="step-bullets">
+        <li>Which Claude model should I use?</li>
+        <li>What is the fastest useful thing I can build?</li>
+        <li>How do I evaluate quality?</li>
+        <li>What will this cost if it works?</li>
+        <li>How do I move from prototype to production?</li>
+      </ul>
+    </div>
 
-    <div class="demo-card anim anim-delay-4">
+    <p class="anim anim-delay-4" style="font-size:0.82rem;color:var(--muted);font-style:italic;text-align:center;margin-top:36px;margin-bottom:0;">This is a concept demo. It shows how I think about getting Claude into the hands of the community, not a finished product.</p>
+
+    <div class="demo-card anim anim-delay-5">
       <p class="demo-label">Try It — Claude Starter Kit Generator</p>
       <input type="text" class="demo-input" id="kit-startup" placeholder="Startup name (e.g. Acme AI)">
       <input type="text" class="demo-input" id="kit-building" placeholder="What you're building">
@@ -816,6 +950,60 @@
         </table>
       </div>
     </div>
+
+    <div class="step-subsection anim anim-delay-4" style="max-width:100%;">
+      <p class="step-sub-label">Example funnel dashboard</p>
+      <p style="font-size:16px;color:var(--body);line-height:1.65;margin-bottom:18px;">I would want a simple dashboard that connects ecosystem activity to startup adoption. The point is not to over-measure every interaction. The point is to know which programs are creating first builds and net new logos.</p>
+      <div class="metrics-wrap">
+        <table class="metrics-table">
+          <thead>
+            <tr>
+              <th>Funnel stage</th>
+              <th>What I would measure</th>
+              <th>Why it matters</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ecosystem reach</td>
+              <td>Partner meetings, founder intros, event RSVPs, content visitors</td>
+              <td>Shows whether the right surface area is growing</td>
+            </tr>
+            <tr>
+              <td>Qualified conversations</td>
+              <td>Startups with a clear Claude-relevant use case</td>
+              <td>Separates real opportunities from general interest</td>
+            </tr>
+            <tr>
+              <td>First activation</td>
+              <td>API keys created, first successful API calls, Claude Code projects started</td>
+              <td>Shows whether interest is turning into building</td>
+            </tr>
+            <tr>
+              <td>Active usage</td>
+              <td>Weekly active developers, repeat API usage, prototypes reaching users</td>
+              <td>Shows whether the first build had enough value to continue</td>
+            </tr>
+            <tr>
+              <td>Production signal</td>
+              <td>Production workloads, meaningful usage growth</td>
+              <td>Shows which accounts are becoming durable Claude users</td>
+            </tr>
+            <tr>
+              <td>GTM handoff</td>
+              <td>Qualified accounts routed to Startups GTM, follow-up completed</td>
+              <td>Connects ecosystem work to Anthropic's revenue motion</td>
+            </tr>
+            <tr>
+              <td>Feedback loop</td>
+              <td>Product asks, docs gaps, model feedback</td>
+              <td>Makes the ecosystem motion smarter over time</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="margin-top:20px;font-size:15px;color:var(--body);line-height:1.7;font-style:italic;max-width:620px;">Example: a Claude Code workshop with 40 founders should not be judged only by attendance. I would want to know how many created API keys, how many completed a first build, how many used Claude again the following week, and which accounts needed a GTM follow-up.</p>
+    </div>
   </div>
 </section>
 
@@ -828,7 +1016,57 @@
       <p>Dario wrote in Machines of Loving Grace that AI could give every person on earth access to the kind of expert advisor that only wealthy people have today. I think about that a lot.</p>
       <p>The NYC startup ecosystem is not just a16z and Bessemer. It is CUNY. It is a first-generation founder in the Bronx who has never been in a room with a VC. It is a high school student at Comp Sci High who is about to build something nobody has thought of yet. Getting Claude into those rooms is not charity. It is the mission.</p>
       <p>I would show up there before anyone asked. I already do.</p>
+      <p>For me the practical version of that mission is helping more founders, including founders outside the default AI networks, get from access to actual usage.</p>
     </div>
+  </div>
+</section>
+
+<!-- 30-60-90 DAY PLAN -->
+<section class="step" id="plan-90" style="border-top:1px solid var(--divider);max-width:860px;margin:0 auto;">
+  <div class="step-inner">
+    <p class="step-eyebrow anim">First 90 Days</p>
+    <h2 class="step-title anim anim-delay-1">How I would start</h2>
+    <div class="step-body anim anim-delay-2">
+      <p>If I joined Anthropic in this role I would start by turning this playbook into a focused operating cadence. The first 90 days would be about learning the current motion, finding the highest-fit startup segments, running a few high-signal experiments, and building a repeatable path from ecosystem trust to active Claude usage.</p>
+    </div>
+
+    <div class="plan-cards anim anim-delay-3">
+      <div class="plan-card">
+        <p class="plan-card-title">Days 1 to 30: Learn the motion and map the opportunity</p>
+        <p class="plan-card-body">I would start by understanding Anthropic's existing startup motion: current goals, partner channels, activation data, sales handoff process, and product feedback loops. In parallel I would map the NYC ecosystem around Claude-relevant use cases and identify the accounts, partners, and communities most likely to produce active API usage.</p>
+        <ul class="plan-card-bullets">
+          <li>Meet with Startups GTM, Developer Relations, Marketing, and Product</li>
+          <li>Audit current activation paths and follow-up loops</li>
+          <li>Identify high-fit NYC startups and founder communities</li>
+          <li>Build a short list of priority fund and accelerator partners</li>
+          <li>Run founder discovery conversations around Claude use cases and switching moments</li>
+        </ul>
+      </div>
+      <div class="plan-card">
+        <p class="plan-card-title">Days 31 to 60: Run focused activation experiments</p>
+        <p class="plan-card-body">Once the map is clear I would run a small number of focused programs designed to create real technical activation. Three sharp experiments with strong follow-up over ten broad events with weak conversion.</p>
+        <ul class="plan-card-bullets">
+          <li>Run the first partner-led Claude startup workshop</li>
+          <li>Launch one vertical starter kit based on observed founder demand</li>
+          <li>Host office hours for founders already evaluating Claude</li>
+          <li>Track API keys created, first builds completed, and repeat usage</li>
+          <li>Package learnings into a repeatable format</li>
+        </ul>
+      </div>
+      <div class="plan-card">
+        <p class="plan-card-title">Days 61 to 90: Scale what works</p>
+        <p class="plan-card-body">By month three I would double down on the programs showing real usage signal. The goal is to move from promising activity to a repeatable operating system for NYC startup activation.</p>
+        <ul class="plan-card-bullets">
+          <li>Scale the strongest partner or community channel</li>
+          <li>Turn the best-performing workshop into a repeatable format</li>
+          <li>Publish or expand the highest-performing starter kit</li>
+          <li>Build a lightweight reporting cadence around logos, active usage, and learnings</li>
+          <li>Create a feedback loop from founders back to Product, Docs, and GTM</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="plan-final anim anim-delay-4">By the end of 90 days the goal would be simple: a clearer map of NYC's highest-fit startup opportunities, a few repeatable ways to activate them, and measurable evidence that the ecosystem motion is turning into active Claude usage.</p>
   </div>
 </section>
 
