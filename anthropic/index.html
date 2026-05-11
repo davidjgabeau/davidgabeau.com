@@ -2601,6 +2601,360 @@
       .step5-chart-label { left: 120px; bottom: 18px; font-size: 15px; max-width: 110px; }
     }
 
+    /* ===== STEP 04 EDITORIAL REDESIGN ===== */
+    #step-4 {
+      max-width: 1180px;
+      padding: 100px 32px 110px;
+      overflow: hidden;
+    }
+    @media (max-width: 880px) { #step-4 { padding: 80px 28px 88px; } }
+    @media (max-width: 640px) { #step-4 { padding: 60px 20px 72px; } }
+
+    #step-4 .step-inner { position: relative; }
+    #step-4 .step-watermark {
+      font-size: clamp(160px, 24vw, 320px);
+      top: -30px;
+      right: -10px;
+      opacity: 0.7;
+      color: #EFE6D6;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+    }
+    @media (max-width: 640px) {
+      #step-4 .step-watermark { font-size: 130px; top: -10px; right: -14px; opacity: 0.5; }
+    }
+    #step-4 .step-title {
+      font-size: clamp(36px, 5.5vw, 60px);
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      max-width: 720px;
+      margin-bottom: 32px;
+      position: relative;
+      z-index: 2;
+    }
+    #step-4 .step-body {
+      max-width: 620px;
+      font-size: 17px;
+      color: var(--body);
+      position: relative;
+      z-index: 2;
+    }
+    @media (min-width: 880px) {
+      #step-4 .step-body { font-size: 18px; max-width: 680px; }
+    }
+
+    /* Content-question subsection */
+    .content-q-section {
+      margin-top: 48px;
+      max-width: 760px;
+      position: relative;
+      z-index: 2;
+    }
+    .content-q-title {
+      font-size: 21px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 6px;
+      margin-bottom: 16px;
+    }
+    .content-q-title::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 6px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 6' fill='none' preserveAspectRatio='none'><path d='M2 3 C 40 1, 90 5, 130 3 S 210 1, 238 3' stroke='%23E8600A' stroke-width='2' stroke-linecap='round' fill='none'/></svg>");
+      background-repeat: no-repeat;
+      background-size: 100% 6px;
+    }
+    .content-q-intro {
+      font-size: 15.5px;
+      color: var(--body);
+      line-height: 1.65;
+      margin-bottom: 18px;
+      max-width: 620px;
+    }
+    @media (min-width: 880px) {
+      .content-q-intro { font-size: 16px; }
+    }
+    .content-q-bullets {
+      list-style: none;
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    @media (min-width: 880px) {
+      .content-q-bullets { grid-template-columns: 1fr 1fr; gap: 12px 36px; }
+    }
+    .content-q-bullets li {
+      font-size: 15px;
+      color: var(--text);
+      padding-left: 22px;
+      position: relative;
+      line-height: 1.4;
+    }
+    .content-q-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+
+    /* Concept disclaimer (above demo card) */
+    .concept-disclaimer-row {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-top: 40px;
+      max-width: 720px;
+      position: relative;
+      z-index: 2;
+    }
+    .concept-disclaimer-arrow {
+      width: 32px;
+      height: 28px;
+      color: var(--muted);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .concept-disclaimer-text {
+      font-size: 13.5px;
+      color: var(--secondary);
+      font-style: italic;
+      line-height: 1.55;
+    }
+    .concept-disclaimer-text .u {
+      display: inline-block;
+      border-bottom: 1px solid var(--muted);
+      padding-bottom: 1px;
+    }
+
+    /* Starter Kit demo card */
+    #step-4 .demo-card {
+      max-width: 760px;
+      border: 1.5px solid var(--orange);
+      border-radius: 18px;
+      background: var(--card-bg);
+      padding: 22px 24px;
+      margin-top: 16px;
+      box-shadow: 0 6px 22px rgba(232, 96, 10, 0.10);
+      position: relative;
+      z-index: 2;
+    }
+    @media (max-width: 640px) {
+      #step-4 .demo-card { padding: 18px 18px; border-radius: 14px; }
+    }
+    #step-4 .demo-card .demo-label {
+      position: relative;
+      padding-bottom: 8px;
+      margin-bottom: 18px;
+      display: inline-block;
+    }
+    #step-4 .demo-card .demo-label::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 28px;
+      height: 4px;
+      background: var(--orange);
+      border-radius: 2px;
+    }
+    /* Override demo-input-wrap (pill style from Step 01) to rectangular for Step 04 */
+    #step-4 .demo-input-wrap .demo-input {
+      padding: 14px 16px 14px 44px;
+      border-radius: 10px;
+      font-size: 15px;
+    }
+    #step-4 .demo-input-icon { width: 18px; height: 18px; left: 14px; }
+    #step-4 .demo-btn {
+      height: 56px;
+      margin-top: 8px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      box-shadow: 0 6px 18px rgba(232, 96, 10, 0.22);
+    }
+    #step-4 .demo-btn svg { transition: transform 0.18s ease; }
+    #step-4 .demo-btn:hover svg { transform: translateX(3px); }
+
+    /* Footer concept note */
+    .step4-concept-footer {
+      text-align: center;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      position: relative;
+      z-index: 2;
+    }
+    .step4-concept-footer svg { width: 13px; height: 13px; color: var(--orange); }
+
+    /* Background art */
+    .step4-bg-skyline {
+      position: absolute;
+      left: 0;
+      top: 60px;
+      width: 380px;
+      max-width: 38%;
+      opacity: 0.45;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .step4-bg-bridge {
+      position: absolute;
+      right: 0;
+      top: 280px;
+      width: 320px;
+      max-width: 32%;
+      opacity: 0.42;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .step4-sailboat {
+      position: absolute;
+      left: 60px;
+      top: 460px;
+      width: 56px;
+      height: 50px;
+      opacity: 0.55;
+      pointer-events: none;
+      z-index: 0;
+      color: #C9A88A;
+    }
+    .step4-cloud {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.4;
+      z-index: 0;
+    }
+    .step4-cloud-1 { right: 36%; top: 80px; width: 70px; }
+    .step4-cloud-2 { left: 38%; top: 220px; width: 60px; opacity: 0.34; }
+
+    /* Annotations and sticky note */
+    .step4-note {
+      position: absolute;
+      font-family: var(--font-hand);
+      color: var(--orange);
+      font-size: 21px;
+      line-height: 1.2;
+      z-index: 3;
+      pointer-events: none;
+      font-weight: 600;
+    }
+    .step4-note-1 {
+      top: 200px;
+      right: 5%;
+      max-width: 180px;
+      transform: rotate(-2deg);
+      text-align: left;
+    }
+    .step4-note-1-underline {
+      display: inline-block;
+      width: 90px;
+      height: 6px;
+      margin-top: 4px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 6' fill='none'><path d='M2 3 C 18 1, 36 5, 54 3 S 80 1, 88 3' stroke='%23E8600A' stroke-width='2' stroke-linecap='round' fill='none'/></svg>");
+      background-repeat: no-repeat;
+    }
+    .step4-note-1-arrow {
+      position: absolute;
+      top: 240px;
+      right: 22%;
+      width: 60px;
+      height: 50px;
+      z-index: 3;
+      pointer-events: none;
+    }
+    .step4-sticky-note {
+      position: absolute;
+      top: 380px;
+      right: 4%;
+      background: var(--sticky-note);
+      padding: 20px 22px 22px;
+      font-family: var(--font-hand);
+      font-size: 21px;
+      line-height: 1.25;
+      color: #3A2E10;
+      transform: rotate(3deg);
+      box-shadow: 0 6px 18px rgba(72,52,20,0.14);
+      max-width: 200px;
+      z-index: 3;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+    .step4-sticky-note::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      right: 22px;
+      width: 28px;
+      height: 14px;
+      background: rgba(184, 154, 78, 0.4);
+      border-radius: 1px;
+      transform: rotate(-8deg);
+    }
+    .step4-sticky-line {
+      display: inline-block;
+      width: 50px;
+      height: 6px;
+      margin-top: 6px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 6' fill='none'><path d='M2 3 C 12 1, 22 5, 32 3 S 52 1, 58 3' stroke='%233A2E10' stroke-width='1.5' stroke-linecap='round' fill='none'/></svg>");
+      background-repeat: no-repeat;
+    }
+
+    @media (max-width: 1100px) {
+      .step4-note-1 { right: 3%; max-width: 170px; font-size: 19px; }
+      .step4-note-1-arrow { right: 18%; }
+      .step4-sticky-note { right: 2%; top: 360px; max-width: 180px; font-size: 19px; }
+    }
+    @media (max-width: 940px) {
+      .step4-bg-skyline { width: 260px; top: 80px; opacity: 0.38; }
+      .step4-bg-bridge { width: 220px; top: 480px; opacity: 0.32; }
+      .step4-sailboat { display: none; }
+      .step4-cloud-1, .step4-cloud-2 { display: none; }
+      .step4-note-1 {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 6px 0 12px;
+        max-width: 220px;
+      }
+      .step4-note-1-arrow { display: none; }
+      .step4-sticky-note {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 24px 0 12px auto;
+        transform: rotate(-1.5deg);
+      }
+    }
+    @media (max-width: 640px) {
+      .step4-bg-skyline { width: 180px; top: auto; bottom: 380px; right: -16px; left: auto; opacity: 0.28; }
+      .step4-bg-bridge { left: -16px; right: auto; top: auto; bottom: 80px; width: 160px; opacity: 0.28; }
+      .step4-note-1 { font-size: 18px; max-width: 200px; }
+      .step4-sticky-note { font-size: 18px; padding: 16px 18px 18px; max-width: 220px; }
+    }
+
     @keyframes pulse-opacity {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.5; }
@@ -3324,19 +3678,116 @@
 
 <!-- STEP 04 -->
 <section class="step" id="step-4">
+  <!-- Background art -->
+  <svg class="step4-bg-skyline" aria-hidden="true" viewBox="0 0 380 320" fill="none" preserveAspectRatio="xMidYEnd meet">
+    <g stroke="#C9A88A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <!-- Empire State / tall tower -->
+      <path d="M160 320 L160 100 L176 100 L176 80 L186 80 L186 56 L191 56 L191 14 L196 14 L196 56 L201 56 L201 80 L210 80 L210 100 L226 100 L226 320 Z"/>
+      <path d="M193 14 L 193 0"/>
+      <!-- mid-rise cluster left -->
+      <path d="M20 320 L20 220 L40 220 L40 200 L64 200 L64 240 L88 240 L88 180 L112 180 L112 220 L136 220 L136 200 L160 200"/>
+      <!-- right side -->
+      <path d="M226 320 L226 240 L254 240 L254 210 L280 210 L280 230 L302 230 L302 250 L328 250 L328 220 L356 220 L356 320"/>
+      <!-- antenna details -->
+      <path d="M180 100 L 180 96 M 220 100 L 220 96"/>
+      <!-- window hints -->
+      <g stroke-width="0.8" opacity="0.55">
+        <path d="M184 120 L 202 120 M 184 140 L 202 140 M 184 160 L 202 160 M 184 180 L 202 180 M 184 200 L 202 200 M 184 220 L 202 220"/>
+        <path d="M40 240 L 60 240 M 40 260 L 60 260 M 40 280 L 60 280"/>
+        <path d="M260 260 L 296 260 M 260 280 L 296 280"/>
+      </g>
+      <!-- tree hints -->
+      <g stroke-width="1" opacity="0.7">
+        <path d="M70 320 Q 77 305 84 320 M 130 320 Q 137 308 144 320 M 240 320 Q 247 308 254 320 M 320 320 Q 327 308 334 320"/>
+      </g>
+      <!-- water ripples below -->
+      <g stroke-width="0.7" opacity="0.55">
+        <path d="M0 304 Q 30 300 60 304 Q 90 300 120 304 Q 150 300 180 304 Q 210 300 240 304 Q 270 300 300 304 Q 330 300 360 304"/>
+        <path d="M0 312 Q 30 308 60 312 Q 90 308 120 312 Q 150 308 180 312"/>
+      </g>
+    </g>
+  </svg>
+
+  <svg class="step4-bg-bridge" aria-hidden="true" viewBox="0 0 320 280" fill="none" preserveAspectRatio="xMidYEnd meet">
+    <g stroke="#C9A88A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <!-- Brooklyn Bridge -->
+      <path d="M70 280 L70 90 L110 90 L110 280 M 210 280 L210 90 L250 90 L250 280"/>
+      <path d="M75 116 L 105 116 M 215 116 L 245 116"/>
+      <path d="M75 144 L 105 144 M 215 144 L 245 144"/>
+      <path d="M78 130 Q 90 124 102 130 M 218 130 Q 230 124 242 130"/>
+      <!-- Bridge cables suspension -->
+      <path d="M10 168 Q 90 80 160 168 Q 230 80 310 168"/>
+      <path d="M10 184 Q 90 116 160 184 Q 230 116 310 184"/>
+      <!-- vertical hangers -->
+      <path d="M30 176 L 30 220 M 50 168 L 50 220 M 70 168 L 70 220 M 90 176 L 90 220 M 110 168 L 110 220 M 130 176 L 130 220 M 150 168 L 150 220 M 170 176 L 170 220 M 190 168 L 190 220 M 210 168 L 210 220 M 230 176 L 230 220 M 250 168 L 250 220 M 270 176 L 270 220 M 290 168 L 290 220 M 310 176 L 310 220"/>
+      <!-- bridge deck -->
+      <path d="M0 220 L 320 220"/>
+      <!-- distant skyline beyond bridge -->
+      <g stroke-width="0.9" opacity="0.6">
+        <path d="M260 280 L260 240 L270 240 L270 226 L280 226 L280 240 L290 240 L290 230 L310 230 L310 280"/>
+      </g>
+      <!-- flag detail -->
+      <path d="M250 90 L 250 76 L 264 80 L 264 84 L 250 84" stroke-width="1.1"/>
+      <!-- water ripples -->
+      <g stroke-width="0.7" opacity="0.6">
+        <path d="M0 244 Q 30 240 60 244 Q 90 240 120 244 Q 150 240 180 244 Q 210 240 240 244 Q 270 240 300 244 L 320 244"/>
+        <path d="M0 254 Q 30 250 60 254 Q 90 250 120 254 Q 150 250 180 254 Q 210 250 240 254"/>
+        <path d="M0 264 Q 30 260 60 264 Q 90 260 120 264 Q 150 260 180 264"/>
+      </g>
+    </g>
+  </svg>
+
+  <svg class="step4-sailboat" aria-hidden="true" viewBox="0 0 60 50" fill="none">
+    <g stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M30 6 L 30 32 L 14 32 Z"/>
+      <path d="M30 12 L 44 32 L 32 32"/>
+      <path d="M8 36 Q 14 40 22 38 Q 30 40 38 38 Q 46 40 52 36 L 48 42 Q 40 44 30 42 Q 20 44 12 42 Z"/>
+    </g>
+  </svg>
+
+  <svg class="step4-cloud step4-cloud-1" aria-hidden="true" viewBox="0 0 70 16" fill="none">
+    <path d="M4 12c0-3 3-6 7-6s5 2 8 2 4-3 10-3 8 3 8 6" stroke="#C9BFA8" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+  </svg>
+  <svg class="step4-cloud step4-cloud-2" aria-hidden="true" viewBox="0 0 60 14" fill="none">
+    <path d="M3 10c0-3 3-5 6-5s4 1 6 1 4-2 8-2 7 2 7 5" stroke="#C9BFA8" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+  </svg>
+
+  <!-- Watermark -->
   <div class="step-watermark" aria-hidden="true">04</div>
+
+  <!-- Handwritten annotation upper right -->
+  <div class="step4-note step4-note-1" aria-hidden="true">
+    Content that<br>compounds.
+    <span class="step4-note-1-underline" aria-hidden="true"></span>
+  </div>
+  <svg class="step4-note-1-arrow" aria-hidden="true" viewBox="0 0 60 50" fill="none">
+    <path d="M52 8 C 38 22, 22 32, 8 44" stroke="#E8600A" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M6 34 L 6 46 L 18 44" stroke="#E8600A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </svg>
+
+  <!-- Sticky note -->
+  <div class="step4-sticky-note" aria-hidden="true">
+    Answer the<br>real questions.<br>Help them ship.
+    <span class="step4-sticky-line" aria-hidden="true"></span>
+  </div>
+
   <div class="step-inner">
-    <p class="step-eyebrow anim">Step 04 — Technical Content</p>
-    <h2 class="step-title anim anim-delay-1">I would create content that scales beyond any single event.</h2>
+    <div class="step1-eyebrow-row anim">
+      <svg class="step1-eyebrow-spark" aria-hidden="true" viewBox="0 0 22 22" fill="none">
+        <path d="M11 1 L12.8 9.2 L 21 11 L 12.8 12.8 L 11 21 L 9.2 12.8 L 1 11 L 9.2 9.2 Z" fill="currentColor"/>
+      </svg>
+      <span class="step1-eyebrow-text">Step 04 · Technical Content</span>
+    </div>
+    <h2 class="step-title anim anim-delay-1">I would create content that scales beyond any <span class="title-mark">single event</span>.</h2>
     <div class="step-body anim anim-delay-2">
       <p>Technical content scales in a way that events cannot. One good post or walkthrough reaches founders who will never show up to a hackathon. I would write consistently, recruit others at Anthropic to contribute, and push what makes sense into video over time.</p>
       <p>But the best way to show a founder what Claude can do is to let them experience it. Here is a demo I built with Claude Code. Founders can enter their startup details and get a plan for how to best use Claude.</p>
     </div>
 
-    <div class="step-subsection anim anim-delay-3">
-      <p class="step-sub-label">The content should answer the founder's real question</p>
-      <p style="font-size:16px;color:var(--body);line-height:1.65;margin-bottom:14px;">Most founders do not need another abstract explanation of frontier models. They need to know whether Claude can help with a specific product or workflow this week.</p>
-      <ul class="step-bullets">
+    <div class="content-q-section anim anim-delay-3">
+      <div class="content-q-title">The content should answer the founder's real question</div>
+      <p class="content-q-intro">Most founders do not need another abstract explanation of frontier models. They need to know whether Claude can help with a specific product or workflow this week.</p>
+      <ul class="content-q-bullets">
         <li>Which Claude model should I use?</li>
         <li>What is the fastest useful thing I can build?</li>
         <li>How do I evaluate quality?</li>
@@ -3345,18 +3796,56 @@
       </ul>
     </div>
 
-    <p class="anim anim-delay-4" style="font-size:0.82rem;color:var(--muted);font-style:italic;text-align:center;margin-top:36px;margin-bottom:0;">This is a concept demo. It shows how I think about getting Claude into the hands of the community, not a finished product.</p>
+    <div class="concept-disclaimer-row anim anim-delay-4">
+      <svg class="concept-disclaimer-arrow" aria-hidden="true" viewBox="0 0 32 28" fill="none">
+        <path d="M4 6 C 4 18, 14 22, 28 22" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+        <path d="M22 16 L 30 22 L 24 28" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      <p class="concept-disclaimer-text"><span class="u">This</span> is a concept demo. It shows how I think about getting Claude into the hands of the community, <span class="u">not a finished product</span>.</p>
+    </div>
 
     <div class="demo-card anim anim-delay-5">
-      <p class="demo-label">Try It — Claude Starter Kit Generator</p>
-      <input type="text" class="demo-input" id="kit-startup" placeholder="Startup name (e.g. Acme AI)">
-      <input type="text" class="demo-input" id="kit-building" placeholder="What you're building">
-      <input type="text" class="demo-input" id="kit-stack" placeholder="Current stack (e.g. Next.js, Supabase, Vercel)">
-      <button class="demo-btn" id="kit-btn" onclick="generateKit()">Generate Integration Guide</button>
+      <p class="demo-label">Try It · Claude Starter Kit Generator</p>
+      <div class="demo-input-wrap">
+        <svg class="demo-input-icon" aria-hidden="true" viewBox="0 0 18 18" fill="none">
+          <path d="M3 16 L 3 4 L 9 4 L 9 16" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" fill="none"/>
+          <path d="M9 16 L 9 8 L 15 8 L 15 16" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" fill="none"/>
+          <path d="M5 7 L 5 7.01 M 7 7 L 7 7.01 M 5 10 L 5 10.01 M 7 10 L 7 10.01 M 5 13 L 5 13.01 M 7 13 L 7 13.01 M 11 11 L 11 11.01 M 13 11 L 13 11.01 M 11 13.5 L 11 13.51 M 13 13.5 L 13 13.51" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <input type="text" class="demo-input" id="kit-startup" placeholder="Startup name (e.g. Acme AI)">
+      </div>
+      <div class="demo-input-wrap">
+        <svg class="demo-input-icon" aria-hidden="true" viewBox="0 0 18 18" fill="none">
+          <path d="M9 1.5 C 5.5 1.5, 3.5 4, 3.5 7 C 3.5 9, 5 10.5, 6 12 L 6 13 L 12 13 L 12 12 C 13 10.5, 14.5 9, 14.5 7 C 14.5 4, 12.5 1.5, 9 1.5 Z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/>
+          <path d="M6.5 15 L 11.5 15 M 7 16.5 L 11 16.5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <input type="text" class="demo-input" id="kit-building" placeholder="What you're building">
+      </div>
+      <div class="demo-input-wrap">
+        <svg class="demo-input-icon" aria-hidden="true" viewBox="0 0 18 18" fill="none">
+          <path d="M9 1.5 L 16.5 5.5 L 9 9.5 L 1.5 5.5 Z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/>
+          <path d="M1.5 9 L 9 13 L 16.5 9" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" fill="none"/>
+          <path d="M1.5 12.5 L 9 16.5 L 16.5 12.5" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <input type="text" class="demo-input" id="kit-stack" placeholder="Current stack (e.g. Next.js, Supabase, Vercel)">
+      </div>
+      <button class="demo-btn" id="kit-btn" onclick="generateKit()">
+        Generate Integration Guide
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <path d="M3 9 H 14 M 10 5 L 14 9 L 10 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
       <div class="demo-output" id="kit-output">
         <div class="output-label">Your Claude Guide</div>
         <div id="kit-text"></div>
       </div>
+    </div>
+
+    <div class="step4-concept-footer anim anim-delay-5">
+      <svg viewBox="0 0 13 13" fill="none" aria-hidden="true">
+        <path d="M6.5 1 L 7.6 5.4 L 12 6.5 L 7.6 7.6 L 6.5 12 L 5.4 7.6 L 1 6.5 L 5.4 5.4 Z" fill="currentColor"/>
+      </svg>
+      <span>Concept demo, not a finished product.</span>
     </div>
   </div>
 </section>
