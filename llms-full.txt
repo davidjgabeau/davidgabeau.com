@@ -1,0 +1,84 @@
+# David Gabeau — Full Profile
+
+## Bio
+
+I'm the founder and CEO of Tapestry, a permissionless social graph protocol for onchain applications, backed by USV, Redpoint, Slow, Fabric Ventures, Stellation, and Harlem Capital.
+
+Zumi, an AI companion we built on Tapestry, has reached 160,000+ users.
+
+Before Tapestry, I was an analyst at Union Square Ventures, focused on early-stage crypto, climate, and education companies.
+
+Earlier, I dropped out of NYU, taught myself to code, and worked as an engineer at Snap and Lyft before each went public.
+
+I write about technology trends and listen to Soulection weekly.
+
+## Projects
+
+### Tapestry
+- URL: https://usetapestry.dev
+- Description: Open social graph for the next generation of apps and agents. A permissionless protocol that lets any application read and write to a shared social graph on Solana without platform permission.
+- Funding: Series A, backed by Union Square Ventures, Redpoint, Slow Ventures, Fabric Ventures, Stellation, and Harlem Capital
+- Whitepaper: https://assets.usetapestry.dev/whitepaper.pdf
+- Series A announcement: https://blog.usetapestry.dev/p/tapestry-series-a
+- GitHub protocol: https://github.com/Primitives-xyz/primitives-protocol
+- Solana starter kit: https://github.com/Primitives-xyz/solana-starter-kit
+
+### Zumi
+- URL: https://apps.apple.com/us/app/zumi-chat-dress-up/id6751237911
+- Description: Consumer app built around persistent AI companionship and long-term relationships. 160,000+ users.
+- Built on the Tapestry social graph protocol
+- TikTok: https://www.tiktok.com/tag/zumichat
+- Product Hunt: https://www.producthunt.com/products/zumigames
+
+### Primitives
+- URL: https://techcrunch.com/2022/05/25/primitives-crypto-wallet-social-network-snapchat-startup/
+- Description: Platform for collecting digital art and building community around on-chain objects. 500,000+ NFTs minted.
+- Predecessor company to Tapestry
+- Art Basel Miami exhibit: https://solana.com/news/solana-creator-art-basel-miami-beach
+
+### SSE
+- URL: https://sse.gg
+- Description: Trading platform for Solana memecoins and emerging tokens. $50M in volume.
+
+### AI Atlas NYC
+- URL: https://aiatlas.nyc
+- Description: A nightly-rebuilt market map of New York's early-stage AI ecosystem. An agent pipeline scrapes funding announcements, LinkedIn signals, and founder activity, re-clusters the map, and publishes a new version each morning. Covers 50+ companies across 11 categories including Fintech & Trading AI, Agent Infrastructure, Health & Clinical AI, Enterprise GTM & RevOps AI, and AI-Native Consumer & Social.
+- API: https://aiatlas.nyc/api/embed/atlas
+- Built and maintained by David Gabeau
+
+## Writing
+
+- Introducing Zumi 2.0 — https://blog.usetapestry.dev/p/introducing-zumi-20 (2025)
+- Tapestry's Plan to Scale Solana Social — https://blog.usetapestry.dev (2024)
+- Your Social Graph Should Be Yours — https://blog.usetapestry.dev (2024)
+- Tokenized Natural Assets — https://www.usv.com/writing/2021/04/tokenized-natural-assets/ (April 2021, Union Square Ventures)
+- Augmented Reality NFTs — https://www.usv.com/writing/2020/06/augmented-reality-nfts/ (June 2020, Union Square Ventures)
+- Synchronous Entertainment — https://www.usv.com/writing/2020/03/sychronous-entertainment/ (March 2020, Union Square Ventures)
+
+## Talks
+
+- Your Social Graph Should Be Yours — Solana Accelerate, 2025 — https://www.youtube.com/watch?v=RFefW3mSNs0
+- Open Protocols vs. Platforms — FarCon NYC, 2025 — https://www.youtube.com/playlist?list=PLrsgGZ0hNAotICPG3UXfN_5RD2mwv_CUS
+- Tapestry and Social Primitives — Solana Boston, 2024 — https://www.youtube.com/watch?v=UQNFChe5hCM&t=91s
+- Making Sense of SocialFi — Touch Grass Podcast, 2025 — https://www.youtube.com/watch?v=8ssv49TzYXg
+
+## Investments
+
+- Loula (angel) — Insurance billing platform for doulas. Credentialing, claims submission, and guaranteed payments. https://joinloula.com/
+
+## Career
+
+- Founder & CEO, Tapestry / Primitives (2021–present)
+- Analyst, Union Square Ventures (crypto, climate, education focus)
+- Software Engineer, Lyft (pre-IPO)
+- Software Engineer, Snap / Snapchat (pre-IPO)
+- Self-taught engineer; dropped out of NYU
+
+## Contact & Links
+
+- Website: https://davidgabeau.com
+- Newsletter: https://blog.usetapestry.dev (14,000+ subscribers)
+- X / Twitter: https://x.com/dgabeau
+- LinkedIn: https://www.linkedin.com/in/dgabeau/
+- GitHub: https://github.com/dgabeau
+- USV profile: https://www.usv.com/people/david-gabeau/

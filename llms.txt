@@ -1,0 +1,39 @@
+# David Gabeau
+
+> Founder and CEO of Tapestry. Previously engineer at Snap and Lyft, analyst at Union Square Ventures. Based in New York.
+
+## About
+
+David Gabeau is a founder and software engineer in New York. He dropped out of NYU, taught himself to code, and worked as an engineer at Snap and Lyft before each went public. He then joined Union Square Ventures as an analyst, focused on early-stage crypto, climate, and education companies. He is now the founder and CEO of Tapestry.
+
+## Projects
+
+- [Tapestry](https://usetapestry.dev): A permissionless social graph protocol for onchain applications. Backed by Union Square Ventures, Redpoint, Slow Ventures, Fabric Ventures, Stellation, and Harlem Capital. Tapestry lets any application read and write to a shared social graph on Solana without permission from a platform.
+- [Zumi](https://apps.apple.com/us/app/zumi-chat-dress-up/id6751237911): An AI companion app built on Tapestry with 160,000+ users. Focused on persistent AI companionship and long-term relationships.
+- [Primitives](https://techcrunch.com/2022/05/25/primitives-crypto-wallet-social-network-snapchat-startup/): A platform for collecting digital art and building community around on-chain objects. 500,000+ NFTs minted.
+- [SSE](https://sse.gg): A trading platform for Solana memecoins and emerging tokens. $50M in volume.
+- [AI Atlas NYC](https://aiatlas.nyc): A nightly-rebuilt market map of New York's early-stage AI ecosystem. An agent scrapes funding announcements, LinkedIn signals, and founder activity, re-clusters the map, and publishes a new version each morning. Data is served via a public REST API.
+
+## Writing
+
+- [Introducing Zumi 2.0](https://blog.usetapestry.dev/p/introducing-zumi-20) (2025)
+- [Tapestry's Plan to Scale Solana Social](https://blog.usetapestry.dev) (2024)
+- [Your Social Graph Should Be Yours](https://blog.usetapestry.dev) (2024)
+- [Tokenized Natural Assets](https://www.usv.com/writing/2021/04/tokenized-natural-assets/) — Union Square Ventures (2021)
+- [Augmented Reality NFTs](https://www.usv.com/writing/2020/06/augmented-reality-nfts/) — Union Square Ventures (2020)
+- [Synchronous Entertainment](https://www.usv.com/writing/2020/03/sychronous-entertainment/) — Union Square Ventures (2020)
+
+## Talks
+
+- [Your Social Graph Should Be Yours](https://www.youtube.com/watch?v=RFefW3mSNs0) — Solana Accelerate, 2025
+- [Open Protocols vs. Platforms](https://www.youtube.com/playlist?list=PLrsgGZ0hNAotICPG3UXfN_5RD2mwv_CUS) — FarCon NYC, 2025
+- [Tapestry and Social Primitives](https://www.youtube.com/watch?v=UQNFChe5hCM&t=91s) — Solana Boston, 2024
+- [Making Sense of SocialFi](https://www.youtube.com/watch?v=8ssv49TzYXg) — Touch Grass Podcast, 2025
+
+## Links
+
+- Website: https://davidgabeau.com
+- Newsletter: https://blog.usetapestry.dev (14,000+ subscribers)
+- X / Twitter: https://x.com/dgabeau
+- LinkedIn: https://www.linkedin.com/in/dgabeau/
+- GitHub: https://github.com/dgabeau
