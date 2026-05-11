@@ -2,34 +2,43 @@ import { ImageResponse } from '@vercel/og';
 
 export const config = { runtime: 'edge' };
 
+// jsdelivr serves @fontsource font files reliably from edge runtimes,
+// where fonts.googleapis.com tends to be blocked or returns empty bodies.
+async function loadFont(url) {
+  try {
+    const res = await fetch(url, { cache: 'force-cache' });
+    if (!res.ok) return null;
+    return await res.arrayBuffer();
+  } catch {
+    return null;
+  }
+}
+
 export default async function handler(req) {
   const url = new URL(req.url);
   const debug = url.searchParams.has('debug');
 
   try {
-    // Load Newsreader 700 from Google Fonts
-    let newsreader = null;
-    try {
-      const css = await fetch(
-        'https://fonts.googleapis.com/css2?family=Newsreader:wght@700',
-        { headers: { 'User-Agent': 'Mozilla/5.0' } }
-      ).then(r => r.text());
-      const u = css.match(/url\(([^)]+\.woff2)\)/)?.[1];
-      if (u) newsreader = await fetch(u).then(r => r.arrayBuffer());
-    } catch (_) {}
+    const [newsreader, inter600, inter400, caveat] = await Promise.all([
+      loadFont('https://cdn.jsdelivr.net/npm/@fontsource/newsreader@5.0.10/files/newsreader-latin-700-normal.woff'),
+      loadFont('https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.10/files/inter-latin-600-normal.woff'),
+      loadFont('https://cdn.jsdelivr.net/npm/@fontsource/inter@5.0.10/files/inter-latin-400-normal.woff'),
+      loadFont('https://cdn.jsdelivr.net/npm/@fontsource/caveat@5.0.10/files/caveat-latin-700-normal.woff'),
+    ]);
 
-    let caveat = null;
-    try {
-      const css = await fetch(
-        'https://fonts.googleapis.com/css2?family=Caveat:wght@700',
-        { headers: { 'User-Agent': 'Mozilla/5.0' } }
-      ).then(r => r.text());
-      const u = css.match(/url\(([^)]+\.woff2)\)/)?.[1];
-      if (u) caveat = await fetch(u).then(r => r.arrayBuffer());
-    } catch (_) {}
+    const fonts = [];
+    if (newsreader) fonts.push({ name: 'Newsreader', data: newsreader, weight: 700, style: 'normal' });
+    if (inter600)   fonts.push({ name: 'Inter',      data: inter600,   weight: 600, style: 'normal' });
+    if (inter400)   fonts.push({ name: 'Inter',      data: inter400,   weight: 400, style: 'normal' });
+    if (caveat)     fonts.push({ name: 'Caveat',     data: caveat,     weight: 700, style: 'normal' });
 
-    const serifFamily = newsreader ? 'Newsreader' : 'serif';
-    const handFamily = caveat ? 'Caveat' : 'serif';
+    if (fonts.length === 0) {
+      throw new Error('All font fetches failed — cannot render OG image without at least one font.');
+    }
+
+    const serif = newsreader ? 'Newsreader' : (fonts[0] ? fonts[0].name : 'serif');
+    const sans = inter600 || inter400 ? 'Inter' : (fonts[0] ? fonts[0].name : 'sans-serif');
+    const hand = caveat ? 'Caveat' : (fonts[0] ? fonts[0].name : 'cursive');
 
     return new ImageResponse(
       {
@@ -43,9 +52,10 @@ export default async function handler(req) {
             flexDirection: 'column',
             padding: '72px 88px',
             position: 'relative',
+            fontFamily: sans,
           },
           children: [
-            // Watermark "05"
+            // "05" watermark
             {
               type: 'div',
               props: {
@@ -53,12 +63,13 @@ export default async function handler(req) {
                   position: 'absolute',
                   top: '24px',
                   right: '64px',
-                  fontFamily: serifFamily,
+                  fontFamily: serif,
                   fontWeight: 700,
                   fontSize: '280px',
                   color: '#EFE6D6',
                   letterSpacing: '-8px',
                   lineHeight: 0.85,
+                  display: 'flex',
                 },
                 children: '05',
               },
@@ -78,23 +89,8 @@ export default async function handler(req) {
                   alignItems: 'center',
                 },
                 children: [
-                  {
-                    type: 'div',
-                    props: {
-                      style: {
-                        fontSize: '32px',
-                        marginRight: '14px',
-                        lineHeight: 1,
-                      },
-                      children: '✦',
-                    },
-                  },
-                  {
-                    type: 'div',
-                    props: {
-                      children: 'A Playbook by David Gabeau',
-                    },
-                  },
+                  { type: 'div', props: { style: { fontSize: '30px', marginRight: '14px', lineHeight: 1, display: 'flex' }, children: '✦' } },
+                  { type: 'div', props: { style: { display: 'flex' }, children: 'A Playbook by David Gabeau' } },
                 ],
               },
             },
@@ -103,7 +99,7 @@ export default async function handler(req) {
               type: 'div',
               props: {
                 style: {
-                  fontFamily: serifFamily,
+                  fontFamily: serif,
                   fontWeight: 700,
                   fontSize: '92px',
                   color: '#161616',
@@ -114,9 +110,9 @@ export default async function handler(req) {
                   marginBottom: '32px',
                 },
                 children: [
-                  { type: 'div', props: { children: '5 Steps to Building' } },
-                  { type: 'div', props: { children: 'Anthropic’s NYC' } },
-                  { type: 'div', props: { children: 'Startup Ecosystem.' } },
+                  { type: 'div', props: { style: { display: 'flex' }, children: '5 Steps to Building' } },
+                  { type: 'div', props: { style: { display: 'flex' }, children: 'Anthropic’s NYC' } },
+                  { type: 'div', props: { style: { display: 'flex' }, children: 'Startup Ecosystem.' } },
                 ],
               },
             },
@@ -129,6 +125,7 @@ export default async function handler(req) {
                   color: '#5E5A54',
                   lineHeight: 1.4,
                   maxWidth: '820px',
+                  display: 'flex',
                 },
                 children: 'A founder’s playbook for turning Anthropic into the center of New York’s AI startup ecosystem.',
               },
@@ -148,46 +145,17 @@ export default async function handler(req) {
                   {
                     type: 'div',
                     props: {
-                      style: {
-                        display: 'flex',
-                        alignItems: 'center',
-                      },
+                      style: { display: 'flex', alignItems: 'center' },
                       children: [
-                        {
-                          type: 'div',
-                          props: {
-                            style: {
-                              width: '14px',
-                              height: '14px',
-                              borderRadius: '999px',
-                              background: '#E8600A',
-                              marginRight: '16px',
-                            },
-                          },
-                        },
-                        {
-                          type: 'div',
-                          props: {
-                            style: {
-                              fontSize: '24px',
-                              fontWeight: 600,
-                              color: '#161616',
-                            },
-                            children: 'davidgabeau.com / anthropic',
-                          },
-                        },
+                        { type: 'div', props: { style: { width: '14px', height: '14px', borderRadius: '999px', background: '#E8600A', marginRight: '16px', display: 'flex' } } },
+                        { type: 'div', props: { style: { fontSize: '24px', fontWeight: 600, color: '#161616', display: 'flex' }, children: 'davidgabeau.com / anthropic' } },
                       ],
                     },
                   },
                   {
                     type: 'div',
                     props: {
-                      style: {
-                        fontFamily: handFamily,
-                        fontSize: '44px',
-                        color: '#E8600A',
-                        transform: 'rotate(-3deg)',
-                      },
+                      style: { fontFamily: hand, fontSize: '46px', color: '#E8600A', transform: 'rotate(-3deg)', display: 'flex' },
                       children: 'Built with Claude.',
                     },
                   },
@@ -200,21 +168,18 @@ export default async function handler(req) {
       {
         width: 1200,
         height: 630,
-        fonts: [
-          ...(newsreader ? [{ name: 'Newsreader', data: newsreader, weight: 700, style: 'normal' }] : []),
-          ...(caveat ? [{ name: 'Caveat', data: caveat, weight: 700, style: 'normal' }] : []),
-        ],
+        fonts,
       }
     );
   } catch (err) {
-    const msg = (err && err.stack) || String(err);
+    const msg = (err && (err.stack || err.message)) || String(err);
     if (debug) {
       return new Response('OG error: ' + msg, {
         status: 500,
         headers: { 'content-type': 'text/plain; charset=utf-8' },
       });
     }
-    return new Response(JSON.stringify({ error: msg.slice(0, 500) }), {
+    return new Response(JSON.stringify({ error: msg.slice(0, 600) }), {
       status: 500,
       headers: { 'content-type': 'application/json' },
     });
