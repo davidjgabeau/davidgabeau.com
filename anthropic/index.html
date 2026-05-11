@@ -32,6 +32,7 @@
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
+    @media (max-width: 640px) { body { font-size: 16px; } }
 
     /* ---- DISCLAIMER ---- */
     .disclaimer {
@@ -84,7 +85,10 @@
       transition: background 0.2s ease, transform 0.2s ease;
     }
     .nav-dot.active { background: var(--orange); transform: scale(1.2); }
-    @media (max-width: 640px) { .nav-dots { display: none; } }
+    @media (max-width: 640px) {
+      .nav-dots { display: none; }
+      .nav { padding: 0 16px; }
+    }
 
     /* ---- HERO ---- */
     .hero {
@@ -119,6 +123,17 @@
       color: var(--muted);
       max-width: 480px;
       line-height: 1.6;
+      width: 100%;
+    }
+    .hero-body-text {
+      max-width: 600px;
+      width: 100%;
+      margin: 0 auto;
+      text-align: left;
+    }
+    @media (max-width: 640px) {
+      .hero { padding: 48px 20px 36px; min-height: unset; }
+      .hero-body-text { font-size: 15px; }
     }
     .scroll-cue {
       margin-top: 36px;
@@ -195,10 +210,18 @@
     }
     .step-body p + p { margin-top: 20px; }
 
+    /* scroll-margin so sticky nav doesn't cover section tops */
+    .step { scroll-margin-top: 56px; }
+
+    /* iPad (641–860px): tighten vertical rhythm */
+    @media (max-width: 860px) {
+      .step { padding: 72px 32px 60px; }
+    }
+
     @media (max-width: 640px) {
-      .step { padding: 64px 20px 52px; }
+      .step { padding: 56px 20px 48px; }
       .step-body { font-size: 16px; }
-      .step-watermark { font-size: 100px; top: 40px; right: -10px; }
+      .step-watermark { font-size: 80px; top: 32px; right: -8px; }
     }
 
     /* ---- SCROLL ANIMATIONS ---- */
@@ -218,6 +241,9 @@
       border-top: 3px solid var(--orange);
       padding: 24px;
       margin-top: 40px;
+    }
+    @media (max-width: 640px) {
+      .demo-card { padding: 16px; margin-top: 28px; }
     }
     .demo-label {
       font-size: 11px;
@@ -377,7 +403,7 @@
 
     /* ---- METRICS TABLE ---- */
     .metrics-wrap {
-      margin-top: 44px;
+      margin-top: 28px;
       background: #fff;
       border-radius: 12px;
       box-shadow: var(--card-shadow);
@@ -385,9 +411,13 @@
     }
     .metrics-table {
       width: 100%;
-      min-width: 500px;
       border-collapse: collapse;
       font-size: 15px;
+    }
+    @media (max-width: 640px) {
+      .metrics-table { font-size: 14px; }
+      .metrics-table thead th,
+      .metrics-table tbody td { padding: 11px 14px; }
     }
     .metrics-table thead tr {
       background: var(--orange);
@@ -425,6 +455,10 @@
       text-align: center;
       max-width: 480px;
       margin: 0 auto;
+    }
+    @media (max-width: 640px) {
+      .closing { padding: 48px 20px; }
+      .closing-title { font-size: 24px; }
     }
     .closing-title {
       font-size: 32px;
@@ -491,7 +525,7 @@
   <img src="https://davidgabeau.com/images/david.png" alt="David Gabeau" class="anim" style="width:80px;height:80px;border-radius:50%;border:2px solid #E8E4DF;object-fit:cover;margin-bottom:16px;">
   <p class="hero-label anim anim-delay-1">A Playbook by David Gabeau</p>
   <h1 class="hero-title anim anim-delay-2">5 Steps to Building Anthropic's NYC Startup Ecosystem</h1>
-  <div class="hero-sub anim anim-delay-3" style="text-align:left;max-width:600px;margin:0 auto;">
+  <div class="hero-sub hero-body-text anim anim-delay-3">
     <p style="margin-bottom:16px;">Hi, my name is David Gabeau and I'm applying to be Anthropic's Claude Evangelist for NYC because I believe the proliferation of safe and beneficial AI is the defining work of our time. For the past four years I've been building Tapestry, an open social protocol, the developer ecosystem around it, and a 12-person team shipping AI products to 160,000 people.</p>
     <p>I build with Claude every day and it would be a privilege to show founders building right now why they should do the same. This website is a non-exhaustive demo of how I would think about building Anthropic's NYC startup function from zero.</p>
   </div>
@@ -654,7 +688,7 @@
 </section>
 
 <!-- CLOSING -->
-<section class="step" id="personal" style="border-top:1px solid var(--divider);">
+<section class="step" id="personal" style="border-top:1px solid var(--divider);max-width:860px;margin:0 auto;">
   <div class="step-inner">
     <h2 class="step-title anim" style="max-width:520px;">Why this role matters to me personally.</h2>
     <div class="step-body anim anim-delay-1">
