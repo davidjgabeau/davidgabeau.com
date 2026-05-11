@@ -2955,6 +2955,303 @@
       .step4-sticky-note { font-size: 18px; padding: 16px 18px 18px; max-width: 220px; }
     }
 
+    /* ===== FIRST 90 DAYS — FINAL CHAPTER ===== */
+    #plan-90 {
+      max-width: 1180px;
+      padding: 96px 32px 110px;
+      border-top: 1px solid var(--divider);
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+    }
+    @media (max-width: 880px) { #plan-90 { padding: 80px 28px 96px; } }
+    @media (max-width: 640px) { #plan-90 { padding: 64px 20px 88px; } }
+
+    #plan-90 .step-inner { position: relative; }
+
+    /* Eyebrow */
+    .plan-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Title in editorial serif */
+    #plan-90 .step-title {
+      font-family: var(--font-serif);
+      font-size: clamp(48px, 9vw, 88px);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.0;
+      color: var(--text);
+      margin-bottom: 28px;
+      max-width: 780px;
+      position: relative;
+      z-index: 2;
+    }
+    @media (max-width: 640px) {
+      #plan-90 .step-title { font-size: 56px; }
+    }
+
+    /* Intro copy */
+    #plan-90 .step-body {
+      max-width: 540px;
+      font-size: 17px;
+      color: var(--body);
+      position: relative;
+      z-index: 2;
+      line-height: 1.65;
+    }
+    @media (min-width: 880px) {
+      #plan-90 .step-body { font-size: 18px; line-height: 1.65; }
+    }
+
+    /* "90 DAYS" watermark */
+    .plan90-watermark {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      font-family: var(--font-serif);
+      font-weight: 500;
+      font-size: clamp(160px, 26vw, 360px);
+      color: #EFE6D6;
+      line-height: 0.85;
+      letter-spacing: -0.04em;
+      user-select: none;
+      pointer-events: none;
+      z-index: 0;
+      text-align: right;
+    }
+    .plan90-watermark-sub {
+      display: block;
+      font-size: 0.16em;
+      letter-spacing: 0.55em;
+      text-transform: uppercase;
+      text-align: right;
+      margin-top: 0.05em;
+      margin-right: 0.5em;
+      font-weight: 500;
+      font-family: 'Inter', sans-serif;
+    }
+    @media (max-width: 880px) {
+      .plan90-watermark { font-size: 200px; }
+    }
+    @media (max-width: 640px) {
+      .plan90-watermark { font-size: 150px; top: 0; right: -8px; opacity: 0.85; }
+    }
+
+    /* Override existing plan-cards/plan-card for editorial style */
+    #plan-90 .plan-cards {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 56px;
+      position: relative;
+      z-index: 2;
+    }
+    @media (min-width: 940px) {
+      #plan-90 .plan-cards { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    }
+    #plan-90 .plan-card {
+      background: var(--card-bg);
+      border: 1px solid var(--divider);
+      border-top: 1px solid var(--divider);
+      border-radius: 22px;
+      padding: 26px 24px 22px;
+      box-shadow: var(--card-shadow);
+    }
+    @media (max-width: 640px) {
+      #plan-90 .plan-card { border-radius: 20px; padding: 22px 20px 20px; }
+    }
+
+    /* Card icon */
+    .plan-card-head {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      align-items: start;
+      margin-bottom: 16px;
+    }
+    .plan-card-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1.5px solid var(--peach);
+      background: #FFF7EE;
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .plan-card-icon svg { width: 20px; height: 20px; }
+
+    /* Card title in editorial serif */
+    #plan-90 .plan-card-title {
+      font-family: var(--font-serif);
+      font-size: 21px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.22;
+      letter-spacing: -0.01em;
+      margin: 6px 0 0;
+    }
+    @media (min-width: 880px) {
+      #plan-90 .plan-card-title { font-size: 22px; }
+    }
+
+    #plan-90 .plan-card-body {
+      font-size: 14.5px;
+      color: var(--body);
+      line-height: 1.65;
+      margin: 0 0 18px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--divider);
+    }
+
+    #plan-90 .plan-card-bullets {
+      list-style: none;
+      padding: 0;
+      border-top: none;
+      padding-top: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    #plan-90 .plan-card-bullets li {
+      font-size: 13.5px;
+      color: var(--body);
+      padding-left: 16px;
+      line-height: 1.5;
+      position: relative;
+    }
+    #plan-90 .plan-card-bullets li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+
+    /* Final closing line */
+    #plan-90 .plan-final {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--body);
+      max-width: 760px;
+      margin: 56px 0 0;
+      position: relative;
+      z-index: 2;
+    }
+    @media (min-width: 880px) {
+      #plan-90 .plan-final {
+        font-size: 18px;
+        margin-left: 240px;
+        max-width: 820px;
+      }
+    }
+    @media (max-width: 640px) {
+      #plan-90 .plan-final { font-size: 16px; margin-top: 40px; }
+    }
+
+    /* Handwritten annotation */
+    .plan90-note {
+      position: absolute;
+      font-family: var(--font-hand);
+      color: var(--orange);
+      font-size: 22px;
+      line-height: 1.2;
+      z-index: 3;
+      pointer-events: none;
+      font-weight: 600;
+    }
+    .plan90-note-1 {
+      top: 240px;
+      right: 7%;
+      max-width: 200px;
+      transform: rotate(-2deg);
+      text-align: left;
+    }
+    .plan90-note-1-arrow {
+      position: absolute;
+      top: 320px;
+      right: 12%;
+      width: 32px;
+      height: 50px;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    /* Sticky note bottom-left */
+    .plan90-sticky-note {
+      position: absolute;
+      left: 24px;
+      bottom: 60px;
+      background: var(--sticky-note);
+      padding: 20px 22px 22px;
+      font-family: var(--font-hand);
+      font-size: 22px;
+      line-height: 1.25;
+      color: #3A2E10;
+      transform: rotate(-3deg);
+      box-shadow: 0 6px 18px rgba(72,52,20,0.14);
+      max-width: 180px;
+      z-index: 3;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+    .plan90-sticky-note::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: 22px;
+      width: 30px;
+      height: 14px;
+      background: rgba(184, 154, 78, 0.42);
+      border-radius: 1px;
+      transform: rotate(-6deg);
+    }
+    .plan90-sticky-arrow {
+      display: inline-block;
+      width: 24px;
+      height: 16px;
+      margin-top: 8px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 16' fill='none'><path d='M2 8 L 18 8 M 14 3 L 19 8 L 14 13' stroke='%233A2E10' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>");
+      background-repeat: no-repeat;
+    }
+
+    @media (max-width: 1100px) {
+      .plan90-note-1 { right: 4%; max-width: 180px; font-size: 20px; }
+      .plan90-note-1-arrow { right: 8%; }
+    }
+    @media (max-width: 940px) {
+      .plan90-note-1 {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 6px 0 16px;
+        max-width: 240px;
+      }
+      .plan90-note-1-arrow { display: none; }
+      .plan90-sticky-note {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        margin: 36px 0 0;
+      }
+    }
+    @media (max-width: 640px) {
+      .plan90-note-1 { font-size: 19px; max-width: 220px; }
+      .plan90-sticky-note { font-size: 19px; padding: 16px 18px 18px; }
+    }
+
     @keyframes pulse-opacity {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.5; }
@@ -4132,10 +4429,30 @@
   </div>
 </section>
 
-<!-- 30-60-90 DAY PLAN -->
-<section class="step" id="plan-90" style="border-top:1px solid var(--divider);max-width:860px;margin:0 auto;">
+<!-- FIRST 90 DAYS — FINAL CHAPTER -->
+<section class="step" id="plan-90">
+  <!-- 90 DAYS watermark -->
+  <div class="plan90-watermark" aria-hidden="true">
+    90<span class="plan90-watermark-sub">Days</span>
+  </div>
+
+  <!-- Handwritten annotation upper right -->
+  <div class="plan90-note plan90-note-1" aria-hidden="true">
+    Start focused.<br>Ship what works.
+  </div>
+  <svg class="plan90-note-1-arrow" aria-hidden="true" viewBox="0 0 32 50" fill="none">
+    <path d="M14 4 C 18 16, 18 30, 12 46" stroke="#E8600A" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M4 38 L 12 48 L 22 42" stroke="#E8600A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </svg>
+
+  <!-- Sticky note bottom left -->
+  <div class="plan90-sticky-note" aria-hidden="true">
+    Map,<br>test,<br>scale.
+    <span class="plan90-sticky-arrow" aria-hidden="true"></span>
+  </div>
+
   <div class="step-inner">
-    <p class="step-eyebrow anim">First 90 Days</p>
+    <p class="plan-eyebrow anim">First 90 Days</p>
     <h2 class="step-title anim anim-delay-1">How I would start</h2>
     <div class="step-body anim anim-delay-2">
       <p>If I joined Anthropic in this role I would start by turning this playbook into a focused operating cadence. The first 90 days would be about learning the current motion, finding the highest-fit startup segments, running a few high-signal experiments, and building a repeatable path from ecosystem trust to active Claude usage.</p>
@@ -4143,7 +4460,15 @@
 
     <div class="plan-cards anim anim-delay-3">
       <div class="plan-card">
-        <p class="plan-card-title">Days 1 to 30: Learn the motion and map the opportunity</p>
+        <div class="plan-card-head">
+          <span class="plan-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M2 4 L 7 2.5 L 13 4 L 18 2.5 L 18 16 L 13 17.5 L 7 16 L 2 17.5 Z" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+              <path d="M7 2.5 L 7 16 M 13 4 L 13 17.5" stroke="currentColor" stroke-width="1.3"/>
+            </svg>
+          </span>
+          <p class="plan-card-title">Days 1 to 30: Learn the motion and map the opportunity</p>
+        </div>
         <p class="plan-card-body">I would start by understanding Anthropic's existing startup motion: current goals, partner channels, activation data, sales handoff process, and product feedback loops. In parallel I would map the NYC ecosystem around Claude-relevant use cases and identify the accounts, partners, and communities most likely to produce active API usage.</p>
         <ul class="plan-card-bullets">
           <li>Meet with Startups GTM, Developer Relations, Marketing, and Product</li>
@@ -4154,7 +4479,18 @@
         </ul>
       </div>
       <div class="plan-card">
-        <p class="plan-card-title">Days 31 to 60: Run focused activation experiments</p>
+        <div class="plan-card-head">
+          <span class="plan-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M8 2 L 8 7.5 L 4 16 Q 3 18 5 18 L 15 18 Q 17 18 16 16 L 12 7.5 L 12 2" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+              <path d="M7 2 L 13 2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+              <path d="M6.5 12 L 13.5 12" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" opacity="0.7"/>
+              <circle cx="9.2" cy="14.5" r="0.8" fill="currentColor"/>
+              <circle cx="11.4" cy="15.5" r="0.7" fill="currentColor"/>
+            </svg>
+          </span>
+          <p class="plan-card-title">Days 31 to 60: Run focused activation experiments</p>
+        </div>
         <p class="plan-card-body">Once the map is clear I would run a small number of focused programs designed to create real technical activation. Three sharp experiments with strong follow-up over ten broad events with weak conversion.</p>
         <ul class="plan-card-bullets">
           <li>Run the first partner-led Claude startup workshop</li>
@@ -4165,7 +4501,15 @@
         </ul>
       </div>
       <div class="plan-card">
-        <p class="plan-card-title">Days 61 to 90: Scale what works</p>
+        <div class="plan-card-head">
+          <span class="plan-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" fill="none">
+              <path d="M2 14 L 7 9 L 10 11 L 17 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <path d="M12 4 L 17 4 L 17 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </span>
+          <p class="plan-card-title">Days 61 to 90: Scale what works</p>
+        </div>
         <p class="plan-card-body">By month three I would double down on the programs showing real usage signal. The goal is to move from promising activity to a repeatable operating system for NYC startup activation.</p>
         <ul class="plan-card-bullets">
           <li>Scale the strongest partner or community channel</li>
