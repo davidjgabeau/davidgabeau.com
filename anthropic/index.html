@@ -1371,11 +1371,11 @@
       margin-bottom: 36px;
       line-height: 1.05;
     }
-    #step-1 .title-mark {
+    .title-mark {
       position: relative;
       display: inline-block;
     }
-    #step-1 .title-mark::after {
+    .title-mark::after {
       content: '';
       position: absolute;
       left: 0;
@@ -1655,6 +1655,358 @@
       .step1-bg-bridge { left: -16px; bottom: 60px; width: 140px; opacity: 0.28; }
       .step1-note-1 { font-size: 17px; max-width: 180px; }
       .step1-sticky-note { font-size: 18px; max-width: 200px; padding: 16px 18px 18px; }
+    }
+
+    /* ===== STEP 02 EDITORIAL REDESIGN ===== */
+    #step-2 {
+      max-width: 1180px;
+      padding: 100px 32px 110px;
+      overflow: hidden;
+    }
+    @media (max-width: 880px) {
+      #step-2 { padding: 80px 28px 88px; }
+    }
+    @media (max-width: 640px) {
+      #step-2 { padding: 60px 20px 72px; }
+    }
+
+    #step-2 .step-inner { position: relative; }
+
+    #step-2 .step-watermark {
+      font-size: clamp(160px, 24vw, 320px);
+      top: -30px;
+      right: -10px;
+      opacity: 0.7;
+      color: #EFE6D6;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+    }
+    @media (max-width: 640px) {
+      #step-2 .step-watermark { font-size: 130px; top: -10px; right: -14px; opacity: 0.5; }
+    }
+
+    #step-2 .step-title {
+      font-size: clamp(36px, 5.5vw, 60px);
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      max-width: 640px;
+      margin-bottom: 32px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .step2-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 36px;
+      margin-top: 8px;
+      position: relative;
+      z-index: 2;
+    }
+    @media (min-width: 940px) {
+      .step2-grid {
+        grid-template-columns: 1.15fr 1fr;
+        gap: 56px;
+        align-items: start;
+      }
+    }
+
+    #step-2 .step-body {
+      max-width: 580px;
+      font-size: 17px;
+      color: var(--body);
+    }
+    @media (min-width: 880px) {
+      #step-2 .step-body { font-size: 18px; }
+    }
+
+    /* Partner-prioritization card */
+    .partner-card {
+      background: var(--card-bg);
+      border: 1px solid var(--divider);
+      border-radius: 22px;
+      padding: 24px 26px 8px;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      z-index: 2;
+    }
+    @media (max-width: 640px) {
+      .partner-card { border-radius: 18px; padding: 20px 18px 6px; }
+    }
+    .partner-card-head {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      align-items: start;
+      margin-bottom: 14px;
+    }
+    .partner-card-headicon {
+      width: 40px;
+      height: 40px;
+      color: var(--orange);
+      flex-shrink: 0;
+    }
+    .partner-card-title {
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-top: 4px;
+    }
+    .partner-card-underline {
+      display: inline-block;
+      width: 84px;
+      height: 7px;
+      margin-top: 4px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 84 7' fill='none'><path d='M2 4 C 16 1, 34 6, 50 3 S 74 1, 82 3' stroke='%23E8600A' stroke-width='2.2' stroke-linecap='round' fill='none'/></svg>");
+      background-repeat: no-repeat;
+    }
+    .partner-row {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 14px 0;
+      border-bottom: 1px dashed var(--divider);
+    }
+    .partner-row:last-child { border-bottom: none; }
+    .partner-row-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1.5px solid var(--peach);
+      background: var(--card-bg);
+      color: var(--orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .partner-row-icon svg { width: 16px; height: 16px; }
+    .partner-row-text {
+      font-size: 14.5px;
+      color: var(--body);
+      line-height: 1.45;
+      padding-top: 6px;
+    }
+    @media (min-width: 880px) {
+      .partner-row-text { font-size: 15px; }
+    }
+
+    /* Key partners strip */
+    .key-partners-strip {
+      margin-top: 56px;
+      background: var(--card-bg);
+      border: 1px solid var(--divider);
+      border-radius: 18px;
+      padding: 22px 28px 24px;
+      box-shadow: var(--card-shadow);
+      position: relative;
+      z-index: 2;
+    }
+    .key-partners-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 18px;
+    }
+    .key-partners-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px 24px;
+      align-items: center;
+    }
+    @media (min-width: 1024px) {
+      .key-partners-row { grid-template-columns: repeat(8, 1fr); gap: 18px 24px; }
+    }
+    .key-partner {
+      font-size: 16px;
+      font-weight: 800;
+      color: #1F4F3D;
+      text-align: center;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      font-family: 'Inter', sans-serif;
+    }
+    .key-partner-serif {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      font-style: italic;
+      font-size: 16px;
+      letter-spacing: -0.01em;
+    }
+    .key-partner-blue {
+      color: #1F3A7A;
+      font-weight: 800;
+      font-size: 14px;
+    }
+    .key-partner-dark {
+      color: #161616;
+      font-weight: 800;
+    }
+    .key-partner-tracked {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+      font-weight: 700;
+      color: #1F4F3D;
+    }
+    .key-partners-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-top: 18px;
+      font-family: var(--font-hand);
+      color: var(--orange);
+      font-size: 18px;
+      line-height: 1.25;
+      font-weight: 600;
+    }
+    .key-partners-note-arrow {
+      width: 24px;
+      height: 22px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    @media (max-width: 940px) {
+      .key-partners-strip { padding: 20px; margin-top: 40px; }
+      .key-partners-row { grid-template-columns: repeat(4, 1fr); gap: 18px 16px; }
+      .key-partner { font-size: 14px; }
+      .key-partner-blue { font-size: 12px; }
+      .key-partner-tracked { font-size: 11px; }
+      .key-partner-serif { font-size: 14px; }
+    }
+    @media (max-width: 640px) {
+      .key-partners-strip { display: none; }
+    }
+
+    /* Background art */
+    .step2-bg-skyline {
+      position: absolute;
+      right: 6%;
+      top: 60px;
+      width: 440px;
+      max-width: 45%;
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .step2-bg-bridge {
+      position: absolute;
+      left: -10px;
+      bottom: 180px;
+      width: 240px;
+      max-width: 26%;
+      opacity: 0.38;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .step2-cloud {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.4;
+      z-index: 0;
+    }
+    .step2-cloud-1 { right: 12%; top: 60px; width: 80px; }
+    .step2-cloud-2 { right: 38%; top: 240px; width: 60px; opacity: 0.32; }
+
+    /* Annotations and sticky note */
+    .step2-note {
+      position: absolute;
+      font-family: var(--font-hand);
+      color: var(--orange);
+      font-size: 21px;
+      line-height: 1.2;
+      z-index: 3;
+      pointer-events: none;
+      font-weight: 600;
+    }
+    .step2-note-1 {
+      top: 110px;
+      right: 4%;
+      max-width: 200px;
+      transform: rotate(-2deg);
+      text-align: left;
+    }
+    .step2-note-1-arrow {
+      position: absolute;
+      top: 200px;
+      right: 16%;
+      width: 56px;
+      height: 60px;
+      z-index: 3;
+      pointer-events: none;
+    }
+    .step2-sticky-note {
+      position: absolute;
+      bottom: 80px;
+      right: 4%;
+      background: var(--sticky-note);
+      padding: 20px 22px 22px;
+      font-family: var(--font-hand);
+      font-size: 21px;
+      line-height: 1.25;
+      color: #3A2E10;
+      transform: rotate(2.5deg);
+      box-shadow: 0 6px 18px rgba(72,52,20,0.14);
+      max-width: 220px;
+      z-index: 3;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+    .step2-sticky-note::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      right: 22px;
+      width: 14px;
+      height: 30px;
+      border: 2px solid #B89A4E;
+      border-radius: 6px 6px 2px 2px;
+      border-bottom: none;
+    }
+    .step2-sticky-line {
+      display: inline-block;
+      width: 50px;
+      height: 6px;
+      margin-top: 6px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 6' fill='none'><path d='M2 3 C 12 1, 22 5, 32 3 S 52 1, 58 3' stroke='%233A2E10' stroke-width='1.5' stroke-linecap='round' fill='none'/></svg>");
+      background-repeat: no-repeat;
+    }
+    @media (max-width: 1100px) {
+      .step2-note-1 { right: 2%; max-width: 180px; font-size: 19px; }
+      .step2-note-1-arrow { right: 12%; }
+      .step2-sticky-note { right: 2%; max-width: 200px; font-size: 19px; }
+    }
+    @media (max-width: 940px) {
+      .step2-bg-skyline { width: 280px; top: 80px; right: 0; opacity: 0.38; }
+      .step2-bg-bridge { width: 180px; bottom: 240px; opacity: 0.3; }
+      .step2-note-1 {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 6px 0 20px;
+        max-width: 220px;
+        text-align: left;
+      }
+      .step2-note-1-arrow { display: none; }
+      .step2-sticky-note {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin: 36px 0 0 auto;
+        transform: rotate(-1.5deg);
+      }
+      .step2-cloud-1, .step2-cloud-2 { display: none; }
+    }
+    @media (max-width: 640px) {
+      .step2-bg-skyline { width: 200px; top: auto; bottom: 540px; right: -10px; opacity: 0.3; }
+      .step2-bg-bridge { left: -16px; bottom: 60px; width: 140px; opacity: 0.26; }
+      .step2-note-1 { font-size: 17px; max-width: 200px; }
+      .step2-sticky-note { font-size: 18px; padding: 16px 18px 18px; max-width: 220px; }
     }
 
     @keyframes pulse-opacity {
@@ -2107,39 +2459,173 @@
 
 <!-- STEP 02 -->
 <section class="step" id="step-2">
+  <!-- Background storybook art -->
+  <svg class="step2-bg-skyline" aria-hidden="true" viewBox="0 0 460 320" fill="none" preserveAspectRatio="xMidYMid meet">
+    <g stroke="#C9A88A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <!-- Empire State Building (centered tall) -->
+      <path d="M196 320 L196 90 L208 90 L208 70 L216 70 L216 48 L221 48 L221 14 L226 14 L226 48 L231 48 L231 70 L239 70 L239 90 L250 90 L250 320 Z"/>
+      <path d="M223 14 L 223 0"/>
+      <!-- mid-rise cluster -->
+      <path d="M40 320 L40 220 L60 220 L60 200 L84 200 L84 240 L108 240 L108 180 L132 180 L132 220 L156 220 L156 200 L180 200 L180 320"/>
+      <path d="M180 320 L180 240 L196 240"/>
+      <path d="M250 320 L250 240 L274 240 L274 210 L300 210 L300 230 L322 230 L322 250 L348 250 L348 220 L374 220 L374 320"/>
+      <path d="M374 320 L374 180 L390 180 L390 160 L408 160 L408 180 L426 180 L426 320"/>
+      <!-- subtle tree hints near base -->
+      <g stroke-width="1" opacity="0.8">
+        <path d="M85 320 Q 92 305 99 320 M 156 320 Q 163 308 170 320 M 260 320 Q 267 308 274 320 M 348 320 Q 355 308 362 320"/>
+      </g>
+      <!-- window hints -->
+      <g stroke-width="0.8" opacity="0.55">
+        <path d="M214 110 L 230 110 M 214 130 L 230 130 M 214 150 L 230 150 M 214 170 L 230 170 M 214 190 L 230 190 M 214 210 L 230 210"/>
+        <path d="M395 200 L 420 200 M 395 220 L 420 220 M 395 240 L 420 240 M 395 260 L 420 260"/>
+      </g>
+    </g>
+  </svg>
+
+  <svg class="step2-bg-bridge" aria-hidden="true" viewBox="0 0 240 200" fill="none" preserveAspectRatio="xMidYEnd meet">
+    <g stroke="#C9A88A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M50 200 L50 70 L80 70 L80 200 M 160 200 L160 70 L190 70 L190 200"/>
+      <path d="M55 90 L 75 90 M 165 90 L 185 90"/>
+      <path d="M55 120 L 75 120 M 165 120 L 185 120"/>
+      <path d="M58 105 Q 65 100 72 105 M 168 105 Q 175 100 182 105"/>
+      <path d="M10 130 Q 65 60 120 130 Q 175 60 230 130"/>
+      <path d="M10 145 Q 65 90 120 145 Q 175 90 230 145"/>
+      <path d="M30 138 L 30 175 M 50 130 L 50 175 M 80 130 L 80 175 M 100 138 L 100 175 M 120 130 L 120 175 M 140 138 L 140 175 M 160 130 L 160 175 M 190 130 L 190 175 M 210 138 L 210 175 M 230 130 L 230 175"/>
+      <path d="M0 175 L 240 175"/>
+      <g stroke-width="0.7" opacity="0.7">
+        <path d="M0 188 Q 30 184 60 188 Q 90 184 120 188 Q 150 184 180 188 Q 210 184 240 188"/>
+        <path d="M0 196 Q 30 192 60 196 Q 90 192 120 196 Q 150 192 180 196 Q 210 192 240 196"/>
+      </g>
+    </g>
+  </svg>
+
+  <svg class="step2-cloud step2-cloud-1" aria-hidden="true" viewBox="0 0 80 18" fill="none">
+    <path d="M4 13c0-4 4-7 9-7s6 2 9 2 5-4 11-4 9 3 9 7" stroke="#C9BFA8" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+    <path d="M40 16c0-3 3-5 7-5s5 2 7 2 4-3 8-3 7 2 7 5" stroke="#C9BFA8" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.7"/>
+  </svg>
+  <svg class="step2-cloud step2-cloud-2" aria-hidden="true" viewBox="0 0 60 16" fill="none">
+    <path d="M4 12c0-3 3-6 7-6s5 2 8 2 4-3 10-3 8 3 8 6" stroke="#C9BFA8" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+  </svg>
+
+  <!-- Watermark -->
   <div class="step-watermark" aria-hidden="true">02</div>
+
+  <!-- Handwritten note (upper right) -->
+  <div class="step2-note step2-note-1" aria-hidden="true">
+    Trusted partners<br>create pull.<br>Not push.
+  </div>
+  <svg class="step2-note-1-arrow" aria-hidden="true" viewBox="0 0 56 60" fill="none">
+    <path d="M48 4 C 30 16, 14 32, 6 56" stroke="#E8600A" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M4 46 L 6 58 L 18 54" stroke="#E8600A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </svg>
+
+  <!-- Sticky note (bottom right) -->
+  <div class="step2-sticky-note" aria-hidden="true">
+    Real relationships<br>compound faster<br>than any campaign.
+    <span class="step2-sticky-line" aria-hidden="true"></span>
+  </div>
+
   <div class="step-inner">
-    <p class="step-eyebrow anim">Step 02 — Network Activation</p>
-    <h2 class="step-title anim anim-delay-1">I would build relationships with the funds, accelerators, and communities that matter.</h2>
-    <div class="step-body anim anim-delay-2">
-      <p>The NYC AI ecosystem runs through a small number of funds and accelerators. USV. a16z. Lerer Hippeau. Bessemer. BoxGroup. ERA. Techstars NYC. Thrive. And others. If the partners at those firms think of you first when a portfolio company asks what AI to build on, you have distribution that no content budget can buy.</p>
-      <p>I would activate both my existing venture network and build new relationships through 1:1 calls and small group dinners, with every warm intro mapped to a clear GTM handoff. Alongside that, a selective NYC Claude Slack — high signal, low noise — where founders get early access to events, credits, and each other.</p>
+    <div class="step1-eyebrow-row anim">
+      <svg class="step1-eyebrow-spark" aria-hidden="true" viewBox="0 0 22 22" fill="none">
+        <path d="M11 1 L12.8 9.2 L 21 11 L 12.8 12.8 L 11 21 L 9.2 12.8 L 1 11 L 9.2 9.2 Z" fill="currentColor"/>
+      </svg>
+      <span class="step1-eyebrow-text">Step 02 · Network Activation</span>
+    </div>
+    <h2 class="step-title anim anim-delay-1">I would build relationships with the funds, accelerators, and communities that <span class="title-mark">matter</span>.</h2>
+
+    <div class="step2-grid">
+      <div class="step-body anim anim-delay-2">
+        <p>The NYC AI ecosystem runs through a small number of funds and accelerators. USV. a16z. Lerer Hippeau. Bessemer. BoxGroup. ERA. Techstars NYC. Thrive. And others. If the partners at those firms think of you first when a portfolio company asks what AI to build on, you have distribution that no content budget can buy.</p>
+        <p>I would activate both my existing venture network and build new relationships through 1:1 calls and small group dinners, with every warm intro mapped to a clear GTM handoff. Alongside that, a selective NYC Claude Slack, high signal, low noise, where founders get early access to events, credits, and each other.</p>
+      </div>
+
+      <div class="partner-card anim anim-delay-3">
+        <div class="partner-card-head">
+          <svg class="partner-card-headicon" aria-hidden="true" viewBox="0 0 40 40" fill="none">
+            <circle cx="13" cy="14" r="4.5" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="27" cy="14" r="4.5" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="20" cy="11" r="4.5" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M4 32 Q 13 24 20 24 Q 27 24 36 32" stroke="currentColor" stroke-width="1.6" fill="none"/>
+          </svg>
+          <div class="partner-card-title">Partner surfaces<br>I would <span class="title-mark">prioritize</span></div>
+        </div>
+
+        <div class="partner-row">
+          <div class="partner-row-icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none">
+              <circle cx="8" cy="8" r="6.4" stroke="currentColor" stroke-width="1.4"/>
+              <path d="M8 4.6 V 11.4 M 6 6.2 H 9 Q 10 6.2 10 7.2 Q 10 8.2 9 8.2 H 7 Q 6 8.2 6 9.2 Q 6 10.2 7 10.2 H 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+          <div class="partner-row-text">Early-stage funds with high AI-founder density</div>
+        </div>
+        <div class="partner-row">
+          <div class="partner-row-icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none">
+              <path d="M8 1.5 C 11 4.5, 11.5 8, 10 12 L 6 12 C 4.5 8, 5 4.5, 8 1.5 Z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/>
+              <circle cx="8" cy="6.2" r="1.4" stroke="currentColor" stroke-width="1.2" fill="none"/>
+              <path d="M5.4 11.2 L 3.2 13 L 4.5 14 M 10.6 11.2 L 12.8 13 L 11.5 14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <path d="M6.4 13.2 L 7.2 14.5 M 9.6 13.2 L 8.8 14.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+            </svg>
+          </div>
+          <div class="partner-row-text">Accelerators and founder programs with technical cohorts</div>
+        </div>
+        <div class="partner-row">
+          <div class="partner-row-icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none">
+              <path d="M1.5 6.5 L 8 3.5 L 14.5 6.5 L 8 9.5 L 1.5 6.5 Z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/>
+              <path d="M4.5 7.8 L 4.5 11 Q 8 13 11.5 11 L 11.5 7.8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" fill="none"/>
+              <path d="M14 7 L 14 11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+              <path d="M14 11 Q 14 12 13.4 12 Q 14.6 12 14.6 11" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" fill="none"/>
+            </svg>
+          </div>
+          <div class="partner-row-text">University labs and student founder communities</div>
+        </div>
+        <div class="partner-row">
+          <div class="partner-row-icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none">
+              <path d="M1.5 8 L 8 2.5 L 14.5 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <path d="M3 7 L 3 14 L 13 14 L 13 7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <path d="M6.5 14 L 6.5 9.5 L 9.5 9.5 L 9.5 14" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </div>
+          <div class="partner-row-text">Builder houses, demo nights, and operator-led communities</div>
+        </div>
+        <div class="partner-row">
+          <div class="partner-row-icon" aria-hidden="true">
+            <svg viewBox="0 0 16 16" fill="none">
+              <path d="M2 14 L 2 4 L 8 4 L 8 14" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" fill="none"/>
+              <path d="M8 14 L 8 7 L 14 7 L 14 14" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round" fill="none"/>
+              <path d="M4 7 L 4 7.01 M 6 7 L 6 7.01 M 4 9.5 L 4 9.51 M 6 9.5 L 6 9.51 M 4 12 L 4 12.01 M 6 12 L 6 12.01 M 10 9 L 10 9.01 M 12 9 L 12 9.01 M 10 11.5 L 10 11.51 M 12 11.5 L 12 11.51" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M2 14 L 14 14" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="partner-row-text">Vertical communities in healthcare, fintech, developer tools, consumer AI, and infrastructure</div>
+        </div>
+      </div>
     </div>
 
-    <div class="stats-row anim anim-delay-3">
-      <div class="stat">
-        <div class="stat-num">8</div>
-        <div class="stat-label">VC partnerships by month 3</div>
+    <!-- Desktop key partners strip -->
+    <div class="key-partners-strip anim anim-delay-4">
+      <div class="key-partners-label">Key Partners in NYC</div>
+      <div class="key-partners-row">
+        <div class="key-partner key-partner-tracked">USV</div>
+        <div class="key-partner key-partner-dark">a16z</div>
+        <div class="key-partner key-partner-serif">Lerer Hippeau</div>
+        <div class="key-partner key-partner-blue">Bessemer<br><span style="font-size:10px;font-weight:600;letter-spacing:0.05em;">Venture Partners</span></div>
+        <div class="key-partner key-partner-dark">BoxGroup</div>
+        <div class="key-partner key-partner-dark">ERA</div>
+        <div class="key-partner key-partner-dark" style="font-size:13px;">techstars_<br><span style="font-size:12px;">New York</span></div>
+        <div class="key-partner key-partner-tracked">THRIVE<br>CAPITAL</div>
       </div>
-      <div class="stat">
-        <div class="stat-num">20</div>
-        <div class="stat-label">portfolio intros with GTM handoff</div>
+      <div class="key-partners-note">
+        <svg class="key-partners-note-arrow" aria-hidden="true" viewBox="0 0 24 22" fill="none">
+          <path d="M3 4 C 8 8, 14 12, 21 18" stroke="#E8600A" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+          <path d="M14 18 L 22 19 L 19 12" stroke="#E8600A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+        <span>These relationships open doors.<br>We help founders walk through.</span>
       </div>
-      <div class="stat">
-        <div class="stat-num">100</div>
-        <div class="stat-label">Slack members by day 90</div>
-      </div>
-    </div>
-
-    <div class="step-subsection anim anim-delay-4">
-      <p class="step-sub-label">Partner surfaces I would prioritize</p>
-      <ul class="step-bullets">
-        <li>Early-stage funds with high AI-founder density</li>
-        <li>Accelerators and founder programs with technical cohorts</li>
-        <li>University labs and student founder communities</li>
-        <li>Builder houses, demo nights, and operator-led communities</li>
-        <li>Vertical communities in healthcare, fintech, developer tools, consumer AI, and infrastructure</li>
-      </ul>
     </div>
   </div>
 </section>
