@@ -3252,6 +3252,299 @@
       .plan90-sticky-note { font-size: 19px; padding: 16px 18px 18px; }
     }
 
+    /* ===== PERSONAL MISSION CHAPTER ===== */
+    #personal {
+      max-width: 1180px !important;
+      padding: 96px 32px 96px;
+      border-top: 1px solid var(--divider);
+      margin: 0 auto;
+      overflow: hidden;
+      position: relative;
+    }
+    @media (max-width: 880px) { #personal { padding: 80px 28px 80px; } }
+    @media (max-width: 640px) { #personal { padding: 64px 20px 72px; } }
+
+    #personal .step-inner { position: relative; }
+
+    /* Faded "Everyone" cursive bottom right */
+    .personal-everyone {
+      position: absolute;
+      right: -30px;
+      bottom: 110px;
+      font-family: var(--font-hand);
+      font-size: clamp(80px, 14vw, 180px);
+      font-weight: 500;
+      color: rgba(232, 96, 10, 0.08);
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      pointer-events: none;
+      z-index: 0;
+      user-select: none;
+      transform: rotate(-3deg);
+    }
+    @media (max-width: 880px) { .personal-everyone { display: none; } }
+
+    /* Top "Access is everything." annotation */
+    .personal-top-note {
+      font-family: var(--font-hand);
+      color: var(--orange);
+      font-size: 22px;
+      line-height: 1.1;
+      margin-bottom: 36px;
+      display: inline-block;
+      font-weight: 600;
+      transform: rotate(-2deg);
+      position: relative;
+      z-index: 2;
+    }
+    .personal-top-note::after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 5px;
+      margin-top: 4px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 5' fill='none'><path d='M2 3 C 22 1, 42 5, 62 3 S 90 1, 98 3' stroke='%23E8600A' stroke-width='1.8' stroke-linecap='round' fill='none'/></svg>");
+      background-repeat: no-repeat;
+    }
+
+    /* Small spark next to the top annotation (decorative) */
+    .personal-top-spark {
+      position: absolute;
+      top: 84px;
+      left: 110px;
+      width: 24px;
+      height: 24px;
+      color: var(--orange);
+      z-index: 2;
+      pointer-events: none;
+    }
+    @media (max-width: 880px) { .personal-top-spark { display: none; } }
+
+    /* Editorial serif headline */
+    #personal .step-title {
+      font-family: var(--font-serif) !important;
+      font-size: clamp(48px, 9vw, 96px);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.0;
+      color: var(--text);
+      margin-bottom: 28px !important;
+      max-width: 880px !important;
+      position: relative;
+      z-index: 2;
+    }
+    .personal-period { color: var(--orange); }
+    .personal-title-mark {
+      position: relative;
+      display: inline-block;
+    }
+    .personal-title-mark::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -10px;
+      height: 10px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 10' fill='none' preserveAspectRatio='none'><path d='M2 6 C 60 1, 130 10, 180 5 S 280 1, 318 5' stroke='%23E8600A' stroke-width='3.5' stroke-linecap='round' fill='none'/></svg>");
+      background-repeat: no-repeat;
+      background-size: 100% 10px;
+    }
+    @media (max-width: 640px) {
+      #personal .step-title { font-size: 56px; }
+    }
+
+    /* Body copy */
+    #personal .step-body {
+      max-width: 680px !important;
+      font-size: 17px;
+      color: var(--body);
+      line-height: 1.75;
+      position: relative;
+      z-index: 2;
+      margin-top: 12px;
+    }
+    @media (min-width: 880px) {
+      #personal .step-body { font-size: 18px; }
+    }
+    #personal .step-body p + p { margin-top: 22px; }
+
+    /* Lead line "There is one more thing worth saying." */
+    .personal-lead {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700 !important;
+      color: var(--text) !important;
+    }
+    .personal-lead-spark {
+      width: 18px;
+      height: 18px;
+      color: var(--orange);
+      flex-shrink: 0;
+    }
+
+    /* Thin divider between paragraphs in body */
+    .personal-divider {
+      max-width: 680px;
+      height: 1px;
+      background: var(--divider);
+      border: none;
+      margin: 22px 0 !important;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Final emphasis treatment */
+    .personal-final-row {
+      margin-top: 6px !important;
+      font-weight: 600 !important;
+      color: var(--text) !important;
+    }
+    .personal-final-emph {
+      position: relative;
+      display: inline-block;
+    }
+    .personal-final-emph::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -3px;
+      height: 5px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 5' fill='none' preserveAspectRatio='none'><path d='M2 3 C 22 1, 42 5, 62 3 S 100 1, 118 3' stroke='%23E8600A' stroke-width='2' stroke-linecap='round' fill='none'/></svg>");
+      background-repeat: no-repeat;
+      background-size: 100% 5px;
+    }
+
+    /* Sticky note */
+    .personal-sticky-note {
+      position: absolute;
+      top: 80px;
+      right: 32px;
+      background: var(--sticky-note);
+      padding: 22px 24px 24px;
+      font-family: var(--font-hand);
+      font-size: 22px;
+      line-height: 1.28;
+      color: #3A2E10;
+      transform: rotate(2.5deg);
+      box-shadow: 0 8px 22px rgba(72,52,20,0.16);
+      max-width: 230px;
+      z-index: 3;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+    .personal-sticky-note::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      right: 22px;
+      width: 40px;
+      height: 16px;
+      background: rgba(184, 154, 78, 0.42);
+      border-radius: 1px;
+      transform: rotate(-5deg);
+    }
+    .personal-sticky-spark {
+      width: 16px;
+      height: 16px;
+      color: var(--orange);
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 6px;
+      margin-top: -3px;
+    }
+    .personal-sticky-emph {
+      position: relative;
+      display: inline-block;
+    }
+    .personal-sticky-emph::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -3px;
+      height: 5px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 5' fill='none' preserveAspectRatio='none'><path d='M2 3 C 18 1, 34 5, 50 3 S 70 1, 78 3' stroke='%23E8600A' stroke-width='2' stroke-linecap='round' fill='none'/></svg>");
+      background-repeat: no-repeat;
+      background-size: 100% 5px;
+    }
+
+    /* Background skyline lower-right */
+    .personal-bg-skyline {
+      position: absolute;
+      right: -10px;
+      bottom: 120px;
+      width: 380px;
+      max-width: 38%;
+      opacity: 0.42;
+      pointer-events: none;
+      z-index: 0;
+    }
+    @media (max-width: 880px) {
+      .personal-bg-skyline { width: 200px; bottom: 200px; opacity: 0.32; }
+    }
+    @media (max-width: 640px) {
+      .personal-bg-skyline { display: none; }
+    }
+
+    /* Bottom illustration row */
+    .personal-bottom {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--divider);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      position: relative;
+      z-index: 2;
+      flex-wrap: wrap;
+    }
+    .personal-bottom-item {
+      display: flex;
+      align-items: flex-end;
+      gap: 0;
+    }
+    .personal-bottom-item svg {
+      width: 88px;
+      height: 64px;
+      color: #B89C7A;
+      opacity: 0.85;
+    }
+    .personal-bottom-sign {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #B89C7A;
+      line-height: 1.5;
+      text-align: center;
+      border: 1.5px solid #C9A88A;
+      padding: 12px 14px;
+      border-radius: 3px;
+      background: #FFF7EE;
+    }
+    @media (max-width: 640px) {
+      .personal-bottom { gap: 14px; margin-top: 40px; }
+      .personal-bottom-item svg { width: 64px; height: 50px; }
+      .personal-bottom-sign { font-size: 9px; padding: 8px 10px; }
+    }
+
+    @media (max-width: 880px) {
+      .personal-sticky-note {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 0 0 28px auto;
+        transform: rotate(-1.5deg);
+      }
+    }
+    @media (max-width: 640px) {
+      .personal-sticky-note { font-size: 19px; padding: 18px 20px 20px; max-width: 220px; }
+      .personal-top-note { font-size: 19px; margin-bottom: 24px; }
+    }
+
     @keyframes pulse-opacity {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.5; }
@@ -4415,16 +4708,127 @@
   </div>
 </section>
 
-<!-- CLOSING -->
-<section class="step" id="personal" style="border-top:1px solid var(--divider);max-width:860px;margin:0 auto;">
+<!-- PERSONAL MISSION CHAPTER -->
+<section class="step" id="personal">
+  <!-- Faded "Everyone" cursive bottom right -->
+  <div class="personal-everyone" aria-hidden="true">Everyone</div>
+
+  <!-- Background skyline lower right -->
+  <svg class="personal-bg-skyline" aria-hidden="true" viewBox="0 0 380 280" fill="none" preserveAspectRatio="xMidYEnd meet">
+    <g stroke="#C9A88A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <!-- Empire State -->
+      <path d="M160 280 L160 90 L176 90 L176 70 L186 70 L186 48 L191 48 L191 14 L196 14 L196 48 L201 48 L201 70 L210 70 L210 90 L226 90 L226 280 Z"/>
+      <path d="M193 14 L 193 0"/>
+      <!-- Chrysler-like spire on right -->
+      <path d="M280 280 L280 120 L292 120 L292 100 L302 100 L302 70 L312 70 L312 50 L322 50 L322 36 L327 36 L327 24 L332 24 L332 36 L337 36 L337 50 L347 50 L347 70 L357 70 L357 100 L367 100 L367 120 L379 120 L379 280"/>
+      <path d="M329 24 L 329 8"/>
+      <!-- Mid-rise cluster -->
+      <path d="M20 280 L20 200 L40 200 L40 180 L64 180 L64 220 L88 220 L88 160 L112 160 L112 200 L136 200 L136 180 L160 180"/>
+      <!-- Right of Empire -->
+      <path d="M226 280 L226 210 L252 210 L252 240 L280 240"/>
+      <!-- Brooklyn Bridge below -->
+      <path d="M0 220 L 380 220" stroke-width="0.9" opacity="0.6"/>
+      <path d="M30 220 L30 170 L50 170 L50 220 M 110 220 L110 170 L130 170 L130 220" stroke-width="1"/>
+      <path d="M0 200 Q 40 170 80 200 Q 120 170 160 200" stroke-width="0.9"/>
+      <!-- birds -->
+      <g stroke-width="1.1" fill="none">
+        <path d="M250 40 Q 254 36 258 40 Q 262 36 266 40"/>
+        <path d="M270 50 Q 274 46 278 50 Q 282 46 286 50"/>
+      </g>
+      <!-- Trees by river -->
+      <g stroke-width="1" opacity="0.7">
+        <path d="M50 260 Q 56 248 62 260 M 120 260 Q 126 248 132 260 M 240 260 Q 246 248 252 260"/>
+      </g>
+    </g>
+  </svg>
+
+  <!-- Sticky note right -->
+  <div class="personal-sticky-note" aria-hidden="true">
+    <svg class="personal-sticky-spark" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M8 1 L9.4 6.6 L 15 8 L 9.4 9.4 L 8 15 L 6.6 9.4 L 1 8 L 6.6 6.6 Z" fill="currentColor"/>
+    </svg>
+    Access to<br>expertise is not<br>a privilege.<br>It's <span class="personal-sticky-emph">potential</span>.
+  </div>
+
   <div class="step-inner">
-    <h2 class="step-title anim" style="max-width:520px;">I would go to underserved tech communities.</h2>
-    <div class="step-body anim anim-delay-1">
-      <p>There is one more thing worth saying.</p>
+    <!-- Top "Access is everything." annotation -->
+    <div class="personal-top-note anim" aria-hidden="true">
+      Access is<br>everything.
+    </div>
+    <svg class="personal-top-spark" aria-hidden="true" viewBox="0 0 24 24" fill="none">
+      <path d="M12 2 L13.6 9.4 L 22 11 L 13.6 12.6 L 12 22 L 10.4 12.6 L 2 11 L 10.4 9.4 Z" fill="currentColor"/>
+    </svg>
+
+    <h2 class="step-title anim anim-delay-1">I would go to <span class="personal-title-mark">underserved tech communities</span><span class="personal-period">.</span></h2>
+
+    <div class="step-body anim anim-delay-2">
+      <p class="personal-lead">
+        <svg class="personal-lead-spark" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+          <path d="M9 1 L10.5 7.5 L 17 9 L 10.5 10.5 L 9 17 L 7.5 10.5 L 1 9 L 7.5 7.5 Z" fill="currentColor"/>
+        </svg>
+        There is one more thing worth saying.
+      </p>
       <p>Dario wrote in Machines of Loving Grace that AI could give every person on earth access to the kind of expert advisor that only wealthy people have today. I think about that a lot.</p>
+      <hr class="personal-divider" aria-hidden="true">
       <p>The NYC startup ecosystem is not just a16z and Bessemer. It is CUNY. It is a first-generation founder in the Bronx who has never been in a room with a VC. It is a high school student at Comp Sci High who is about to build something nobody has thought of yet. Getting Claude into those rooms is not charity. It is the mission.</p>
-      <p>I would show up there before anyone asked. I already do.</p>
-      <p>For me the practical version of that mission is helping more founders, including founders outside the default AI networks, get from access to actual usage.</p>
+      <p class="personal-final-row">I would show up there before anyone asked. <span class="personal-final-emph">I already do.</span></p>
+    </div>
+
+    <!-- Bottom community illustration row -->
+    <div class="personal-bottom" aria-hidden="true">
+      <div class="personal-bottom-item">
+        <svg viewBox="0 0 88 64" fill="none">
+          <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <!-- school columns -->
+            <path d="M8 60 L 80 60"/>
+            <path d="M14 60 L 14 30 M 30 60 L 30 30 M 46 60 L 46 30 M 62 60 L 62 30 M 74 60 L 74 30"/>
+            <!-- roof -->
+            <path d="M4 30 L 44 12 L 84 30 Z" fill="none"/>
+            <!-- flag -->
+            <path d="M44 12 L 44 4 L 54 7 L 44 9"/>
+            <!-- steps -->
+            <path d="M6 60 L 82 60 M 4 64 L 84 64" stroke-width="1.2"/>
+          </g>
+        </svg>
+      </div>
+      <div class="personal-bottom-item">
+        <svg viewBox="0 0 88 64" fill="none">
+          <g stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <!-- three founders -->
+            <circle cx="20" cy="14" r="6"/>
+            <path d="M10 36 Q 10 24 20 24 Q 30 24 30 36"/>
+            <circle cx="44" cy="14" r="6"/>
+            <path d="M34 36 Q 34 24 44 24 Q 54 24 54 36"/>
+            <circle cx="68" cy="14" r="6"/>
+            <path d="M58 36 Q 58 24 68 24 Q 78 24 78 36"/>
+            <!-- shared laptop -->
+            <path d="M16 50 L 72 50 L 68 38 L 20 38 Z" fill="none"/>
+            <path d="M28 44 L 60 44" opacity="0.7"/>
+            <path d="M6 56 L 82 56" stroke-width="1.2"/>
+          </g>
+        </svg>
+      </div>
+      <div class="personal-bottom-sign">
+        Ideas<br>Access<br>Opportunity
+      </div>
+      <div class="personal-bottom-item">
+        <svg viewBox="0 0 88 64" fill="none">
+          <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none">
+            <!-- stack of books -->
+            <path d="M8 28 L 8 18 L 68 18 L 68 28 Z" fill="#FFF1E1"/>
+            <path d="M14 22 L 62 22" stroke-width="1"/>
+            <path d="M16 42 L 16 28 L 76 28 L 76 42 Z" fill="#FBE5D2"/>
+            <path d="M22 35 L 70 35" stroke-width="1"/>
+            <path d="M10 56 L 10 42 L 80 42 L 80 56 Z" fill="#FFF7EE"/>
+            <path d="M16 48 L 74 48" stroke-width="1"/>
+            <!-- spine details -->
+            <path d="M10 18 L 10 28 M 66 18 L 66 28" stroke-width="1"/>
+          </g>
+          <!-- orange book on top -->
+          <path d="M12 18 L 12 12 L 36 12 L 36 18 Z" stroke="#E8600A" stroke-width="1.4" fill="#FBE5D2" stroke-linejoin="round"/>
+          <path d="M18 15 L 30 15" stroke="#E8600A" stroke-width="1"/>
+        </svg>
+      </div>
     </div>
   </div>
 </section>
