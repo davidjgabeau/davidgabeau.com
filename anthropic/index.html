@@ -493,6 +493,118 @@
       margin: 0 auto;
     }
 
+    /* ---- MAP ---- */
+    .atlas-map-card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      border-top: 3px solid var(--orange);
+      padding: 20px 24px 16px;
+      margin-top: 40px;
+    }
+    .atlas-map-card-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .atlas-map-meta {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.01em;
+    }
+    .atlas-map-wrap {
+      position: relative;
+      background: #F8F6F1;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #EAE6E0;
+    }
+    .atlas-map-wrap svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .atlas-map-tip {
+      position: absolute;
+      background: #ffffff;
+      border: 1px solid #E8E4DF;
+      border-radius: 6px;
+      padding: 8px 12px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.12s ease;
+      max-width: 210px;
+      z-index: 10;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+    }
+    .atlas-map-tip.visible { opacity: 1; }
+    .atlas-map-tip-name {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+    .atlas-map-tip-cat {
+      display: block;
+      font-size: 11px;
+      color: var(--orange);
+      margin-bottom: 3px;
+    }
+    .atlas-map-tip-hook {
+      display: block;
+      font-size: 12px;
+      color: #555;
+      line-height: 1.4;
+    }
+    .atlas-map-tip-signal {
+      display: block;
+      font-size: 10px;
+      color: #999;
+      margin-top: 3px;
+    }
+    .atlas-map-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      margin-top: 14px;
+    }
+    .atlas-legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      color: #555;
+      cursor: pointer;
+      transition: opacity 0.15s;
+      user-select: none;
+    }
+    .atlas-legend-item:hover { opacity: 0.75; }
+    .atlas-legend-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .atlas-map-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 10px;
+    }
+    .atlas-map-link {
+      font-size: 11px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .atlas-map-link:hover { color: var(--orange); }
+    @media (max-width: 640px) {
+      .atlas-map-card { padding: 16px 16px 12px; margin-top: 28px; }
+      .atlas-legend-item { font-size: 10px; }
+    }
+
     /* ---- PULSE ANIMATION ---- */
     @keyframes pulse-opacity {
       0%, 100% { opacity: 1; }
@@ -548,7 +660,27 @@
       <p>Ask it anything below. AI Atlas NYC was built with Claude Code, updates agentically, and this demo pulls live data through an API I built from the ground up.</p>
     </div>
 
-    <div class="demo-card anim anim-delay-3">
+    <div class="atlas-map-card anim anim-delay-3">
+      <div class="atlas-map-card-header">
+        <p class="demo-label" style="margin-bottom:0;">NYC AI Map</p>
+        <span class="atlas-map-meta" id="atlas-map-meta"></span>
+      </div>
+      <div class="atlas-map-wrap" id="atlas-map-wrap">
+        <svg id="atlas-map-svg" xmlns="http://www.w3.org/2000/svg" width="100%"></svg>
+        <div class="atlas-map-tip" id="atlas-map-tip">
+          <span class="atlas-map-tip-name" id="tip-name"></span>
+          <span class="atlas-map-tip-cat" id="tip-cat"></span>
+          <span class="atlas-map-tip-hook" id="tip-hook"></span>
+          <span class="atlas-map-tip-signal" id="tip-signal"></span>
+        </div>
+      </div>
+      <div class="atlas-map-legend" id="atlas-map-legend"></div>
+      <div class="atlas-map-footer">
+        <a class="atlas-map-link" href="https://aiatlas.nyc" target="_blank" rel="noreferrer">Full map at aiatlas.nyc →</a>
+      </div>
+    </div>
+
+    <div class="demo-card anim anim-delay-4">
       <p class="demo-label">Try It — Ask Atlas</p>
       <input type="text" class="demo-input" id="atlas-input" placeholder="Ask about the NYC AI ecosystem..." onkeydown="if(event.key==='Enter') askAtlas()">
       <div class="chips">
@@ -861,6 +993,180 @@
       if (e.key === 'Enter') generateKit();
     });
   });
+
+  // ── AI Atlas NYC Map ────────────────────────────────────
+  (function () {
+    const MAP_URL = 'https://aiatlas.nyc/api/embed/map';
+    const W = 1000, H = 700;
+
+    function escAttr(s) {
+      return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
+    async function loadMap() {
+      try {
+        const res = await fetch(MAP_URL);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        renderMap(await res.json());
+      } catch (e) {
+        const wrap = document.getElementById('atlas-map-wrap');
+        if (wrap) wrap.innerHTML = '<p style="padding:48px;text-align:center;color:#999;font-size:13px;">Map unavailable</p>';
+      }
+    }
+
+    function renderMap(data) {
+      const svg    = document.getElementById('atlas-map-svg');
+      const tip    = document.getElementById('atlas-map-tip');
+      const legend = document.getElementById('atlas-map-legend');
+      const meta   = document.getElementById('atlas-map-meta');
+      if (!svg) return;
+
+      const { companies, categories, stats } = data;
+
+      if (meta) meta.textContent = stats.totalCompanies + ' companies · ' + stats.totalCategories + ' categories';
+
+      // Compute bounding box with padding
+      const xs   = companies.map(c => c.x * W);
+      const ys   = companies.map(c => c.y * H);
+      const xRaw = { min: Math.min(...xs), max: Math.max(...xs) };
+      const yRaw = { min: Math.min(...ys), max: Math.max(...ys) };
+      const xSpan = xRaw.max - xRaw.min;
+      const ySpan = yRaw.max - yRaw.min;
+      const PAD = 0.14;
+      const vbX = xRaw.min - xSpan * PAD;
+      const vbY = yRaw.min - ySpan * PAD;
+      const vbW = xSpan * (1 + 2 * PAD);
+      const vbH = ySpan * (1 + 2 * PAD);
+
+      svg.setAttribute('viewBox', vbX + ' ' + vbY + ' ' + vbW + ' ' + vbH);
+
+      // Radius in viewBox units
+      const rBase    = vbW * 0.022;
+      const rFeat    = vbW * 0.028;
+      const rBreakout = vbW * 0.036;
+
+      // Render background rect
+      let markup = '<rect x="' + vbX + '" y="' + vbY + '" width="' + vbW + '" height="' + vbH + '" fill="#F8F6F1"/>';
+
+      // Subtle grid lines (geographic feel)
+      markup += '<g stroke="#E8E4DF" stroke-width="' + (vbW * 0.004) + '" opacity="0.5">';
+      for (let i = 1; i < 4; i++) {
+        const lx = vbX + vbW * i / 4;
+        const ly = vbY + vbH * i / 4;
+        markup += '<line x1="' + lx + '" y1="' + vbY + '" x2="' + lx + '" y2="' + (vbY + vbH) + '"/>';
+        markup += '<line x1="' + vbX + '" y1="' + ly + '" x2="' + (vbX + vbW) + '" y2="' + ly + '"/>';
+      }
+      markup += '</g>';
+
+      // Sort so featured/breakout render on top
+      const sorted = [...companies].sort((a, b) => {
+        const av = a.isBreakout ? 2 : a.isFeatured ? 1 : 0;
+        const bv = b.isBreakout ? 2 : b.isFeatured ? 1 : 0;
+        return av - bv;
+      });
+
+      sorted.forEach(c => {
+        const cx = c.x * W;
+        const cy = c.y * H;
+        const r  = c.isBreakout ? rBreakout : c.isFeatured ? rFeat : rBase;
+        const op = c.isBreakout ? 0.95 : c.isFeatured ? 0.88 : 0.72;
+        const sw = c.isBreakout || c.isFeatured ? vbW * 0.003 : 0;
+
+        markup += '<circle'
+          + ' class="map-dot"'
+          + ' cx="' + cx + '" cy="' + cy + '" r="' + r + '"'
+          + ' fill="' + escAttr(c.color) + '"'
+          + ' opacity="' + op + '"'
+          + (sw ? ' stroke="rgba(255,255,255,0.6)" stroke-width="' + sw + '"' : '')
+          + ' data-name="' + escAttr(c.name) + '"'
+          + ' data-cat="' + escAttr(c.category) + '"'
+          + ' data-hook="' + escAttr(c.hook) + '"'
+          + ' data-href="' + escAttr(c.href) + '"'
+          + ' data-signal="' + escAttr(c.signalLabel || '') + '"'
+          + ' data-base-r="' + r + '"'
+          + ' data-base-op="' + op + '"'
+          + ' style="cursor:pointer;transition:opacity 0.12s"'
+          + '/>';
+      });
+
+      svg.innerHTML = markup;
+
+      // Tooltip & interaction
+      const wrap = document.getElementById('atlas-map-wrap');
+      const tipName   = document.getElementById('tip-name');
+      const tipCat    = document.getElementById('tip-cat');
+      const tipHook   = document.getElementById('tip-hook');
+      const tipSignal = document.getElementById('tip-signal');
+
+      svg.querySelectorAll('.map-dot').forEach(dot => {
+        dot.addEventListener('mouseenter', function (e) {
+          tipName.textContent   = this.dataset.name;
+          tipCat.textContent    = this.dataset.cat;
+          tipHook.textContent   = this.dataset.hook;
+          tipSignal.textContent = this.dataset.signal || '';
+          tipSignal.style.display = this.dataset.signal ? 'block' : 'none';
+          this.setAttribute('r', parseFloat(this.dataset.baseR) * 1.35);
+          this.setAttribute('opacity', '1');
+        });
+
+        dot.addEventListener('mousemove', function (e) {
+          const rect = wrap.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const tipW = tip.offsetWidth || 210;
+          const tipH = tip.offsetHeight || 80;
+          tip.style.left = (x + 14 + tipW > rect.width ? x - tipW - 14 : x + 14) + 'px';
+          tip.style.top  = (y + 14 + tipH > rect.height ? y - tipH - 8 : y + 14) + 'px';
+          tip.classList.add('visible');
+        });
+
+        dot.addEventListener('mouseleave', function () {
+          tip.classList.remove('visible');
+          this.setAttribute('r', this.dataset.baseR);
+          this.setAttribute('opacity', this.dataset.baseOp);
+        });
+
+        dot.addEventListener('click', function () {
+          window.open(this.dataset.href, '_blank', 'noreferrer');
+        });
+      });
+
+      // Legend with category filter
+      if (legend) {
+        legend.innerHTML = categories.map(cat =>
+          '<div class="atlas-legend-item" data-cat="' + escAttr(cat.name) + '">'
+          + '<div class="atlas-legend-dot" style="background:' + escAttr(cat.color) + '"></div>'
+          + '<span>' + escAttr(cat.name) + '</span>'
+          + '</div>'
+        ).join('');
+
+        let activeFilter = null;
+        legend.querySelectorAll('.atlas-legend-item').forEach(item => {
+          item.addEventListener('click', function () {
+            const catName = this.dataset.cat;
+            if (activeFilter === catName) {
+              // Reset
+              activeFilter = null;
+              svg.querySelectorAll('.map-dot').forEach(d => {
+                d.setAttribute('opacity', d.dataset.baseOp);
+              });
+              legend.querySelectorAll('.atlas-legend-item').forEach(i => i.style.opacity = '1');
+            } else {
+              activeFilter = catName;
+              svg.querySelectorAll('.map-dot').forEach(d => {
+                d.setAttribute('opacity', d.dataset.cat === catName ? d.dataset.baseOp : '0.08');
+              });
+              legend.querySelectorAll('.atlas-legend-item').forEach(i => {
+                i.style.opacity = i.dataset.cat === catName ? '1' : '0.4';
+              });
+            }
+          });
+        });
+      }
+    }
+
+    loadMap();
+  })();
 </script>
 </body>
 </html>
