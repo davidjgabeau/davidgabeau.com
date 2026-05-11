@@ -5,11 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>5 Steps to Building Anthropic's NYC Startup Ecosystem · David Gabeau</title>
   <meta name="robots" content="noindex">
+  <meta name="description" content="A founder's playbook by David Gabeau for turning Anthropic into the center of New York's AI startup ecosystem. Built with Claude Code.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="David Gabeau">
+  <meta property="og:title" content="5 Steps to Building Anthropic's NYC Startup Ecosystem">
+  <meta property="og:description" content="A founder's playbook by David Gabeau for turning Anthropic into the center of New York's AI startup ecosystem.">
+  <meta property="og:url" content="https://davidgabeau.com/anthropic">
+  <meta property="og:image" content="https://davidgabeau.com/api/og-anthropic">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A Playbook by David Gabeau: 5 Steps to Building Anthropic's NYC Startup Ecosystem">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="5 Steps to Building Anthropic's NYC Startup Ecosystem">
+  <meta name="twitter:description" content="A founder's playbook by David Gabeau for turning Anthropic into the center of New York's AI startup ecosystem.">
+  <meta name="twitter:image" content="https://davidgabeau.com/api/og-anthropic">
+  <meta name="twitter:image:alt" content="A Playbook by David Gabeau: 5 Steps to Building Anthropic's NYC Startup Ecosystem">
+
+  <!-- iMessage / Apple link preview -->
+  <meta name="apple-mobile-web-app-title" content="David Gabeau · Anthropic">
+
+  <link rel="canonical" href="https://davidgabeau.com/anthropic">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Caveat:wght@400;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="anonymous">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin="anonymous" defer></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -1636,20 +1660,22 @@
       pointer-events: none;
     }
     .step1-note-2 {
-      top: 660px;
-      left: 16px;
-      max-width: 150px;
-      transform: rotate(-5deg);
+      top: 380px;
+      right: 5%;
+      max-width: 190px;
+      transform: rotate(-2deg);
       font-size: 19px;
+      text-align: right;
     }
     .step1-note-2-arrow {
       position: absolute;
-      top: 740px;
-      left: 140px;
-      width: 54px;
-      height: 44px;
+      top: 500px;
+      right: 14%;
+      width: 56px;
+      height: 50px;
       z-index: 3;
       pointer-events: none;
+      transform: scaleX(-1);
     }
     .step1-sticky-note {
       position: absolute;
@@ -5187,20 +5213,33 @@
         .replace(/"/g, '&quot;');
     }
 
+    function waitForLeaflet(maxMs) {
+      return new Promise((resolve, reject) => {
+        if (typeof L !== 'undefined') return resolve();
+        const start = Date.now();
+        const tick = () => {
+          if (typeof L !== 'undefined') return resolve();
+          if (Date.now() - start > maxMs) return reject(new Error('Leaflet failed to load'));
+          setTimeout(tick, 80);
+        };
+        tick();
+      });
+    }
+
     async function loadMap() {
       const container = document.getElementById('atlas-leaflet-map');
       if (!container) return;
-      // Wait for Leaflet (loaded with defer)
-      if (typeof L === 'undefined') {
-        setTimeout(loadMap, 80);
-        return;
-      }
       try {
+        // Wait up to 8s for Leaflet to load (handles slow mobile networks)
+        await waitForLeaflet(8000);
         const res = await fetch(MAP_URL);
         if (!res.ok) throw new Error('HTTP ' + res.status);
-        renderMap(await res.json());
+        const data = await res.json();
+        renderMap(data);
       } catch (e) {
-        container.innerHTML = '<p style="padding:48px;text-align:center;color:#999;font-size:13px;">Map unavailable</p>';
+        // eslint-disable-next-line no-console
+        console.warn('[atlas map]', e && e.message ? e.message : e);
+        container.innerHTML = '<p style="padding:48px;text-align:center;color:#999;font-size:13px;">Map unavailable. <a href="https://aiatlas.nyc" target="_blank" rel="noreferrer" style="color:#E8600A;">View at aiatlas.nyc →</a></p>';
       }
     }
 
@@ -5208,24 +5247,37 @@
       const { companies, categories, stats } = data;
       const meta = document.getElementById('atlas-map-meta');
       const legend = document.getElementById('atlas-map-legend');
+      const container = document.getElementById('atlas-leaflet-map');
+      if (!container) return;
 
       if (meta) {
         meta.textContent = stats.totalCompanies + ' companies · ' + stats.totalCategories + ' categories';
       }
 
-      const map = L.map('atlas-leaflet-map', {
+      const map = L.map(container, {
         center: [40.7228, -73.9920],
         zoom: 12,
         zoomControl: true,
         scrollWheelZoom: false,
+        tap: true,
+        touchZoom: true,
+        dragging: true,
         attributionControl: true,
+        preferCanvas: true,
       });
 
       L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; OpenStreetMap &copy; CARTO',
         subdomains: 'abcd',
         maxZoom: 19,
+        crossOrigin: true,
       }).addTo(map);
+
+      // Mobile/iOS: container may have been measured at 0 during init.
+      // Force a re-measure after the next paint, and once on window resize.
+      requestAnimationFrame(() => { try { map.invalidateSize(); } catch (_) {} });
+      setTimeout(() => { try { map.invalidateSize(); } catch (_) {} }, 400);
+      window.addEventListener('resize', () => { try { map.invalidateSize(); } catch (_) {} });
 
       // Auto-fit to company bounds
       const pts = companies
