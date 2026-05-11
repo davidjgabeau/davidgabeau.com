@@ -8,6 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Caveat:wght@400;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -100,6 +102,26 @@
       transition: background 0.2s ease, transform 0.2s ease;
     }
     .nav-dot.active { background: var(--orange); transform: scale(1.2); }
+    /* Desktop text nav links — replace dots at ≥768px */
+    .nav-links {
+      display: none;
+      align-items: center;
+      gap: 28px;
+    }
+    .nav-link {
+      font-size: 13px;
+      font-weight: 500;
+      color: #3D2C1C;
+      text-decoration: none;
+      transition: color 0.18s ease;
+      white-space: nowrap;
+    }
+    .nav-link:hover { color: var(--orange); }
+    @media (min-width: 768px) {
+      .nav-links { display: flex; }
+      .nav-dots { display: none !important; }
+      .nav-hamburger { display: none !important; }
+    }
     @media (max-width: 640px) {
       .nav { padding: 0 14px; }
       .nav-cta { padding: 7px 12px; font-size: 11px; }
@@ -546,6 +568,49 @@
       display: block;
       width: 100%;
       height: auto;
+    }
+    #atlas-leaflet-map {
+      width: 100%;
+      height: 420px;
+      background: #F8F6F1;
+      border-radius: 8px;
+    }
+    @media (max-width: 640px) {
+      #atlas-leaflet-map { height: 320px; }
+    }
+    /* Warm the tile imagery to match the ivory palette */
+    #atlas-leaflet-map .leaflet-tile-pane {
+      filter: sepia(0.18) saturate(0.9) hue-rotate(-6deg) brightness(1.02);
+    }
+    #atlas-leaflet-map .leaflet-control-attribution {
+      background: rgba(255, 253, 248, 0.85);
+      font-size: 10px;
+      color: #6C6861;
+    }
+    #atlas-leaflet-map .leaflet-control-attribution a { color: var(--orange); }
+    .atlas-leaflet-tip {
+      font-family: 'Inter', sans-serif;
+      font-size: 12px;
+      line-height: 1.4;
+      max-width: 200px;
+    }
+    .atlas-leaflet-tip-name {
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--text);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .atlas-leaflet-tip-cat {
+      font-size: 11px;
+      color: var(--orange);
+      display: block;
+      margin-bottom: 3px;
+    }
+    .atlas-leaflet-tip-hook {
+      font-size: 11px;
+      color: #555;
+      display: block;
     }
     .atlas-map-tip {
       position: absolute;
@@ -1572,15 +1637,15 @@
     }
     .step1-note-2 {
       top: 660px;
-      left: -10px;
-      max-width: 160px;
+      left: 16px;
+      max-width: 150px;
       transform: rotate(-5deg);
       font-size: 19px;
     }
     .step1-note-2-arrow {
       position: absolute;
       top: 740px;
-      left: 120px;
+      left: 140px;
       width: 54px;
       height: 44px;
       z-index: 3;
@@ -1944,7 +2009,7 @@
     }
     .step2-sticky-note {
       position: absolute;
-      bottom: 80px;
+      bottom: 300px;
       right: 4%;
       background: var(--sticky-note);
       padding: 20px 22px 22px;
@@ -3564,6 +3629,11 @@
 <!-- STICKY NAV -->
 <nav class="nav" id="sticky-nav" aria-label="Section navigation">
   <a href="https://davidgabeau.com" class="nav-logo" aria-label="David Gabeau home">DG</a>
+  <div class="nav-links">
+    <a href="#hero" class="nav-link">About David</a>
+    <a href="#personal" class="nav-link">Why I'm Applying</a>
+    <a href="#plan-90" class="nav-link">Team</a>
+  </div>
   <div class="nav-right">
     <div class="nav-dots" role="list">
       <button class="nav-dot" onclick="scrollToStep(1)" aria-label="Step 1: Know the Ecosystem" title="Know the Ecosystem"></button>
@@ -3952,13 +4022,7 @@
         <span class="atlas-map-meta" id="atlas-map-meta"></span>
       </div>
       <div class="atlas-map-wrap" id="atlas-map-wrap">
-        <svg id="atlas-map-svg" xmlns="http://www.w3.org/2000/svg" width="100%"></svg>
-        <div class="atlas-map-tip" id="atlas-map-tip">
-          <span class="atlas-map-tip-name" id="tip-name"></span>
-          <span class="atlas-map-tip-cat" id="tip-cat"></span>
-          <span class="atlas-map-tip-hook" id="tip-hook"></span>
-          <span class="atlas-map-tip-signal" id="tip-signal"></span>
-        </div>
+        <div id="atlas-leaflet-map" role="img" aria-label="Map of NYC AI startups"></div>
       </div>
       <div class="atlas-map-legend" id="atlas-map-legend"></div>
       <div class="atlas-map-footer">
@@ -5111,71 +5175,70 @@
     });
   });
 
-  // ── AI Atlas NYC Map ────────────────────────────────────
+  // ── AI Atlas NYC Map (Leaflet) ────────────────────────────
   (function () {
     const MAP_URL = 'https://aiatlas.nyc/api/embed/map';
-    const W = 1000, H = 700;
 
-    function escAttr(s) {
-      return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    function escHtml(s) {
+      return String(s ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
     }
 
     async function loadMap() {
+      const container = document.getElementById('atlas-leaflet-map');
+      if (!container) return;
+      // Wait for Leaflet (loaded with defer)
+      if (typeof L === 'undefined') {
+        setTimeout(loadMap, 80);
+        return;
+      }
       try {
         const res = await fetch(MAP_URL);
         if (!res.ok) throw new Error('HTTP ' + res.status);
         renderMap(await res.json());
       } catch (e) {
-        const wrap = document.getElementById('atlas-map-wrap');
-        if (wrap) wrap.innerHTML = '<p style="padding:48px;text-align:center;color:#999;font-size:13px;">Map unavailable</p>';
+        container.innerHTML = '<p style="padding:48px;text-align:center;color:#999;font-size:13px;">Map unavailable</p>';
       }
     }
 
     function renderMap(data) {
-      const svg    = document.getElementById('atlas-map-svg');
-      const tip    = document.getElementById('atlas-map-tip');
-      const legend = document.getElementById('atlas-map-legend');
-      const meta   = document.getElementById('atlas-map-meta');
-      if (!svg) return;
-
       const { companies, categories, stats } = data;
+      const meta = document.getElementById('atlas-map-meta');
+      const legend = document.getElementById('atlas-map-legend');
 
-      if (meta) meta.textContent = stats.totalCompanies + ' companies · ' + stats.totalCategories + ' categories';
-
-      // Compute bounding box with padding
-      const xs   = companies.map(c => c.x * W);
-      const ys   = companies.map(c => c.y * H);
-      const xRaw = { min: Math.min(...xs), max: Math.max(...xs) };
-      const yRaw = { min: Math.min(...ys), max: Math.max(...ys) };
-      const xSpan = xRaw.max - xRaw.min;
-      const ySpan = yRaw.max - yRaw.min;
-      const PAD = 0.14;
-      const vbX = xRaw.min - xSpan * PAD;
-      const vbY = yRaw.min - ySpan * PAD;
-      const vbW = xSpan * (1 + 2 * PAD);
-      const vbH = ySpan * (1 + 2 * PAD);
-
-      svg.setAttribute('viewBox', vbX + ' ' + vbY + ' ' + vbW + ' ' + vbH);
-
-      // Radius in viewBox units
-      const rBase    = vbW * 0.022;
-      const rFeat    = vbW * 0.028;
-      const rBreakout = vbW * 0.036;
-
-      // Render background rect
-      let markup = '<rect x="' + vbX + '" y="' + vbY + '" width="' + vbW + '" height="' + vbH + '" fill="#F8F6F1"/>';
-
-      // Subtle grid lines (geographic feel)
-      markup += '<g stroke="#E8E4DF" stroke-width="' + (vbW * 0.004) + '" opacity="0.5">';
-      for (let i = 1; i < 4; i++) {
-        const lx = vbX + vbW * i / 4;
-        const ly = vbY + vbH * i / 4;
-        markup += '<line x1="' + lx + '" y1="' + vbY + '" x2="' + lx + '" y2="' + (vbY + vbH) + '"/>';
-        markup += '<line x1="' + vbX + '" y1="' + ly + '" x2="' + (vbX + vbW) + '" y2="' + ly + '"/>';
+      if (meta) {
+        meta.textContent = stats.totalCompanies + ' companies · ' + stats.totalCategories + ' categories';
       }
-      markup += '</g>';
 
-      // Sort so featured/breakout render on top
+      const map = L.map('atlas-leaflet-map', {
+        center: [40.7228, -73.9920],
+        zoom: 12,
+        zoomControl: true,
+        scrollWheelZoom: false,
+        attributionControl: true,
+      });
+
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; OpenStreetMap &copy; CARTO',
+        subdomains: 'abcd',
+        maxZoom: 19,
+      }).addTo(map);
+
+      // Auto-fit to company bounds
+      const pts = companies
+        .filter(c => typeof c.lat === 'number' && typeof c.lng === 'number')
+        .map(c => [c.lat, c.lng]);
+      if (pts.length) {
+        map.fitBounds(L.latLngBounds(pts), { padding: [28, 28], maxZoom: 13 });
+      }
+
+      const markersByCat = {};
+      const allMarkers = [];
+
+      // Sort featured/breakout last so they render on top
       const sorted = [...companies].sort((a, b) => {
         const av = a.isBreakout ? 2 : a.isFeatured ? 1 : 0;
         const bv = b.isBreakout ? 2 : b.isFeatured ? 1 : 0;
@@ -5183,106 +5246,86 @@
       });
 
       sorted.forEach(c => {
-        const cx = c.x * W;
-        const cy = c.y * H;
-        const r  = c.isBreakout ? rBreakout : c.isFeatured ? rFeat : rBase;
-        const op = c.isBreakout ? 0.95 : c.isFeatured ? 0.88 : 0.72;
-        const sw = c.isBreakout || c.isFeatured ? vbW * 0.003 : 0;
-
-        markup += '<circle'
-          + ' class="map-dot"'
-          + ' cx="' + cx + '" cy="' + cy + '" r="' + r + '"'
-          + ' fill="' + escAttr(c.color) + '"'
-          + ' opacity="' + op + '"'
-          + (sw ? ' stroke="rgba(255,255,255,0.6)" stroke-width="' + sw + '"' : '')
-          + ' data-name="' + escAttr(c.name) + '"'
-          + ' data-cat="' + escAttr(c.category) + '"'
-          + ' data-hook="' + escAttr(c.hook) + '"'
-          + ' data-href="' + escAttr(c.href) + '"'
-          + ' data-signal="' + escAttr(c.signalLabel || '') + '"'
-          + ' data-base-r="' + r + '"'
-          + ' data-base-op="' + op + '"'
-          + ' style="cursor:pointer;transition:opacity 0.12s"'
-          + '/>';
-      });
-
-      svg.innerHTML = markup;
-
-      // Tooltip & interaction
-      const wrap = document.getElementById('atlas-map-wrap');
-      const tipName   = document.getElementById('tip-name');
-      const tipCat    = document.getElementById('tip-cat');
-      const tipHook   = document.getElementById('tip-hook');
-      const tipSignal = document.getElementById('tip-signal');
-
-      svg.querySelectorAll('.map-dot').forEach(dot => {
-        dot.addEventListener('mouseenter', function (e) {
-          tipName.textContent   = this.dataset.name;
-          tipCat.textContent    = this.dataset.cat;
-          tipHook.textContent   = this.dataset.hook;
-          tipSignal.textContent = this.dataset.signal || '';
-          tipSignal.style.display = this.dataset.signal ? 'block' : 'none';
-          this.setAttribute('r', parseFloat(this.dataset.baseR) * 1.35);
-          this.setAttribute('opacity', '1');
+        if (typeof c.lat !== 'number' || typeof c.lng !== 'number') return;
+        const radius = c.isBreakout ? 9 : c.isFeatured ? 7 : 5.5;
+        const opacity = c.isBreakout ? 0.95 : c.isFeatured ? 0.9 : 0.78;
+        const marker = L.circleMarker([c.lat, c.lng], {
+          radius: radius,
+          fillColor: c.color || '#E8600A',
+          color: '#ffffff',
+          weight: 1.4,
+          opacity: 1,
+          fillOpacity: opacity,
         });
 
-        dot.addEventListener('mousemove', function (e) {
-          const rect = wrap.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          const tipW = tip.offsetWidth || 210;
-          const tipH = tip.offsetHeight || 80;
-          tip.style.left = (x + 14 + tipW > rect.width ? x - tipW - 14 : x + 14) + 'px';
-          tip.style.top  = (y + 14 + tipH > rect.height ? y - tipH - 8 : y + 14) + 'px';
-          tip.classList.add('visible');
+        const tipHtml = '<div class="atlas-leaflet-tip">'
+          + '<span class="atlas-leaflet-tip-name">' + escHtml(c.name) + '</span>'
+          + '<span class="atlas-leaflet-tip-cat">' + escHtml(c.category) + '</span>'
+          + (c.hook ? '<span class="atlas-leaflet-tip-hook">' + escHtml(c.hook) + '</span>' : '')
+          + '</div>';
+        marker.bindTooltip(tipHtml, {
+          direction: 'top',
+          offset: [0, -radius - 2],
+          opacity: 1,
+          className: 'atlas-leaflet-tooltip',
         });
 
-        dot.addEventListener('mouseleave', function () {
-          tip.classList.remove('visible');
-          this.setAttribute('r', this.dataset.baseR);
-          this.setAttribute('opacity', this.dataset.baseOp);
-        });
+        if (c.href) {
+          marker.on('click', () => window.open(c.href, '_blank', 'noreferrer'));
+        }
 
-        dot.addEventListener('click', function () {
-          window.open(this.dataset.href, '_blank', 'noreferrer');
-        });
+        marker._baseOpacity = opacity;
+        marker._category = c.category;
+        marker.addTo(map);
+        allMarkers.push(marker);
+        (markersByCat[c.category] = markersByCat[c.category] || []).push(marker);
       });
 
       // Legend with category filter
       if (legend) {
         legend.innerHTML = categories.map(cat =>
-          '<div class="atlas-legend-item" data-cat="' + escAttr(cat.name) + '">'
-          + '<div class="atlas-legend-dot" style="background:' + escAttr(cat.color) + '"></div>'
-          + '<span>' + escAttr(cat.name) + '</span>'
+          '<div class="atlas-legend-item" data-cat="' + escHtml(cat.name) + '" role="button" tabindex="0">'
+          + '<div class="atlas-legend-dot" style="background:' + escHtml(cat.color) + '"></div>'
+          + '<span>' + escHtml(cat.name) + '</span>'
           + '</div>'
         ).join('');
 
         let activeFilter = null;
-        legend.querySelectorAll('.atlas-legend-item').forEach(item => {
-          item.addEventListener('click', function () {
-            const catName = this.dataset.cat;
-            if (activeFilter === catName) {
-              // Reset
-              activeFilter = null;
-              svg.querySelectorAll('.map-dot').forEach(d => {
-                d.setAttribute('opacity', d.dataset.baseOp);
+        const items = legend.querySelectorAll('.atlas-legend-item');
+        function applyFilter(catName) {
+          if (activeFilter === catName) {
+            activeFilter = null;
+            allMarkers.forEach(m => m.setStyle({ fillOpacity: m._baseOpacity, opacity: 1 }));
+            items.forEach(i => i.style.opacity = '1');
+          } else {
+            activeFilter = catName;
+            allMarkers.forEach(m => {
+              const match = m._category === catName;
+              m.setStyle({
+                fillOpacity: match ? m._baseOpacity : 0.1,
+                opacity: match ? 1 : 0.2,
               });
-              legend.querySelectorAll('.atlas-legend-item').forEach(i => i.style.opacity = '1');
-            } else {
-              activeFilter = catName;
-              svg.querySelectorAll('.map-dot').forEach(d => {
-                d.setAttribute('opacity', d.dataset.cat === catName ? d.dataset.baseOp : '0.08');
-              });
-              legend.querySelectorAll('.atlas-legend-item').forEach(i => {
-                i.style.opacity = i.dataset.cat === catName ? '1' : '0.4';
-              });
+            });
+            items.forEach(i => i.style.opacity = i.dataset.cat === catName ? '1' : '0.4');
+          }
+        }
+        items.forEach(item => {
+          item.addEventListener('click', () => applyFilter(item.dataset.cat));
+          item.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              applyFilter(item.dataset.cat);
             }
           });
         });
       }
     }
 
-    loadMap();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadMap);
+    } else {
+      loadMap();
+    }
   })();
 </script>
 </body>
