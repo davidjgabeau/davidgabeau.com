@@ -856,6 +856,26 @@ footer {
   background: var(--hover-bg);
 }
 
+.atlas-load-more-btn {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0.8em;
+  margin-bottom: 0.2em;
+  font-family: 'Newsreader', 'Times New Roman', serif;
+  font-size: 0.83rem;
+  color: var(--text-3);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.15s;
+  text-decoration: none;
+}
+
+.atlas-load-more-btn:hover {
+  color: var(--text);
+}
+
 .atlas-loading-text {
   font-size: 0.85rem;
   color: var(--text-4);
