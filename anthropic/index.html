@@ -231,7 +231,9 @@
     .step-body p + p { margin-top: 20px; }
 
     /* scroll-margin so sticky nav doesn't cover section tops */
-    .step { scroll-margin-top: 56px; }
+    .step,
+    #hero,
+    #playbook-preview { scroll-margin-top: 56px; }
 
     /* iPad (641–860px): tighten vertical rhythm */
     @media (max-width: 860px) {
@@ -3564,11 +3566,11 @@
   <a href="https://davidgabeau.com" class="nav-logo" aria-label="David Gabeau home">DG</a>
   <div class="nav-right">
     <div class="nav-dots" role="list">
-      <button class="nav-dot" onclick="scrollToStep(1)" aria-label="Step 1" title="Know the Ecosystem"></button>
-      <button class="nav-dot" onclick="scrollToStep(2)" aria-label="Step 2" title="Activate the Network"></button>
-      <button class="nav-dot" onclick="scrollToStep(3)" aria-label="Step 3" title="Run the Programs"></button>
-      <button class="nav-dot" onclick="scrollToStep(4)" aria-label="Step 4" title="Ship the Content"></button>
-      <button class="nav-dot" onclick="scrollToStep(5)" aria-label="Step 5" title="Close the Loop"></button>
+      <button class="nav-dot" onclick="scrollToStep(1)" aria-label="Step 1: Know the Ecosystem" title="Know the Ecosystem"></button>
+      <button class="nav-dot" onclick="scrollToStep(2)" aria-label="Step 2: Build Real Relationships" title="Build Real Relationships"></button>
+      <button class="nav-dot" onclick="scrollToStep(3)" aria-label="Step 3: Create Signature Events" title="Create Signature Events"></button>
+      <button class="nav-dot" onclick="scrollToStep(4)" aria-label="Step 4: Publish Content That Scales" title="Publish Content That Scales"></button>
+      <button class="nav-dot" onclick="scrollToStep(5)" aria-label="Step 5: Measure &amp; Compound the Loop" title="Measure &amp; Compound the Loop"></button>
     </div>
     <a href="#playbook-preview" class="nav-cta">Start the playbook</a>
     <button class="nav-hamburger" id="nav-hamburger" aria-label="Open menu" aria-expanded="false">
@@ -4934,7 +4936,7 @@
   <p class="closing-sub anim anim-delay-1">Every demo on this page uses the live Claude API.</p>
   <div class="closing-links anim anim-delay-2">
     <a href="https://davidgabeau.com">davidgabeau.com</a>
-    <a href="https://aiatlasnyc.com" target="_blank" rel="noopener noreferrer">aiatlasnyc.com</a>
+    <a href="https://aiatlas.nyc" target="_blank" rel="noopener noreferrer">aiatlas.nyc</a>
   </div>
   <p class="closing-fine anim anim-delay-3">This page was created as part of a job application for the Claude Evangelist, Applied AI (Startups) role at Anthropic. Not affiliated with or endorsed by Anthropic.</p>
 </div>
@@ -4952,7 +4954,7 @@
   document.querySelectorAll('.anim').forEach(el => observer.observe(el));
 
   // Trigger hero immediately
-  document.querySelectorAll('.hero .anim').forEach((el, i) => {
+  document.querySelectorAll('.hero-new .anim').forEach((el, i) => {
     setTimeout(() => el.classList.add('in'), i * 100);
   });
 
