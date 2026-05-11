@@ -1308,6 +1308,355 @@
     /* ---- ORIGINAL HERO LEGACY (hidden when new hero present) ---- */
     .hero-legacy { display: none; }
 
+    /* ===== STEP 01 EDITORIAL REDESIGN ===== */
+    #step-1 {
+      max-width: 1180px;
+      padding: 100px 32px 110px;
+      overflow: hidden;
+    }
+    @media (max-width: 880px) {
+      #step-1 { padding: 80px 28px 88px; }
+    }
+    @media (max-width: 640px) {
+      #step-1 { padding: 60px 20px 72px; }
+    }
+
+    #step-1 .step-inner { position: relative; }
+
+    #step-1 .step-watermark {
+      font-size: clamp(160px, 24vw, 320px);
+      top: -30px;
+      right: -10px;
+      opacity: 0.75;
+      color: #EFE6D6;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+    }
+    @media (max-width: 640px) {
+      #step-1 .step-watermark { font-size: 130px; top: -10px; right: -14px; opacity: 0.55; }
+    }
+
+    .step1-eyebrow-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 2;
+    }
+    .step1-eyebrow-spark {
+      width: 22px;
+      height: 22px;
+      color: var(--orange);
+      flex-shrink: 0;
+    }
+    .step1-eyebrow-text {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      line-height: 1.4;
+    }
+    @media (max-width: 640px) {
+      .step1-eyebrow-text { display: inline-block; }
+    }
+
+    #step-1 .step-title {
+      font-size: clamp(38px, 6vw, 64px);
+      letter-spacing: -0.025em;
+      max-width: 640px;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 36px;
+      line-height: 1.05;
+    }
+    #step-1 .title-mark {
+      position: relative;
+      display: inline-block;
+    }
+    #step-1 .title-mark::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -8px;
+      height: 10px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 10' fill='none' preserveAspectRatio='none'><path d='M2 6 C 40 1, 90 10, 130 5 S 210 1, 238 5' stroke='%23E8600A' stroke-width='3' stroke-linecap='round' fill='none'/></svg>");
+      background-repeat: no-repeat;
+      background-size: 100% 10px;
+    }
+
+    #step-1 .step-body {
+      max-width: 600px;
+      position: relative;
+      z-index: 2;
+      color: var(--body);
+      font-size: 18px;
+    }
+    @media (min-width: 880px) {
+      #step-1 .step-body { font-size: 19px; }
+    }
+
+    /* Cards container that aligns with text column */
+    #step-1 .atlas-map-card,
+    #step-1 .demo-card {
+      max-width: 760px;
+      border-radius: 22px;
+      border: 1px solid var(--divider);
+      background: var(--card-bg);
+      box-shadow: var(--card-shadow);
+      position: relative;
+      z-index: 2;
+      padding: 24px 26px;
+    }
+    #step-1 .atlas-map-card { border-top: 1px solid var(--divider); }
+    #step-1 .demo-card { border-top: 1px solid var(--divider); padding: 26px 26px; }
+    @media (max-width: 640px) {
+      #step-1 .atlas-map-card,
+      #step-1 .demo-card { border-radius: 18px; padding: 18px 18px; }
+    }
+
+    /* Map header with pin icon */
+    #step-1 .atlas-map-card-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .atlas-map-pin {
+      width: 16px;
+      height: 16px;
+      color: var(--orange);
+      flex-shrink: 0;
+    }
+    #step-1 .atlas-map-meta { margin-left: auto; }
+
+    /* Demo (Ask Atlas) header with spark */
+    .demo-label-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .demo-label-row .demo-label { margin-bottom: 0; }
+    .demo-label-spark {
+      width: 18px;
+      height: 18px;
+      color: var(--orange);
+      flex-shrink: 0;
+    }
+
+    /* Search input with magnifying-glass icon */
+    .demo-input-wrap {
+      position: relative;
+      margin-bottom: 14px;
+    }
+    .demo-input-icon {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+      z-index: 1;
+      width: 16px;
+      height: 16px;
+    }
+    .demo-input-wrap .demo-input {
+      padding: 14px 16px 14px 44px;
+      margin-bottom: 0;
+      border-radius: 999px;
+      font-size: 15px;
+    }
+    .demo-input-wrap .demo-input::placeholder { color: #B8B0A4; }
+
+    /* Pill chips */
+    #step-1 .chips {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin: 14px 0 18px;
+    }
+    @media (min-width: 640px) {
+      #step-1 .chips { grid-template-columns: 1fr 1fr; }
+    }
+    #step-1 .chip {
+      background: var(--card-bg);
+      border: 1px solid var(--divider);
+      border-radius: 999px;
+      padding: 11px 18px;
+      font-size: 13.5px;
+      color: var(--body);
+      text-align: left;
+      line-height: 1.3;
+      cursor: pointer;
+      transition: background 0.18s, border-color 0.18s, transform 0.15s;
+    }
+    #step-1 .chip:hover {
+      background: var(--peach-soft);
+      border-color: var(--peach);
+      transform: translateY(-1px);
+    }
+
+    #step-1 .demo-btn {
+      height: 56px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 12px;
+      margin-top: 4px;
+      box-shadow: 0 6px 18px rgba(232,96,10,0.22);
+    }
+    #step-1 .demo-btn:hover {
+      background: var(--orange-deep);
+      box-shadow: 0 8px 22px rgba(232,96,10,0.30);
+    }
+
+    /* ---- STEP 01 BACKGROUND ART ---- */
+    .step1-bg-skyline {
+      position: absolute;
+      right: -10px;
+      top: 80px;
+      width: 460px;
+      max-width: 48%;
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .step1-bg-bridge {
+      position: absolute;
+      left: -20px;
+      bottom: 60px;
+      width: 240px;
+      max-width: 28%;
+      opacity: 0.38;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .step1-cloud {
+      position: absolute;
+      pointer-events: none;
+      opacity: 0.4;
+      z-index: 0;
+    }
+    .step1-cloud-1 { right: 36%; top: 130px; width: 70px; }
+    .step1-cloud-2 { left: 18%; top: 320px; width: 60px; opacity: 0.32; }
+
+    /* ---- STEP 01 HANDWRITTEN NOTES ---- */
+    .step1-note {
+      position: absolute;
+      font-family: var(--font-hand);
+      color: var(--orange);
+      font-size: 21px;
+      line-height: 1.2;
+      z-index: 3;
+      pointer-events: none;
+      font-weight: 600;
+    }
+    .step1-note-1 {
+      top: 130px;
+      right: 4%;
+      max-width: 200px;
+      transform: rotate(-3deg);
+    }
+    .step1-note-1-arrow {
+      position: absolute;
+      top: 215px;
+      right: 16%;
+      width: 56px;
+      height: 56px;
+      z-index: 3;
+      pointer-events: none;
+    }
+    .step1-note-2 {
+      top: 660px;
+      left: -10px;
+      max-width: 160px;
+      transform: rotate(-5deg);
+      font-size: 19px;
+    }
+    .step1-note-2-arrow {
+      position: absolute;
+      top: 740px;
+      left: 120px;
+      width: 54px;
+      height: 44px;
+      z-index: 3;
+      pointer-events: none;
+    }
+    .step1-sticky-note {
+      position: absolute;
+      bottom: 100px;
+      right: 4%;
+      background: var(--sticky-note);
+      padding: 20px 22px 22px;
+      font-family: var(--font-hand);
+      font-size: 21px;
+      line-height: 1.25;
+      color: #3A2E10;
+      transform: rotate(2.5deg);
+      box-shadow: 0 6px 18px rgba(72,52,20,0.14);
+      max-width: 200px;
+      z-index: 3;
+      border-radius: 2px;
+      font-weight: 600;
+    }
+    .step1-sticky-note::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      right: 22px;
+      width: 14px;
+      height: 30px;
+      border: 2px solid #B89A4E;
+      border-radius: 6px 6px 2px 2px;
+      border-bottom: none;
+    }
+    .step1-sticky-line {
+      display: inline-block;
+      width: 50px;
+      height: 6px;
+      margin-top: 6px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 6' fill='none'><path d='M2 3 C 12 1, 22 5, 32 3 S 52 1, 58 3' stroke='%233A2E10' stroke-width='1.5' stroke-linecap='round' fill='none'/></svg>");
+      background-repeat: no-repeat;
+    }
+
+    /* Tablet adjustments */
+    @media (max-width: 1100px) {
+      .step1-note-1 { right: 2%; max-width: 170px; font-size: 19px; }
+      .step1-note-1-arrow { right: 12%; }
+      .step1-sticky-note { right: 2%; max-width: 180px; font-size: 19px; }
+    }
+    @media (max-width: 880px) {
+      .step1-bg-skyline { width: 320px; top: 100px; opacity: 0.4; }
+      .step1-bg-bridge { width: 180px; bottom: 200px; opacity: 0.3; }
+      .step1-note-1 {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin: 8px 0 24px;
+        text-align: left;
+        max-width: 200px;
+      }
+      .step1-note-1-arrow { display: none; }
+      .step1-note-2 { display: none; }
+      .step1-note-2-arrow { display: none; }
+      .step1-sticky-note {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin: 36px 0 0 auto;
+        transform: rotate(-1.5deg);
+      }
+      .step1-cloud-1, .step1-cloud-2 { display: none; }
+    }
+    @media (max-width: 640px) {
+      .step1-bg-skyline { width: 220px; top: auto; bottom: 320px; opacity: 0.32; }
+      .step1-bg-bridge { left: -16px; bottom: 60px; width: 140px; opacity: 0.28; }
+      .step1-note-1 { font-size: 17px; max-width: 180px; }
+      .step1-sticky-note { font-size: 18px; max-width: 200px; padding: 16px 18px 18px; }
+    }
+
     @keyframes pulse-opacity {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.5; }
@@ -1611,10 +1960,92 @@
 
 <!-- STEP 01 -->
 <section class="step" id="step-1">
+  <!-- Background storybook art -->
+  <svg class="step1-bg-skyline" aria-hidden="true" viewBox="0 0 460 320" fill="none" preserveAspectRatio="xMidYMid meet">
+    <g stroke="#C9A88A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <!-- Empire State Building -->
+      <path d="M196 320 L196 90 L208 90 L208 70 L216 70 L216 48 L221 48 L221 14 L226 14 L226 48 L231 48 L231 70 L239 70 L239 90 L250 90 L250 320 Z"/>
+      <!-- mid-rise buildings -->
+      <path d="M40 320 L40 220 L60 220 L60 200 L84 200 L84 240 L108 240 L108 180 L132 180 L132 220 L156 220 L156 200 L180 200 L180 320"/>
+      <path d="M180 320 L180 240 L196 240"/>
+      <path d="M250 320 L250 240 L274 240 L274 210 L300 210 L300 230 L322 230 L322 250 L348 250 L348 220 L374 220 L374 320"/>
+      <!-- right-side tall building -->
+      <path d="M374 320 L374 180 L390 180 L390 160 L408 160 L408 180 L426 180 L426 320"/>
+      <!-- antenna details -->
+      <path d="M223 14 L223 0 M 397 160 L397 148"/>
+      <!-- windows hints -->
+      <g stroke-width="0.8" opacity="0.55">
+        <path d="M214 110 L 230 110 M 214 130 L 230 130 M 214 150 L 230 150 M 214 170 L 230 170 M 214 190 L 230 190"/>
+        <path d="M65 230 L 80 230 M 65 250 L 80 250 M 65 270 L 80 270"/>
+      </g>
+    </g>
+  </svg>
+
+  <svg class="step1-bg-bridge" aria-hidden="true" viewBox="0 0 240 200" fill="none" preserveAspectRatio="xMidYEnd meet">
+    <g stroke="#C9A88A" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <!-- Brooklyn Bridge towers -->
+      <path d="M50 200 L50 70 L80 70 L80 200 M 160 200 L160 70 L190 70 L190 200"/>
+      <path d="M55 90 L 75 90 M 165 90 L 185 90"/>
+      <path d="M55 120 L 75 120 M 165 120 L 185 120"/>
+      <!-- arches in towers -->
+      <path d="M58 105 Q 65 100 72 105 M 168 105 Q 175 100 182 105"/>
+      <!-- main cables (suspension curves) -->
+      <path d="M10 130 Q 65 60 120 130 Q 175 60 230 130"/>
+      <path d="M10 145 Q 65 90 120 145 Q 175 90 230 145"/>
+      <!-- vertical cables -->
+      <path d="M30 138 L 30 175 M 50 130 L 50 175 M 80 130 L 80 175 M 100 138 L 100 175 M 120 130 L 120 175 M 140 138 L 140 175 M 160 130 L 160 175 M 190 130 L 190 175 M 210 138 L 210 175 M 230 130 L 230 175"/>
+      <!-- bridge deck -->
+      <path d="M0 175 L 240 175"/>
+      <!-- water lines -->
+      <g stroke-width="0.7" opacity="0.7">
+        <path d="M0 188 Q 30 184 60 188 Q 90 184 120 188 Q 150 184 180 188 Q 210 184 240 188"/>
+        <path d="M0 196 Q 30 192 60 196 Q 90 192 120 196 Q 150 192 180 196 Q 210 192 240 196"/>
+      </g>
+    </g>
+  </svg>
+
+  <svg class="step1-cloud step1-cloud-1" aria-hidden="true" viewBox="0 0 70 18" fill="none">
+    <path d="M4 13c0-4 4-7 9-7s6 2 9 2 5-4 11-4 9 3 9 7" stroke="#C9BFA8" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+  </svg>
+  <svg class="step1-cloud step1-cloud-2" aria-hidden="true" viewBox="0 0 60 16" fill="none">
+    <path d="M4 12c0-3 3-6 7-6s5 2 8 2 4-3 10-3 8 3 8 6" stroke="#C9BFA8" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+  </svg>
+
+  <!-- Watermark -->
   <div class="step-watermark" aria-hidden="true">01</div>
+
+  <!-- Handwritten note (upper right) -->
+  <div class="step1-note step1-note-1" aria-hidden="true">
+    Know the map<br>before you<br>chart the path.
+  </div>
+  <svg class="step1-note-1-arrow" aria-hidden="true" viewBox="0 0 56 56" fill="none">
+    <path d="M50 6 C 30 14, 14 28, 6 50" stroke="#E8600A" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M4 42 L 6 52 L 16 50" stroke="#E8600A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </svg>
+
+  <!-- Handwritten note (near map, left side) -->
+  <div class="step1-note step1-note-2" aria-hidden="true">
+    Live map of<br>startups, funds,<br>accelerators &amp;<br>build hubs.
+  </div>
+  <svg class="step1-note-2-arrow" aria-hidden="true" viewBox="0 0 54 44" fill="none">
+    <path d="M4 8 C 20 16, 36 26, 50 38" stroke="#E8600A" stroke-width="2" stroke-linecap="round" fill="none"/>
+    <path d="M40 38 L 52 40 L 48 28" stroke="#E8600A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </svg>
+
+  <!-- Sticky note (bottom right) -->
+  <div class="step1-sticky-note" aria-hidden="true">
+    The best operators<br>don't guess.<br>They map.
+    <span class="step1-sticky-line" aria-hidden="true"></span>
+  </div>
+
   <div class="step-inner">
-    <p class="step-eyebrow anim">Step 01 — Ecosystem Intelligence</p>
-    <h2 class="step-title anim anim-delay-1">I would start by knowing the ecosystem cold.</h2>
+    <div class="step1-eyebrow-row anim">
+      <svg class="step1-eyebrow-spark" aria-hidden="true" viewBox="0 0 22 22" fill="none">
+        <path d="M11 1 L12.8 9.2 L 21 11 L 12.8 12.8 L 11 21 L 9.2 12.8 L 1 11 L 9.2 9.2 Z" fill="currentColor"/>
+      </svg>
+      <span class="step1-eyebrow-text">Step 01 — Ecosystem Intelligence</span>
+    </div>
+    <h2 class="step-title anim anim-delay-1">I would start by knowing the <span class="title-mark">ecosystem cold</span>.</h2>
     <div class="step-body anim anim-delay-2">
       <p>To do this job well you need to understand the NYC startup ecosystem deeply. Who is building what. Which funds are most active. Which accelerators have the best AI cohorts. Where Claude is already showing up and where it isn't yet.</p>
       <p>I have been thinking about this in my spare time. I built AI Atlas NYC as a side project because I genuinely find the NYC AI ecosystem interesting. Two years as an analyst at USV gave me the habit of reading markets this way. The venture and accelerator relationships I have built since keep it current.</p>
@@ -1624,6 +2055,10 @@
     <div class="atlas-map-card anim anim-delay-3">
       <div class="atlas-map-card-header">
         <p class="demo-label" style="margin-bottom:0;">NYC AI Map</p>
+        <svg class="atlas-map-pin" aria-hidden="true" viewBox="0 0 16 16" fill="none">
+          <path d="M8 1 C 5 1, 3 3, 3 6 C 3 10, 8 15, 8 15 C 8 15, 13 10, 13 6 C 13 3, 11 1, 8 1 Z" stroke="currentColor" stroke-width="1.4" fill="none"/>
+          <circle cx="8" cy="6" r="2" fill="currentColor"/>
+        </svg>
         <span class="atlas-map-meta" id="atlas-map-meta"></span>
       </div>
       <div class="atlas-map-wrap" id="atlas-map-wrap">
@@ -1642,11 +2077,23 @@
     </div>
 
     <div class="demo-card anim anim-delay-4">
-      <p class="demo-label">Try It — Ask Atlas</p>
-      <input type="text" class="demo-input" id="atlas-input" placeholder="Ask about the NYC AI ecosystem..." onkeydown="if(event.key==='Enter') askAtlas()">
+      <div class="demo-label-row">
+        <p class="demo-label">Try It — Ask Atlas</p>
+        <svg class="demo-label-spark" aria-hidden="true" viewBox="0 0 18 18" fill="none">
+          <path d="M9 1 L10.5 7.5 L 17 9 L 10.5 10.5 L 9 17 L 7.5 10.5 L 1 9 L 7.5 7.5 Z" fill="currentColor" opacity="0.85"/>
+        </svg>
+      </div>
+      <div class="demo-input-wrap">
+        <svg class="demo-input-icon" aria-hidden="true" viewBox="0 0 16 16" fill="none">
+          <circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M10.5 10.5 L 14 14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        <input type="text" class="demo-input" id="atlas-input" placeholder="Ask about the NYC AI ecosystem..." onkeydown="if(event.key==='Enter') askAtlas()">
+      </div>
       <div class="chips">
         <button class="chip" onclick="fillAtlas('Which NYC AI startups are building in fintech?')">Which NYC AI startups are building in fintech?</button>
         <button class="chip" onclick="fillAtlas('Where is the white space in agent infrastructure?')">Where is the white space in agent infrastructure?</button>
+        <button class="chip" onclick="fillAtlas('Which accelerators have the best AI cohorts?')">Which accelerators have the best AI cohorts?</button>
         <button class="chip" onclick="fillAtlas('Which companies would make good Claude API customers?')">Which companies would make good Claude API customers?</button>
       </div>
       <button class="demo-btn" id="atlas-btn" onclick="askAtlas()">Ask Atlas</button>
