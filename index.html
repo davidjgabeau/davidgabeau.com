@@ -400,22 +400,8 @@
         const lastUpdated = stats.lastUpdatedLabel || '';
         const statsLine = `${stats.totalCompanies} companies · ${stats.recentlyAddedCount} recently added · updated ${lastUpdated}`;
 
-        const companiesHTML = (companies || []).slice(0, 3).map(c => `
-          <li class="atlas-company">
-            ${logoHTML(c, 20)}
-            <div class="atlas-company-info">
-              <a class="atlas-company-name" href="${esc(c.href)}" target="_blank" rel="noreferrer">${esc(c.name)}</a>
-              <span class="atlas-company-hook">${esc(c.hook)}</span>
-            </div>
-            <div class="atlas-company-right">
-              ${c.stage ? `<span class="atlas-badge">${esc(c.stage)}</span>` : ''}
-              ${c.signalLabel ? `<span class="atlas-badge atlas-badge-signal">${esc(c.signalLabel)}</span>` : ''}
-            </div>
-          </li>`).join('');
-
         el.innerHTML = `
           <p class="atlas-stats-line">${esc(statsLine)}</p>
-          <ul class="atlas-companies">${companiesHTML}</ul>
           <button class="atlas-ask-btn" onclick="openAtlasModal()">Ask Atlas →</button>
         `;
 
