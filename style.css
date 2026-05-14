@@ -326,6 +326,25 @@ main {
 
 .bio p:last-child { margin-bottom: 0; }
 
+.say-hi-link {
+  display: inline-block;
+  margin-left: 0.3em;
+  padding: 2px 10px;
+  font-size: 0.9em;
+  font-family: 'Newsreader', 'Times New Roman', serif;
+  color: var(--gold);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  text-decoration: none;
+  vertical-align: baseline;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.say-hi-link:hover {
+  color: var(--text);
+  border-color: var(--text-3);
+}
+
 /* ── Divider ────────────────────────────────────────── */
 
 .section-divider {
