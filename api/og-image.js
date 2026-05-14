@@ -8,7 +8,7 @@ export default async function handler(req) {
 
   try {
     // Fetch Newsreader from the public static directory
-    const fontUrl = `${url.origin}/fonts/newsreader-normal.woff2`;
+    const fontUrl = `${url.origin}/fonts/Newsreader-700.woff`;
     let fontData = null;
     try {
       const res = await fetch(fontUrl);
@@ -27,7 +27,7 @@ export default async function handler(req) {
     };
 
     if (fontData) {
-      options.fonts = [{ name: 'Newsreader', data: fontData, weight: 400, style: 'normal' }];
+      options.fonts = [{ name: 'Newsreader', data: fontData, weight: 700, style: 'normal' }];
     }
 
     const fontFamily = fontData ? 'Newsreader' : 'serif';
