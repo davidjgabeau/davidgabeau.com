@@ -7,19 +7,30 @@ export default async function handler(req) {
   const debug = url.searchParams.has('debug');
 
   try {
-    // Fetch the font that's already served as a static asset
-    const fontUrl = new URL('/fonts/newsreader-normal.woff2', url.origin);
+    // Fetch Newsreader from the public static directory
+    const fontUrl = `${url.origin}/fonts/newsreader-normal.woff2`;
     let fontData = null;
     try {
-      const res = await fetch(fontUrl.toString());
+      const res = await fetch(fontUrl);
       if (res.ok) fontData = await res.arrayBuffer();
     } catch (_) {}
 
-    const fonts = fontData
-      ? [{ name: 'Newsreader', data: fontData, weight: 400, style: 'normal' }]
-      : [];
+    if (debug && !fontData) {
+      return new Response('Font fetch failed from: ' + fontUrl, {
+        headers: { 'content-type': 'text/plain' },
+      });
+    }
 
-    const serif = fontData ? 'Newsreader' : 'Georgia, serif';
+    const options = {
+      width: 1200,
+      height: 630,
+    };
+
+    if (fontData) {
+      options.fonts = [{ name: 'Newsreader', data: fontData, weight: 400, style: 'normal' }];
+    }
+
+    const fontFamily = fontData ? 'Newsreader' : 'serif';
 
     return new ImageResponse(
       {
@@ -41,8 +52,7 @@ export default async function handler(req) {
                 style: {
                   display: 'flex',
                   flexDirection: 'column',
-                  fontFamily: serif,
-                  fontWeight: 400,
+                  fontFamily,
                   color: '#000000',
                   lineHeight: 1.0,
                   fontSize: 144,
@@ -61,9 +71,7 @@ export default async function handler(req) {
                 style: {
                   fontSize: 24,
                   color: '#666666',
-                  fontFamily: serif,
-                  fontWeight: 400,
-                  letterSpacing: '0',
+                  fontFamily,
                   display: 'flex',
                 },
                 children: 'davidgabeau.com',
@@ -72,23 +80,13 @@ export default async function handler(req) {
           ],
         },
       },
-      {
-        width: 1200,
-        height: 630,
-        fonts,
-      }
+      options
     );
   } catch (err) {
     const msg = (err && (err.stack || err.message)) || String(err);
-    if (debug) {
-      return new Response('OG error: ' + msg, {
-        status: 500,
-        headers: { 'content-type': 'text/plain; charset=utf-8' },
-      });
-    }
-    return new Response(JSON.stringify({ error: msg.slice(0, 600) }), {
+    return new Response('OG error: ' + msg, {
       status: 500,
-      headers: { 'content-type': 'application/json' },
+      headers: { 'content-type': 'text/plain; charset=utf-8' },
     });
   }
 }
