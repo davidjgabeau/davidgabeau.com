@@ -19,7 +19,7 @@ export default async function handler() {
   return new ImageResponse(
     e('div', {
       style: {
-        background: '#f0eee6',
+        background: '#ffffff',
         width: '100%',
         height: '100%',
         display: 'flex',
@@ -34,7 +34,7 @@ export default async function handler() {
           flexDirection: 'column',
           fontFamily: fontData ? 'Newsreader' : 'Georgia, serif',
           fontWeight: 700,
-          color: '#1f1e1d',
+          color: '#000000',
           lineHeight: 1.0,
           fontSize: 144,
           letterSpacing: '-2px',
@@ -47,7 +47,7 @@ export default async function handler() {
       e('span', {
         style: {
           fontSize: 24,
-          color: '#a09e97',
+          color: '#666666',
           fontFamily: fontData ? 'Newsreader' : 'Georgia, serif',
           fontWeight: 400,
           letterSpacing: '0',
