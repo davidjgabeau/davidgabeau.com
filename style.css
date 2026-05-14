@@ -328,7 +328,7 @@ main {
 
 .say-hi-link {
   display: inline-block;
-  margin-left: 0.3em;
+  margin-top: 0.85em;
   padding: 2px 10px;
   font-size: 0.9em;
   font-family: 'Newsreader', 'Times New Roman', serif;
@@ -336,7 +336,6 @@ main {
   border: 1px solid var(--border);
   border-radius: 3px;
   text-decoration: none;
-  vertical-align: baseline;
   transition: color 0.15s, border-color 0.15s;
 }
 
