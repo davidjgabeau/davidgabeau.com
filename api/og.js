@@ -2,29 +2,24 @@ import { ImageResponse } from '@vercel/og';
 
 export const config = { runtime: 'edge' };
 
-async function loadBundledFont(filename) {
-  try {
-    const res = await fetch(new URL(`./fonts/${filename}`, import.meta.url));
-    if (!res.ok) return null;
-    return await res.arrayBuffer();
-  } catch {
-    return null;
-  }
-}
-
 export default async function handler(req) {
   const url = new URL(req.url);
   const debug = url.searchParams.has('debug');
 
   try {
-    const [newsreader] = await Promise.all([
-      loadBundledFont('Newsreader-700.woff'),
-    ]);
+    // Fetch the font that's already served as a static asset
+    const fontUrl = new URL('/fonts/newsreader-normal.woff2', url.origin);
+    let fontData = null;
+    try {
+      const res = await fetch(fontUrl.toString());
+      if (res.ok) fontData = await res.arrayBuffer();
+    } catch (_) {}
 
-    const fonts = [];
-    if (newsreader) fonts.push({ name: 'Newsreader', data: newsreader, weight: 700, style: 'normal' });
+    const fonts = fontData
+      ? [{ name: 'Newsreader', data: fontData, weight: 400, style: 'normal' }]
+      : [];
 
-    const serif = newsreader ? 'Newsreader' : 'Georgia, serif';
+    const serif = fontData ? 'Newsreader' : 'Georgia, serif';
 
     return new ImageResponse(
       {
@@ -47,7 +42,7 @@ export default async function handler(req) {
                   display: 'flex',
                   flexDirection: 'column',
                   fontFamily: serif,
-                  fontWeight: 700,
+                  fontWeight: 400,
                   color: '#000000',
                   lineHeight: 1.0,
                   fontSize: 144,
