@@ -450,6 +450,14 @@ ul {
   color: var(--text-2);
 }
 
+.meta-links a {
+  color: var(--gold);
+}
+
+.meta-links a:hover {
+  color: var(--text-2);
+}
+
 .meta {
   display: block;
   text-indent: 0;
