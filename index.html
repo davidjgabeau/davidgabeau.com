@@ -454,8 +454,12 @@
         const chipsEl = document.getElementById('atlas-modal-chips');
         if (chipsEl && ask && ask.exampleQuestions) {
           chipsEl.innerHTML = ask.exampleQuestions.map(q =>
-            `<button class="atlas-modal-chip" onclick="fillAtlasQuery(${JSON.stringify(q)})">${esc(q)}</button>`
+            `<button class="atlas-modal-chip" data-query="${esc(q)}">${esc(q)}</button>`
           ).join('');
+          chipsEl.addEventListener('click', function(e) {
+            const btn = e.target.closest('[data-query]');
+            if (btn) window.fillAtlasQuery(btn.dataset.query);
+          });
         }
       }
 
