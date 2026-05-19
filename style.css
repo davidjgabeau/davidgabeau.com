@@ -1243,3 +1243,125 @@ footer {
   .atlas-modal { max-height: 90vh; border-radius: 6px 6px 0 0; }
 }
 
+/* ── GitHub heatmap ─────────────────────────────────── */
+
+:root {
+  --heatmap-0: var(--border-2);
+  --heatmap-1: rgba(184, 146, 74, 0.22);
+  --heatmap-2: rgba(184, 146, 74, 0.45);
+  --heatmap-3: rgba(184, 146, 74, 0.70);
+  --heatmap-4: var(--gold);
+}
+
+[data-theme="dark"] {
+  --heatmap-0: #2a2825;
+  --heatmap-1: rgba(196, 154, 82, 0.22);
+  --heatmap-2: rgba(196, 154, 82, 0.45);
+  --heatmap-3: rgba(196, 154, 82, 0.70);
+  --heatmap-4: var(--gold);
+}
+
+.github-heatmap-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.65em;
+  flex-wrap: wrap;
+  gap: 0.25em;
+}
+
+.github-heatmap-total {
+  font-size: 0.82rem;
+  color: var(--text-3);
+}
+
+.github-heatmap-link {
+  font-size: 0.78rem;
+  color: var(--text-4);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.github-heatmap-link:hover { color: var(--text-3); }
+
+.github-heatmap-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: default;
+}
+
+.github-heatmap-scroll::-webkit-scrollbar { display: none; }
+
+.github-heatmap-grid {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+  width: max-content;
+}
+
+.github-heatmap-week {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.github-heatmap-day {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+  background-color: var(--heatmap-0);
+  transition: background-color 0.25s ease, opacity 0.15s;
+  position: relative;
+}
+
+.github-heatmap-day[data-level="1"] { background-color: var(--heatmap-1); }
+.github-heatmap-day[data-level="2"] { background-color: var(--heatmap-2); }
+.github-heatmap-day[data-level="3"] { background-color: var(--heatmap-3); }
+.github-heatmap-day[data-level="4"] { background-color: var(--heatmap-4); }
+
+.github-heatmap-day:hover { opacity: 0.75; }
+
+.github-heatmap-tooltip {
+  position: fixed;
+  background: var(--text);
+  color: var(--bg);
+  font-family: 'Newsreader', 'Times New Roman', serif;
+  font-size: 0.72rem;
+  padding: 4px 8px;
+  border-radius: 3px;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+
+.writing-more-btn {
+  margin-top: 0.75em;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: 'Newsreader', 'Times New Roman', serif;
+  font-size: 0.88rem;
+  color: var(--text-3);
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  transition: color 0.15s;
+}
+
+.writing-more-btn:hover { color: var(--text); }
+
+.writing-list li.writing-hidden {
+  display: none;
+}
+
+.github-heatmap-loading {
+  font-size: 0.85rem;
+  color: var(--text-4);
+  font-style: italic;
+}
+

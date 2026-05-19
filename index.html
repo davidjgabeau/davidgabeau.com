@@ -233,7 +233,7 @@
 
       <section aria-label="Writing">
         <h2>Writing</h2>
-        <ul class="writing-list">
+        <ul class="writing-list" id="writing-list">
           <li>
             <a href="https://blog.usetapestry.dev/p/2026-cs-fair" target="_blank" rel="noopener noreferrer">What 2,000 High Schoolers Taught Us About Building for the Next Generation</a>
             <span class="date">Apr 2026 <span style="color:var(--text-4)">· by David Gabeau</span></span>
@@ -271,6 +271,7 @@
             <span class="date">Mar 2020 <span style="color:var(--text-4)">· by David Gabeau</span></span>
           </li>
         </ul>
+        <button class="writing-more-btn" id="writing-more-btn" onclick="toggleWriting()">Show more</button>
       </section>
 
       <section aria-label="Personal Investments">
@@ -300,6 +301,19 @@
             <span class="date">Touch Grass Podcast, 2025</span>
           </li>
         </ul>
+      </section>
+
+      <section aria-label="GitHub contributions">
+        <div class="github-heatmap-meta">
+          <span class="github-heatmap-total" id="github-heatmap-total"></span>
+          <a class="github-heatmap-link" href="https://github.com/dgabeau" target="_blank" rel="noopener noreferrer">github.com/dgabeau →</a>
+        </div>
+        <div class="github-heatmap-scroll">
+          <div class="github-heatmap-grid" id="github-heatmap-grid">
+            <p class="github-heatmap-loading">Loading…</p>
+          </div>
+        </div>
+        <div class="github-heatmap-tooltip" id="github-heatmap-tooltip"></div>
       </section>
 
     </div>
@@ -656,6 +670,123 @@
       // ── Init ─────────────────────────────────────────────
       loadAtlas();
     })();
+
+    // ── GitHub heatmap ──────────────────────────────────
+    (function () {
+      const tooltip = document.getElementById('github-heatmap-tooltip');
+
+      function levelForCount(n) {
+        if (n === 0) return 0;
+        if (n <= 3) return 1;
+        if (n <= 6) return 2;
+        if (n <= 9) return 3;
+        return 4;
+      }
+
+      function formatDate(dateStr) {
+        const d = new Date(dateStr + 'T00:00:00');
+        return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      }
+
+      function showTooltip(e, day) {
+        const label = day.count === 1
+          ? '1 contribution'
+          : day.count === 0
+          ? 'No contributions'
+          : `${day.count} contributions`;
+        tooltip.textContent = `${label} · ${formatDate(day.date)}`;
+        tooltip.style.opacity = '1';
+        positionTooltip(e);
+      }
+
+      function positionTooltip(e) {
+        const x = e.clientX + 10;
+        const y = e.clientY - 28;
+        tooltip.style.left = Math.min(x, window.innerWidth - tooltip.offsetWidth - 8) + 'px';
+        tooltip.style.top = Math.max(y, 4) + 'px';
+      }
+
+      function hideTooltip() {
+        tooltip.style.opacity = '0';
+      }
+
+      function renderHeatmap(calendar) {
+        const grid = document.getElementById('github-heatmap-grid');
+        const totalEl = document.getElementById('github-heatmap-total');
+        if (!grid) return;
+
+        if (totalEl) {
+          totalEl.textContent = `${calendar.totalContributions.toLocaleString()} contributions in the last year`;
+        }
+
+        grid.innerHTML = '';
+
+        for (const week of calendar.weeks) {
+          const col = document.createElement('div');
+          col.className = 'github-heatmap-week';
+
+          // Pad the first week so days align to the correct weekday row
+          if (calendar.weeks.indexOf(week) === 0 && week.contributionDays.length < 7) {
+            const pad = 7 - week.contributionDays.length;
+            for (let i = 0; i < pad; i++) {
+              const spacer = document.createElement('div');
+              spacer.className = 'github-heatmap-day';
+              spacer.style.visibility = 'hidden';
+              col.appendChild(spacer);
+            }
+          }
+
+          for (const day of week.contributionDays) {
+            const cell = document.createElement('div');
+            cell.className = 'github-heatmap-day';
+            cell.dataset.level = levelForCount(day.contributionCount);
+
+            const dayData = { count: day.contributionCount, date: day.date };
+            cell.addEventListener('mouseenter', (e) => showTooltip(e, dayData));
+            cell.addEventListener('mousemove', positionTooltip);
+            cell.addEventListener('mouseleave', hideTooltip);
+
+            col.appendChild(cell);
+          }
+
+          grid.appendChild(col);
+        }
+
+        // Scroll to the right to show most recent weeks
+        const scrollEl = grid.parentElement;
+        if (scrollEl) scrollEl.scrollLeft = scrollEl.scrollWidth;
+      }
+
+      async function loadHeatmap() {
+        try {
+          const res = await fetch('/api/github-heatmap');
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          const data = await res.json();
+          if (data.error) throw new Error(data.error);
+          renderHeatmap(data);
+        } catch (e) {
+          const grid = document.getElementById('github-heatmap-grid');
+          if (grid) grid.innerHTML = '';
+        }
+      }
+
+      loadHeatmap();
+    })();
+
+    // ── Writing pagination ──────────────────────────────
+    (function () {
+      const PAGE = 4;
+      const items = document.querySelectorAll('#writing-list li');
+      items.forEach((li, i) => { if (i >= PAGE) li.classList.add('writing-hidden'); });
+    })();
+
+    window.toggleWriting = function () {
+      const items = document.querySelectorAll('#writing-list li');
+      const btn = document.getElementById('writing-more-btn');
+      const isHidden = items[4].classList.contains('writing-hidden');
+      items.forEach((li, i) => { if (i >= 4) li.classList.toggle('writing-hidden', !isHidden); });
+      btn.textContent = isHidden ? 'Show less' : 'Show more';
+    };
 
   </script>
 </body>
