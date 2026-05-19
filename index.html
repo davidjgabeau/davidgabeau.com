@@ -309,6 +309,7 @@
           <a class="github-heatmap-link" href="https://github.com/dgabeau" target="_blank" rel="noopener noreferrer">github.com/dgabeau →</a>
         </div>
         <div class="github-heatmap-scroll">
+          <div class="github-heatmap-months" id="github-heatmap-months"></div>
           <div class="github-heatmap-grid" id="github-heatmap-grid">
             <p class="github-heatmap-loading">Loading…</p>
           </div>
@@ -710,6 +711,35 @@
         tooltip.style.opacity = '0';
       }
 
+      function renderMonths(weeks) {
+        const container = document.getElementById('github-heatmap-months');
+        if (!container) return;
+        const CELL = 10, GAP = 3, COL = CELL + GAP;
+        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        let lastMonth = -1;
+        weeks.forEach((week, wi) => {
+          const firstDay = week.contributionDays[0];
+          if (!firstDay) return;
+          const m = new Date(firstDay.date + 'T00:00:00').getMonth();
+          if (m !== lastMonth) {
+            const span = document.createElement('span');
+            span.className = 'github-heatmap-month-label';
+            const prevWeeks = weeks.slice(0, wi);
+            const offsetPx = wi * COL;
+            span.style.paddingLeft = wi === 0 ? '0' : '0';
+            span.style.position = 'absolute';
+            span.style.left = offsetPx + 'px';
+            span.textContent = months[m];
+            container.appendChild(span);
+            lastMonth = m;
+          }
+        });
+        container.style.position = 'relative';
+        const totalWidth = weeks.length * COL;
+        container.style.width = totalWidth + 'px';
+        container.style.height = '14px';
+      }
+
       function renderHeatmap(calendar) {
         const grid = document.getElementById('github-heatmap-grid');
         const totalEl = document.getElementById('github-heatmap-total');
@@ -720,6 +750,7 @@
         }
 
         grid.innerHTML = '';
+        renderMonths(calendar.weeks);
 
         for (const week of calendar.weeks) {
           const col = document.createElement('div');

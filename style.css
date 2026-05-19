@@ -1284,6 +1284,20 @@ footer {
 
 .github-heatmap-link:hover { color: var(--text-3); }
 
+.github-heatmap-months {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 4px;
+  width: max-content;
+}
+
+.github-heatmap-month-label {
+  font-size: 0.68rem;
+  color: var(--text-4);
+  font-family: 'Newsreader', 'Times New Roman', serif;
+  white-space: nowrap;
+}
+
 .github-heatmap-scroll {
   overflow-x: auto;
   overflow-y: hidden;
