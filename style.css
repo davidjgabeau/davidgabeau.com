@@ -1468,3 +1468,193 @@ footer {
   font-style: italic;
 }
 
+/* ── Thesis block ───────────────────────────────────── */
+
+.tl-thesis {
+  padding-top: 2.75rem;
+  padding-bottom: 2.25rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+  transition: border-color 0.25s ease;
+}
+
+.tl-thesis .tl-thesis-quote {
+  font-size: 1.55rem;
+  line-height: 1.4;
+  color: var(--text);
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.6em 0;
+}
+
+.tl-thesis .tl-thesis-role {
+  font-size: 0.8rem;
+  color: var(--text-4);
+  letter-spacing: 0.06em;
+  margin: 0;
+  transition: color 0.25s ease;
+}
+
+@media (max-width: 479px) {
+  .tl-thesis .tl-thesis-quote { font-size: 1.2rem; }
+}
+
+/* ── Collapsible timeline ───────────────────────────── */
+
+/* Override existing display:flex — entries are now block containers */
+.tl-entry {
+  display: block;
+  margin-bottom: 0;
+}
+
+/* Header row replicates the original flat flex layout */
+.tl-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-left: -8px;
+  margin-right: -8px;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: background-color 0.15s ease;
+  outline: none;
+}
+
+.tl-header:hover  { background-color: var(--hover-bg); }
+.tl-header:active { background-color: var(--active-bg); }
+
+.tl-header:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Chevron icon on timeline headers */
+.tl-chevron {
+  flex-shrink: 0;
+  color: var(--text-4);
+  margin-top: 10px;
+  opacity: 0;
+  transition: transform 0.22s ease, opacity 0.15s ease;
+}
+
+.tl-header:hover .tl-chevron { opacity: 1; }
+
+.tl-entry[data-open="true"]  .tl-chevron { transform: rotate(0deg); }
+.tl-entry[data-open="false"] .tl-chevron { transform: rotate(-90deg); }
+
+@media (max-width: 767px) {
+  .tl-chevron { opacity: 0.4; }
+}
+
+/* Collapsible content area */
+.tl-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.22s ease;
+  padding-left: 136px; /* year(76) + gap(12) + icon(36) + gap(12) */
+}
+
+.tl-entry[data-open="true"] .tl-content {
+  grid-template-rows: 1fr;
+}
+
+.tl-content-inner {
+  overflow: hidden;
+}
+
+/* Paragraphs inside tl-content (override tl-body p { margin:0 }) */
+.tl-content-inner p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-2);
+  margin-bottom: 0.75em;
+  transition: color 0.25s ease;
+}
+
+.tl-content-inner p:last-child {
+  margin-bottom: 0.8rem;
+}
+
+.tl-content-inner p a { color: var(--text-2); }
+
+/* Narrow screens: remove indent so text doesn't get too cramped */
+@media (max-width: 479px) {
+  .tl-content { padding-left: 0; padding-top: 0.15rem; }
+}
+
+/* ── Collapsible sections ───────────────────────────── */
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  padding: 3px 8px;
+  margin-left: -8px;
+  margin-right: -8px;
+  border-radius: 4px;
+  margin-bottom: 0.85em; /* replaces h2's own margin-bottom */
+  transition: background-color 0.15s ease;
+  outline: none;
+}
+
+.section-header:hover  { background-color: var(--hover-bg); }
+.section-header:active { background-color: var(--active-bg); }
+
+.section-header:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* Remove h2's own bottom margin when it's inside a section-header */
+.section-header h2 { margin-bottom: 0; }
+
+.section-count {
+  font-size: 0.76rem;
+  color: var(--text-4);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+  transition: color 0.25s ease;
+}
+
+.section-chevron {
+  flex-shrink: 0;
+  color: var(--text-4);
+  margin-left: auto;
+  opacity: 0;
+  transition: transform 0.22s ease, opacity 0.15s ease;
+}
+
+.section-header:hover .section-chevron { opacity: 1; }
+
+.collapsible-section[data-open="true"]  .section-chevron { transform: rotate(0deg); }
+.collapsible-section[data-open="false"] .section-chevron { transform: rotate(-90deg); }
+
+@media (max-width: 767px) {
+  .section-chevron { opacity: 0.4; }
+}
+
+.section-content {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 0.22s ease;
+}
+
+.collapsible-section[data-open="false"] .section-content {
+  grid-template-rows: 0fr;
+}
+
+.section-content-inner {
+  overflow: hidden;
+}
+
