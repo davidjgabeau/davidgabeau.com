@@ -1243,6 +1243,95 @@ footer {
   .atlas-modal { max-height: 90vh; border-radius: 6px 6px 0 0; }
 }
 
+/* ── Career timeline ────────────────────────────────── */
+
+.tl-entry {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.tl-year {
+  min-width: 76px;
+  text-align: right;
+  font-size: 0.78rem;
+  color: var(--text-4);
+  padding-top: 6px;
+  flex-shrink: 0;
+  font-style: italic;
+  letter-spacing: 0.01em;
+}
+
+.tl-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  flex-shrink: 0;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tl-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.tl-icon.tl-icon-fallback::after {
+  content: attr(data-initials);
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: var(--text-3);
+  letter-spacing: 0.03em;
+}
+
+.tl-body {
+  flex: 1;
+  min-width: 0;
+  padding-top: 3px;
+}
+
+.tl-org {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 0.3em;
+  color: var(--text);
+}
+
+.tl-org a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.tl-org a:hover { color: var(--text-2); }
+
+.tl-body p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-2);
+  margin: 0;
+}
+
+.tl-body p a {
+  color: var(--text-2);
+}
+
+.tl-now {
+  font-size: 0.95rem;
+  color: var(--text-2);
+  line-height: 1.5;
+  margin-top: 0.5rem;
+  margin-bottom: 0.85em;
+  padding-left: 88px;
+}
+
 /* ── GitHub heatmap ─────────────────────────────────── */
 
 :root {
