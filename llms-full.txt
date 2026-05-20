@@ -8,7 +8,7 @@ Zumi, an AI companion we built on Tapestry, has reached 160,000+ users.
 
 Before Tapestry, I was an analyst at Union Square Ventures, focused on early-stage crypto, climate, and education companies.
 
-Earlier, I dropped out of NYU, taught myself to code, and worked as an engineer at Snap and Lyft before each went public.
+Earlier, I dropped out of NYU, learned to code, and worked as an engineer at Snap and Lyft before each went public.
 
 I write about technology trends and listen to Soulection weekly.
 
@@ -72,7 +72,7 @@ I write about technology trends and listen to Soulection weekly.
 - Analyst, Union Square Ventures (crypto, climate, education focus)
 - Quality Engineer, Lyft
 - Quality Engineer, Snap / Snapchat (Stories team)
-- Self-taught engineer; dropped out of NYU
+- Learned to code; dropped out of NYU
 
 ## Contact & Links
 
