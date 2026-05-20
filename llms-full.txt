@@ -70,8 +70,8 @@ I write about technology trends and listen to Soulection weekly.
 
 - Founder & CEO, Tapestry / Primitives (2021–present)
 - Analyst, Union Square Ventures (crypto, climate, education focus)
-- Software Engineer, Lyft (pre-IPO)
-- Software Engineer, Snap / Snapchat (pre-IPO)
+- Quality Engineer, Lyft
+- Quality Engineer, Snap / Snapchat (Stories team)
 - Self-taught engineer; dropped out of NYU
 
 ## Contact & Links

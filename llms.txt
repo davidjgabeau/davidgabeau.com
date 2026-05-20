@@ -4,7 +4,7 @@
 
 ## About
 
-David Gabeau is a founder and software engineer in New York. He dropped out of NYU, taught himself to code, and worked as an engineer at Snap and Lyft before each went public. He then joined Union Square Ventures as an analyst, focused on early-stage crypto, climate, and education companies. He is now the founder and CEO of Tapestry.
+David Gabeau is a founder and software engineer in New York. He dropped out of NYU, taught himself to code, and worked as a quality engineer at Snap and Lyft before each went public. He then joined Union Square Ventures as an analyst, focused on early-stage crypto, climate, and education companies. He founded Tapestry, a permissionless social graph protocol on Solana, and is now looking for a role at the frontier of AI.
 
 ## Projects
 
