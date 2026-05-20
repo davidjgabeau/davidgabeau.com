@@ -57,6 +57,7 @@
 html {
   height: 100%;
   color-scheme: light dark;
+  overflow-x: hidden; /* prevent horizontal scroll on mobile */
 }
 
 /* ── Animations ─────────────────────────────────────── */
@@ -1393,6 +1394,7 @@ footer {
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   cursor: default;
+  max-width: 100%; /* prevent heatmap from expanding page width on iOS */
 }
 
 .github-heatmap-scroll::-webkit-scrollbar { display: none; }
@@ -1584,9 +1586,11 @@ footer {
 
 .tl-content-inner p a { color: var(--text-2); }
 
-/* Narrow screens: remove indent so text doesn't get too cramped */
-@media (max-width: 479px) {
+/* Mobile: remove indent so description text uses full width */
+@media (max-width: 767px) {
   .tl-content { padding-left: 0; padding-top: 0.15rem; }
+  /* Tighten gap on very small screens so org name doesn't wrap */
+  .tl-header { gap: 8px; }
 }
 
 /* ── Collapsible sections ───────────────────────────── */
