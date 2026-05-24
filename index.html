@@ -1175,10 +1175,21 @@
       }, 300);
     };
 
-    // ── Auto-activate if URL is /frenz ───────────────────
+    // ── Auto-activate if URL is /frenz (no animation) ────
     if (window.location.pathname === '/frenz') {
-      var _tabFriends = document.getElementById('tab-friends');
-      if (_tabFriends) switchView('friends', _tabFriends);
+      var _main      = document.querySelector('main');
+      var _photo     = document.getElementById('author-photo-wrap');
+      var _footer    = document.querySelector('footer');
+      var _friends   = document.getElementById('friends-view');
+      var _tabMe     = document.getElementById('tab-me');
+      var _tabFrienz = document.getElementById('tab-friends');
+      if (_main)    { _main.style.display = 'none'; }
+      if (_photo)   { _photo.style.display = 'none'; }
+      if (_footer)  { _footer.style.display = 'none'; }
+      if (_friends) { _friends.setAttribute('aria-hidden', 'false'); _friends.style.display = 'block'; }
+      if (_tabMe)     { _tabMe.classList.remove('view-tab--active'); _tabMe.setAttribute('aria-pressed', 'false'); }
+      if (_tabFrienz) { _tabFrienz.classList.add('view-tab--active'); _tabFrienz.setAttribute('aria-pressed', 'true'); }
+      document.body.setAttribute('data-view', 'friends');
     }
 
     // Handle browser back/forward
