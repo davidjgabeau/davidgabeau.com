@@ -1105,9 +1105,6 @@
       var footer    = document.querySelector('footer');
 
       var goingToFriends = (view === 'friends');
-      var isAlready = goingToFriends
-        ? friendsEl.getAttribute('aria-hidden') === 'false'
-        : mainEl.getAttribute('aria-hidden') === 'true' ? false : true;
 
       // No-op if already on this view
       if ((goingToFriends && friendsEl.getAttribute('aria-hidden') === 'false') ||
@@ -1115,73 +1112,66 @@
         return;
       }
 
-      // Splat blob origin
-      var rect = btn.getBoundingClientRect();
-      var cx = rect.left + rect.width / 2;
-      var cy = rect.top + rect.height / 2;
-      var maxR = Math.max(
-        Math.hypot(cx, cy),
-        Math.hypot(window.innerWidth - cx, cy),
-        Math.hypot(cx, window.innerHeight - cy),
-        Math.hypot(window.innerWidth - cx, window.innerHeight - cy)
-      ) * 2.4;
+      // Elements to fade out
+      var outEls = goingToFriends
+        ? [mainEl, photoWrap, footer].filter(Boolean)
+        : [friendsEl];
 
-      var blob = document.createElement('div');
-      blob.style.cssText = [
-        'position:fixed',
-        'left:' + cx + 'px',
-        'top:' + cy + 'px',
-        'width:' + maxR + 'px',
-        'height:' + maxR + 'px',
-        'border-radius:50%',
-        'background:var(--gold)',
-        'pointer-events:none',
-        'z-index:9999',
-        'transform:translate(-50%,-50%) scale(0)',
-        'transition:transform 0.48s cubic-bezier(.4,0,.2,1)',
-        'opacity:0.92'
-      ].join(';');
-      document.body.appendChild(blob);
-
-      // Expand blob
-      requestAnimationFrame(function() {
-        requestAnimationFrame(function() {
-          blob.style.transform = 'translate(-50%,-50%) scale(1)';
-        });
+      // Fade everything out
+      outEls.forEach(function(el) {
+        el.style.transition = 'opacity 0.28s ease';
+        el.style.opacity = '0';
       });
 
-      // Swap content at peak, then fade blob out
+      // Update tab labels immediately
+      if (goingToFriends) {
+        tabMe.classList.remove('view-tab--active'); tabMe.setAttribute('aria-pressed', 'false');
+        tabFriends.classList.add('view-tab--active'); tabFriends.setAttribute('aria-pressed', 'true');
+      } else {
+        tabFriends.classList.remove('view-tab--active'); tabFriends.setAttribute('aria-pressed', 'false');
+        tabMe.classList.add('view-tab--active'); tabMe.setAttribute('aria-pressed', 'true');
+      }
+
       setTimeout(function() {
+        // Swap visibility
         if (goingToFriends) {
-          mainEl.setAttribute('aria-hidden', 'true');
-          mainEl.style.display = 'none';
-          if (photoWrap) { photoWrap.setAttribute('aria-hidden', 'true'); photoWrap.style.display = 'none'; }
-          if (footer)    { footer.style.display = 'none'; }
+          mainEl.style.display = 'none'; mainEl.style.opacity = '';  mainEl.style.transition = '';
+          if (photoWrap) { photoWrap.style.display = 'none'; photoWrap.style.opacity = ''; photoWrap.style.transition = ''; }
+          if (footer)    { footer.style.display = 'none';    footer.style.opacity = '';    footer.style.transition = ''; }
           friendsEl.setAttribute('aria-hidden', 'false');
           friendsEl.style.display = 'block';
-          tabMe.classList.remove('view-tab--active');
-          tabMe.setAttribute('aria-pressed', 'false');
-          tabFriends.classList.add('view-tab--active');
-          tabFriends.setAttribute('aria-pressed', 'true');
+          friendsEl.style.opacity = '0';
+          friendsEl.style.transition = '';
           document.body.setAttribute('data-view', 'friends');
+          window.scrollTo(0, 0);
         } else {
+          friendsEl.style.display = 'none'; friendsEl.style.opacity = ''; friendsEl.style.transition = '';
           friendsEl.setAttribute('aria-hidden', 'true');
-          friendsEl.style.display = 'none';
           mainEl.removeAttribute('aria-hidden');
-          mainEl.style.display = '';
-          if (photoWrap) { photoWrap.removeAttribute('aria-hidden'); photoWrap.style.display = ''; }
-          if (footer)    { footer.style.display = ''; }
-          tabFriends.classList.remove('view-tab--active');
-          tabFriends.setAttribute('aria-pressed', 'false');
-          tabMe.classList.add('view-tab--active');
-          tabMe.setAttribute('aria-pressed', 'true');
+          mainEl.style.display = ''; mainEl.style.opacity = '0'; mainEl.style.transition = '';
+          if (photoWrap) { photoWrap.style.display = ''; photoWrap.style.opacity = '0'; photoWrap.style.transition = ''; }
+          if (footer)    { footer.style.display = '';    footer.style.opacity = '0';    footer.style.transition = ''; }
           document.body.removeAttribute('data-view');
+          window.scrollTo(0, 0);
         }
-        // Fade blob out
-        blob.style.transition = 'opacity 0.38s ease';
-        blob.style.opacity = '0';
-        setTimeout(function() { blob.remove(); }, 400);
-      }, 460);
+
+        // Fade new content in — slightly slower, asymmetric
+        var inEls = goingToFriends
+          ? [friendsEl]
+          : [mainEl, photoWrap, footer].filter(Boolean);
+
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() {
+            inEls.forEach(function(el) {
+              el.style.transition = 'opacity 0.55s ease';
+              el.style.opacity = '1';
+            });
+            setTimeout(function() {
+              inEls.forEach(function(el) { el.style.transition = ''; el.style.opacity = ''; });
+            }, 600);
+          });
+        });
+      }, 300);
     };
 
   </script>
