@@ -1749,3 +1749,64 @@ section[aria-label="GitHub contributions"] {
 }
 
 .friends-link:hover { opacity: 0.75; }
+
+/* ── Friends track swipe card ───────────────────────────── */
+.friends-track-wrap {
+  position: relative;
+  max-width: 320px;
+}
+
+.friends-track-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  will-change: transform;
+}
+
+.friends-track-card:active { cursor: grabbing; }
+
+.friends-track-thumb {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+.friends-track-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 10px 14px;
+  background: linear-gradient(135deg, transparent 60%, rgba(0,0,0,0.45));
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+.friends-track-hint {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+}
+
+.friends-track-player {
+  display: none;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 320px;
+}
+
+.friends-track-player--active { display: block; }
+
+.friends-track-player iframe {
+  display: block;
+  border-radius: 8px;
+}
+
+.friends-text {
+  font-size: 0.97rem;
+  color: var(--text-2);
+}
