@@ -1652,3 +1652,100 @@ section[aria-label="GitHub contributions"] {
   overflow: hidden;
 }
 
+
+/* ── View toggle (me · friends!) ───────────────────────── */
+.view-toggle {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3em;
+}
+
+.view-tab {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.8rem;
+  color: var(--text-4);
+  transition: color 0.15s;
+  letter-spacing: 0.01em;
+}
+
+.view-tab:hover { color: var(--text-2); }
+
+.view-tab--active {
+  color: var(--text);
+  font-style: italic;
+}
+
+.view-tab-sep {
+  font-size: 0.75rem;
+  color: var(--text-4);
+  user-select: none;
+}
+
+/* ── Friends view ───────────────────────────────────────── */
+.friends-view {
+  display: none;
+  min-height: 60vh;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
+}
+
+.friends-container {
+  max-width: 540px;
+}
+
+.friends-intro {
+  font-size: 1.15rem;
+  line-height: 1.55;
+  color: var(--text);
+  margin-bottom: 2.5rem;
+  font-style: italic;
+}
+
+.friends-block {
+  margin-bottom: 2rem;
+}
+
+.friends-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-4);
+  margin-bottom: 0.75rem;
+}
+
+.friends-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.friends-list li {
+  font-size: 0.97rem;
+  color: var(--text-2);
+  line-height: 1.4;
+}
+
+.friends-list em {
+  font-style: italic;
+  color: var(--text);
+}
+
+.friends-song {
+  font-size: 0.95rem;
+  color: var(--text-2);
+}
+
+.friends-link {
+  color: var(--gold);
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+
+.friends-link:hover { opacity: 0.75; }

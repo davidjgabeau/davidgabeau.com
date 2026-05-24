@@ -149,6 +149,11 @@
         <h1 class="header-name">David Gabeau</h1>
       </a>
       <div class="header-right">
+        <div class="view-toggle" role="group" aria-label="View">
+          <button class="view-tab view-tab--active" id="tab-me" aria-pressed="true" onclick="switchView('me',this)">me</button>
+          <span class="view-tab-sep" aria-hidden="true">·</span>
+          <button class="view-tab" id="tab-friends" aria-pressed="false" onclick="switchView('friends',this)">friends!</button>
+        </div>
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
           <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="5"/>
@@ -443,8 +448,29 @@
     </div>
   </main>
 
-  <div class="author-photo-wrap">
+  <div class="author-photo-wrap" id="author-photo-wrap">
     <img src="images/david.png" alt="David Gabeau" class="author-photo">
+  </div>
+
+  <!-- Friends view -->
+  <div id="friends-view" class="friends-view" aria-hidden="true">
+    <div class="container friends-container">
+      <p class="friends-intro">Hi there! Taking a break from social media for the summer but posting periodically here.</p>
+
+      <div class="friends-block">
+        <p class="friends-label">Summer reading list</p>
+        <ul class="friends-list">
+          <li><em>The Alignment Problem</em> — Brian Christian</li>
+          <li><em>Stoner</em> — John Williams</li>
+          <li><em>The Beginning of Infinity</em> — David Deutsch</li>
+          <li><em>Working</em> — Robert Caro</li>
+        </ul>
+      </div>
+
+      <div class="friends-block">
+        <p class="friends-song">🎵 Play this song on <a href="#" class="friends-link">Spotify →</a></p>
+      </div>
+    </div>
   </div>
 
   <footer>
@@ -968,6 +994,95 @@
         });
       });
     })();
+
+    // ── Friends view toggle ───────────────────────────────
+    window.switchView = function(view, btn) {
+      var mainEl    = document.querySelector('main');
+      var photoWrap = document.getElementById('author-photo-wrap');
+      var friendsEl = document.getElementById('friends-view');
+      var tabMe     = document.getElementById('tab-me');
+      var tabFriends = document.getElementById('tab-friends');
+      var footer    = document.querySelector('footer');
+
+      var goingToFriends = (view === 'friends');
+      var isAlready = goingToFriends
+        ? friendsEl.getAttribute('aria-hidden') === 'false'
+        : mainEl.getAttribute('aria-hidden') === 'true' ? false : true;
+
+      // No-op if already on this view
+      if ((goingToFriends && friendsEl.getAttribute('aria-hidden') === 'false') ||
+          (!goingToFriends && (friendsEl.getAttribute('aria-hidden') === 'true' || !friendsEl.getAttribute('aria-hidden')))) {
+        return;
+      }
+
+      // Splat blob origin
+      var rect = btn.getBoundingClientRect();
+      var cx = rect.left + rect.width / 2;
+      var cy = rect.top + rect.height / 2;
+      var maxR = Math.max(
+        Math.hypot(cx, cy),
+        Math.hypot(window.innerWidth - cx, cy),
+        Math.hypot(cx, window.innerHeight - cy),
+        Math.hypot(window.innerWidth - cx, window.innerHeight - cy)
+      ) * 2.4;
+
+      var blob = document.createElement('div');
+      blob.style.cssText = [
+        'position:fixed',
+        'left:' + cx + 'px',
+        'top:' + cy + 'px',
+        'width:' + maxR + 'px',
+        'height:' + maxR + 'px',
+        'border-radius:50%',
+        'background:var(--gold)',
+        'pointer-events:none',
+        'z-index:9999',
+        'transform:translate(-50%,-50%) scale(0)',
+        'transition:transform 0.48s cubic-bezier(.4,0,.2,1)',
+        'opacity:0.92'
+      ].join(';');
+      document.body.appendChild(blob);
+
+      // Expand blob
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          blob.style.transform = 'translate(-50%,-50%) scale(1)';
+        });
+      });
+
+      // Swap content at peak, then fade blob out
+      setTimeout(function() {
+        if (goingToFriends) {
+          mainEl.setAttribute('aria-hidden', 'true');
+          mainEl.style.display = 'none';
+          if (photoWrap) { photoWrap.setAttribute('aria-hidden', 'true'); photoWrap.style.display = 'none'; }
+          if (footer)    { footer.style.display = 'none'; }
+          friendsEl.setAttribute('aria-hidden', 'false');
+          friendsEl.style.display = 'block';
+          tabMe.classList.remove('view-tab--active');
+          tabMe.setAttribute('aria-pressed', 'false');
+          tabFriends.classList.add('view-tab--active');
+          tabFriends.setAttribute('aria-pressed', 'true');
+          document.body.setAttribute('data-view', 'friends');
+        } else {
+          friendsEl.setAttribute('aria-hidden', 'true');
+          friendsEl.style.display = 'none';
+          mainEl.removeAttribute('aria-hidden');
+          mainEl.style.display = '';
+          if (photoWrap) { photoWrap.removeAttribute('aria-hidden'); photoWrap.style.display = ''; }
+          if (footer)    { footer.style.display = ''; }
+          tabFriends.classList.remove('view-tab--active');
+          tabFriends.setAttribute('aria-pressed', 'false');
+          tabMe.classList.add('view-tab--active');
+          tabMe.setAttribute('aria-pressed', 'true');
+          document.body.removeAttribute('data-view');
+        }
+        // Fade blob out
+        blob.style.transition = 'opacity 0.38s ease';
+        blob.style.opacity = '0';
+        setTimeout(function() { blob.remove(); }, 400);
+      }, 460);
+    };
 
   </script>
 </body>
