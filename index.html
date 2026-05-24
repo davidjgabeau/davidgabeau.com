@@ -1094,21 +1094,6 @@
       });
     })();
 
-    // ── Auto-activate friends view if URL is /friends ────
-    if (window.location.pathname === '/frenz') {
-      var _tabFriends = document.getElementById('tab-friends');
-      if (_tabFriends) switchView('friends', _tabFriends);
-    }
-
-    // Handle browser back/forward
-    window.addEventListener('popstate', function(e) {
-      var dest = (e.state && e.state.view) || 'me';
-      var triggerBtn = dest === 'friends'
-        ? document.getElementById('tab-friends')
-        : document.getElementById('tab-me');
-      if (triggerBtn) switchView(dest, triggerBtn);
-    });
-
     // ── Friends view toggle ───────────────────────────────
     window.switchView = function(view, btn) {
       var mainEl    = document.querySelector('main');
@@ -1189,6 +1174,21 @@
         });
       }, 300);
     };
+
+    // ── Auto-activate if URL is /frenz ───────────────────
+    if (window.location.pathname === '/frenz') {
+      var _tabFriends = document.getElementById('tab-friends');
+      if (_tabFriends) switchView('friends', _tabFriends);
+    }
+
+    // Handle browser back/forward
+    window.addEventListener('popstate', function(e) {
+      var dest = (e.state && e.state.view) || 'me';
+      var triggerBtn = dest === 'friends'
+        ? document.getElementById('tab-friends')
+        : document.getElementById('tab-me');
+      if (triggerBtn) switchView(dest, triggerBtn);
+    });
 
   </script>
 </body>
