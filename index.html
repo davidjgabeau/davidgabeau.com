@@ -427,16 +427,14 @@
       </section>
 
       <section aria-label="GitHub contributions">
-        <div class="github-heatmap-layout">
-          <div class="github-heatmap-scroll">
-            <div class="github-heatmap-months" id="github-heatmap-months"></div>
-            <div class="github-heatmap-grid" id="github-heatmap-grid">
-              <p class="github-heatmap-loading">Loading…</p>
-            </div>
-          </div>
-          <div class="github-heatmap-meta">
-            <span class="github-heatmap-total" id="github-heatmap-total"></span>
-            <a class="github-heatmap-link" href="https://github.com/davidjgabeau" target="_blank" rel="noopener noreferrer">github.com/davidjgabeau →</a>
+        <div class="github-heatmap-meta">
+          <span class="github-heatmap-total" id="github-heatmap-total"></span>
+          <a class="github-heatmap-link" href="https://github.com/davidjgabeau" target="_blank" rel="noopener noreferrer">github.com/davidjgabeau →</a>
+        </div>
+        <div class="github-heatmap-scroll">
+          <div class="github-heatmap-months" id="github-heatmap-months"></div>
+          <div class="github-heatmap-grid" id="github-heatmap-grid">
+            <p class="github-heatmap-loading">Loading…</p>
           </div>
         </div>
         <div class="github-heatmap-tooltip" id="github-heatmap-tooltip"></div>
@@ -836,75 +834,86 @@
         tooltip.style.opacity = '0';
       }
 
+      function renderMonths(weeks) {
+        const container = document.getElementById('github-heatmap-months');
+        if (!container) return;
+        container.innerHTML = '';
+        const CELL = 11, GAP = 3, COL = CELL + GAP;
+        const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        let lastMonth = -1;
+        weeks.forEach(function(week, wi) {
+          const firstDay = week.contributionDays[0];
+          if (!firstDay) return;
+          const m = new Date(firstDay.date + 'T00:00:00').getMonth();
+          if (m !== lastMonth) {
+            const span = document.createElement('span');
+            span.className = 'github-heatmap-month-label';
+            span.style.position = 'absolute';
+            span.style.left = (wi * COL) + 'px';
+            span.textContent = months[m];
+            container.appendChild(span);
+            lastMonth = m;
+          }
+        });
+        container.style.position = 'relative';
+        container.style.width = (weeks.length * COL) + 'px';
+        container.style.height = '14px';
+      }
+
       function renderHeatmap(calendar) {
         const grid = document.getElementById('github-heatmap-grid');
         const totalEl = document.getElementById('github-heatmap-total');
-        const monthsEl = document.getElementById('github-heatmap-months');
         if (!grid) return;
 
         const today = new Date();
-        const year = today.getFullYear();
-        const month = today.getMonth(); // 0-indexed
+        const yearStart = new Date(today.getFullYear(), 0, 1);
 
-        // Collect this month's data
-        const dayMap = {};
-        for (const week of calendar.weeks) {
-          for (const day of week.contributionDays) {
-            const d = new Date(day.date + 'T00:00:00');
-            if (d.getFullYear() === year && d.getMonth() === month) {
-              dayMap[day.date] = day.contributionCount;
-            }
-          }
-        }
+        // Filter to current year only
+        const ytdWeeks = calendar.weeks.filter(function(week) {
+          const days = week.contributionDays;
+          if (!days.length) return false;
+          const lastDay = new Date(days[days.length - 1].date + 'T00:00:00');
+          return lastDay >= yearStart;
+        });
 
-        const monthTotal = Object.values(dayMap).reduce((a, b) => a + b, 0);
-        const fullMonthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+        const ytdTotal = ytdWeeks.reduce(function(sum, week) {
+          return sum + week.contributionDays.reduce(function(s, d) { return s + d.contributionCount; }, 0);
+        }, 0);
+
         if (totalEl) {
-          totalEl.textContent = `${monthTotal} contributions in ${fullMonthNames[month]}`;
-        }
-
-        // Day-of-week headers
-        if (monthsEl) {
-          monthsEl.innerHTML = '';
-          ['S','M','T','W','T','F','S'].forEach(function(label) {
-            const span = document.createElement('span');
-            span.className = 'github-heatmap-day-label';
-            span.textContent = label;
-            monthsEl.appendChild(span);
-          });
+          totalEl.textContent = ytdTotal.toLocaleString() + ' contributions in ' + today.getFullYear();
         }
 
         grid.innerHTML = '';
+        renderMonths(ytdWeeks);
 
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
-        const firstDayOfWeek = new Date(year, month, 1).getDay(); // 0=Sun
+        ytdWeeks.forEach(function(week, wi) {
+          const col = document.createElement('div');
+          col.className = 'github-heatmap-week';
 
-        // Offset cells before the 1st
-        for (let i = 0; i < firstDayOfWeek; i++) {
-          const empty = document.createElement('div');
-          empty.className = 'github-heatmap-day';
-          empty.style.visibility = 'hidden';
-          grid.appendChild(empty);
-        }
+          if (wi === 0 && week.contributionDays.length < 7) {
+            const pad = 7 - week.contributionDays.length;
+            for (let i = 0; i < pad; i++) {
+              const spacer = document.createElement('div');
+              spacer.className = 'github-heatmap-day';
+              spacer.style.visibility = 'hidden';
+              col.appendChild(spacer);
+            }
+          }
 
-        // Day cells
-        for (let d = 1; d <= daysInMonth; d++) {
-          const dateStr = year + '-' + String(month + 1).padStart(2, '0') + '-' + String(d).padStart(2, '0');
-          const count = dayMap[dateStr] || 0;
-          const isFuture = new Date(year, month, d) > today;
+          week.contributionDays.forEach(function(day) {
+            const cell = document.createElement('div');
+            cell.className = 'github-heatmap-day';
+            cell.dataset.level = levelForCount(day.contributionCount);
+            const dayData = { count: day.contributionCount, date: day.date };
+            cell.addEventListener('mouseenter', function(e) { showTooltip(e, dayData); });
+            cell.addEventListener('mousemove', positionTooltip);
+            cell.addEventListener('mouseleave', hideTooltip);
+            col.appendChild(cell);
+          });
 
-          const cell = document.createElement('div');
-          cell.className = 'github-heatmap-day';
-          cell.dataset.level = isFuture ? 0 : levelForCount(count);
-          if (isFuture) cell.style.opacity = '0.35';
-
-          const dayData = { count: count, date: dateStr };
-          cell.addEventListener('mouseenter', function(e) { showTooltip(e, dayData); });
-          cell.addEventListener('mousemove', positionTooltip);
-          cell.addEventListener('mouseleave', hideTooltip);
-
-          grid.appendChild(cell);
-        }
+          grid.appendChild(col);
+        });
       }
 
       async function loadHeatmap() {
