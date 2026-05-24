@@ -1810,3 +1810,11 @@ section[aria-label="GitHub contributions"] {
   font-size: 0.97rem;
   color: var(--text-2);
 }
+
+.friends-dog {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 10px;
+  display: block;
+  margin-top: 0.5rem;
+}
