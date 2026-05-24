@@ -427,14 +427,16 @@
       </section>
 
       <section aria-label="GitHub contributions">
-        <div class="github-heatmap-meta">
-          <span class="github-heatmap-total" id="github-heatmap-total"></span>
-          <a class="github-heatmap-link" href="https://github.com/davidjgabeau" target="_blank" rel="noopener noreferrer">github.com/davidjgabeau →</a>
-        </div>
-        <div class="github-heatmap-scroll">
-          <div class="github-heatmap-months" id="github-heatmap-months"></div>
-          <div class="github-heatmap-grid" id="github-heatmap-grid">
-            <p class="github-heatmap-loading">Loading…</p>
+        <div class="github-heatmap-layout">
+          <div class="github-heatmap-scroll">
+            <div class="github-heatmap-months" id="github-heatmap-months"></div>
+            <div class="github-heatmap-grid" id="github-heatmap-grid">
+              <p class="github-heatmap-loading">Loading…</p>
+            </div>
+          </div>
+          <div class="github-heatmap-meta">
+            <span class="github-heatmap-total" id="github-heatmap-total"></span>
+            <a class="github-heatmap-link" href="https://github.com/davidjgabeau" target="_blank" rel="noopener noreferrer">github.com/davidjgabeau →</a>
           </div>
         </div>
         <div class="github-heatmap-tooltip" id="github-heatmap-tooltip"></div>
@@ -864,18 +866,15 @@
         // Day-of-week headers
         if (monthsEl) {
           monthsEl.innerHTML = '';
-          monthsEl.style.cssText = 'display:grid;grid-template-columns:repeat(7,10px);gap:3px;margin-bottom:5px;position:static;width:auto;height:auto;';
           ['S','M','T','W','T','F','S'].forEach(function(label) {
             const span = document.createElement('span');
+            span.className = 'github-heatmap-day-label';
             span.textContent = label;
-            span.style.cssText = 'font-size:8px;text-align:center;color:var(--text-4);line-height:1;display:block;';
             monthsEl.appendChild(span);
           });
         }
 
-        // Switch to CSS grid layout
         grid.innerHTML = '';
-        grid.style.cssText = 'display:grid;grid-template-columns:repeat(7,10px);gap:3px;width:auto;flex-direction:unset;';
 
         const daysInMonth = new Date(year, month + 1, 0).getDate();
         const firstDayOfWeek = new Date(year, month, 1).getDay(); // 0=Sun
