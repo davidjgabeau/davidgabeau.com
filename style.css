@@ -1818,3 +1818,15 @@ section[aria-label="GitHub contributions"] {
   display: block;
   margin-top: 0.5rem;
 }
+
+.friends-book-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  transition: text-decoration-color 0.15s;
+}
+
+.friends-book-link:hover {
+  text-decoration-color: var(--text-3);
+  color: inherit;
+}
