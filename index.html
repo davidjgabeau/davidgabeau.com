@@ -1095,7 +1095,7 @@
     })();
 
     // ── Auto-activate friends view if URL is /friends ────
-    if (window.location.pathname === '/friends') {
+    if (window.location.pathname === '/frenz') {
       var _tabFriends = document.getElementById('tab-friends');
       if (_tabFriends) switchView('friends', _tabFriends);
     }
@@ -1141,7 +1141,7 @@
       if (goingToFriends) {
         tabMe.classList.remove('view-tab--active'); tabMe.setAttribute('aria-pressed', 'false');
         tabFriends.classList.add('view-tab--active'); tabFriends.setAttribute('aria-pressed', 'true');
-        history.pushState({ view: 'friends' }, '', '/friends');
+        history.pushState({ view: 'friends' }, '', '/frenz');
       } else {
         tabFriends.classList.remove('view-tab--active'); tabFriends.setAttribute('aria-pressed', 'false');
         tabMe.classList.add('view-tab--active'); tabMe.setAttribute('aria-pressed', 'true');
