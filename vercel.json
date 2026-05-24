@@ -1,6 +1,7 @@
 {
   "rewrites": [
     { "source": "/sitemap.xml", "destination": "/api/sitemap" },
-    { "source": "/anthropic", "destination": "/anthropic/index.html" }
+    { "source": "/anthropic", "destination": "/anthropic/index.html" },
+    { "source": "/friends", "destination": "/index.html" }
   ]
 }

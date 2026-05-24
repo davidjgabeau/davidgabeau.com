@@ -1094,6 +1094,21 @@
       });
     })();
 
+    // ── Auto-activate friends view if URL is /friends ────
+    if (window.location.pathname === '/friends') {
+      var _tabFriends = document.getElementById('tab-friends');
+      if (_tabFriends) switchView('friends', _tabFriends);
+    }
+
+    // Handle browser back/forward
+    window.addEventListener('popstate', function(e) {
+      var dest = (e.state && e.state.view) || 'me';
+      var triggerBtn = dest === 'friends'
+        ? document.getElementById('tab-friends')
+        : document.getElementById('tab-me');
+      if (triggerBtn) switchView(dest, triggerBtn);
+    });
+
     // ── Friends view toggle ───────────────────────────────
     window.switchView = function(view, btn) {
       var mainEl    = document.querySelector('main');
@@ -1122,13 +1137,15 @@
         el.style.opacity = '0';
       });
 
-      // Update tab labels immediately
+      // Update tab labels + URL immediately
       if (goingToFriends) {
         tabMe.classList.remove('view-tab--active'); tabMe.setAttribute('aria-pressed', 'false');
         tabFriends.classList.add('view-tab--active'); tabFriends.setAttribute('aria-pressed', 'true');
+        history.pushState({ view: 'friends' }, '', '/friends');
       } else {
         tabFriends.classList.remove('view-tab--active'); tabFriends.setAttribute('aria-pressed', 'false');
         tabMe.classList.add('view-tab--active'); tabMe.setAttribute('aria-pressed', 'true');
+        history.pushState({ view: 'me' }, '', '/');
       }
 
       setTimeout(function() {
