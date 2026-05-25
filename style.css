@@ -90,6 +90,7 @@ body {
   font-variation-settings: 'opsz' 24;
   -webkit-font-smoothing: antialiased;
   transition: background-color 0.25s ease, color 0.25s ease;
+  overflow-x: hidden;
 }
 
 a {
@@ -1895,7 +1896,9 @@ section[aria-label="GitHub contributions"] {
   .friends-mobile-carousel {
     display: block;
     overflow: hidden;
+    overflow-x: clip;
     margin: 0.75rem -24px 0;
+    max-width: calc(100% + 48px);
   }
 
   .friends-mobile-track {
