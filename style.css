@@ -1760,8 +1760,16 @@ section[aria-label="GitHub contributions"] {
 .friends-link:hover { opacity: 0.75; }
 
 /* ── Friends track swipe card ───────────────────────────── */
+.friends-track-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
 .friends-track-wrap {
   position: relative;
+  flex: 1;
+  min-width: 140px;
   max-width: 320px;
 }
 
