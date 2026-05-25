@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Gabeau — Portfolio</title>
+  <meta name="description" content="Developer platform builder. Technical content operator. NYC.">
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      color: #111;
+      background: #fff;
+      line-height: 1.55;
+      padding: 52px 24px 96px;
+    }
+
+    .wrap {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* ── Header ─────────────────────────────────── */
+
+    .hd-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .hd-tagline {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 3px;
+    }
+
+    .hd-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.25rem;
+      margin-top: 10px;
+      font-size: 0.8rem;
+    }
+
+    .hd-links a {
+      color: #444;
+    }
+
+    /* ── Sections ───────────────────────────────── */
+
+    section {
+      margin-top: 52px;
+    }
+
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #999;
+      padding-bottom: 9px;
+      border-bottom: 1px solid #e8e8e8;
+      margin-bottom: 22px;
+    }
+
+    /* ── Programs ───────────────────────────────── */
+
+    .program + .program {
+      margin-top: 26px;
+    }
+
+    .program-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .program-stat {
+      font-size: 0.8rem;
+      color: #666;
+      margin-top: 3px;
+    }
+
+    .program-stat strong {
+      color: #111;
+    }
+
+    .program-desc {
+      font-size: 0.875rem;
+      color: #333;
+      margin-top: 7px;
+    }
+
+    /* ── Writing ────────────────────────────────── */
+
+    .writing-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 10px 0;
+      border-bottom: 1px solid #f2f2f2;
+      font-size: 0.875rem;
+    }
+
+    .writing-item:last-child { border-bottom: none; }
+
+    .writing-title { font-weight: 500; }
+
+    .writing-pub {
+      font-size: 0.78rem;
+      color: #999;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── Speaking ───────────────────────────────── */
+
+    .talk {
+      padding: 10px 0;
+      border-bottom: 1px solid #f2f2f2;
+    }
+
+    .talk:last-child { border-bottom: none; }
+
+    .talk-title {
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .talk-venue {
+      font-size: 0.78rem;
+      color: #999;
+      margin-top: 2px;
+    }
+
+    /* ── Projects ───────────────────────────────── */
+
+    .project + .project {
+      margin-top: 28px;
+    }
+
+    .project-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .project-name span {
+      font-weight: 400;
+      font-size: 0.85rem;
+      color: #888;
+    }
+
+    .project-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.5rem;
+      margin-top: 5px;
+    }
+
+    .stat {
+      font-size: 0.8rem;
+      color: #555;
+    }
+
+    .stat strong {
+      color: #111;
+    }
+
+    .project-desc {
+      font-size: 0.875rem;
+      color: #333;
+      margin-top: 7px;
+    }
+
+    /* ── Tools ──────────────────────────────────── */
+
+    .tools {
+      font-size: 0.875rem;
+      color: #444;
+      line-height: 1.9;
+    }
+
+    /* ── Links ──────────────────────────────────── */
+
+    a {
+      color: #111;
+      text-decoration: underline;
+      text-decoration-color: #ccc;
+      text-underline-offset: 2px;
+      transition: text-decoration-color 0.12s;
+    }
+
+    a:hover { text-decoration-color: #111; }
+
+    /* ── Mobile ─────────────────────────────────── */
+
+    @media (max-width: 480px) {
+      body { padding: 36px 20px 64px; }
+
+      .writing-item {
+        flex-direction: column;
+        gap: 2px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <p class="hd-name">David Gabeau</p>
+      <p class="hd-tagline">Developer platform builder. Technical content operator. NYC.</p>
+      <div class="hd-links">
+        <a href="mailto:d@usetapestry.dev">d@usetapestry.dev</a>
+        <a href="https://davidgabeau.com" target="_blank" rel="noopener">davidgabeau.com</a>
+        <a href="https://www.linkedin.com/in/dgabeau/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/davidjgabeau" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </header>
+
+    <!-- ── Programs ───────────────────────────── -->
+    <section>
+      <h2 class="section-label">Programs I've run</h2>
+
+      <div class="program">
+        <p class="program-name">Solana Graveyard Hackathon</p>
+        <p class="program-stat"><strong>74 teams</strong> · <strong>96%</strong> published to public GitHub repos</p>
+        <p class="program-desc">Organized and ran a developer hackathon around reviving abandoned Solana projects. Handled developer outreach, judging design, and post-event content. A 96% public repo completion rate is unusually high for a crypto hackathon — most max out around 60%.</p>
+      </div>
+
+      <div class="program">
+        <p class="program-name">Solana Social Accelerator</p>
+        <p class="program-stat"><strong>3-week cohort</strong> · <strong>12,500</strong> demo day livestream viewers</p>
+        <p class="program-desc">Designed and ran a structured program for early-stage social protocol founders building on Solana. Owned founder selection criteria, weekly curriculum (go-to-market, tokenomics, community flywheel, protocol design), and the public demo day. Built the selection process from scratch; no prior template.</p>
+      </div>
+    </section>
+
+    <!-- ── Writing ────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Writing</h2>
+
+      <div class="writing-item">
+        <span class="writing-title">
+          <a href="https://blog.usetapestry.dev" target="_blank" rel="noopener">Newsletter — blog.usetapestry.dev</a>
+        </span>
+        <span class="writing-pub">15K subscribers</span>
+      </div>
+
+      <div class="writing-item">
+        <span class="writing-title">
+          <a href="https://www.usv.com/writing/tokenized-natural-assets/" target="_blank" rel="noopener">Tokenized Natural Assets</a>
+        </span>
+        <span class="writing-pub">USV.com</span>
+      </div>
+
+      <div class="writing-item">
+        <span class="writing-title">
+          <a href="https://www.usv.com/writing/augmented-reality-nfts/" target="_blank" rel="noopener">Augmented Reality NFTs</a>
+        </span>
+        <span class="writing-pub">USV.com</span>
+      </div>
+
+      <div class="writing-item">
+        <span class="writing-title">
+          <a href="https://www.usv.com/writing/synchronous-entertainment/" target="_blank" rel="noopener">Synchronous Entertainment</a>
+        </span>
+        <span class="writing-pub">USV.com</span>
+      </div>
+    </section>
+
+    <!-- ── Speaking ───────────────────────────── -->
+    <section>
+      <h2 class="section-label">Speaking</h2>
+
+      <div class="talk">
+        <p class="talk-title">
+          <a href="https://avc.xyz" target="_blank" rel="noopener">FarCon NYC — Fireside with Dan Romero</a>
+        </p>
+        <p class="talk-venue">Recap by Fred Wilson · AVC.xyz</p>
+      </div>
+
+      <div class="talk">
+        <p class="talk-title">Solana Accelerate 2025 — "Your Social Graph Should Be Yours"</p>
+        <p class="talk-venue">Solana Accelerate, New York</p>
+      </div>
+
+      <div class="talk">
+        <p class="talk-title">Solana Boston 2025 — "Tapestry and Social Primitives"</p>
+        <p class="talk-venue">Solana Boston</p>
+      </div>
+
+      <div class="talk">
+        <p class="talk-title">Touch Grass Podcast — "Making Sense of SocialFi"</p>
+        <p class="talk-venue">2025</p>
+      </div>
+    </section>
+
+    <!-- ── Built ──────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Things I've built recently</h2>
+
+      <div class="project">
+        <p class="project-name"><a href="https://aiatlas.nyc" target="_blank" rel="noopener">AI Atlas</a> <span>— aiatlas.nyc</span></p>
+        <div class="project-stats">
+          <span class="stat"><strong>74</strong> companies mapped</span>
+          <span class="stat">Thousands of visitors in first two months</span>
+        </div>
+        <p class="project-desc">Live market map of NYC's early-stage AI ecosystem, rebuilt nightly by an agent pipeline that scrapes funding announcements, LinkedIn signals, and founder activity. Built solo with Claude Code, Vercel, and Supabase. The data model, REST API, and agent loop are all mine.</p>
+      </div>
+
+      <div class="project">
+        <p class="project-name">Zumi <span>via Tapestry · 2022–2026</span></p>
+        <div class="project-stats">
+          <span class="stat"><strong>160K</strong> registered users</span>
+          <span class="stat"><strong>59K</strong> MAU</span>
+          <span class="stat"><strong>4.8</strong> App Store rating</span>
+        </div>
+        <p class="project-desc">AI companion app, the main consumer product I shipped at Tapestry. Led product, engineering, and go-to-market from 0-to-1. Backed by USV, Redpoint, Slow, Stellation, and Fabric. Raised $12.5M.</p>
+      </div>
+
+      <div class="project">
+        <p class="project-name"><a href="https://trybramble.ai" target="_blank" rel="noopener">Bramble</a> <span>— current</span></p>
+        <p class="project-desc">Electron app for Mac that captures Claude Code sessions in real time and drafts publishable technical blog posts from them. Built for developers who ship fast but rarely document. Still early — the thesis is that the best time to write is while you're building.</p>
+      </div>
+
+      <div class="project">
+        <p class="project-name">Claude Evangelist Work</p>
+        <p class="project-desc">Built and shipped <a href="https://davidgabeau.com/anthropic" target="_blank" rel="noopener">a public demo site for Anthropic's startup ecosystem program</a> using Claude Code, Claude API, and the Agent SDK. Daily Claude Code user since early access — used it to ship AI Atlas, Bramble, and this page. Actively evangelizing Anthropic products inside NYC's founder and developer community; have personally introduced dozens of technical founders to Claude Code.</p>
+      </div>
+    </section>
+
+    <!-- ── Tools ──────────────────────────────── -->
+    <section>
+      <h2 class="section-label">Tools I work in daily</h2>
+      <p class="tools">Claude Code &nbsp;·&nbsp; Claude API &nbsp;·&nbsp; OpenRouter &nbsp;·&nbsp; Cursor &nbsp;·&nbsp; Supabase &nbsp;·&nbsp; Vercel &nbsp;·&nbsp; Python &nbsp;·&nbsp; TypeScript</p>
+    </section>
+
+  </div>
+</body>
+</html>
