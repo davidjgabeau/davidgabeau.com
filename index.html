@@ -149,11 +149,6 @@
         <h1 class="header-name">David Gabeau</h1>
       </a>
       <div class="header-right">
-        <div class="view-toggle" role="group" aria-label="View">
-          <button class="view-tab view-tab--active" id="tab-me" aria-pressed="true" onclick="switchView('me',this)">work</button>
-          <span class="view-tab-sep" aria-hidden="true">·</span>
-          <button class="view-tab" id="tab-friends" aria-pressed="false" onclick="switchView('friends',this)">friends!</button>
-        </div>
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
           <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="5"/>
@@ -181,6 +176,12 @@
 
       <div class="monogram" aria-hidden="true">
         <span class="monogram-text">DG</span>
+      </div>
+
+      <div class="view-toggle" role="group" aria-label="View">
+        <button class="view-tab view-tab--active" id="tab-me" aria-pressed="true" onclick="switchView('me',this)">work</button>
+        <span class="view-tab-sep" aria-hidden="true">·</span>
+        <button class="view-tab" id="tab-friends" aria-pressed="false" onclick="switchView('friends',this)">friends!</button>
       </div>
 
       <section class="bio" aria-label="Career timeline">
@@ -455,6 +456,12 @@
   <!-- Friends view -->
   <div id="friends-view" class="friends-view" aria-hidden="true">
     <div class="container friends-container">
+
+      <div class="view-toggle view-toggle--friends" role="group" aria-label="View">
+        <button class="view-tab" id="tab-me-f" aria-pressed="false" onclick="switchView('me',this)">work</button>
+        <span class="view-tab-sep" aria-hidden="true">·</span>
+        <button class="view-tab view-tab--active" id="tab-friends-f" aria-pressed="true" onclick="switchView('friends',this)">friends!</button>
+      </div>
 
       <div class="friends-hero">
         <div class="friends-hero-text">
@@ -1140,8 +1147,10 @@
       var mainEl    = document.querySelector('main');
       var photoWrap = document.getElementById('author-photo-wrap');
       var friendsEl = document.getElementById('friends-view');
-      var tabMe     = document.getElementById('tab-me');
+      var tabMe      = document.getElementById('tab-me');
       var tabFriends = document.getElementById('tab-friends');
+      var tabMeF     = document.getElementById('tab-me-f');
+      var tabFriendsF = document.getElementById('tab-friends-f');
       var footer    = document.querySelector('footer');
 
       var goingToFriends = (view === 'friends');
@@ -1163,14 +1172,18 @@
         el.style.opacity = '0';
       });
 
-      // Update tab labels + URL immediately
+      // Update tab labels + URL immediately (sync both copies)
       if (goingToFriends) {
-        tabMe.classList.remove('view-tab--active'); tabMe.setAttribute('aria-pressed', 'false');
-        tabFriends.classList.add('view-tab--active'); tabFriends.setAttribute('aria-pressed', 'true');
+        if (tabMe)       { tabMe.classList.remove('view-tab--active');      tabMe.setAttribute('aria-pressed', 'false'); }
+        if (tabFriends)  { tabFriends.classList.add('view-tab--active');    tabFriends.setAttribute('aria-pressed', 'true'); }
+        if (tabMeF)      { tabMeF.classList.remove('view-tab--active');     tabMeF.setAttribute('aria-pressed', 'false'); }
+        if (tabFriendsF) { tabFriendsF.classList.add('view-tab--active');   tabFriendsF.setAttribute('aria-pressed', 'true'); }
         history.pushState({ view: 'friends' }, '', '/frenz');
       } else {
-        tabFriends.classList.remove('view-tab--active'); tabFriends.setAttribute('aria-pressed', 'false');
-        tabMe.classList.add('view-tab--active'); tabMe.setAttribute('aria-pressed', 'true');
+        if (tabFriends)  { tabFriends.classList.remove('view-tab--active'); tabFriends.setAttribute('aria-pressed', 'false'); }
+        if (tabMe)       { tabMe.classList.add('view-tab--active');         tabMe.setAttribute('aria-pressed', 'true'); }
+        if (tabFriendsF) { tabFriendsF.classList.remove('view-tab--active'); tabFriendsF.setAttribute('aria-pressed', 'false'); }
+        if (tabMeF)      { tabMeF.classList.add('view-tab--active');        tabMeF.setAttribute('aria-pressed', 'true'); }
         history.pushState({ view: 'me' }, '', '/');
       }
 
