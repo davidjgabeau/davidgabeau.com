@@ -1830,3 +1830,47 @@ section[aria-label="GitHub contributions"] {
   text-decoration-color: var(--text-3);
   color: inherit;
 }
+
+/* ── Friends hero (two-column) ──────────────────────────── */
+.friends-hero {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.friends-hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.friends-hero-photo {
+  flex-shrink: 0;
+  width: 160px;
+  margin: 0;
+}
+
+.friends-hero-photo img {
+  width: 100%;
+  border-radius: 8px;
+  display: block;
+}
+
+.friends-hero-photo figcaption {
+  font-size: 0.68rem;
+  color: var(--text-4);
+  text-align: center;
+  margin-top: 0.4rem;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 600px) {
+  .friends-hero {
+    flex-direction: column-reverse;
+    gap: 1.25rem;
+  }
+  .friends-hero-photo {
+    width: 90px;
+    align-self: flex-end;
+  }
+}
