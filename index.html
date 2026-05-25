@@ -470,10 +470,42 @@
             </ul>
           </div>
         </div>
-        <figure class="friends-hero-photo">
-          <img src="/images/barcelona.jpg" alt="David in Barcelona">
-          <figcaption>7:56am in Barcelona</figcaption>
+        <figure class="friends-hero-photo" id="friends-slideshow">
+          <div class="friends-slide friends-slide--active" data-caption="7:56am in Barcelona">
+            <img src="/images/barcelona.jpg" alt="7:56am in Barcelona">
+          </div>
+          <div class="friends-slide" data-caption="mariano's send off">
+            <img src="/images/IMG_group.jpg" alt="mariano's send off" loading="lazy">
+          </div>
+          <div class="friends-slide" data-caption="look who i found">
+            <img src="/images/IMG_0731.jpg" alt="look who i found" loading="lazy">
+          </div>
+          <div class="friends-slide" data-caption="">
+            <img src="/images/IMG_0186.jpg" alt="" loading="lazy">
+          </div>
+          <div class="friends-slide" data-caption="">
+            <img src="/images/IMG_0750.jpg" alt="" loading="lazy">
+          </div>
+          <div class="friends-slide" data-caption="">
+            <img src="/images/IMG_1233.jpg" alt="" loading="lazy">
+          </div>
+          <div class="friends-slide" data-caption="">
+            <img src="/images/IMG_0847.jpg" alt="" loading="lazy">
+          </div>
+          <div class="friends-slide" data-caption="">
+            <img src="/images/IMG_0593.jpg" alt="" loading="lazy">
+          </div>
+          <figcaption id="friends-slide-caption">7:56am in Barcelona</figcaption>
         </figure>
+
+        <!-- Mobile carousel -->
+        <div class="friends-mobile-carousel" aria-hidden="true">
+          <div class="friends-mobile-track">
+            <img src="/images/barcelona.jpg" alt=""><img src="/images/IMG_group.jpg" alt=""><img src="/images/IMG_0731.jpg" alt=""><img src="/images/IMG_0186.jpg" alt=""><img src="/images/IMG_0750.jpg" alt=""><img src="/images/IMG_1233.jpg" alt=""><img src="/images/IMG_0847.jpg" alt=""><img src="/images/IMG_0593.jpg" alt="">
+            <!-- duplicate for seamless loop -->
+            <img src="/images/barcelona.jpg" alt=""><img src="/images/IMG_group.jpg" alt=""><img src="/images/IMG_0731.jpg" alt=""><img src="/images/IMG_0186.jpg" alt=""><img src="/images/IMG_0750.jpg" alt=""><img src="/images/IMG_1233.jpg" alt=""><img src="/images/IMG_0847.jpg" alt=""><img src="/images/IMG_0593.jpg" alt="">
+          </div>
+        </div>
       </div>
 
       <div class="friends-block">
@@ -1182,6 +1214,20 @@
         });
       }, 300);
     };
+
+    // ── Friends photo slideshow ───────────────────────────
+    (function () {
+      var slides  = document.querySelectorAll('.friends-slide');
+      var caption = document.getElementById('friends-slide-caption');
+      if (!slides.length) return;
+      var idx = 0;
+      setInterval(function () {
+        slides[idx].classList.remove('friends-slide--active');
+        idx = (idx + 1) % slides.length;
+        slides[idx].classList.add('friends-slide--active');
+        if (caption) caption.textContent = slides[idx].dataset.caption || '';
+      }, 4000);
+    })();
 
     // ── Auto-activate if URL is /frenz (no animation) ────
     if (window.location.pathname === '/frenz') {
