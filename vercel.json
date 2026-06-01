@@ -3,6 +3,7 @@
     { "source": "/sitemap.xml", "destination": "/api/sitemap" },
     { "source": "/anthropic", "destination": "/anthropic/index.html" },
     { "source": "/frenz", "destination": "/index.html" },
-    { "source": "/portfolio", "destination": "/portfolio/index.html" }
+    { "source": "/portfolio", "destination": "/portfolio/index.html" },
+    { "source": "/resume", "destination": "/resume.pdf" }
   ]
 }
