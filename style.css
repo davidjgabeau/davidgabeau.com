@@ -1481,6 +1481,14 @@ section[aria-label="GitHub contributions"] {
   margin: 0 0 0.55em 0;
 }
 
+.tl-thesis .tl-thesis-sub {
+  font-size: 0.975rem;
+  line-height: 1.55;
+  color: var(--text-2);
+  margin: 0 0 0.85em 0;
+  transition: color 0.25s ease;
+}
+
 .tl-thesis .tl-thesis-role {
   font-size: 0.8rem;
   color: var(--text-4);
