@@ -1767,6 +1767,36 @@ section[aria-label="GitHub contributions"] {
 
 .friends-link:hover { opacity: 0.75; }
 
+/* ── Currently working on rotator ───────────────────────── */
+.working-rotator {
+  display: inline-block;
+  position: relative;
+  line-height: 1.1;
+}
+
+.working-link {
+  font-size: 1.35rem;
+  font-style: italic;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: opacity 0.5s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.working-link:hover { color: var(--gold); }
+
+.working-link.is-fading { opacity: 0; }
+
+.working-squiggle {
+  display: block;
+  width: 100%;
+  height: 8px;
+  margin-top: 4px;
+  color: var(--gold);
+  opacity: 0.8;
+}
+
 /* ── Friends track swipe card ───────────────────────────── */
 .friends-track-row {
   display: flex;
