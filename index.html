@@ -558,6 +558,7 @@
         <a href="https://x.com/dgabeau" target="_blank" rel="noopener noreferrer">X</a>
       </div>
       <div class="footer-ornament" aria-hidden="true">✦</div>
+      <p class="footer-visitor" id="footer-visitor"></p>
       <p class="footer-copy">© 2026 David Gabeau</p>
     </div>
   </footer>
@@ -635,6 +636,45 @@
       const max = document.documentElement.scrollHeight - window.innerHeight;
       bar.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
     }, { passive: true });
+
+    // ── Visitor counter ─────────────────────────────────
+    (function () {
+      const el = document.getElementById('footer-visitor');
+      if (!el) return;
+
+      function flagEmoji(cc) {
+        if (!cc || cc.length !== 2) return '';
+        return String.fromCodePoint(...[...cc.toUpperCase()].map(c => 0x1F1A5 + c.charCodeAt(0)));
+      }
+
+      function render(data) {
+        if (!data || !data.count) return;
+        let place = '';
+        if (data.city) {
+          place = data.city;
+        } else if (data.country) {
+          try { place = new Intl.DisplayNames(['en'], { type: 'region' }).of(data.country) || ''; } catch {}
+        }
+        const flag = data.country ? ' ' + flagEmoji(data.country) : '';
+        el.textContent = 'you’re visitor #' + data.count.toLocaleString('en-US')
+          + (place ? ' · reading from ' + place + flag : '');
+        el.classList.add('is-loaded');
+      }
+
+      // Count once per session; refreshes reuse the same number.
+      const cached = sessionStorage.getItem('visitor-info');
+      if (cached) {
+        try { render(JSON.parse(cached)); return; } catch {}
+      }
+      fetch('/api/visit')
+        .then(r => r.ok ? r.json() : null)
+        .then(data => {
+          if (!data || !data.count) return;
+          sessionStorage.setItem('visitor-info', JSON.stringify(data));
+          render(data);
+        })
+        .catch(() => {});
+    })();
 
     // ── AI Atlas NYC embed ──────────────────────────────────
     (function () {

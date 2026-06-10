@@ -579,6 +579,19 @@ footer {
   margin-top: 0.25em;
 }
 
+.footer-visitor {
+  font-size: 0.8rem;
+  color: var(--text-4);
+  margin: 0.5em 0 0.15em;
+  min-height: 1em;
+  opacity: 0;
+  transition: opacity 0.6s ease, color 0.25s ease;
+}
+
+.footer-visitor.is-loaded {
+  opacity: 1;
+}
+
 .footer-copy {
   font-size: 0.8rem;
   color: var(--text-4);
