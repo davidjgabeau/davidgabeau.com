@@ -601,13 +601,29 @@
             observer.unobserve(e.target);
           }
         });
-      }, { threshold: 0.08 });
+      }, { threshold: 0, rootMargin: '0px 0px 120px 0px' });
 
       document.querySelectorAll('section').forEach((s, i) => {
         s.classList.add('js-hidden');
         s.style.transitionDelay = (i * 40) + 'ms';
         observer.observe(s);
       });
+
+      // Safety net: the observer can miss (background-tab loads, bfcache
+      // restores, fast scrolls) — never leave content permanently invisible.
+      function revealStranded() {
+        document.querySelectorAll('section.js-hidden').forEach(s => {
+          const r = s.getBoundingClientRect();
+          if (r.top < window.innerHeight + 120 && r.bottom > -120) {
+            s.classList.replace('js-hidden', 'js-visible');
+            observer.unobserve(s);
+          }
+        });
+      }
+      window.addEventListener('scroll', revealStranded, { passive: true });
+      window.addEventListener('pageshow', revealStranded);
+      document.addEventListener('visibilitychange', revealStranded);
+      setTimeout(revealStranded, 1500);
     }
 
     // Reading progress bar
