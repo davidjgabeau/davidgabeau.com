@@ -58,6 +58,12 @@ html {
   height: 100%;
   color-scheme: light dark;
   overflow-x: hidden; /* prevent horizontal scroll on mobile */
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: var(--active-bg);
+  color: var(--text);
 }
 
 /* ── Animations ─────────────────────────────────────── */
@@ -73,6 +79,7 @@ html {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
@@ -2085,13 +2092,15 @@ section[aria-label="GitHub contributions"] {
 /* ── Article body (prose) ───────────────────────────── */
 
 .article-body {
-  font-size: 1.1875rem;
-  line-height: 1.72;
+  font-size: 1.25rem;
+  line-height: 1.78;
   color: var(--text);
+  hanging-punctuation: first last;
+  text-rendering: optimizeLegibility;
 }
 
 .article-body > * + * {
-  margin-top: 1.45em;
+  margin-top: 1.55em;
 }
 
 .article-body p {
@@ -2130,20 +2139,20 @@ section[aria-label="GitHub contributions"] {
   margin-top: 0.7em;
 }
 
-/* Body links — persistent fine underline that thickens on hover */
+/* Body links — fine underline (offset below the baseline so it never clips
+   descenders) that thickens on hover. Scales with font size. */
 .article-body a {
   color: var(--text);
-  text-decoration: none;
-  background-image: linear-gradient(var(--gold), var(--gold));
-  background-position: 0 1.12em;
-  background-size: 100% 1px;
-  background-repeat: no-repeat;
-  transition: background-size 0.2s ease, color 0.15s;
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+  transition: text-decoration-thickness 0.15s ease, text-decoration-color 0.15s, color 0.15s;
 }
 
 .article-body a:hover {
   color: var(--gold);
-  background-size: 100% 2px;
+  text-decoration-thickness: 2px;
 }
 
 .article-body strong { font-weight: 600; }
@@ -2320,10 +2329,11 @@ section[aria-label="GitHub contributions"] {
 
 @media (max-width: 479px) {
   .article-body {
-    font-size: 1.125rem;
+    font-size: 1.1875rem;
+    line-height: 1.72;
   }
   .article-dek {
-    font-size: 1.15rem;
+    font-size: 1.18rem;
   }
   .article-body .pullquote {
     font-size: 1.35rem;
