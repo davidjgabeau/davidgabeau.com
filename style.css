@@ -2040,12 +2040,12 @@ section[aria-label="GitHub contributions"] {
 
 .article-eyebrow {
   display: block;
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1.1rem;
+  color: var(--text-3);
+  margin-bottom: 1rem;
 }
 
 .article-title {
@@ -2092,15 +2092,14 @@ section[aria-label="GitHub contributions"] {
 /* ── Article body (prose) ───────────────────────────── */
 
 .article-body {
-  font-size: 1.25rem;
-  line-height: 1.78;
+  font-size: 1.3125rem;
+  line-height: 1.62;
   color: var(--text);
-  hanging-punctuation: first last;
   text-rendering: optimizeLegibility;
 }
 
 .article-body > * + * {
-  margin-top: 1.55em;
+  margin-top: 1.5em;
 }
 
 .article-body p {
@@ -2139,20 +2138,19 @@ section[aria-label="GitHub contributions"] {
   margin-top: 0.7em;
 }
 
-/* Body links — fine underline (offset below the baseline so it never clips
-   descenders) that thickens on hover. Scales with font size. */
+/* Body links — plain underline in the text color (Medium-style); the
+   underline starts faint and darkens on hover. No accent color. */
 .article-body a {
   color: var(--text);
   text-decoration: underline;
-  text-decoration-color: var(--gold);
+  text-decoration-color: var(--text-4);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.18em;
-  transition: text-decoration-thickness 0.15s ease, text-decoration-color 0.15s, color 0.15s;
+  transition: text-decoration-color 0.15s, color 0.15s;
 }
 
 .article-body a:hover {
-  color: var(--gold);
-  text-decoration-thickness: 2px;
+  text-decoration-color: var(--text);
 }
 
 .article-body strong { font-weight: 600; }
@@ -2168,20 +2166,16 @@ section[aria-label="GitHub contributions"] {
   margin-top: 0.5em;
 }
 
-.article-body ul li::marker {
-  color: var(--gold);
-}
-
+.article-body ul li::marker,
 .article-body ol li::marker {
   color: var(--text-3);
 }
 
-/* Blockquote */
+/* Blockquote — neutral gray rule, Medium-style */
 .article-body blockquote {
-  border-left: 2px solid var(--gold);
-  padding-left: 1.3em;
+  border-left: 3px solid var(--border);
+  padding-left: 1.1em;
   margin-left: 0;
-  font-style: italic;
   color: var(--text-2);
 }
 
@@ -2189,20 +2183,19 @@ section[aria-label="GitHub contributions"] {
   margin-top: 1em;
 }
 
-/* Pull quote — large centered standalone line */
+/* Pull quote — large, left-aligned with a neutral rule (Medium-style) */
 .article-body .pullquote {
-  font-size: 1.6rem;
-  line-height: 1.32;
+  font-size: 1.5rem;
+  line-height: 1.4;
   font-weight: 500;
-  letter-spacing: -0.01em;
   color: var(--text);
-  text-align: center;
-  margin: 2.4rem auto;
-  max-width: 30rem;
-  text-wrap: balance;
+  text-align: left;
+  border-left: 3px solid var(--border);
+  padding-left: 1.1em;
+  margin: 2.2rem 0;
+  max-width: none;
+  text-wrap: pretty;
   font-style: normal;
-  border: none;
-  padding: 0;
 }
 
 /* Figures & images */
@@ -2225,22 +2218,21 @@ section[aria-label="GitHub contributions"] {
   font-size: 0.85rem;
   line-height: 1.45;
   color: var(--text-3);
-  text-align: center;
-  font-style: italic;
+  text-align: left;
   transition: color 0.25s ease;
 }
 
-/* Decorative section break (✦) instead of a plain rule */
+/* Section break — neutral three-dot rule (Medium-style) */
 .article-body hr {
   border: none;
   text-align: center;
-  margin: 2.6rem 0;
+  margin: 2.8rem 0;
 }
 
 .article-body hr::before {
-  content: '✦';
-  color: var(--gold);
-  font-size: 0.85rem;
+  content: '• • •';
+  color: var(--text-4);
+  font-size: 0.9rem;
   letter-spacing: 0.5em;
 }
 
@@ -2329,8 +2321,8 @@ section[aria-label="GitHub contributions"] {
 
 @media (max-width: 479px) {
   .article-body {
-    font-size: 1.1875rem;
-    line-height: 1.72;
+    font-size: 1.25rem;
+    line-height: 1.6;
   }
   .article-dek {
     font-size: 1.18rem;
