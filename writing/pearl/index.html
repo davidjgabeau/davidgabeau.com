@@ -89,6 +89,31 @@
         <div class="article-body">
           <p><a href="https://pearlresearch.ai/" target="_blank" rel="noopener noreferrer">Pearl</a> is a Bitcoin-style chain that swaps SHA-256 hashing for matrix multiplication, the same math behind AI training and inference. The bet is that one GPU cycle can do two jobs at once: secure the network and run a real AI workload, so the work that mints the coin is work someone might pay for.</p>
 
+          <figure class="fig-diagram">
+            <svg viewBox="0 0 600 250" role="img" aria-label="Diagram: one GPU cycle of matrix multiplication produces two outputs — it secures the network and runs a real AI workload.">
+              <defs>
+                <marker id="ah1" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path class="dg-arrow" d="M0,0 L9,4.5 L0,9 z"/></marker>
+              </defs>
+              <!-- input -->
+              <rect class="dg-box" x="24" y="88" width="156" height="74" rx="8"/>
+              <text class="dg-text" x="102" y="120" text-anchor="middle" font-size="20" font-weight="600">1 GPU cycle</text>
+              <text class="dg-muted" x="102" y="143" text-anchor="middle" font-size="13">matrix multiplication</text>
+              <!-- trunk + branch -->
+              <line class="dg-line" x1="180" y1="125" x2="250" y2="125" marker-end="url(#ah1)"/>
+              <circle class="dg-arrow" cx="250" cy="125" r="3.5"/>
+              <path class="dg-line" d="M250,125 C285,125 285,74 318,74" marker-end="url(#ah1)"/>
+              <path class="dg-line" d="M250,125 C285,125 285,176 318,176" marker-end="url(#ah1)"/>
+              <!-- output 1 -->
+              <rect class="dg-box" x="326" y="50" width="250" height="48" rx="8"/>
+              <text class="dg-text" x="451" y="80" text-anchor="middle" font-size="19">Secures the network</text>
+              <!-- output 2 (emphasized) -->
+              <rect class="dg-box-em" x="326" y="152" width="250" height="58" rx="8"/>
+              <text class="dg-text" x="451" y="178" text-anchor="middle" font-size="19">Real AI workload</text>
+              <text class="dg-muted" x="451" y="197" text-anchor="middle" font-size="12.5">work someone might pay for</text>
+            </svg>
+            <figcaption>One GPU cycle does two jobs at once. Bitcoin’s SHA-256 hashing produces only the first; Pearl’s matrix multiplication produces both — and the second is work someone might pay for.</figcaption>
+          </figure>
+
           <p><strong>Understanding Pearl’s potential opportunity begins with understanding Pearl’s potential customer, and who their potential customer is not.</strong></p>
 
           <p>Pearl’s network is possible because it uses GPUs to perform useful AI work while simultaneously securing the network. It does this in a way that can be more cost and token efficient, but potentially at the expense of speed. Said differently, if a workload takes 10 hours instead of 8 but costs meaningfully less, that tradeoff can still be attractive.</p>
@@ -120,6 +145,37 @@
           <p>That is the value accrual story.</p>
 
           <p>AI compute demand grows. Useful miners join. Network security increases. Subsidized compute becomes more valuable. Demand for PEARL increases.</p>
+
+          <figure class="fig-diagram">
+            <svg viewBox="0 0 600 410" role="img" aria-label="Diagram: a self-reinforcing loop. AI compute demand grows, useful miners join, network security increases, subsidized compute gains value, demand for PEARL increases, and the cycle repeats.">
+              <defs>
+                <marker id="ah2" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path class="dg-arrow" d="M0,0 L9,4.5 L0,9 z"/></marker>
+              </defs>
+              <rect class="dg-box" x="40" y="24" width="380" height="46" rx="8"/>
+              <text class="dg-text" x="230" y="53" text-anchor="middle" font-size="18">AI compute demand grows</text>
+
+              <line class="dg-line" x1="230" y1="70" x2="230" y2="104" marker-end="url(#ah2)"/>
+              <rect class="dg-box" x="40" y="104" width="380" height="46" rx="8"/>
+              <text class="dg-text" x="230" y="133" text-anchor="middle" font-size="18">Useful miners join</text>
+
+              <line class="dg-line" x1="230" y1="150" x2="230" y2="184" marker-end="url(#ah2)"/>
+              <rect class="dg-box" x="40" y="184" width="380" height="46" rx="8"/>
+              <text class="dg-text" x="230" y="213" text-anchor="middle" font-size="18">Network security increases</text>
+
+              <line class="dg-line" x1="230" y1="230" x2="230" y2="264" marker-end="url(#ah2)"/>
+              <rect class="dg-box" x="40" y="264" width="380" height="46" rx="8"/>
+              <text class="dg-text" x="230" y="293" text-anchor="middle" font-size="18">Subsidized compute gains value</text>
+
+              <line class="dg-line" x1="230" y1="310" x2="230" y2="344" marker-end="url(#ah2)"/>
+              <rect class="dg-box-em" x="40" y="344" width="380" height="46" rx="8"/>
+              <text class="dg-text" x="230" y="373" text-anchor="middle" font-size="18">Demand for PEARL increases</text>
+
+              <!-- return loop -->
+              <path class="dg-line" d="M420,367 C496,367 496,47 422,47" marker-end="url(#ah2)"/>
+              <text class="dg-muted" x="516" y="214" text-anchor="middle" font-size="24">↻</text>
+            </svg>
+            <figcaption>The value-accrual loop: each turn makes the next one stronger.</figcaption>
+          </figure>
 
           <p>This future assumes two things:</p>
 

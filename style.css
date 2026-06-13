@@ -2222,6 +2222,50 @@ section[aria-label="GitHub contributions"] {
   transition: color 0.25s ease;
 }
 
+/* Explanatory diagrams (inline SVG, theme-aware via tokens) */
+.article-body .fig-diagram svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: none;
+}
+
+.dg-box {
+  fill: var(--bg);
+  stroke: var(--border);
+  stroke-width: 1.5;
+}
+
+.dg-box-em {
+  fill: var(--active-bg);
+  stroke: var(--sep);
+  stroke-width: 1.5;
+}
+
+.dg-line {
+  stroke: var(--text-3);
+  stroke-width: 1.5;
+  fill: none;
+}
+
+.dg-arrow { fill: var(--text-3); }
+
+.dg-text {
+  fill: var(--text);
+  font-family: 'Newsreader', 'Times New Roman', serif;
+}
+
+.dg-muted {
+  fill: var(--text-3);
+  font-family: 'Newsreader', 'Times New Roman', serif;
+}
+
+.dg-eyebrow {
+  fill: var(--text-3);
+  font-family: 'Newsreader', 'Times New Roman', serif;
+  letter-spacing: 0.1em;
+}
+
 /* Section break — neutral three-dot rule (Medium-style) */
 .article-body hr {
   border: none;
