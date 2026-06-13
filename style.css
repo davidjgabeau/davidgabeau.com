@@ -1991,3 +1991,344 @@ section[aria-label="GitHub contributions"] {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
+/* ═══════════════════════════════════════════════════════
+   WRITING — long-form article / blog post
+   Shares all color tokens, fonts, and the reading column
+   width with the rest of the site. Used by /writing/<slug>/.
+   ═══════════════════════════════════════════════════════ */
+
+.post-main {
+  animation: fadein 0.45s ease-out 0.05s both;
+}
+
+/* Back link above the article */
+.post-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 0.9rem;
+  color: var(--text-3);
+  text-decoration: none;
+  margin-bottom: 2.25rem;
+  transition: color 0.15s, gap 0.15s ease;
+}
+
+.post-back:hover {
+  color: var(--text);
+  gap: 0.6em;
+}
+
+.post-back svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* ── Article header ─────────────────────────────────── */
+
+.article-header {
+  margin-bottom: 2.5rem;
+}
+
+.article-eyebrow {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.1rem;
+}
+
+.article-title {
+  font-size: clamp(2rem, 1.4rem + 2.6vw, 2.7rem);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin: 0 0 0.7rem;
+  text-wrap: balance;
+}
+
+.article-dek {
+  font-size: 1.28rem;
+  line-height: 1.5;
+  color: var(--text-2);
+  font-weight: 400;
+  margin: 0 0 1.4rem;
+  text-wrap: pretty;
+  transition: color 0.25s ease;
+}
+
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.55em;
+  font-size: 0.9rem;
+  color: var(--text-3);
+  transition: color 0.25s ease;
+}
+
+.article-meta .sep {
+  color: var(--sep);
+}
+
+.article-rule {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2.5rem 0;
+  transition: border-color 0.25s ease;
+}
+
+/* ── Article body (prose) ───────────────────────────── */
+
+.article-body {
+  font-size: 1.1875rem;
+  line-height: 1.72;
+  color: var(--text);
+}
+
+.article-body > * + * {
+  margin-top: 1.45em;
+}
+
+.article-body p {
+  text-wrap: pretty;
+}
+
+/* Optional decorative drop cap on the opening paragraph */
+.article-body .has-dropcap::first-letter {
+  float: left;
+  font-size: 3.4em;
+  line-height: 0.78;
+  font-weight: 600;
+  padding: 0.04em 0.1em 0 0;
+  color: var(--text);
+}
+
+.article-body h2 {
+  font-size: 1.55rem;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-top: 2.4em;
+  margin-bottom: 0;
+}
+
+.article-body h3 {
+  font-size: 1.22rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-top: 2em;
+  margin-bottom: 0;
+}
+
+.article-body h2 + *,
+.article-body h3 + * {
+  margin-top: 0.7em;
+}
+
+/* Body links — persistent fine underline that thickens on hover */
+.article-body a {
+  color: var(--text);
+  text-decoration: none;
+  background-image: linear-gradient(var(--gold), var(--gold));
+  background-position: 0 1.12em;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+  transition: background-size 0.2s ease, color 0.15s;
+}
+
+.article-body a:hover {
+  color: var(--gold);
+  background-size: 100% 2px;
+}
+
+.article-body strong { font-weight: 600; }
+.article-body em { font-style: italic; }
+
+/* Lists */
+.article-body ul,
+.article-body ol {
+  padding-left: 1.4em;
+}
+
+.article-body li + li {
+  margin-top: 0.5em;
+}
+
+.article-body ul li::marker {
+  color: var(--gold);
+}
+
+.article-body ol li::marker {
+  color: var(--text-3);
+}
+
+/* Blockquote */
+.article-body blockquote {
+  border-left: 2px solid var(--gold);
+  padding-left: 1.3em;
+  margin-left: 0;
+  font-style: italic;
+  color: var(--text-2);
+}
+
+.article-body blockquote p + p {
+  margin-top: 1em;
+}
+
+/* Pull quote — large centered standalone line */
+.article-body .pullquote {
+  font-size: 1.6rem;
+  line-height: 1.32;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  text-align: center;
+  margin: 2.4rem auto;
+  max-width: 30rem;
+  text-wrap: balance;
+  font-style: normal;
+  border: none;
+  padding: 0;
+}
+
+/* Figures & images */
+.article-body figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.article-body img,
+.article-body figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border-2);
+}
+
+.article-body figcaption {
+  margin-top: 0.7em;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--text-3);
+  text-align: center;
+  font-style: italic;
+  transition: color 0.25s ease;
+}
+
+/* Decorative section break (✦) instead of a plain rule */
+.article-body hr {
+  border: none;
+  text-align: center;
+  margin: 2.6rem 0;
+}
+
+.article-body hr::before {
+  content: '✦';
+  color: var(--gold);
+  font-size: 0.85rem;
+  letter-spacing: 0.5em;
+}
+
+/* Inline code & code blocks */
+.article-body code {
+  font-family: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  background: var(--hover-bg);
+  padding: 0.12em 0.38em;
+  border-radius: 4px;
+  border: 1px solid var(--border-2);
+}
+
+.article-body pre {
+  background: var(--hover-bg);
+  border: 1px solid var(--border-2);
+  border-radius: 8px;
+  padding: 1.1em 1.25em;
+  overflow-x: auto;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.article-body pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+}
+
+/* Footnotes / endnotes */
+.article-footnotes {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-2);
+}
+
+.article-footnotes ol {
+  padding-left: 1.3em;
+}
+
+.article-footnotes li + li {
+  margin-top: 0.6em;
+}
+
+/* ── Article footer ─────────────────────────────────── */
+
+.article-footer {
+  margin-top: 3.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.article-byline {
+  font-size: 0.9rem;
+  color: var(--text-3);
+  transition: color 0.25s ease;
+}
+
+.article-share {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-size: 0.875rem;
+}
+
+.article-share a {
+  color: var(--text-3);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.article-share a:hover {
+  color: var(--text);
+}
+
+/* ── Responsive ─────────────────────────────────────── */
+
+@media (max-width: 479px) {
+  .article-body {
+    font-size: 1.125rem;
+  }
+  .article-dek {
+    font-size: 1.15rem;
+  }
+  .article-body .pullquote {
+    font-size: 1.35rem;
+  }
+  .post-back {
+    margin-bottom: 1.75rem;
+  }
+}
