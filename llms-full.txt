@@ -48,6 +48,8 @@ I write about technology trends and listen to Soulection weekly.
 
 ## Writing
 
+- Crypto’s Broadband Moment — https://davidgabeau.com/writing/crypto-broadband-moment (August 2026)
+- Where Does Value Accrue in Pearl? — https://davidgabeau.com/writing/pearl (June 2026)
 - Introducing Zumi 2.0 — https://blog.usetapestry.dev/p/introducing-zumi-20 (2025)
 - Tapestry's Plan to Scale Solana Social — https://blog.usetapestry.dev (2024)
 - Your Social Graph Should Be Yours — https://blog.usetapestry.dev (2024)
