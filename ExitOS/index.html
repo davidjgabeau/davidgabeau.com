@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ExitOS - Agent for Selling Your Company</title>
+  <meta name="description" content="ExitOS is a founder-facing agent for selling your company. Turn diligence requests into a buyer-ready data room plan, manifest, and risk review.">
+  <meta name="author" content="David Gabeau">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://davidgabeau.com/ExitOS">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#f7f5ef">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://davidgabeau.com/ExitOS">
+  <meta property="og:title" content="ExitOS - Agent for Selling Your Company">
+  <meta property="og:description" content="A diligence operator for founders preparing buyer-ready company exports.">
+  <meta property="og:image" content="https://davidgabeau.com/api/og-image">
+
+  <link rel="preload" href="/fonts/newsreader-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/ExitOS/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="David Gabeau home">
+      <span class="brand-mark">DG</span>
+      <span>David Gabeau</span>
+    </a>
+    <nav class="topnav" aria-label="ExitOS navigation">
+      <a href="#workspace">Workspace</a>
+      <a href="#manifest">Manifest</a>
+      <a href="/docs/exitos-prd.md">PRD</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">ExitOS</p>
+        <h1 id="page-title">The agent for selling your company.</h1>
+        <p class="lede">Turn buyer diligence requests into a complete export plan, risk review, and buyer-ready manifest.</p>
+        <div class="hero-actions">
+          <button class="button button-primary" id="runAgent" type="button">
+            <span class="button-icon" aria-hidden="true">&gt;</span>
+            Run agent
+          </button>
+          <button class="button button-secondary" id="downloadManifest" type="button">
+            <span class="button-icon" aria-hidden="true">v</span>
+            Download manifest
+          </button>
+        </div>
+      </div>
+
+      <aside class="command-center" aria-label="Exit readiness snapshot">
+        <div class="score-ring" aria-label="Readiness score">
+          <svg viewBox="0 0 120 120" role="img" aria-labelledby="score-title">
+            <title id="score-title">Readiness score</title>
+            <circle class="score-bg" cx="60" cy="60" r="48"></circle>
+            <circle class="score-value" id="scoreArc" cx="60" cy="60" r="48"></circle>
+          </svg>
+          <div class="score-text">
+            <strong id="readinessScore">0%</strong>
+            <span>ready</span>
+          </div>
+        </div>
+        <div class="snapshot-grid">
+          <div>
+            <span class="metric" id="systemsCount">0</span>
+            <span class="metric-label">systems</span>
+          </div>
+          <div>
+            <span class="metric" id="readyCount">0</span>
+            <span class="metric-label">ready</span>
+          </div>
+          <div>
+            <span class="metric" id="riskCount">0</span>
+            <span class="metric-label">risks</span>
+          </div>
+          <div>
+            <span class="metric" id="dayCount">0</span>
+            <span class="metric-label">days saved</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="flow-map" aria-label="ExitOS workflow">
+      <div class="flow-node active">
+        <span class="node-kicker">01</span>
+        <strong>Buyer request</strong>
+        <small>Parse scope</small>
+      </div>
+      <div class="flow-line" aria-hidden="true"></div>
+      <div class="flow-node">
+        <span class="node-kicker">02</span>
+        <strong>Company systems</strong>
+        <small>Map evidence</small>
+      </div>
+      <div class="flow-line" aria-hidden="true"></div>
+      <div class="flow-node">
+        <span class="node-kicker">03</span>
+        <strong>Risk review</strong>
+        <small>Flag gaps</small>
+      </div>
+      <div class="flow-line" aria-hidden="true"></div>
+      <div class="flow-node">
+        <span class="node-kicker">04</span>
+        <strong>Data room</strong>
+        <small>Ship manifest</small>
+      </div>
+    </section>
+
+    <section class="workspace" id="workspace">
+      <div class="panel setup-panel">
+        <div class="panel-heading">
+          <p class="section-kicker">Company setup</p>
+          <h2>Deal context</h2>
+        </div>
+        <div class="form-grid">
+          <label>
+            <span>Company</span>
+            <input id="companyName" type="text" value="Pilot Company" autocomplete="organization">
+          </label>
+          <label>
+            <span>Sale path</span>
+            <select id="salePath">
+              <option>Strategic acquisition</option>
+              <option>AI lab data deal</option>
+              <option>Acquihire</option>
+              <option>Asset sale</option>
+            </select>
+          </label>
+          <label>
+            <span>Target close</span>
+            <select id="timeline">
+              <option>30 days</option>
+              <option>45 days</option>
+              <option>60 days</option>
+              <option>90 days</option>
+            </select>
+          </label>
+          <label>
+            <span>Sensitivity</span>
+            <select id="sensitivity">
+              <option>Standard diligence</option>
+              <option>Contains payroll</option>
+              <option>Contains customer data</option>
+              <option>Contains source code</option>
+            </select>
+          </label>
+        </div>
+      </div>
+
+      <div class="panel agent-panel">
+        <div class="panel-heading">
+          <p class="section-kicker">Agent run</p>
+          <h2 id="agentHeadline">Ready to assemble the package</h2>
+        </div>
+        <ol class="agent-log" id="agentLog" aria-live="polite"></ol>
+      </div>
+    </section>
+
+    <section class="systems-section" aria-labelledby="systems-title">
+      <div class="section-title-row">
+        <div>
+          <p class="section-kicker">Systems map</p>
+          <h2 id="systems-title">Diligence coverage</h2>
+        </div>
+        <div class="filter-tabs" role="group" aria-label="System filters">
+          <button class="filter-tab active" type="button" data-filter="all">All</button>
+          <button class="filter-tab" type="button" data-filter="ready">Ready</button>
+          <button class="filter-tab" type="button" data-filter="needs-export">Needs export</button>
+          <button class="filter-tab" type="button" data-filter="risk">Risk</button>
+        </div>
+      </div>
+      <div class="system-grid" id="systemGrid"></div>
+    </section>
+
+    <section class="review-grid">
+      <div class="panel">
+        <div class="panel-heading">
+          <p class="section-kicker">Risk review</p>
+          <h2>Founder-side checks</h2>
+        </div>
+        <div class="risk-list" id="riskList"></div>
+      </div>
+
+      <div class="panel" id="manifest">
+        <div class="panel-heading">
+          <p class="section-kicker">Buyer package</p>
+          <h2>Manifest preview</h2>
+        </div>
+        <pre class="manifest-preview" id="manifestPreview"></pre>
+      </div>
+    </section>
+  </main>
+
+  <script src="/ExitOS/app.js" type="module"></script>
+</body>
+</html>
