@@ -2383,3 +2383,15 @@ section[aria-label="GitHub contributions"] {
     margin-bottom: 1.75rem;
   }
 }
+
+/* Zumi essay: preserve complete screenshots and keep phone views readable. */
+.zumi-post .zumi-figure { margin-block: 2.25rem; }
+.zumi-post .zumi-image-link { display: block; text-decoration: none; }
+.zumi-post .zumi-image-link:focus-visible { outline: 2px solid var(--text); outline-offset: 5px; border-radius: 8px; }
+.zumi-post .zumi-image-link img { box-sizing: border-box; }
+.zumi-post .zumi-portrait .zumi-image-link { width: min(100%, 300px); margin-inline: auto; }
+.zumi-post .zumi-image-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; align-items: start; }
+@media (max-width: 540px) {
+  .zumi-post .zumi-image-pair { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+  .zumi-post .zumi-image-pair .zumi-image-link { width: min(100%, 320px); margin-inline: auto; }
+}

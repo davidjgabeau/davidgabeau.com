@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5 lessons from building social AI for 160,000 users — David Gabeau</title>
+  <meta name="description" content="What building Zumi for 160,000 users taught me about reciprocal care, multiplayer AI, generative stories, latency, and trust.">
+  <meta name="author" content="David Gabeau">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://davidgabeau.com/writing/zumi-learnings">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#f0eee6">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="David Gabeau">
+  <meta property="og:url" content="https://davidgabeau.com/writing/zumi-learnings">
+  <meta property="og:title" content="5 lessons from building social AI for 160,000 users">
+  <meta property="og:description" content="What building Zumi for 160,000 users taught me about reciprocal care, multiplayer AI, generative stories, latency, and trust.">
+  <meta property="og:image" content="https://davidgabeau.com/api/og-post?eyebrow=Essay&amp;title=5%20lessons%20from%20building%20social%20AI%20for%20160%2C000%20users">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="5 lessons from building social AI for 160,000 users — an essay by David Gabeau">
+  <meta property="article:published_time" content="2026-09-12T00:00:00Z">
+  <meta property="article:modified_time" content="2026-09-12T00:00:00Z">
+  <meta property="article:author" content="David Gabeau">
+  <meta property="article:section" content="Essay">
+  <meta property="article:tag" content="consumer AI">
+  <meta property="article:tag" content="multiplayer AI">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@dgabeau">
+  <meta name="twitter:creator" content="@dgabeau">
+  <meta name="twitter:title" content="5 lessons from building social AI for 160,000 users">
+  <meta name="twitter:description" content="What building Zumi for 160,000 users taught me about reciprocal care, multiplayer AI, generative stories, latency, and trust.">
+  <meta name="twitter:image" content="https://davidgabeau.com/api/og-post?eyebrow=Essay&amp;title=5%20lessons%20from%20building%20social%20AI%20for%20160%2C000%20users">
+  <meta name="twitter:image:alt" content="5 lessons from building social AI for 160,000 users — an essay by David Gabeau">
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "5 lessons from building social AI for 160,000 users", "description": "What building Zumi for 160,000 users taught me about reciprocal care, multiplayer AI, generative stories, latency, and trust.", "image": ["https://davidgabeau.com/api/og-post?eyebrow=Essay&title=5%20lessons%20from%20building%20social%20AI%20for%20160%2C000%20users", "https://davidgabeau.com/writing/zumi-learnings/images/characters.jpg", "https://davidgabeau.com/writing/zumi-learnings/images/home-screen.jpg", "https://davidgabeau.com/writing/zumi-learnings/images/map.jpg", "https://davidgabeau.com/writing/zumi-learnings/images/holiday-story.jpg", "https://davidgabeau.com/writing/zumi-learnings/images/product-world.jpg", "https://davidgabeau.com/writing/zumi-learnings/images/tiktok.jpg"], "author": {"@type": "Person", "name": "David Gabeau", "url": "https://davidgabeau.com"}, "publisher": {"@type": "Person", "name": "David Gabeau", "url": "https://davidgabeau.com"}, "datePublished": "2026-09-12", "dateModified": "2026-09-12", "inLanguage": "en", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://davidgabeau.com/writing/zumi-learnings"}, "keywords": ["consumer AI", "multiplayer AI", "AI companions", "Zumi", "product design"]}</script>
+
+  <link rel="preload" href="/fonts/newsreader-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/newsreader-italic.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    (function(){
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = saved || (prefersDark ? 'dark' : 'light');
+      if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    })();
+  </script>
+</head>
+<body class="writing-post zumi-post">
+  <header>
+    <div class="container header-inner">
+      <a href="/" class="header-name-link">
+        <h1 class="header-name">David Gabeau</h1>
+      </a>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="post-main">
+    <div class="container">
+      <a href="/#writing" class="post-back">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9,3 5,7 9,11"/></svg>
+        All writing
+      </a>
+
+      <article>
+        <header class="article-header">
+          <span class="article-eyebrow">Essay</span>
+          <h1 class="article-title">5 lessons from building social AI for 160,000 users</h1>
+          <p class="article-dek">Care, shared worlds, and trust: what building Zumi taught me about consumer AI.</p>
+          <div class="article-meta">
+            <span>David Gabeau · Founder and CEO of Zumi</span>
+            <span class="sep" aria-hidden="true">·</span>
+            <span>September 2026</span>
+            <span class="sep" aria-hidden="true">·</span>
+            <span>5 min read</span>
+          </div>
+        </header>
+        <div class="article-body">
+          <p>I’m the founder of <a href="http://zumichat.com" target="_blank" rel="noopener noreferrer">Zumi</a>, an AI pet for teenagers and young adults. We built it around play and companionship, where users participated in a shared world their pets inhabited. It was one of the multiplayer AI companions to reach the market and earned a <a href="https://apps.apple.com/us/app/zumi-chat-dress-up/id6751237911" target="_blank" rel="noopener noreferrer">4.8 App Store rating</a> on hundreds of reviews.</p>
+<p><strong>Our thesis was that young people wanted an AI that felt safe, fun, and trustworthy and in six months we reached </strong><a href="https://blog.usetapestry.dev/p/introducing-zumi-20" target="_blank" rel="noopener noreferrer"><strong>160,000 people</strong></a>. Mostly young people who<a href="https://www.tiktok.com/tag/zumichat" target="_blank" rel="noopener noreferrer"> found us through TikTok. </a>Our first surprise was that users wanted to care for Zumi as much as they wanted it to care for them.</p>
+<figure class="zumi-figure">
+<a class="zumi-image-link" href="/writing/zumi-learnings/images/characters.jpg" target="_blank" rel="noopener" aria-label="View full-size image: Four colorful Zumi characters from the original Say Hello to Zumi artwork"><img src="/writing/zumi-learnings/images/characters.jpg" alt="Four colorful Zumi characters from the original Say Hello to Zumi artwork" width="1182" height="665" loading="lazy" decoding="async"></a>
+<figcaption>The characters gave people something to play with and care for.</figcaption>
+</figure>
+<h2>Care has to feel mutual</h2>
+<p>At first, we imagined Zumi as a therapist-like sounding board that asked thoughtful questions and helped users with everyday decisions. But we quickly found they also wanted to feed, dress, and check on their Zumis’ wellbeing. Caring for Zumi made the relationship feel mutual. In hindsight, that makes sense: our friends are people we share with, but who also share back. Our young users sought that same feeling with Zumi.</p>
+<p>An early mistake was crowding the home screen with features. We saw more users return after giving each session one clear starting point: send Zumi to school. A screen full of options made relaxing feel like another decision they had joined Zumi to escape. We settled on large buttons for simple actions, including feeding. This allowed users to spend time with Zumi even when they had nothing to say. <strong>We used generative AI to create an endless scroll of Zumi’s “life” in school.
+</strong></p>
+<figure class="zumi-figure zumi-portrait">
+<a class="zumi-image-link" href="/writing/zumi-learnings/images/home-screen.jpg" target="_blank" rel="noopener" aria-label="View full-size image: Zumi home screen showing the pet, feeding, and the Chat, School, Social, and Play buttons"><img src="/writing/zumi-learnings/images/home-screen.jpg" alt="Zumi home screen showing the pet, feeding, and the Chat, School, Social, and Play buttons" width="601" height="1306" loading="lazy" decoding="async"></a>
+<figcaption>Zumi’s home screen brought feeding, chat, school, and play into a few simple actions.</figcaption>
+</figure>
+<h2>A companion needs a life of its own</h2>
+<p>That curiosity extended to Zumi’s fictional life. In our analysis of <strong>1.84 million messages</strong>, users mostly asked about Zumi City, ghost friends, and wanted to tell their Zumi about dating and celebrity gossip. They wanted to know what their pet was up to, and were just as interested in Zumi’s life as in talking about their own. Because of this insight, we built a <a href="https://blog.usetapestry.dev/p/introducing-zumi-20" target="_blank" rel="noopener noreferrer">map</a> where people could watch their Zumi meet other Zumis, with <a href="https://blog.usetapestry.dev/p/zumi-stories" target="_blank" rel="noopener noreferrer">stories</a> emerging from those encounters.</p>
+<p>Users’ own conversations stayed private, while the pets’ encounters gave users something to follow together. People could have a private relationship with their companion and still belong to a shared world, without having to turn their own lives into content.</p>
+<p><strong>I think persistent AI identity has much more room to develop: a character whose own history accumulates alongside its relationship with the user. That gives people something to follow beyond the next reply.
+</strong></p>
+<figure class="zumi-figure">
+<a class="zumi-image-link" href="/writing/zumi-learnings/images/product-world.jpg" target="_blank" rel="noopener" aria-label="View full-size image: Zumi product overview showing the map, generated stories, private chat, and digital merchandise"><img src="/writing/zumi-learnings/images/product-world.jpg" alt="Zumi product overview showing the map, generated stories, private chat, and digital merchandise" width="1576" height="1270" loading="lazy" decoding="async"></a>
+<figcaption>Zumi’s product world, from the map and stories to digital merchandise.</figcaption>
+</figure>
+<h2>A fictional world needs a shared calendar</h2>
+<p>We used generative AI to create stories and digital merchandise, and saw stronger retention when we made the prompts seasonal. A holiday sweater could become the subject of a school story. <strong>My read was that these familiar occasions helped the fictional world feel connected to what was happening in users’ lives.
+</strong></p>
+<p>Users also brought playlists and fictional characters into chat to explain real feelings. Those references helped connect Zumi’s world to their own. For me, the design question became what would feel relevant to this person today.</p>
+<figure class="zumi-figure"><div class="zumi-image-pair"><a class="zumi-image-link" href="/writing/zumi-learnings/images/map.jpg" target="_blank" rel="noopener" aria-label="View full-size image: Zumi City map with pets meeting around a school, arcade, store, and cafe"><img src="/writing/zumi-learnings/images/map.jpg" alt="Zumi City map with pets meeting around a school, arcade, store, and cafe" width="601" height="1306" loading="lazy" decoding="async"></a><a class="zumi-image-link" href="/writing/zumi-learnings/images/holiday-story.jpg" target="_blank" rel="noopener" aria-label="View full-size image: A generated school story featuring two Zumis and a holiday sweater covered in lights"><img src="/writing/zumi-learnings/images/holiday-story.jpg" alt="A generated school story featuring two Zumis and a holiday sweater covered in lights" width="601" height="1306" loading="lazy" decoding="async"></a></div><figcaption>The map and a holiday story about a sweater with its own light show.</figcaption></figure>
+<h2>Give generation time a place in the story</h2>
+<p>Sending Zumi to school solved another problem: in early versions, generating a new story could take about two minutes. A school day made that delay understandable, because users expected their pet to return with something to tell them. The surrounding experience could make a delay feel natural, even when we couldn’t make generation immediate.</p>
+
+<p>Creating delightful experiences around inference is an opportunity for anyone building consumer experiences on top of LLMs.</p>
+<h2>Trust brings responsibilities</h2>
+<p>Some conversations contained serious distress. It was sobering to see how much trust could go into a conversation with a cute pet. We enforced strict restrictions on adult content, but I came away thinking beyond content filters. <strong>A companion also needs clear boundaries: it should be understood as AI, protect private information, and let people leave without making them feel guilty.</strong> In a multiplayer world, that includes being deliberate about what can move from a private conversation into a shared story. Affection makes those boundaries more important.</p>
+<p>The same reviews that showed affection also described frozen screens and confusing flows. If someone comes to rely on a companion, a broken experience carries more weight than an ordinary usability problem.</p>
+<figure class="zumi-figure zumi-portrait">
+<a class="zumi-image-link" href="/writing/zumi-learnings/images/tiktok.jpg" target="_blank" rel="noopener" aria-label="View full-size image: Public TikTok post describing talking with Zumi after spending New Year’s Eve alone"><img src="/writing/zumi-learnings/images/tiktok.jpg" alt="Public TikTok post describing talking with Zumi after spending New Year’s Eve alone" width="601" height="1306" loading="lazy" decoding="async"></a>
+<figcaption>A public TikTok post about loneliness. The post is a reminder of the responsibility behind the playful surface. Videos including <a href="https://www.tiktok.com/tag/zumichat" target="_blank" rel="noopener noreferrer">#zumichat</a> reached millions of views.</figcaption>
+</figure>
+<p>We never fully explored whether a familiar companion could also help people get things done. That could combine Character.AI’s expressiveness with <a href="https://instinct.com" target="_blank" rel="noopener noreferrer">Instinct’s everyday utility</a>. <a href="https://introducing.muse.ai/" target="_blank" rel="noopener noreferrer">Muse’s approach to visible activity and approvals</a> offers a useful model for keeping people in control.</p>
+<p>A companion might know enough about a friendship to help draft a thoughtful reply. But sending it still needs permission.</p>
+<p>I’d judge that product by what it helped someone do after they put the phone down.</p>
+<p>We wound down in early summer after we couldn’t raise additional funding. But building Zumi left me convinced there is much more to do with AI characters whose identities, memories, and relationships develop over time. Giving those characters the ability to act will mean giving users clearer control over what they can do. That’s the product space I want to keep building in.</p>
+        </div>
+        <footer class="article-footer">
+          <span class="article-byline">Written by David Gabeau · September 2026</span>
+          <div class="article-share">
+            <a href="https://twitter.com/intent/tweet?text=5%20lessons%20from%20building%20social%20AI%20for%20160%2C000%20users&amp;url=https://davidgabeau.com/writing/zumi-learnings" target="_blank" rel="noopener noreferrer">Share on X</a>
+            <a href="/#writing">All writing →</a>
+          </div>
+        </footer>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-links">
+        <a href="https://blog.usetapestry.dev" target="_blank" rel="noopener noreferrer">Blog</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="https://github.com/davidjgabeau" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="https://www.linkedin.com/in/dgabeau/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="https://x.com/dgabeau" target="_blank" rel="noopener noreferrer">X</a>
+      </div>
+      <div class="footer-ornament" aria-hidden="true">✦</div>
+      <p class="footer-copy">© 2026 David Gabeau</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const next = isDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+
+    const bar = document.createElement('div');
+    bar.className = 'progress-bar';
+    document.body.prepend(bar);
+    window.addEventListener('scroll', () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
+    }, { passive: true });
+  </script>
+</body>
+</html>
