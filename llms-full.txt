@@ -2,7 +2,9 @@
 
 ## Bio
 
-I'm the founder and CEO of Tapestry, a permissionless social graph protocol for onchain applications, backed by USV, Redpoint, Slow, Fabric Ventures, Stellation, and Harlem Capital.
+I'm David, but most call me DJ. I work on Special Projects at a16z (2026–present), building networks in San Francisco. I love to build things that connect people.
+
+I was the founder and CEO of Tapestry (2022–2026), a permissionless social graph protocol for onchain applications, backed by USV, Redpoint, Slow, Fabric Ventures, Stellation, and Harlem Capital.
 
 Zumi, an AI companion we built on Tapestry, has reached 160,000+ users.
 
