@@ -26,3 +26,76 @@ for (const button of document.querySelectorAll('.photo-reveal')) {
     button.setAttribute('aria-label', `${reveal ? 'Show sketch' : 'Reveal photograph'}: ${button.dataset.caption}`);
   });
 }
+
+// A single observer gives the notebook a gentle, one-time arrival as it is read.
+// Content stays visible if JavaScript, observers, or animation are unavailable.
+const motionSelector = '.intro h1, .intro-copy, .contact-links, .editorial-section > h2, .editorial-section > .section-body, .timeline-entry, .margin-study img, .camera-heading, .photo-reveal';
+const motionTargets = [...document.querySelectorAll(motionSelector)];
+const arrived = new WeakSet();
+const activeMotion = new Set();
+let arrivalObserver;
+
+function playNotebookMotion(element, frames, options) {
+  if (reducedMotion.matches || typeof element.animate !== 'function') return;
+  const animation = element.animate(frames, options);
+  activeMotion.add(animation);
+  const cleanup = () => activeMotion.delete(animation);
+  animation.addEventListener('finish', cleanup, {once: true});
+  animation.addEventListener('cancel', cleanup, {once: true});
+}
+
+function observeArrivals() {
+  arrivalObserver?.disconnect();
+  if (reducedMotion.matches || !('IntersectionObserver' in window)) return;
+  arrivalObserver = new IntersectionObserver(entries => {
+    let sequence = 0;
+    for (const entry of entries) {
+      if (!entry.isIntersecting || arrived.has(entry.target)) continue;
+      const element = entry.target;
+      arrived.add(element);
+      arrivalObserver.unobserve(element);
+      // A keyboard or anchor jump should land on immediately usable content.
+      if (element.contains(document.activeElement) || element.matches(':target')) continue;
+      const study = element.matches('.margin-study img');
+      playNotebookMotion(element, [
+        {opacity: 0, transform: study ? 'translateY(7px) rotate(-1.5deg)' : 'translateY(12px)'},
+        {opacity: 1, transform: 'none'}
+      ], {
+        duration: study ? 950 : 620,
+        delay: Math.min(sequence++ * 45, 135),
+        easing: 'cubic-bezier(.22,1,.36,1)',
+        fill: 'backwards'
+      });
+    }
+  }, {threshold: 0.08});
+  motionTargets.forEach(element => {
+    if (!arrived.has(element)) arrivalObserver.observe(element);
+  });
+}
+
+for (const disclosure of document.querySelectorAll('.archive')) {
+  disclosure.addEventListener('toggle', () => {
+    const content = disclosure.querySelector('.archive-content');
+    if (disclosure.open && content) {
+      playNotebookMotion(content, [
+        {opacity: 0.3, transform: 'translateY(-5px)'},
+        {opacity: 1, transform: 'none'}
+      ], {duration: 260, easing: 'ease-out'});
+    }
+  });
+}
+
+reducedMotion.addEventListener('change', () => {
+  for (const animation of activeMotion) animation.cancel();
+  observeArrivals();
+});
+document.addEventListener('focusin', event => {
+  for (const animation of activeMotion) {
+    if (animation.effect?.target?.contains(event.target)) animation.cancel();
+  }
+});
+// Never leave motion running in a background tab.
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) for (const animation of activeMotion) animation.finish();
+});
+observeArrivals();
