@@ -54,3 +54,28 @@
   .scroll-controls button:hover:not(:disabled){transform:translateX(2px)}
   .scroll-controls button[data-scroll="-1"]:hover:not(:disabled){transform:translateX(-2px)}
 }
+
+/* A few places in the margins: varied scale, broken rhythm, open paper. */
+.intro{width:auto;margin:0 0 64px 40px;padding:84px 350px 18px 0;min-height:410px}
+.intro h1{font-size:46px}
+.intro-copy{font-size:21px}
+.place-studies{position:absolute;right:-15px;top:55px;width:330px;height:340px;pointer-events:none}
+.place-studies .margin-study{opacity:.72}
+.place-studies figcaption{font-size:15px;font-weight:700;margin-top:5px;color:#727b80;white-space:nowrap}
+.place-silver-spring{width:135px;left:0;top:10px;transform:rotate(-5deg)}
+.place-silver-spring figcaption{padding-left:18px}
+.place-boston{width:108px;right:0;top:0;transform:rotate(3deg)}
+.place-boston figcaption{text-align:right;padding-right:9px}
+.place-exeter{width:80px;left:105px;top:142px;transform:rotate(-2deg)}
+.place-exeter figcaption{text-align:center;font-size:13px}
+.place-nyu{width:105px;right:-4px;top:184px;transform:rotate(2deg)}
+.place-nyu figcaption{font-size:13px;text-align:right}
+.place-venice{width:185px;left:-18px;bottom:0;transform:rotate(-2deg)}
+.place-venice figcaption{padding-left:55px}
+@media(min-width:1200px){.place-studies{right:-50px;width:350px}.intro{padding-right:325px}}
+@media(max-width:900px){.intro{margin-left:0;padding-right:285px;padding-top:65px;min-height:420px}.intro h1{font-size:39px}.intro-copy{font-size:20px}.place-studies{right:-10px;top:70px;width:265px}.place-silver-spring{width:115px}.place-boston{width:95px}.place-exeter{left:83px;width:65px}.place-nyu{width:90px}.place-venice{width:160px;left:-5px}}
+@media(max-width:700px){.intro{padding:50px 0 0;margin:0 0 38px;min-height:0}.intro h1{font-size:39px}.place-studies{position:relative;right:auto;top:auto;width:100%;max-width:430px;height:226px;margin:32px auto 0}.place-studies .margin-study{opacity:.74}.place-silver-spring{width:112px;left:0;top:0}.place-boston{width:88px;right:8px;top:0}.place-exeter{width:64px;left:43%;top:74px}.place-nyu{width:85px;right:0;top:125px}.place-venice{width:162px;left:0;bottom:8px}.place-studies figcaption{font-size:13px}.place-nyu figcaption{font-size:11px}.place-exeter figcaption{font-size:12px}}
+@media(max-width:390px){.intro h1{font-size:35px}}
+.place-studies .margin-study{mix-blend-mode:multiply}
+.place-studies img{mix-blend-mode:normal}
+.place-nyu figcaption{width:max-content;margin-left:100%;transform:translateX(-100%)}
