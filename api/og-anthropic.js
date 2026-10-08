@@ -7,7 +7,7 @@ export const config = { runtime: 'edge' };
 // from Vercel Edge, so we ship the woff files directly in the repo.
 async function loadBundledFont(filename) {
   try {
-    const res = await fetch(new URL(`./fonts/${filename}`, import.meta.url));
+    const res = await fetch(new URL(`../fonts/${filename}`, import.meta.url));
     if (!res.ok) return null;
     return await res.arrayBuffer();
   } catch {
@@ -21,25 +21,25 @@ export default async function handler(req) {
 
   try {
     const [newsreader, inter600, inter400, caveat] = await Promise.all([
-      loadBundledFont('Newsreader-700.woff'),
-      loadBundledFont('Inter-600.woff'),
-      loadBundledFont('Inter-400.woff'),
-      loadBundledFont('Caveat-700.woff'),
+      loadBundledFont('instrument-serif-400-normal.woff'),
+      loadBundledFont('geist-500-normal.woff'),
+      loadBundledFont('geist-400-normal.woff'),
+      loadBundledFont('instrument-serif-400-italic.woff'),
     ]);
 
     const fonts = [];
-    if (newsreader) fonts.push({ name: 'Newsreader', data: newsreader, weight: 700, style: 'normal' });
-    if (inter600)   fonts.push({ name: 'Inter',      data: inter600,   weight: 600, style: 'normal' });
-    if (inter400)   fonts.push({ name: 'Inter',      data: inter400,   weight: 400, style: 'normal' });
-    if (caveat)     fonts.push({ name: 'Caveat',     data: caveat,     weight: 700, style: 'normal' });
+    if (newsreader) fonts.push({ name: 'Instrument Serif', data: newsreader, weight: 400, style: 'normal' });
+    if (inter600)   fonts.push({ name: 'Geist',      data: inter600,   weight: 500, style: 'normal' });
+    if (inter400)   fonts.push({ name: 'Geist',      data: inter400,   weight: 400, style: 'normal' });
+    if (caveat)     fonts.push({ name: 'Instrument Serif',     data: caveat,     weight: 400, style: 'italic' });
 
     if (fonts.length === 0) {
       throw new Error('No bundled fonts could be loaded.');
     }
 
-    const serif = newsreader ? 'Newsreader' : fonts[0].name;
-    const sans  = (inter600 || inter400) ? 'Inter' : fonts[0].name;
-    const hand  = caveat ? 'Caveat' : fonts[0].name;
+    const serif = newsreader ? 'Instrument Serif' : fonts[0].name;
+    const sans  = (inter600 || inter400) ? 'Geist' : fonts[0].name;
+    const hand  = caveat ? 'Instrument Serif' : fonts[0].name;
 
     return new ImageResponse(
       {
@@ -65,7 +65,7 @@ export default async function handler(req) {
                   top: '24px',
                   right: '64px',
                   fontFamily: serif,
-                  fontWeight: 700,
+                  fontWeight: 500,
                   fontSize: '280px',
                   color: '#EFE6D6',
                   letterSpacing: '-8px',
@@ -81,7 +81,7 @@ export default async function handler(req) {
               props: {
                 style: {
                   fontSize: '24px',
-                  fontWeight: 600,
+                  fontWeight: 500,
                   letterSpacing: '4px',
                   textTransform: 'uppercase',
                   color: '#E8600A',
@@ -101,7 +101,7 @@ export default async function handler(req) {
               props: {
                 style: {
                   fontFamily: serif,
-                  fontWeight: 700,
+                  fontWeight: 500,
                   fontSize: '92px',
                   color: '#161616',
                   lineHeight: 1.02,
@@ -149,14 +149,14 @@ export default async function handler(req) {
                       style: { display: 'flex', alignItems: 'center' },
                       children: [
                         { type: 'div', props: { style: { width: '14px', height: '14px', borderRadius: '999px', background: '#E8600A', marginRight: '16px', display: 'flex' } } },
-                        { type: 'div', props: { style: { fontSize: '24px', fontWeight: 600, color: '#161616', display: 'flex' }, children: 'davidgabeau.com / anthropic' } },
+                        { type: 'div', props: { style: { fontSize: '24px', fontWeight: 500, color: '#161616', display: 'flex' }, children: 'davidgabeau.com / anthropic' } },
                       ],
                     },
                   },
                   {
                     type: 'div',
                     props: {
-                      style: { fontFamily: hand, fontSize: '46px', color: '#E8600A', transform: 'rotate(-3deg)', display: 'flex' },
+                      style: { fontFamily: hand, fontStyle: 'italic', fontSize: '46px', color: '#E8600A', transform: 'rotate(-3deg)', display: 'flex' },
                       children: 'Built with Claude.',
                     },
                   },

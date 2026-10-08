@@ -7,8 +7,8 @@ export default async function handler(req) {
   const debug = url.searchParams.has('debug');
 
   try {
-    // Fetch Newsreader from the public static directory
-    const fontUrl = `${url.origin}/fonts/newsreader-normal.woff2`;
+    // Fetch Instrument Serif from the public static directory
+    const fontUrl = `${url.origin}/fonts/instrument-serif-400-normal.woff`;
     let fontData = null;
     try {
       const res = await fetch(fontUrl);
@@ -27,10 +27,10 @@ export default async function handler(req) {
     };
 
     if (fontData) {
-      options.fonts = [{ name: 'Newsreader', data: fontData, weight: 400, style: 'normal' }];
+      options.fonts = [{ name: 'Instrument Serif', data: fontData, weight: 400, style: 'normal' }];
     }
 
-    const fontFamily = fontData ? 'Newsreader' : 'serif';
+    const fontFamily = fontData ? 'Instrument Serif' : 'serif';
 
     return new ImageResponse(
       {

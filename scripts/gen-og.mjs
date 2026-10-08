@@ -9,21 +9,21 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
 
 async function readFont(filename) {
-  return await fs.readFile(path.join(root, 'api', 'fonts', filename));
+  return await fs.readFile(path.join(root, 'fonts', filename));
 }
 
 const [newsreader, inter600, inter400, caveat] = await Promise.all([
-  readFont('Newsreader-700.woff'),
-  readFont('Inter-600.woff'),
-  readFont('Inter-400.woff'),
-  readFont('Caveat-700.woff'),
+  readFont('instrument-serif-400-normal.woff'),
+  readFont('geist-500-normal.woff'),
+  readFont('geist-400-normal.woff'),
+  readFont('instrument-serif-400-italic.woff'),
 ]);
 
 const fonts = [
-  { name: 'Newsreader', data: newsreader, weight: 700, style: 'normal' },
-  { name: 'Inter',      data: inter600,   weight: 600, style: 'normal' },
-  { name: 'Inter',      data: inter400,   weight: 400, style: 'normal' },
-  { name: 'Caveat',     data: caveat,     weight: 700, style: 'normal' },
+  { name: 'Instrument Serif', data: newsreader, weight: 400, style: 'normal' },
+  { name: 'Geist',      data: inter600,   weight: 500, style: 'normal' },
+  { name: 'Geist',      data: inter400,   weight: 400, style: 'normal' },
+  { name: 'Instrument Serif',     data: caveat,     weight: 400, style: 'italic' },
 ];
 
 const tree = {
@@ -37,7 +37,7 @@ const tree = {
       flexDirection: 'column',
       padding: '72px 88px',
       position: 'relative',
-      fontFamily: 'Inter',
+      fontFamily: 'Geist',
     },
     children: [
       {
@@ -47,8 +47,8 @@ const tree = {
             position: 'absolute',
             top: '24px',
             right: '64px',
-            fontFamily: 'Newsreader',
-            fontWeight: 700,
+            fontFamily: 'Instrument Serif',
+            fontWeight: 500,
             fontSize: '280px',
             color: '#EFE6D6',
             letterSpacing: '-8px',
@@ -63,7 +63,7 @@ const tree = {
         props: {
           style: {
             fontSize: '24px',
-            fontWeight: 600,
+            fontWeight: 500,
             letterSpacing: '4px',
             textTransform: 'uppercase',
             color: '#E8600A',
@@ -81,8 +81,8 @@ const tree = {
         type: 'div',
         props: {
           style: {
-            fontFamily: 'Newsreader',
-            fontWeight: 700,
+            fontFamily: 'Instrument Serif',
+            fontWeight: 500,
             fontSize: '92px',
             color: '#161616',
             lineHeight: 1.02,
@@ -128,14 +128,14 @@ const tree = {
                 style: { display: 'flex', alignItems: 'center' },
                 children: [
                   { type: 'div', props: { style: { width: '14px', height: '14px', borderRadius: '999px', background: '#E8600A', marginRight: '16px', display: 'flex' } } },
-                  { type: 'div', props: { style: { fontSize: '24px', fontWeight: 600, color: '#161616', display: 'flex' }, children: 'davidgabeau.com / anthropic' } },
+                  { type: 'div', props: { style: { fontSize: '24px', fontWeight: 500, color: '#161616', display: 'flex' }, children: 'davidgabeau.com / anthropic' } },
                 ],
               },
             },
             {
               type: 'div',
               props: {
-                style: { fontFamily: 'Caveat', fontSize: '46px', color: '#E8600A', transform: 'rotate(-3deg)', display: 'flex' },
+                style: { fontFamily: 'Instrument Serif', fontSize: '46px', color: '#E8600A', transform: 'rotate(-3deg)', display: 'flex' },
                 children: 'Built with Claude.',
               },
             },

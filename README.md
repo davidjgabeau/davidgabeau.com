@@ -34,7 +34,7 @@ A personal site that serves as a single place for professional background, curre
   - `/api/github-heatmap` — Fetches contribution data from GitHub's GraphQL API using a stored token
   - `/api/og-image` — Generates Open Graph images via `@vercel/og`
   - `/api/sitemap` — Dynamic sitemap generation
-- **[Newsreader](https://fonts.google.com/specimen/Newsreader)** variable font, self-hosted for performance
+- **Instrument Serif, Geist, and Geist Mono** fonts, self-hosted for performance
 - **[Vercel](https://vercel.com)** — Hosting, CI/CD, and Edge Function runtime
 - Custom domain via GoDaddy, DNS A record pointed to Vercel
 
@@ -46,7 +46,7 @@ A personal site that serves as a single place for professional background, curre
 index.html              Main page — all content, scripts, and styles inline
 style.css               Global stylesheet
 favicon.svg             SVG favicon
-fonts/                  Self-hosted Newsreader variable font files
+fonts/                  Self-hosted Instrument Serif, Geist, and Geist Mono font files
 images/                 Profile photo and other static assets
 public/                 Additional static assets
 api/

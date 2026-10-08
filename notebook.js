@@ -36,7 +36,7 @@ for (const button of photos) {
 
 // A single observer gives the notebook a gentle, one-time arrival as it is read.
 // Content stays visible if JavaScript, observers, or animation are unavailable.
-const motionSelector = '.intro h1, .intro-copy, .contact-links, .editorial-section > h2, .editorial-section > .section-body, .timeline-entry, .margin-study img, .camera-heading, .photo-reveal';
+const motionSelector = '.intro h1, .intro-copy, .contact-links, .editorial-section > .section-label, .editorial-section > .section-body, .timeline-entry, .margin-study img, .camera-heading, .photo-reveal';
 const motionTargets = [...document.querySelectorAll(motionSelector)];
 const arrived = new WeakSet();
 const activeMotion = new Set();
@@ -81,9 +81,25 @@ function observeArrivals() {
 }
 
 for (const disclosure of document.querySelectorAll('.archive')) {
+  const summary = disclosure.querySelector('summary');
+  const close = document.createElement('button');
+  close.type = 'button';
+  close.className = 'archive-close';
+  close.textContent = 'Show less';
+  close.setAttribute('aria-label', `Show less ${disclosure.closest('#writing') ? 'writing' : 'projects'}`);
+  disclosure.append(close);
+  disclosure.classList.add('archive-enhanced');
+  close.addEventListener('click', () => {
+    disclosure.open = false;
+    summary.focus({preventScroll: true});
+    // Keep the restored opener on screen after a long list collapses.
+    const bounds = summary.getBoundingClientRect();
+    if (bounds.top < 0 || bounds.bottom > window.innerHeight) summary.scrollIntoView({block: 'nearest'});
+  });
   disclosure.addEventListener('toggle', () => {
     const content = disclosure.querySelector('.archive-content');
     if (disclosure.open && content) {
+      if (document.activeElement === summary) content.querySelector('a, button')?.focus({preventScroll: true});
       playNotebookMotion(content, [
         {opacity: 0.3, transform: 'translateY(-5px)'},
         {opacity: 1, transform: 'none'}

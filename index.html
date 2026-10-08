@@ -118,13 +118,11 @@
   <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
 
   <!-- Font preload -->
-  <link rel="preload" href="/fonts/newsreader-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/fonts/newsreader-italic.woff2" as="font" type="font/woff2" crossorigin>
-
   <link rel="stylesheet" href="/notebook.css">
 
 
   <script src="/notebook.js" defer></script>
+  <link rel="stylesheet" href="/typography.css">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -135,7 +133,7 @@
 <main id="main">
  <div class="notebook">
  <section class="intro" aria-labelledby="intro-title">
-  <h1 id="intro-title">Hi, I'm David<br>but most call me DJ.</h1>
+  <h1 id="intro-title">Hi, I'm David<br><em>but most call me DJ</em>.</h1>
   <p class="intro-copy">I build consumer products.<br class="desktop-break"> Just moved to San Francisco; say hi.</p>
   <nav class="contact-links" aria-label="Connect with David">
    <a href="https://x.com/dgabeau" target="_blank" rel="noopener noreferrer">Twitter <span aria-hidden="true">↗</span></a>
@@ -151,7 +149,7 @@
   </div>
  </section>
  <section id="writing" class="editorial-section" aria-labelledby="writing-title">
- <h2 id="writing-title">Writing</h2><div class="section-body"><ul class="writing-list"><li>
+ <span id="writing-title" class="section-label">Writing</span><div class="section-body"><ul class="writing-list"><li>
                 <a href="/writing/zumi-learnings">5 lessons from building social AI for 160,000 users</a>
                 <span class="date">Sep 2026 </span>
               </li><li>
@@ -190,32 +188,32 @@
                 <span class="date">Mar 2020 </span>
               </li></ul></details>
  </div></section>
- <section class="career" aria-labelledby="career-title"><h2 class="sr-only" id="career-title">Career timeline</h2>
-  <ol class="timeline"><li class="timeline-entry current"><span class="year">2026–present</span><div><h3><a href="https://a16z.com" target="_blank" rel="noopener noreferrer">a16z</a> <span>· Special Projects</span></h3><p>Building networks in San Francisco.</p></div></li><li class="timeline-entry"><span class="year">2022–2026</span><div><h3><a href="https://usetapestry.dev" target="_blank" rel="noopener noreferrer">Tapestry</a> · Founder &amp; CEO</h3><p>Founded on the thesis that new social apps needed open infrastructure to compete. We built <a href="https://apps.apple.com/us/app/zumi-chat-dress-up/id6751237911" target="_blank" rel="noopener noreferrer">Zumi</a>, an AI companion that grew to 160k users, and raised $12.5M and wound it down in 2026.</p></div></li>
-<li class="timeline-entry"><span class="year">2020–2022</span><div><h3><a href="https://www.usv.com/people/david-gabeau/" target="_blank" rel="noopener noreferrer">Union Square Ventures</a> · Analyst</h3><p>Focused on early crypto, climate, and education. Spent most of my time thinking about open infrastructure, where I started building the conviction that would become Tapestry.</p></div></li>
-<li class="timeline-entry"><span class="year">2018–2020</span><div><h3>Lyft · Quality Engineer</h3><p>Made sure the rider-pickup experience was seamless through IPO.</p></div></li>
-<li class="timeline-entry"><span class="year">2015–2018</span><div><h3>Snap · Quality Engineer</h3><p>Member of the early Stories team. Helped ship new features pre-IPO.</p></div></li>
-<li class="timeline-entry"><span class="year">2012–2014</span><div><h3>NYU</h3><p>Studied psychology. Dropped out, learned to code.</p></div></li>
+ <section class="career" aria-labelledby="career-title"><span id="career-title" class="section-label">Career timeline</span>
+  <ol class="timeline"><li class="timeline-entry current"><span class="year">2026–present</span><div><h2><a href="https://a16z.com" target="_blank" rel="noopener noreferrer">a16z</a> <span>· Special Projects</span></h2><p>Building networks in San Francisco.</p></div></li><li class="timeline-entry"><span class="year">2022–2026</span><div><h2><a href="https://usetapestry.dev" target="_blank" rel="noopener noreferrer">Tapestry</a> · Founder &amp; CEO</h2><p>Founded on the thesis that new social apps needed open infrastructure to compete. We built <a href="https://apps.apple.com/us/app/zumi-chat-dress-up/id6751237911" target="_blank" rel="noopener noreferrer">Zumi</a>, an AI companion that grew to 160k users, and raised $12.5M and wound it down in 2026.</p></div></li>
+<li class="timeline-entry"><span class="year">2020–2022</span><div><h2><a href="https://www.usv.com/people/david-gabeau/" target="_blank" rel="noopener noreferrer">Union Square Ventures</a> · Analyst</h2><p>Focused on early crypto, climate, and education. Spent most of my time thinking about open infrastructure, where I started building the conviction that would become Tapestry.</p></div></li>
+<li class="timeline-entry"><span class="year">2018–2020</span><div><h2>Lyft · Quality Engineer</h2><p>Made sure the rider-pickup experience was seamless through IPO.</p></div></li>
+<li class="timeline-entry"><span class="year">2015–2018</span><div><h2>Snap · Quality Engineer</h2><p>Member of the early Stories team. Helped ship new features pre-IPO.</p></div></li>
+<li class="timeline-entry"><span class="year">2012–2014</span><div><h2>NYU</h2><p>Studied psychology. Dropped out, learned to code.</p></div></li>
 </ol>
   <figure class="margin-study skyline" aria-hidden="true"><img src="/images/notebook/nyc.webp" width="640" height="320" alt="" loading="lazy" decoding="async"><figcaption>New York</figcaption></figure>
   <figure class="margin-study ghost" aria-hidden="true"><img src="/images/notebook/ghost.webp" width="160" height="160" alt="" loading="lazy" decoding="async"></figure>
  </section>
  <section id="projects" class="editorial-section" aria-labelledby="projects-title">
- <h2 id="projects-title">Projects</h2>
+ <span id="projects-title" class="section-label">Projects</span>
  <div class="section-body">
   <div class="project-pair">
-   <article><h3><a href="https://trybramble.ai" target="_blank" rel="noopener noreferrer">Bramble <span class="link-arrow" aria-hidden="true">↗</span></a></h3><p>A macOS app that turns AI coding sessions into a structured dev log.</p></article>
-   <article><h3><a href="https://aiatlas.nyc" target="_blank" rel="noopener noreferrer">AI Atlas NYC <span class="link-arrow" aria-hidden="true">↗</span></a></h3><p>A market map of New York’s early-stage AI ecosystem, rebuilt nightly.</p></article>
+   <article><h2><a href="https://trybramble.ai" target="_blank" rel="noopener noreferrer">Bramble <span class="link-arrow" aria-hidden="true">↗</span></a></h2><p>A macOS app that turns AI coding sessions into a structured dev log.</p></article>
+   <article><h2><a href="https://aiatlas.nyc" target="_blank" rel="noopener noreferrer">AI Atlas NYC <span class="link-arrow" aria-hidden="true">↗</span></a></h2><p>A market map of New York’s early-stage AI ecosystem, rebuilt nightly.</p></article>
   </div>
   <details class="archive"><summary>More projects &amp; details <span aria-hidden="true">+</span></summary><div class="archive-content"><div class="project-subsection">
-              <h3 class="subsection-label">Company</h3>
+              <h2 class="subsection-label">Company</h2>
               <ul class="bullet-list">
                 <li><a href="https://usetapestry.dev" target="_blank" rel="noopener noreferrer">Tapestry</a><span class="meta">Open social graph for the next generation of apps and agents</span><span class="meta meta-links"><a href="https://assets.usetapestry.dev/whitepaper.pdf" target="_blank" rel="noopener noreferrer">Whitepaper</a><span class="sep" aria-hidden="true"> · </span><a href="https://blog.usetapestry.dev/p/tapestry-series-a" target="_blank" rel="noopener noreferrer">Series A announcement</a><span class="sep" aria-hidden="true"> · </span><a href="https://github.com/Primitives-xyz/primitives-protocol" target="_blank" rel="noopener noreferrer">Protocol →</a><span class="sep" aria-hidden="true"> · </span><a href="https://github.com/Primitives-xyz/solana-starter-kit" target="_blank" rel="noopener noreferrer">Solana starter kit →</a></span></li>
               </ul>
             </div>
 
             <div class="project-subsection">
-              <h3 class="subsection-label">Products built by Tapestry</h3>
+              <h2 class="subsection-label">Products built by Tapestry</h2>
               <ul class="bullet-list">
                 <li><a href="https://apps.apple.com/us/app/zumi-chat-dress-up/id6751237911" target="_blank" rel="noopener noreferrer">Zumi</a><span class="meta">An embodied AI companion for Gen Z, built on the idea that persistent relationships with AI characters could meaningfully reduce loneliness. People spent 17 minutes a day with it across voice, chat, and video. Under the hood: a multi-model stack across OpenAI, Minimax, and Gemini.</span><span class="meta meta-links"><a href="https://www.tiktok.com/tag/zumichat" target="_blank" rel="noopener noreferrer">#zumichat →</a><span class="sep" aria-hidden="true"> · </span><a href="https://www.producthunt.com/products/zumigames" target="_blank" rel="noopener noreferrer">Product Hunt →</a><span class="sep" aria-hidden="true"> · </span><a href="https://blog.usetapestry.dev/p/introducing-zumi-20" target="_blank" rel="noopener noreferrer">Introducing Zumi 2.0 →</a></span></li>
                 <li><a href="https://techcrunch.com/2022/05/25/primitives-crypto-wallet-social-network-snapchat-startup/" target="_blank" rel="noopener noreferrer">Primitives</a><span class="meta">Platform for collecting digital art and building community around on-chain objects. Artists and collectors minted 500k NFTs from their camera roll.</span><span class="meta meta-links"><a href="https://blog.primitives.xyz/seen-meet-the-artists/" target="_blank" rel="noopener noreferrer">Art show →</a><span class="sep" aria-hidden="true"> · </span><a href="http://journal.primitives.xyz/" target="_blank" rel="noopener noreferrer">Journal →</a><span class="sep" aria-hidden="true"> · </span><a href="https://solana.com/news/solana-creator-art-basel-miami-beach" target="_blank" rel="noopener noreferrer">Art Basel exhibit →</a></span></li>
@@ -224,7 +222,7 @@
             </div>
 
             <div class="project-subsection">
-              <h3 class="subsection-label">Side Projects</h3>
+              <h2 class="subsection-label">Side Projects</h2>
               <p class="subsection-desc">Solo projects I work on in my spare time.</p>
               <ul class="bullet-list">
                 <li><a href="https://trybramble.ai" target="_blank" rel="noopener noreferrer">Bramble</a><span class="meta">A macOS desktop app that runs in the background while you work in Claude Code or Codex, capturing the full event stream — prompts, tool calls, file edits, model responses — and turning it into a structured dev log. Nothing leaves the machine unless you choose to ship something.</span></li>
@@ -237,7 +235,7 @@
  </section>
  </div>
  <section class="camera-roll" aria-labelledby="camera-title">
- <div class="camera-heading"><h2 id="camera-title">From the camera roll</h2><p class="handnote" id="camera-hint">a closer look <span aria-hidden="true">↘</span></p><div class="scroll-controls"><button type="button" data-scroll="-1" aria-label="Previous photographs" aria-controls="camera-track">←</button><button type="button" data-scroll="1" aria-label="Next photographs" aria-controls="camera-track">→</button></div></div>
+ <div class="camera-heading"><span id="camera-title" class="section-label">From the camera roll</span><p class="handnote" id="camera-hint">a closer look <span aria-hidden="true">↘</span></p><div class="scroll-controls"><button type="button" data-scroll="-1" aria-label="Previous photographs" aria-controls="camera-track">←</button><button type="button" data-scroll="1" aria-label="Next photographs" aria-controls="camera-track">→</button></div></div>
  <p class="sr-only" id="camera-instructions">Scroll to explore six photographs. Hover, focus, or tap a sketch to reveal the photograph. Use the arrow buttons to browse.</p>
  <ul class="camera-track" id="camera-track" tabindex="0" aria-label="Scrollable camera roll" aria-describedby="camera-instructions"><li class="photo-item photo-item--sf" style="--ratio:1.5">
  <button class="photo-reveal" type="button" aria-label="Reveal photograph: A hotel room overlooking San Francisco" aria-pressed="false" data-caption="A hotel room overlooking San Francisco">

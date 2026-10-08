@@ -10,19 +10,17 @@ export default async function handler(req) {
   const eyebrow = (url.searchParams.get('eyebrow') || 'Writing').slice(0, 40);
 
   try {
-    const bold = await fetch(`${url.origin}/fonts/Newsreader-700.woff`)
+    const bold = await fetch(`${url.origin}/fonts/instrument-serif-400-normal.woff`)
       .then(r => (r.ok ? r.arrayBuffer() : null))
       .catch(() => null);
 
     const fonts = [];
-    // The repo ships only the 700 weight; register it for both weights so
-    // satori renders the lighter byline without falling back to a system font.
+    // Instrument Serif is supplied at its native regular weight.
     if (bold) {
-      fonts.push({ name: 'Newsreader', data: bold, weight: 700, style: 'normal' });
-      fonts.push({ name: 'Newsreader', data: bold, weight: 400, style: 'normal' });
+      fonts.push({ name: 'Instrument Serif', data: bold, weight: 400, style: 'normal' });
     }
 
-    const serif = fonts.length ? 'Newsreader' : 'Georgia, serif';
+    const serif = fonts.length ? 'Instrument Serif' : 'Georgia, serif';
 
     return new ImageResponse(
       {
@@ -46,7 +44,7 @@ export default async function handler(req) {
                 style: {
                   display: 'flex',
                   fontSize: 26,
-                  fontWeight: 700,
+                  fontWeight: 500,
                   letterSpacing: '3px',
                   textTransform: 'uppercase',
                   color: '#b8924a',
@@ -61,7 +59,7 @@ export default async function handler(req) {
                 style: {
                   display: 'flex',
                   fontSize: title.length > 70 ? 64 : 84,
-                  fontWeight: 700,
+                  fontWeight: 500,
                   lineHeight: 1.08,
                   letterSpacing: '-2px',
                   color: '#1f1e1d',
