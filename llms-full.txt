@@ -2,7 +2,7 @@
 
 ## Bio
 
-I'm David, but most call me DJ. I work on Special Projects at a16z (2026–present), building networks in San Francisco. I love to build things that connect people.
+I'm David, but most call me DJ. I work on Special Projects at a16z (2026–present), building networks in San Francisco. I build consumer products.
 
 I was the founder and CEO of Tapestry (2022–2026), a permissionless social graph protocol for onchain applications, backed by USV, Redpoint, Slow, Fabric Ventures, Stellation, and Harlem Capital.
 
@@ -27,7 +27,7 @@ I write about technology trends and listen to Soulection weekly.
 
 ### Zumi
 - URL: https://apps.apple.com/us/app/zumi-chat-dress-up/id6751237911
-- Description: Consumer app built around persistent AI companionship and long-term relationships. 160,000+ users.
+- Description: Consumer app built around persistent AI companionship and long-term relationships. People spent 17 minutes a day with it.
 - Built on the Tapestry social graph protocol
 - TikTok: https://www.tiktok.com/tag/zumichat
 - Product Hunt: https://www.producthunt.com/products/zumigames
