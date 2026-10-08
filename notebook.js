@@ -36,7 +36,7 @@ for (const button of photos) {
 
 // A single observer gives the notebook a gentle, one-time arrival as it is read.
 // Content stays visible if JavaScript, observers, or animation are unavailable.
-const motionSelector = '.intro h1, .intro-copy, .contact-links, .editorial-section > .section-label, .editorial-section > .section-body, .timeline-entry, .margin-study img, .camera-heading, .photo-reveal';
+const motionSelector = '.intro h1, .intro-copy, .contact-links, .editorial-section > .section-label, .editorial-section > .section-body, .career-heading, .timeline-entry, .margin-study img, .camera-heading, .photo-reveal';
 const motionTargets = [...document.querySelectorAll(motionSelector)];
 const arrived = new WeakSet();
 const activeMotion = new Set();

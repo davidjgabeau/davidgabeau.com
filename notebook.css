@@ -81,3 +81,26 @@
 .archive-enhanced[open] > summary{display:none}
 .archive-close{display:block;background:transparent;border:0;border-bottom:1px solid #b9bdb5;padding:3px 0;margin-top:19px;cursor:pointer;color:var(--secondary);font-family:var(--mono);font-size:10px;line-height:1.6;letter-spacing:.035em}
 .archive-enhanced[open] > .archive-content{padding-top:0}
+
+/* Read from introduction to people to writing. Places stay in the margins. */
+.notebook > .place-studies{right:35px}
+.career-heading{max-width:620px;margin:0 55px 32px 112px}
+@media(min-width:1200px){.notebook > .place-studies{right:-10px}}
+@media(min-width:701px) and (max-width:900px){.notebook > .place-studies{right:22px}.career-heading{margin-left:35px;margin-right:35px}}
+@media(max-width:700px){
+  .notebook{isolation:isolate}
+  .notebook > .place-studies{position:absolute;left:0;right:0;top:0;width:100%;max-width:none;height:1600px;margin:0;z-index:-1;overflow:hidden}
+  .place-studies .margin-study{opacity:.13}
+  .place-studies figcaption{display:none}
+  .place-silver-spring{width:140px;left:auto;right:-12px;top:165px}
+  .place-boston{width:140px;left:-20px;right:auto;top:440px}
+  .place-exeter{width:110px;left:auto;right:-15px;top:780px}
+  .place-venice{width:185px;left:-40px;top:1060px;bottom:auto}
+  .place-nyu{width:130px;right:-15px;top:1380px}
+  .intro{margin-bottom:52px}
+  .career-heading{margin:0 0 32px;max-width:100%}
+  .timeline-entry{grid-template-columns:minmax(0,1fr);gap:10px;margin-bottom:34px}
+  .timeline-entry .year{padding-top:0}
+  .career .skyline,.career .ghost{opacity:.1;z-index:-1}
+  .career .skyline figcaption{display:none}
+}
