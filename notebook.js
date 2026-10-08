@@ -1,4 +1,4 @@
-// Native links and disclosures work without JavaScript; only the camera roll needs enhancement.
+// Native links and disclosures work without JavaScript; motion is progressive enhancement.
 const track = document.querySelector('#camera-track');
 const controls = [...document.querySelectorAll('[data-scroll]')];
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -19,11 +19,18 @@ if (track) {
   new ResizeObserver(updateControls).observe(track);
   updateControls();
 }
-for (const button of document.querySelectorAll('.photo-reveal')) {
+const photos = [...document.querySelectorAll('.photo-reveal')];
+function setPhotoReveal(button, reveal) {
+  button.setAttribute('aria-pressed', String(reveal));
+  button.setAttribute('aria-label', `${reveal ? 'Show sketch' : 'Reveal photograph'}: ${button.dataset.caption}`);
+}
+for (const button of photos) {
   button.addEventListener('click', () => {
     const reveal = button.getAttribute('aria-pressed') !== 'true';
-    button.setAttribute('aria-pressed', String(reveal));
-    button.setAttribute('aria-label', `${reveal ? 'Show sketch' : 'Reveal photograph'}: ${button.dataset.caption}`);
+    // A deliberate tap takes precedence over automatic reveals.
+    mobileRevealed.add(button);
+    photoObserver?.unobserve(button);
+    setPhotoReveal(button, reveal);
   });
 }
 
@@ -99,3 +106,27 @@ document.addEventListener('visibilitychange', () => {
   if (document.hidden) for (const animation of activeMotion) animation.finish();
 });
 observeArrivals();
+
+// On small screens, scrolling replaces hover: each photograph develops once
+// when most of it is visible, including while swiping the horizontal camera roll.
+const mobileView = window.matchMedia('(max-width: 700px)');
+const mobileRevealed = new WeakSet();
+let photoObserver;
+function observeMobilePhotos() {
+  photoObserver?.disconnect();
+  if (!mobileView.matches || reducedMotion.matches || !('IntersectionObserver' in window)) return;
+  photoObserver = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting || entry.intersectionRatio < .65 || mobileRevealed.has(entry.target)) continue;
+      mobileRevealed.add(entry.target);
+      photoObserver.unobserve(entry.target);
+      setPhotoReveal(entry.target, true);
+    }
+  }, {threshold: .65});
+  photos.forEach(photo => {
+    if (!mobileRevealed.has(photo)) photoObserver.observe(photo);
+  });
+}
+mobileView.addEventListener('change', observeMobilePhotos);
+reducedMotion.addEventListener('change', observeMobilePhotos);
+observeMobilePhotos();
