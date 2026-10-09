@@ -159,3 +159,7 @@
 @media(min-width:901px) and (max-width:1199px){.career-header{margin-left:60px;margin-right:30px}.career-pointer{left:108px}}
 @media(min-width:701px) and (max-width:900px){.career-header{margin-left:35px;margin-right:35px}.career-pointer{left:96px}}
 @media(max-width:700px){.career-header{margin:0 0 64px;padding-top:21px}.career-header .career-heading{max-width:100%}.career-pointer{left:-12px}}
+
+/* Attach the pencil trail to the final letter, including when the heading wraps. */
+.career-last-word{position:relative;display:inline-block;white-space:nowrap}
+.career-last-word .career-pointer{left:calc(100% - 1px);top:17px;bottom:auto;width:72px;height:66px;color:#999b92;opacity:.62}
