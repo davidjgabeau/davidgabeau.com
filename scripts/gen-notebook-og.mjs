@@ -9,15 +9,7 @@ const fonts = await Promise.all([
 const div=(children,style={})=>({type:'div',props:{style:{display:'flex',...style},children}});
 const sketch=async(name,style)=>({type:'img',props:{src:`data:image/png;base64,${(await sharp(`images/notebook/${name}.webp`).resize(420).removeAlpha().linear([248/255,247/255,243/255],[0,0,0]).png().toBuffer()).toString('base64')}`,style:{position:'absolute',objectFit:'contain',...style}}});
 await fs.mkdir('images/social',{recursive:true});
-const home=div([
- div('davidgabeau.com',{fontFamily:'Geist',fontSize:22,color:'#6f6c64'}),
- div([div("Hi, I'm David"),div('but most call me DJ.',{fontStyle:'italic'})],{flexDirection:'column',fontFamily:'Instrument Serif',fontSize:78,lineHeight:1.04,marginTop:75}),
- div('I build consumer products.',{fontFamily:'Geist',fontSize:26,marginTop:30,color:'#565a59'}),
- await sketch('venice',{right:48,bottom:70,width:340,height:190}),
- await sketch('nyu',{right:83,top:45,width:225,height:240}),
- div('San Francisco',{fontFamily:'Geist',fontSize:20,color:'#6f6c64',marginTop:'auto'})
-],{width:'100%',height:'100%',background:'#f8f7f3',color:'#1a1915',padding:'58px 68px',flexDirection:'column'});
-await fs.writeFile('images/social/notebook-v1.png',Buffer.from(await new ImageResponse(home,{width:1200,height:630,fonts}).arrayBuffer()));
+// Homepage preview is the art-directed imagegen asset computer-notebook-v2.png.
 for(const slug of ['pearl','crypto-broadband-moment','zumi-learnings','sample']){
  const html=await fs.readFile(`writing/${slug}/index.html`,'utf8');
  const title=html.match(/<meta property="og:title" content="([^"]+)"/)[1];
