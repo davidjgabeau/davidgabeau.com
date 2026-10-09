@@ -162,6 +162,6 @@
 
 /* Attach the pencil trail to the final letter, including when the heading wraps. */
 .career-last-word{position:relative;display:inline-block;white-space:nowrap}
-.career-last-word .career-pointer{left:calc(100% - 1px);top:17px;bottom:auto;width:108px;height:70px;color:#888b82;opacity:.68}
+.career-last-word .career-pointer{left:calc(100% - 1px);top:17px;bottom:auto;width:62px;height:64px;color:#888b82;opacity:.68}
 
-@media(max-width:700px){.career-last-word .career-pointer{width:88px;height:62px}}
+@media(max-width:700px){.career-last-word .career-pointer{width:56px;height:58px}}
