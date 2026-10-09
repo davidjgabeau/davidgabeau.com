@@ -104,3 +104,10 @@
   .career .skyline,.career .ghost{opacity:.1;z-index:-1}
   .career .skyline figcaption{display:none}
 }
+
+.photo-item--cove{transform:rotate(-2deg)}.photo-item--court{transform:rotate(1deg)}.photo-item--evening{transform:rotate(-1deg)}.photo-item--desert{transform:rotate(2deg)}.photo-item--horse-beach{transform:rotate(-2deg)}
+
+/* Small local brand marks stay aligned with wrapped role headings. */
+.timeline-role{display:flex;align-items:baseline;gap:10px}
+.timeline-icon{flex:0 0 24px;width:24px;height:24px;object-fit:contain;border-radius:4px;align-self:flex-start;margin-top:6px}
+.timeline-role > span{min-width:0}
