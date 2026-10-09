@@ -45,3 +45,20 @@ th, dt { font-weight: 500; }
   line-height: 1.4 !important;
   letter-spacing: -0.01em !important;
 }
+
+/* Quiet supporting type for the notebook's navigation and reading list. */
+.writing-list .date {
+  font-family:var(--sans) !important;
+  font-size:12px !important;
+  line-height:1.5 !important;
+  letter-spacing:0 !important;
+  text-transform:none;
+  white-space:nowrap;
+}
+.site-header nav a, .site-footer nav a, .contact-links a {
+  font-family:var(--sans) !important;
+  font-size:13px !important;
+  line-height:1.3 !important;
+  letter-spacing:0 !important;
+  text-transform:none;
+}

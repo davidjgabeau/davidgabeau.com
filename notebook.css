@@ -111,3 +111,21 @@
 .timeline-role{display:flex;align-items:baseline;gap:10px}
 .timeline-icon{flex:0 0 24px;width:24px;height:24px;object-fit:contain;border-radius:4px;align-self:flex-start;margin-top:2px}
 .timeline-role > span{min-width:0}
+
+/* Consistent reading rhythm, including the seam between featured and older essays. */
+.writing-list li{display:grid;grid-template-columns:minmax(0,1fr) 90px;align-items:baseline;column-gap:28px;padding:17px 0;font-size:17px;line-height:1.5}
+.writing-list li:first-child{padding-top:17px}
+.writing-list a{font-weight:400}
+.writing-entry{min-width:0}
+.writing-list .coauthor{max-width:none;margin-top:5px;font-family:var(--sans);font-size:13px;line-height:1.5;color:var(--muted);letter-spacing:0;text-transform:none}
+#writing .archive-enhanced[open]{margin-top:0}
+#writing .archive-content{padding-top:0}
+#writing{border-bottom:0;margin-bottom:20px;padding-bottom:30px}
+@media(max-width:700px){
+  .writing-list li{grid-template-columns:minmax(0,1fr) 68px;column-gap:18px;padding:16px 0;font-size:16px}
+  .writing-list li:first-child{padding-top:16px}
+  #writing{gap:12px;margin-bottom:8px}
+}
+#writing > .section-label{padding-top:6px}
+.writing-list:not(.archive-content) > li:first-child{padding-top:0}
+@media(max-width:700px){#writing > .section-label{padding-top:0}}
