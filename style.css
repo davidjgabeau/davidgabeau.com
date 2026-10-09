@@ -2377,3 +2377,8 @@ section[aria-label="GitHub contributions"] {
   .zumi-post .zumi-image-pair { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
   .zumi-post .zumi-image-pair .zumi-image-link { width: min(100%, 320px); margin-inline: auto; }
 }
+
+/* Writing shares the homepage's light notebook paper; retain the dark toggle. */
+html:not([data-theme="dark"]) .writing-post{--bg:#f8f7f3}
+.writing-post::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:5;opacity:.028;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.78' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23000' filter='url(%23n)' opacity='.8' d='M0 0h180v180H0z'/%3E%3C/svg%3E")}
+[data-theme="dark"] .writing-post{--ink:#e5e3db;--muted:#b6b2a8}
