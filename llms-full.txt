@@ -67,7 +67,7 @@ Anna shared a neurosurgery pilot in The Gambia where connectivity constraints me
 
 AI and the New Social Contract at One Way Summit.
 
-The team at [SF Compute](https://sfcompute.com/) shared ideas about how to prepare for the inevitable compute crunch, suggesting venture firms take responsibility for alleviating the demand from their portfolios.
+The team at [SF Compute](https://sfcompute.com/) shared ideas about how to prepare for the inevitable compute crunch, suggesting venture firms take responsibility for helping their portfolio companies secure compute.
 
 The founders, [Evan Conrad](https://www.linkedin.com/in/evan-conrad) and [Ethan Anderson](https://www.linkedin.com/in/ethan-anderson-yc), forewarned that lenders’ demands for large upfront payments will put compute out of reach even when GPUs are available. A startup can (and many will!) have customers excited to buy their product but be unable to finance the capacity to serve them.
 
