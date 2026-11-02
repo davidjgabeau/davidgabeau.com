@@ -10,7 +10,7 @@ const td=new TurndownService({headingStyle:'atx',bulletListMarker:'-'});
 const escape=s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;');
 function modified(file){
  // Real Git timestamps; never advance a date merely because the feed was fetched.
- try{return execFileSync('git',['log','-1','--format=%cI','--',file],{encoding:'utf8'}).trim()||null;}catch{return null;}
+ try{return execFileSync('git',['log','-1','--format=%cI','--',file],{encoding:'utf8',stdio:['ignore','pipe','ignore']}).trim()||null;}catch{return null;}
 }
 const homepage=await fs.readFile('index.html','utf8');
 const posts=[];
