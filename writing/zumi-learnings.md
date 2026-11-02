@@ -2,7 +2,7 @@
 
 By David Gabeau
 
-Published: 2026-09-12
+Published: 2026-09-12T00:00:00Z
 Canonical URL: https://davidgabeau.com/writing/zumi-learnings
 Author: https://davidgabeau.com/
 

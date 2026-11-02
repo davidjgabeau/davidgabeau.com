@@ -2,7 +2,7 @@
 
 By David Gabeau
 
-Published: 2026-11-01
+Published: 2026-11-01T00:00:00Z
 Canonical URL: https://davidgabeau.com/writing/building-cosign
 Author: https://davidgabeau.com/
 

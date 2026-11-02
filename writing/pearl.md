@@ -2,7 +2,7 @@
 
 By David Gabeau
 
-Published: 2026-06-13
+Published: 2026-06-13T00:00:00Z
 Canonical URL: https://davidgabeau.com/writing/pearl
 Author: https://davidgabeau.com/
 

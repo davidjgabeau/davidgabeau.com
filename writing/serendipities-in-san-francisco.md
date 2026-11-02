@@ -2,7 +2,7 @@
 
 By David Gabeau
 
-Published: 2026-11-01
+Published: 2026-11-01T00:00:00Z
 Canonical URL: https://davidgabeau.com/writing/serendipities-in-san-francisco
 Author: https://davidgabeau.com/
 

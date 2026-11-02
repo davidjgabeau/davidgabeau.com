@@ -2,7 +2,7 @@
 
 By David Gabeau
 
-Published: 2026-08-11
+Published: 2026-08-11T00:00:00Z
 Canonical URL: https://davidgabeau.com/writing/crypto-broadband-moment
 Author: https://davidgabeau.com/
 
