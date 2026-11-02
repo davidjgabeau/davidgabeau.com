@@ -148,6 +148,7 @@
   ]
 }
 </script>
+  <script src="/essay-share.js" defer></script>
 </head>
 <body class="writing-post">
   <header>
@@ -182,7 +183,14 @@
 
       <article>
         <header class="article-header">
-          <span class="article-eyebrow">Essay</span>
+          <div class="article-topline">
+            <span class="article-eyebrow">Essay</span>
+            <button class="essay-share" type="button" hidden aria-label="Share this essay">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V3m-4 4 4-4 4 4M5 13v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"/></svg>
+              <span>Share</span>
+            </button>
+          </div>
+          <span class="essay-share-status" role="status" aria-live="polite"></span>
           <h1 class="article-title">Where Does Value Accrue in Pearl?</h1>
           <p class="article-dek">If Pearl succeeds, what is the thing that accrues value? Why would someone buy and hold PRL in the future?</p>
           <div class="article-meta">

@@ -11,3 +11,12 @@
 .essay-index p{color:var(--text-2);font-size:17px;line-height:1.6}
 .index-links{margin-top:28px;font-size:15px}
 @media(max-width:600px){.essay-index h2{font-size:27px!important}}
+
+.article-topline{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:20px}
+.article-topline .article-eyebrow{margin:0}
+.essay-share{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:44px;padding:0 8px;margin:-10px -8px;border:0;background:transparent;color:var(--text-2);font-family:var(--sans);font-size:13px;font-weight:400;cursor:pointer;border-radius:4px}
+.essay-share[hidden]{display:none}
+.essay-share:hover{color:var(--text);background:var(--border)}
+.essay-share:focus-visible{outline:2px solid currentColor;outline-offset:3px}
+.essay-share-status{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+@media print{.essay-share{display:none}}
