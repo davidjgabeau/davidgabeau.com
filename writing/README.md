@@ -46,3 +46,22 @@ All styled and theme-aware — see `writing/sample` for a live specimen:
 
 `writing/sample` is a template preview and is `noindex`. Keep it as a reference,
 or delete it once you have real posts.
+
+## Illustrated link previews
+
+Pages use a 1200 × 630 PNG fallback plus a silent H.264 MP4 via `og:video`
+for clients such as Apple Messages. Text stays still while the illustrations move.
+
+Add future essays to the cards in `scripts/gen-notebook-previews.mjs`, then run:
+
+```bash
+FFMPEG_BIN=/path/to/ffmpeg node scripts/gen-notebook-previews.mjs
+```
+
+The generator uses the project's `@vercel/og` and `sharp` dependencies, writes
+intermediate frames to `work/notebook-preview-frames`, and updates Open Graph,
+Twitter image, and structured image metadata while preserving essay content.
+The San Francisco bridge card uses `scripts/gen-sf-preview.mjs`.
+
+Keep each still attractive on its own, use silent videos, and keep preview assets
+below 10 MB combined. Existing messaging previews may retain cached artwork.
