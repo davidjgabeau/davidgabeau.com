@@ -6,6 +6,11 @@
     "react-dom": "^19.2.6"
   },
   "devDependencies": {
-    "sharp": "^0.35.5"
+    "sharp": "^0.35.5",
+    "turndown": "^7.2.4"
+  },
+  "scripts": {
+    "build:discovery": "node scripts/build-discovery.mjs",
+    "check:discovery": "node scripts/check-discovery.mjs"
   }
 }

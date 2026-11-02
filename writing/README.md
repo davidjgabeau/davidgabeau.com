@@ -65,3 +65,27 @@ The San Francisco bridge card uses `scripts/gen-sf-preview.mjs`.
 
 Keep each still attractive on its own, use silent videos, and keep preview assets
 below 10 MB combined. Existing messaging previews may retain cached artwork.
+
+## Search and agent discovery
+
+Run `npm run build:discovery` after changing public pages, then
+`npm run check:discovery`. Deployment runs both automatically. The generator reads
+published `BlogPosting` pages and skips `noindex` previews; it creates `/writing`,
+`/feed.xml`, `/sitemap.xml`, the legacy sitemap API response, `/llms.txt`,
+`/llms-full.txt`, and one Markdown copy per essay.
+
+Use the canonical HTML as the source. Keep `datePublished` accurate, and update
+`dateModified` and `article:modified_time` when editing an essay significantly.
+Sitemap and feed modification times use Git history when available, otherwise the
+page's saved modification timestamp. Dates never advance just because a crawler
+requests the sitemap. Text companions are `noindex` to avoid duplicate results;
+they remain accessible to agents. The primary essays and homepage stay indexable.
+
+The homepage Person ID is `https://davidgabeau.com/#person`. Articles reference
+that author, and the ProfilePage connects the name, current role, and public
+profiles. Keep structured facts consistent with visible content. The public
+contact email is the same address already linked on the homepage.
+
+Search Console and Bing Webmaster Tools need verified domain ownership for
+submission, indexing reports, and performance monitoring. Static files and a
+valid sitemap cannot guarantee indexing, rankings, or citations in AI answers.

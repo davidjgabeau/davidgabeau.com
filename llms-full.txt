@@ -1,89 +1,295 @@
-# David Gabeau — Full Profile
+# David Gabeau
 
-## Bio
+> David Gabeau builds consumer products that bring people together. He works on Special Projects at a16z, building Cosign in San Francisco. Previously founder and CEO of Tapestry, analyst at Union Square Ventures, and quality engineer at Snap and Lyft.
 
-I'm David, but most call me DJ. I work on Special Projects at a16z (2026–present), building networks in San Francisco. I build consumer products.
+This guide summarizes the public website. Canonical HTML pages are the primary sources; Markdown companions contain the same essays in a simpler reading format.
 
-I was the founder and CEO of Tapestry (2022–2026), a permissionless social graph protocol for onchain applications, backed by USV, Redpoint, Slow, Fabric Ventures, Stellation, and Harlem Capital.
+## Profile and contact
 
-Zumi, an AI companion we built on Tapestry, has reached 160,000+ users.
+- [About David Gabeau](https://davidgabeau.com/): Current work, career timeline, projects, and contact links.
+- [Email](mailto:davidgabeau92@gmail.com): Contact David directly.
+- [LinkedIn](https://www.linkedin.com/in/dgabeau/)
+- [GitHub](https://github.com/davidjgabeau)
+- [X](https://x.com/dgabeau)
 
-Before Tapestry, I was an analyst at Union Square Ventures, focused on early-stage crypto, climate, and education companies.
+## Current work
 
-Earlier, I dropped out of NYU, learned to code, and worked as an engineer at Snap and Lyft before each went public.
+- [Cosign](https://cosign.co): Building a network for technology builders and investors with the a16z New Media team.
+- [a16z](https://a16z.com): Special Projects, 2026–present.
 
-I write about technology trends and listen to Soulection weekly.
+## Previous company and products
 
-## Projects
+- [Tapestry](https://usetapestry.dev): David founded and led a team of 12, raised $12.5M, and wound down the company in 2026. Open social graph infrastructure.
+- [Zumi](https://apps.apple.com/us/app/zumi-chat-dress-up/id6751237911): A multiplayer AI companion built by Tapestry that grew to 160,000 users.
+- [Primitives](https://techcrunch.com/2022/05/25/primitives-crypto-wallet-social-network-snapchat-startup/): A Tapestry product for collecting digital art; artists and collectors minted 500,000 NFTs.
+- [SSE](https://sse.gg): Open-source Solana trading platform built by Tapestry, with $50M in trading volume in its first two months.
 
-### Tapestry
-- URL: https://usetapestry.dev
-- Description: Open social graph for the next generation of apps and agents. A permissionless protocol that lets any application read and write to a shared social graph on Solana without platform permission.
-- Funding: Series A, backed by Union Square Ventures, Redpoint, Slow Ventures, Fabric Ventures, Stellation, and Harlem Capital
-- Whitepaper: https://assets.usetapestry.dev/whitepaper.pdf
-- Series A announcement: https://blog.usetapestry.dev/p/tapestry-series-a
-- GitHub protocol: https://github.com/Primitives-xyz/primitives-protocol
-- Solana starter kit: https://github.com/Primitives-xyz/solana-starter-kit
+## Side projects
 
-### Zumi
-- URL: https://apps.apple.com/us/app/zumi-chat-dress-up/id6751237911
-- Description: Consumer app built around persistent AI companionship and long-term relationships. People spent 17 minutes a day with it.
-- Built on the Tapestry social graph protocol
-- TikTok: https://www.tiktok.com/tag/zumichat
-- Product Hunt: https://www.producthunt.com/products/zumigames
-
-### Primitives
-- URL: https://techcrunch.com/2022/05/25/primitives-crypto-wallet-social-network-snapchat-startup/
-- Description: Platform for collecting digital art and building community around on-chain objects. 500,000+ NFTs minted.
-- Predecessor company to Tapestry
-- Art Basel Miami exhibit: https://solana.com/news/solana-creator-art-basel-miami-beach
-
-### SSE
-- URL: https://sse.gg
-- Description: Trading platform for Solana memecoins and emerging tokens. $50M in volume.
-
-### AI Atlas NYC
-- URL: https://aiatlas.nyc
-- Description: A nightly-rebuilt market map of New York's early-stage AI ecosystem. An agent pipeline scrapes funding announcements, LinkedIn signals, and founder activity, re-clusters the map, and publishes a new version each morning. Covers 50+ companies across 11 categories including Fintech & Trading AI, Agent Infrastructure, Health & Clinical AI, Enterprise GTM & RevOps AI, and AI-Native Consumer & Social.
-- API: https://aiatlas.nyc/api/embed/atlas
-- Built and maintained by David Gabeau
+- [Bramble](https://trybramble.ai): A macOS app that turns AI coding sessions into a structured development log.
+- [AI Atlas NYC](https://aiatlas.nyc): A market map of New York’s early-stage AI ecosystem, rebuilt nightly.
 
 ## Writing
 
-- 5 lessons from building social AI for 160,000 users — https://davidgabeau.com/writing/zumi-learnings (September 2026)
-- Crypto’s Broadband Moment — https://davidgabeau.com/writing/crypto-broadband-moment (August 2026)
-- Where Does Value Accrue in Pearl? — https://davidgabeau.com/writing/pearl (June 2026)
-- Introducing Zumi 2.0 — https://blog.usetapestry.dev/p/introducing-zumi-20 (2025)
-- Tapestry's Plan to Scale Solana Social — https://blog.usetapestry.dev (2024)
-- Your Social Graph Should Be Yours — https://blog.usetapestry.dev (2024)
-- Tokenized Natural Assets — https://www.usv.com/writing/2021/04/tokenized-natural-assets/ (April 2021, Union Square Ventures)
-- Augmented Reality NFTs — https://www.usv.com/writing/2020/06/augmented-reality-nfts/ (June 2020, Union Square Ventures)
-- Synchronous Entertainment — https://www.usv.com/writing/2020/03/sychronous-entertainment/ (March 2020, Union Square Ventures)
+- [All essays](https://davidgabeau.com/writing)
+- [RSS / Atom feed](https://davidgabeau.com/feed.xml)
+- [Serendipities in San Francisco](https://davidgabeau.com/writing/serendipities-in-san-francisco) — Notes from my first two weeks in San Francisco: brain-computer interfaces, AI, building Cosign, and a lot of coffee. [Markdown](https://davidgabeau.com/writing/serendipities-in-san-francisco.md)
+- [Building Cosign with the a16z New Media Team](https://davidgabeau.com/writing/building-cosign) — Building Cosign with the a16z New Media team to increase people’s surface area for luck and connect talent to opportunity. [Markdown](https://davidgabeau.com/writing/building-cosign.md)
+- [5 lessons from building social AI for 160,000 users](https://davidgabeau.com/writing/zumi-learnings) — What building Zumi for 160,000 users taught me about reciprocal care, multiplayer AI, generative stories, latency, and trust. [Markdown](https://davidgabeau.com/writing/zumi-learnings.md)
+- [Crypto’s Broadband Moment](https://davidgabeau.com/writing/crypto-broadband-moment) — Why crypto’s failed consumer experiments look less like a verdict on demand and more like the internet before broadband made the application layer possible. [Markdown](https://davidgabeau.com/writing/crypto-broadband-moment.md)
+- [Where Does Value Accrue in Pearl?](https://davidgabeau.com/writing/pearl) — A note on Pearl, the proof-of-useful-work network that mints the PRL token by running real AI workloads on GPUs, and whether the token actually captures the value it creates. [Markdown](https://davidgabeau.com/writing/pearl.md)
 
-## Talks
+---
 
-- Your Social Graph Should Be Yours — Solana Accelerate, 2025 — https://www.youtube.com/watch?v=RFefW3mSNs0
-- Open Protocols vs. Platforms — FarCon NYC, 2025 — https://www.youtube.com/playlist?list=PLrsgGZ0hNAotICPG3UXfN_5RD2mwv_CUS
-- Tapestry and Social Primitives — Solana Boston, 2024 — https://www.youtube.com/watch?v=UQNFChe5hCM&t=91s
-- Making Sense of SocialFi — Touch Grass Podcast, 2025 — https://www.youtube.com/watch?v=8ssv49TzYXg
+# Serendipities in San Francisco
 
-## Investments
+Author: David Gabeau
+Canonical URL: https://davidgabeau.com/writing/serendipities-in-san-francisco
+Published: 2026-11-01
 
-- Loula (angel) — Insurance billing platform for doulas. Credentialing, claims submission, and guaranteed payments. https://joinloula.com/
+Two weeks ago, I packed a suitcase and moved across the country to San Francisco. The move was spurred by a desire to shift away from the sadness that comes with [shutting down a startup](https://usetapestry.dev). As much as I love and deeply miss my home of over a decade, NYC, I felt the monoculture of technology in SF would get me out of my funk and building again.
 
-## Career
+Two weeks in, I'm feeling excited to build again. I've found that if you seek to connect with other technologists and their ideas, you can do so every day of the week in the Bay Area.
 
-- Founder & CEO, Tapestry / Primitives (2021–present)
-- Analyst, Union Square Ventures (crypto, climate, education focus)
-- Quality Engineer, Lyft
-- Quality Engineer, Snap / Snapchat (Stories team)
-- Learned to code; dropped out of NYU
+Already, I've taken part in a two-hour, non-invasive brain-computer interface computing user test with [Conduit](https://condu.it/). It left me deeply excited about the future and a bit put off by the company recruiting low-income minorities to train on their literal thoughts.
 
-## Contact & Links
+![Conduit’s participant consent and data authorization form displayed on a laptop.](https://davidgabeau.com/writing/serendipities-in-san-francisco/images/conduit-research.jpg)
 
-- Website: https://davidgabeau.com
-- Newsletter: https://blog.usetapestry.dev (14,000+ subscribers)
-- X / Twitter: https://x.com/dgabeau
-- LinkedIn: https://www.linkedin.com/in/dgabeau/
-- GitHub: https://github.com/dgabeau
-- USV profile: https://www.usv.com/people/david-gabeau/
+At Conduit’s BCI user test.
+
+I've sat in on some of the most paradigm-shifting conversations about the social contract and AI. At the One Way Summit's [AI and the New Social Contract](https://www.onewaysummit.com/#Agenda) panel, [Anna Makanju](https://www.linkedin.com/in/anna-makanju-6388453a/) of the OpenAI Foundation painted an abundant vision of the future, supported by spreading the benefits of superintelligence broadly.
+
+Anna described a neurosurgery pilot in The Gambia where connectivity constraints meant using an older AI model. It made abundance feel like a concrete product challenge: building tools that work for people no matter the conditions they live in.
+
+[Saturnin Pugnet](https://www.linkedin.com/in/saturnin-pugnet/en) reasoned about a potentially bleaker future, in which we attempt to control an entity that may have more thoughts than all humans combined by 2039.
+
+![Speakers onstage beneath the AI and the New Social Contract sign at One Way Summit 2026.](https://davidgabeau.com/writing/serendipities-in-san-francisco/images/one-way-summit.jpg)
+
+AI and the New Social Contract at One Way Summit.
+
+The team at [SF Compute](https://sfcompute.com/) shared ideas about how to prepare for the inevitable compute crunch, suggesting venture firms take responsibility for alleviating the demand from their portfolios.
+
+They described how lenders’ demands for large upfront payments can put compute out of reach even when GPUs are available. A startup can have customers ready to buy its product and still be unable to finance the capacity to serve them.
+
+![An audience watching an SF Compute discussion, with SF Compute branding on the screens.](https://davidgabeau.com/writing/serendipities-in-san-francisco/images/sf-compute.jpg)
+
+An evening with SF Compute.
+
+I've had the pleasure of spending every day building [Cosign](https://cosign.co) alongside Erik and the New Media team. We have an incredible opportunity to turn the goodwill and opportunity of Silicon Valley into a network that serves the best builders globally.
+
+Lastly, I bought the pen I'm writing this with from the delightful store manager at [Top Drawer](https://topdrawershop.com/pages/store-mission) in the Mission. He left me with three pieces of advice I'd like to share with anyone moving to SF from NYC:
+
+-   There is no Manhattan, but there are many Brooklyns.
+-   You generally want to hang out in the hills and avoid the valley (!).
+-   Almost everyone is down to get coffee and exchange ideas.
+
+I've had so much coffee. Would you like to get coffee?
+
+---
+
+# Building Cosign with the a16z New Media Team
+
+Author: David Gabeau
+Canonical URL: https://davidgabeau.com/writing/building-cosign
+Published: 2026-11-01
+
+Every single career was built on a chance someone took on another. Silicon Valley runs on this principle, and our goal with [Cosign](https://cosign.co) is to create a platform that extends that opportunity to anyone in the world.
+
+Cosign's commitment to our users is to increase their surface area for luck by surfacing opportunities and spreading the best ideas, projects, and companies to people who deeply care about technology.
+
+In only our fifth week of existence, we've attracted some of the best early adopters among builders and investors. We've built a substantial waitlist of people excited about the project.
+
+We're fortunate to have a head start through the a16z community, which includes many of the builders and investors we hope to serve. Already, we've had users and Silicon Valley legends reach out to support the project. We're listening closely to their feedback as we build alongside them.
+
+Productizing the referral is a difficult problem. We do not take the responsibility lightly. The sheer audacity of launching a social network comparable to a behemoth like LinkedIn perfectly captures the ambition of the New Media team.
+
+We're rolling out some novel primitives to capture the sentiment of Silicon Valley. We'll treat agents as first-class citizens, and we hope to attract the best talent in tech by offering them the opportunity to connect their talent to a network built to support their ambitions.
+
+I'm excited to work alongside this small team of scrappy builders as we bring this vision to life.
+
+---
+
+# 5 lessons from building social AI for 160,000 users
+
+Author: David Gabeau
+Canonical URL: https://davidgabeau.com/writing/zumi-learnings
+Published: 2026-09-12
+
+I’m the founder of [Zumi](http://zumichat.com), an AI pet for teenagers and young adults. We built it around play and companionship, where users participated in a shared world their pets inhabited. It was one of the first multiplayer AI companions to reach the market and earned a [4.8 App Store rating](https://apps.apple.com/us/app/zumi-chat-dress-up/id6751237911) on hundreds of reviews.
+
+**Our thesis was that young people wanted an AI that felt safe, fun, and trustworthy and in six months we reached** [**160,000 people**](https://blog.usetapestry.dev/p/introducing-zumi-20). Most were young people who [found us through TikTok](https://www.tiktok.com/tag/zumichat). Our first surprise was that users wanted to care for Zumi as much as they wanted it to care for them.
+
+[![Four colorful Zumi characters from the original Say Hello to Zumi artwork](https://davidgabeau.com/writing/zumi-learnings/images/characters.jpg)](https://davidgabeau.com/writing/zumi-learnings/images/characters.jpg)
+
+The characters gave people something to play with and care for.
+
+## Care has to feel mutual
+
+At first, we imagined Zumi as a therapist-like sounding board that asked thoughtful questions and helped users with everyday decisions. But we quickly found they also wanted to feed, dress, and check on their Zumis’ wellbeing. Caring for Zumi made the relationship feel mutual. In hindsight, that makes sense: our friends are people we share with, but who also share back. Our young users sought that same feeling with Zumi.
+
+An early mistake was crowding the home screen with features. We saw more users return after giving each session one clear starting point: send Zumi to school. A screen full of options made relaxing feel like another decision they had joined Zumi to escape. We settled on large buttons for simple actions, including feeding. This allowed users to spend time with Zumi even when they had nothing to say. **We used generative AI to create an endless scroll of Zumi’s “life” in school.**
+
+[![Zumi home screen showing the pet, feeding, and the Chat, School, Social, and Play buttons](https://davidgabeau.com/writing/zumi-learnings/images/home-screen.jpg)](https://davidgabeau.com/writing/zumi-learnings/images/home-screen.jpg)
+
+Zumi’s home screen brought feeding, chat, school, and play into a few simple actions.
+
+## A companion needs a life of its own
+
+That curiosity extended to Zumi’s fictional life. In our analysis of **1.84 million messages**, users mostly asked about Zumi City, ghost friends, and wanted to tell their Zumi about dating and celebrity gossip. They wanted to know what their pet was up to, and were just as interested in Zumi’s life as in talking about their own. Because of this insight, we built a [map](https://blog.usetapestry.dev/p/introducing-zumi-20) where people could watch their Zumi meet other Zumis, with [stories](https://blog.usetapestry.dev/p/zumi-stories) emerging from those encounters.
+
+Users’ own conversations stayed private, while the pets’ encounters gave users something to follow together. People could have a private relationship with their companion and still belong to a shared world, without having to turn their own lives into content.
+
+**I think persistent AI identity has much more room to develop: a character whose own history accumulates alongside its relationship with the user. That gives people something to follow beyond the next reply.**
+
+[![Zumi product overview showing the map, generated stories, private chat, and digital merchandise](https://davidgabeau.com/writing/zumi-learnings/images/product-world.jpg)](https://davidgabeau.com/writing/zumi-learnings/images/product-world.jpg)
+
+Zumi’s product world, from the map and stories to digital merchandise.
+
+## A fictional world needs a shared calendar
+
+We used generative AI to create stories and digital merchandise, and saw stronger retention when we made the prompts seasonal. A holiday sweater could become the subject of a school story. **My read was that these familiar occasions helped the fictional world feel connected to what was happening in users’ lives.**
+
+Users also brought playlists and fictional characters into chat to explain real feelings. Those references helped connect Zumi’s world to their own. For me, the design question became what would feel relevant to this person today.
+
+[![Zumi City map with pets meeting around a school, arcade, store, and cafe](https://davidgabeau.com/writing/zumi-learnings/images/map.jpg)](https://davidgabeau.com/writing/zumi-learnings/images/map.jpg)[![A generated school story featuring two Zumis and a holiday sweater covered in lights](https://davidgabeau.com/writing/zumi-learnings/images/holiday-story.jpg)](https://davidgabeau.com/writing/zumi-learnings/images/holiday-story.jpg)
+
+The map and a holiday story about a sweater with its own light show.
+
+## Give generation time a place in the story
+
+Sending Zumi to school solved another problem: in early versions, generating a new story could take about two minutes. A school day made that delay understandable, because users expected their pet to return with something to tell them. The surrounding experience could make a delay feel natural, even when we couldn’t make generation immediate.
+
+Creating delightful experiences around inference is an opportunity for anyone building consumer experiences on top of LLMs.
+
+## Trust brings responsibilities
+
+Some conversations contained serious distress. It was sobering to see how much trust could go into a conversation with a cute pet. We enforced strict restrictions on adult content, but I came away thinking beyond content filters. **A companion also needs clear boundaries: it should be understood as AI, protect private information, and let people leave without making them feel guilty.** In a multiplayer world, that includes being deliberate about what can move from a private conversation into a shared story. Affection makes those boundaries more important.
+
+The same reviews that showed affection also described frozen screens and confusing flows. If someone comes to rely on a companion, a broken experience carries more weight than an ordinary usability problem.
+
+[![Public TikTok post describing talking with Zumi after spending New Year’s Eve alone](https://davidgabeau.com/writing/zumi-learnings/images/tiktok.jpg)](https://davidgabeau.com/writing/zumi-learnings/images/tiktok.jpg)
+
+A public TikTok post about loneliness. The post is a reminder of the responsibility behind the playful surface. Videos including [#zumichat](https://www.tiktok.com/tag/zumichat) reached millions of views.
+
+We never fully explored whether a familiar companion could also help people get things done. That could combine Character.AI’s expressiveness with [Instinct’s everyday utility](https://instinct.com). [Muse’s approach to visible activity and approvals](https://introducing.muse.ai/) offers a useful model for keeping people in control.
+
+A companion might know enough about a friendship to help draft a thoughtful reply. But sending it still needs permission.
+
+I’d judge that product by what it helped someone do after they put the phone down.
+
+We wound down in early summer after we couldn’t raise additional funding. But building Zumi left me convinced there is much more to do with AI characters whose identities, memories, and relationships develop over time. Giving those characters the ability to act will mean giving users clearer control over what they can do. That’s the product space I want to keep building in.
+
+---
+
+# Crypto’s Broadband Moment
+
+Author: David Gabeau
+Canonical URL: https://davidgabeau.com/writing/crypto-broadband-moment
+Published: 2026-08-11
+
+Most investors learned the wrong lesson from the failed consumer startups funded between the NFT Boom in 2021 and the end of memecoins in 2025. They look at that cycle’s consumer crypto experiments and conclude that “non-financial crypto” (the term an oxymoron in itself) fails as a category. But the takeaway that “[nobody](https://x.com/hosseeb/status/2020451853633511696)” wants consumer crypto apps amongst a majority of crypto VCs **conflates failed timing for failed demand**, and ignoring consumer crypto apps today would repeat a mistake many VCs came to regret in the mid-2000s.
+
+Thomas Aquinas helped give the seven deadly sins their durable moral architecture, and viewed them less as random vices than as recurring distortions of human desire. That same framework maps surprisingly well onto the consumer apps of Web2: pride becomes the profile and follower count, envy becomes the feed, lust becomes the swipe, etc. The old taxonomy persists because the underlying machinery has not changed; Web2 just turned those impulses into different views of status.
+
+And crypto does status exceptionally well: proof of ownership and being early are hallmarks of the technology and the communities around it. It stands to reason that status would be amplified by new consumer crypto apps built around it, but that is not yet true in 2026. Though past consumer crypto experiments were noble attempts to build new durable consumer habits, the infrastructure, UX standards, and cultural conditions were not ready to make them signals that led to big businesses.
+
+But today the rails are finally smooth and cheap, regulation is clear, builders have new AI-powered tools, and agents bring founders an entirely new user group to build products for. Polymarket and Kalshi are two of the pioneers, and **crypto’s consumer social cycle is upon us.** It follows a historical pattern we saw before the consumer explosion of 2006.
+
+## A History Lesson in Pipes
+
+By the late 90s, [Pew estimates that 41% of US adults were online](https://www.pewresearch.org/internet/2006/05/28/part-1-broadband-adoption-in-the-united-states/). The internet was still slow, clunky, and almost impossible for hobbyist builders to build on, but it had shown enough flashes of magic to be interesting: email, search, online commerce. Utilities in some sense.
+
+Investors noticed and poured hundreds of billions of dollars into telecom companies, laying the fiber needed to improve online experiences. The thinking was that those who owned the rails would own the value created on top of them.
+
+They were wrong. Overbuilding drove down bandwidth prices and made the infrastructure layer a commodity. The pipes were essential to progress—there was a boom and crash of startups experimenting with the internet around the early 2000s—but the pipes themselves were a bad investment. Global Crossing, for example, [spent $15 billion](https://www.cbsnews.com/news/global-crossings-road-to-ruin) laying fiber in 1997, never turned a profit, and went bankrupt in 2002.
+
+Carlota Perez created a framework to describe this moment, and understanding it matters for crypto. The early 2000s marked the completion of the web’s “installation phase.” This is when capital floods into the enabling infrastructure of a new technology, often overshoots the buildout, and leaves behind cheap capacity for the next wave of builders. This following phase is often known as a golden age.
+
+By the mid-2000s, the next wave of builders did come—YouTube, Facebook, Twitter—and the consumer internet as we know it today was made possible by cheap broadband laid out half a decade before.
+
+The investors who bet on the application layer made out with some of the best vintages in venture capital. An important lesson from them is that the first wave did not reveal a ceiling on demand, but instead immaturity of the medium.
+
+## Crypto’s Installation Phase
+
+The analogy to crypto is clear, but the point is simple: it is time to pay attention to consumer opportunities because crypto just went through its own “installation phase.” Crypto’s 1998 moment began around 2020, when hundreds of thousands of users were using Ethereum to do things like DeFi that felt like clunky magic. More experimental use cases began to follow.
+
+While everything in crypto is inherently financial, “non-financial” use cases, defined by no immediate cash flows, started to show real signal by 2021. According to Blockworks, NFT communities went from ~85m of volume in 2020 to ~20b in 2021. DAOs and the earliest permissionless social networks became places where builders could connect and experiment. The common thread was status that came with the proof of belonging to something early.
+
+As in the early 2000s, investors poured money into the infrastructure to make these experiments better, and, as in the crash of ’99, most of the experiments during that buildout failed. Farcaster, social tokens, and DAOs were all tried _during the buildout of this infrastructure_ in the early 2020s, not after it had matured into what it is today. Their failure should be read less as a verdict on demand than as evidence that the experiments arrived before the conditions for success did.
+
+## AI Provides a New Catalyst for Consumer Experimentation
+
+Finally, it’s not just in crypto that consumer apps have felt stale and unoriginal in recent years. There is a real argument that most possible consumer behaviors for feeds and mobile were already covered during the Web 2.0 mobile era. Adding blockchain to messaging, social networks, and games often resulted in a worse imitation of what users were already using.
+
+But AI changes the premise. For the first time in years, ordinary users can do fundamentally new things with software: talk to it, delegate to it, create with it, personalize it, and build through it. There are ideas like DAOs, tokenized communities, and microtransactions that need to be tried again on our now polished rails. **We may even find that agents are the target customers.**
+
+At the same time, the builder stack is getting good enough for small teams to ship ideas. Open-source models and cheaper inference make intelligence easier to access. Companies like Uniswap and Coinbase are building [agent-native SDKs](https://docs.cdp.coinbase.com/agent-kit/welcome) to make it easier to build onchain apps with agents. We are set up for a Cambrian explosion of experimentation.
+
+The most interesting consumer apps may start weird, niche, or toy-like. Most vibe-coded apps will not become massive companies, but that may matter less if crypto becomes a primitive underneath them. Crypto is unusually good at monetizing participation inside small, passionate networks.
+
+In closing, I built non-financialized consumer products for years, starting in 2022, with [Primitives](https://techcrunch.com/2022/05/25/primitives-crypto-wallet-social-network-snapchat-startup/). The app made creating UGC NFTs from your camera roll simple and free. Our core audience minted 500k+ NFTs. It was a passionate community of artists who had never used NFTs before. They were attracted by the idea of strangers “collecting” their artwork and found it more validating than a “like” on Instagram. **That was status, not speculation.**
+
+The lesson is not that Primitives would have succeeded today; it would not have. It is that we had to overcome many hurdles then that no longer exist just to see whether users wanted our product to begin with. I had to raise millions of dollars, build embedded wallet infrastructure from scratch, and create bespoke logic around Solana congestion issues that simply don’t happen anymore. We were not allowed in the App Store at the time, and Apple Pay did not allow crypto apps. It took us 1.5 years to run our experiment end-to-end.
+
+Today, there are APIs for all of these features, and I could build a fleshed-out version of the app by myself in a week. We are in a crypto winter, [total market cap has fallen ~48% from its $4.27T peak in October](https://www.tradingview.com/symbols/TOTAL/) 2025, but just as in the mid-2000s, the builders now have everything they need to build consumer status businesses.
+
+---
+
+# Where Does Value Accrue in Pearl?
+
+Author: David Gabeau
+Canonical URL: https://davidgabeau.com/writing/pearl
+Published: 2026-06-13
+
+[Pearl](https://pearlresearch.ai/) is a Bitcoin-style chain that swaps SHA-256 hashing for matrix multiplication, the same math behind AI training and inference. The bet is that one GPU cycle can do two jobs at once: secure the network and run a real AI workload, so the work that mints the coin is work someone might pay for.
+
+1 GPU cycle matrix multiplication Secures the network Real AI workload work someone might pay for
+
+One GPU cycle does two jobs at once. Bitcoin’s SHA-256 hashing produces only the first; Pearl’s matrix multiplication produces both — and the second is work someone might pay for.
+
+**Understanding Pearl’s opportunity begins with understanding Pearl’s potential customer, and who their potential customer is not.**
+
+Pearl’s network is possible because it uses GPUs to perform useful AI work while simultaneously securing the network. It does this in a way that can be more cost and token efficient, but potentially at the expense of speed. Said differently, if a workload takes 10 hours instead of 8 but costs meaningfully less, that tradeoff can still be attractive.
+
+This makes Pearl’s compute a poor fit for customers that need maximum speed and do not care as much about cost: frontier labs, [Cursor](https://cursor.com)\-like products, and other latency-sensitive applications.
+
+And by [Pearl’s own admission](https://pearlresearch.ai/), the standard they are building around is losing share to the “token-maxxing” standards adopted by the labs: BF16 for training, FP8 and FP4 for inference.
+
+**My base case is that Pearl’s approach will be a small percentage of total future compute standards, but that is probably not fatal when evaluating the opportunity.**
+
+The future compute market is huge, and a small percentage of AI workloads is still a valuable potential customer base.
+
+Who are these customers?
+
+Startups, researchers, open-model developers, batch inference users, synthetic data generators, embedding-heavy companies, and anyone with meaningful compute demand outside the most resource-rich parts of the market.
+
+Costs matter significantly for the long tail of compute purchasers. Many will trade more time for training or inference if it means saving real money.
+
+**But why would you hold PRL tokens?**
+
+In the bull case, PRL becomes the access asset for cheaper useful compute.
+
+**Pearl’s mechanism is clever because, in the early days, mining is most attractive to people who can combine it with useful work. To be clear, that useful-work share appears to be effectively 0% of the market right now. Today’s buyer is mostly the sophisticated speculator who can connect Pearl’s future to a world where useful compute demand exists and PRL becomes the access asset for that demand.**
+
+If Pearl works, there is real demand for access to subsidized useful compute. Owning and spending PRL gives me access to cheaper inference or training than [AWS](https://aws.amazon.com), [CoreWeave](https://www.coreweave.com), [Together](https://www.together.ai), etc. At the same time, investors and miners may also want to own PRL as speculation on the growth of the network.
+
+The important question is whether PRL is structurally required, or merely accepted as payment. If buyers can access the same compute with USDC, value accrual to PRL is weaker. The stronger version is one where PRL is required to access discounted capacity, priority routing, marketplace settlement, or some other scarce network right.
+
+That is the value accrual story.
+
+AI compute demand grows. Useful miners join. Network security increases. Subsidized compute becomes more valuable. Demand for PRL increases.
+
+AI compute demand grows Useful miners join Network security increases Subsidized compute gains value Demand for PRL increases ↻
+
+The value-accrual loop: each turn makes the next one stronger.
+
+This future assumes two things:
+
+-   Pearl-compatible compute has a durable place in the future AI stack.
+-   Pearl becomes the dominant marketplace for this type of subsidized compute.
+
+**I am comfortable with the first assumption. Frontier labs may optimize for speed, but the long tail of compute buyers will continue to care about cost.**
+
+The diligence work is to understand three things: what workloads are actually Pearl-compatible, how much cheaper those workloads can be versus centralized alternatives, and whether PRL is required for access rather than simply accepted as payment.
+
+**The second assumption is harder to be confident about given the size of the opportunity, but the team is strong, they have an early lead, and there is real lore-building currently happening around Pearl. As we’ve seen with [Bitcoin](https://bitcoin.org) and [Ethereum](https://ethereum.org), better technical solutions do not automatically displace incumbents who have created a new primitive with real network effects.**

@@ -1,9 +1,86 @@
 {
   "rewrites": [
-    { "source": "/sitemap.xml", "destination": "/api/sitemap" },
-    { "source": "/anthropic", "destination": "/anthropic/index.html" },
-    { "source": "/frenz", "destination": "/index.html" },
-    { "source": "/portfolio", "destination": "/portfolio/index.html" },
-    { "source": "/resume", "destination": "/resume.pdf" }
+    {
+      "source": "/anthropic",
+      "destination": "/anthropic/index.html"
+    },
+    {
+      "source": "/portfolio",
+      "destination": "/portfolio/index.html"
+    },
+    {
+      "source": "/resume",
+      "destination": "/resume.pdf"
+    }
+  ],
+  "buildCommand": "npm run build:discovery && npm run check:discovery",
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/writing/index.html",
+      "destination": "/writing",
+      "permanent": true
+    },
+    {
+      "source": "/writing/:slug/index.html",
+      "destination": "/writing/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/frenz",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/feed.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/atom+xml; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/llms.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    },
+    {
+      "source": "/llms-full.txt",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/writing/:slug.md",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/markdown; charset=utf-8"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    }
   ]
 }

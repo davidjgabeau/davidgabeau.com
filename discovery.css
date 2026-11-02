@@ -1,0 +1,13 @@
+/* Shared reading and discovery elements: quiet and consistent with the notebook. */
+.header-name{display:block;font-family:var(--serif);font-size:clamp(44px,6.5vw,76px);font-weight:400;line-height:1.02;letter-spacing:-.015em}
+.author-context{flex-basis:100%;font-family:var(--sans);font-size:15px;line-height:1.6;color:var(--text-2);margin:0 0 10px}
+.author-context a{text-decoration:underline;text-decoration-color:var(--text-3)}
+.writing-index{padding-top:30px;padding-bottom:40px}
+.index-intro{margin:24px 0 36px;color:var(--text-2)}
+.essay-index{list-style:none;padding:0;margin:0}
+.essay-index li{padding:26px 0;border-top:1px solid var(--border)}
+.essay-index time{display:block;font-family:var(--mono);font-size:12px;color:var(--text-3);margin-bottom:12px}
+.essay-index h2{font-size:30px!important;margin:0 0 12px}
+.essay-index p{color:var(--text-2);font-size:17px;line-height:1.6}
+.index-links{margin-top:28px;font-size:15px}
+@media(max-width:600px){.essay-index h2{font-size:27px!important}}

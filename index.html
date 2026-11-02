@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>David Gabeau — DJ</title>
-  <meta name="description" content="Hi, I&#x27;m David but most call me DJ. I build consumer products. Special Projects at a16z, building networks in San Francisco.">
+  <title>David Gabeau | Consumer Products, AI &amp; Social Networks</title>
+  <meta name="description" content="David Gabeau builds consumer products that bring people together. Special Projects at a16z, building Cosign in San Francisco. Previously founded Tapestry.">
   <meta name="author" content="David Gabeau">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://davidgabeau.com/">
 
   <!-- Favicon -->
@@ -21,7 +21,7 @@
   <meta property="og:site_name" content="David Gabeau">
   <meta property="og:url" content="https://davidgabeau.com/">
   <meta property="og:title" content="David Gabeau — Builder &amp; Technologist">
-  <meta property="og:description" content="I build consumer products that bring people together. Writing, projects, and notes from San Francisco.">
+  <meta property="og:description" content="David Gabeau builds consumer products that bring people together. Special Projects at a16z, building Cosign in San Francisco. Previously founded Tapestry.">
   <meta property="og:image" content="https://davidgabeau.com/images/social/home-animated-v3.png">
   <meta property="og:video" content="https://davidgabeau.com/images/social/home-animated-v3.mp4">
   <meta property="og:video:secure_url" content="https://davidgabeau.com/images/social/home-animated-v3.mp4">
@@ -43,7 +43,7 @@
   <meta name="twitter:site" content="@dgabeau">
   <meta name="twitter:creator" content="@dgabeau">
   <meta name="twitter:title" content="David Gabeau — Builder &amp; Technologist">
-  <meta name="twitter:description" content="I build consumer products that bring people together. Writing, projects, and notes from San Francisco.">
+  <meta name="twitter:description" content="David Gabeau builds consumer products that bring people together. Special Projects at a16z, building Cosign in San Francisco. Previously founded Tapestry.">
   <meta name="twitter:image" content="https://davidgabeau.com/images/social/home-animated-v3.png">
   <meta name="twitter:image:alt" content="A notebook sketch of a computer, coffee, and connected people on warm paper.">
 
@@ -51,77 +51,107 @@
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "David Gabeau",
-  "url": "https://davidgabeau.com",
-  "jobTitle": "Special Projects",
-  "description": "Hi, I'm David but most call me DJ. I build consumer products. Special Projects at a16z, building networks in San Francisco.",
-  "knowsAbout": [
-    "Social graph protocols",
-    "Onchain applications",
-    "Solana blockchain",
-    "AI companion apps",
-    "Consumer social products",
-    "Crypto and web3",
-    "Early-stage venture investing",
-    "Agent infrastructure",
-    "Open protocols",
-    "NFTs and digital art"
-  ],
-  "founder": [
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://davidgabeau.com/#person",
+      "name": "David Gabeau",
+      "alternateName": "DJ",
+      "url": "https://davidgabeau.com/",
+      "description": "David Gabeau builds consumer products that bring people together. Special Projects at a16z, building Cosign in San Francisco. Previously founded Tapestry.",
+      "jobTitle": "Special Projects",
+      "worksFor": {
+        "@id": "https://davidgabeau.com/#a16z"
+      },
+      "homeLocation": {
+        "@type": "Place",
+        "name": "San Francisco, California"
+      },
+      "email": "mailto:davidgabeau92@gmail.com",
+      "knowsAbout": [
+        "Consumer products",
+        "Consumer AI",
+        "Multiplayer AI companions",
+        "Social networks",
+        "Open social graph infrastructure",
+        "Crypto",
+        "Early-stage venture investing",
+        "AI developer tools"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/dgabeau/",
+        "https://x.com/dgabeau",
+        "https://github.com/davidjgabeau",
+        "https://www.usv.com/people/david-gabeau/",
+        "https://www.instagram.com/davidgabeau/"
+      ],
+      "alumniOf": [
+        {
+          "@type": "Organization",
+          "name": "Union Square Ventures",
+          "url": "https://www.usv.com/"
+        },
+        {
+          "@type": "Organization",
+          "name": "Snap",
+          "url": "https://snap.com/"
+        },
+        {
+          "@type": "Organization",
+          "name": "Lyft",
+          "url": "https://lyft.com/"
+        }
+      ]
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://davidgabeau.com/#webpage",
+      "url": "https://davidgabeau.com/",
+      "name": "David Gabeau — Consumer Products, AI & Social Networks",
+      "description": "David Gabeau builds consumer products that bring people together. Special Projects at a16z, building Cosign in San Francisco. Previously founded Tapestry.",
+      "inLanguage": "en",
+      "mainEntity": {
+        "@id": "https://davidgabeau.com/#person"
+      },
+      "isPartOf": {
+        "@id": "https://davidgabeau.com/#website"
+      },
+      "dateModified": "2026-11-01T21:49:12-08:00",
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://davidgabeau.com/images/social/home-animated-v3.png",
+        "width": 1200,
+        "height": 630
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://davidgabeau.com/#website",
+      "url": "https://davidgabeau.com/",
+      "name": "David Gabeau",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://davidgabeau.com/#person"
+      }
+    },
     {
       "@type": "Organization",
+      "@id": "https://davidgabeau.com/#a16z",
+      "name": "Andreessen Horowitz",
+      "alternateName": "a16z",
+      "url": "https://a16z.com/"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://davidgabeau.com/#tapestry",
       "name": "Tapestry",
       "url": "https://usetapestry.dev",
-      "description": "Permissionless social graph protocol for onchain applications"
-    },
-    {
-      "@type": "Organization",
-      "name": "Primitives",
-      "url": "https://techcrunch.com/2022/05/25/primitives-crypto-wallet-social-network-snapchat-startup/",
-      "description": "Platform for collecting digital art and building community around on-chain objects"
-    },
-    {
-      "@type": "WebApplication",
-      "name": "AI Atlas NYC",
-      "url": "https://aiatlas.nyc",
-      "description": "Nightly-rebuilt market map of New York's early-stage AI ecosystem"
+      "founder": {
+        "@id": "https://davidgabeau.com/#person"
+      },
+      "description": "Open social graph infrastructure. Founded and led by David Gabeau; the company wound down in 2026."
     }
-  ],
-  "alumniOf": [
-    {
-      "@type": "Organization",
-      "name": "Union Square Ventures",
-      "url": "https://usv.com",
-      "description": "Venture capital firm — analyst focused on crypto, climate, and education"
-    },
-    {
-      "@type": "Organization",
-      "name": "Snap Inc.",
-      "url": "https://snap.com",
-      "description": "Software engineer, pre-IPO"
-    },
-    {
-      "@type": "Organization",
-      "name": "Lyft",
-      "url": "https://lyft.com",
-      "description": "Software engineer, pre-IPO"
-    }
-  ],
-  "sameAs": [
-    "https://x.com/dgabeau",
-    "https://www.linkedin.com/in/dgabeau/",
-    "https://github.com/davidjgabeau",
-    "https://blog.usetapestry.dev",
-    "https://www.usv.com/people/david-gabeau/"
-  ],
-  "alternateName": "DJ",
-  "worksFor": {
-    "@type": "Organization",
-    "name": "a16z",
-    "url": "https://a16z.com"
-  },
-  "image": "https://davidgabeau.com/images/social/home-animated-v3.png"
+  ]
 }
 </script>
 
@@ -134,6 +164,7 @@
 
   <script src="/notebook.js?v=20261009-exeter-caption" defer></script>
   <link rel="stylesheet" href="/typography.css?v=20261009-exeter-caption">
+  <link rel="alternate" type="application/atom+xml" title="David Gabeau — Essays" href="/feed.xml">
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -301,5 +332,5 @@
  </button><span class="photo-number" aria-hidden="true">11</span></li></ul>
  </section>
 </main>
-<footer class="site-footer"><nav aria-label="Social links"><a href="https://blog.usetapestry.dev" target="_blank" rel="noopener noreferrer">Blog</a><a href="https://github.com/davidjgabeau" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/dgabeau/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://x.com/dgabeau" target="_blank" rel="noopener noreferrer">Twitter</a><a href="https://www.instagram.com/davidgabeau/" target="_blank" rel="noopener noreferrer">Instagram</a></nav><span>© 2026 David Gabeau</span></footer>
+<footer class="site-footer"><nav aria-label="Social links"><a href="/writing">All essays</a><a href="/feed.xml">RSS</a><a href="mailto:davidgabeau92@gmail.com">Email</a><a href="https://blog.usetapestry.dev" target="_blank" rel="noopener noreferrer">Blog</a><a href="https://github.com/davidjgabeau" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.linkedin.com/in/dgabeau/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://x.com/dgabeau" target="_blank" rel="noopener noreferrer">Twitter</a><a href="https://www.instagram.com/davidgabeau/" target="_blank" rel="noopener noreferrer">Instagram</a></nav><span>© 2026 David Gabeau</span></footer>
 </body></html>

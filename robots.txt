@@ -1,7 +1,11 @@
 User-agent: *
 Allow: /
 
-# AI crawlers — explicitly allowed
+# Search discovery — independent of model-training permissions
+User-agent: OAI-SearchBot
+Allow: /
+
+# Existing AI crawler permissions — retained
 User-agent: GPTBot
 Allow: /
 

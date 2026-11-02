@@ -68,13 +68,20 @@ for(const c of cards){
  html=html.replace(/(<meta (?:property="og:image:alt"|name="twitter:image:alt") content=")[^"]+(">)/g,`$1${c.alt}$2`);
  html=html.replace(/(<script type="application\/ld\+json">)([\s\S]*?)(<\/script>)/g,(_,a,b,z)=>{
   const d=JSON.parse(b);
-  if(Array.isArray(d.image))d.image=[`${base}.png`,...d.image.slice(1)];
-  else d.image=`${base}.png`;
+  function updateImage(node) {
+   if (node['@graph']) { node['@graph'].forEach(updateImage); return; }
+   if (node['@type'] === 'BlogPosting') {
+    node.image = Array.isArray(node.image) ? [`${base}.png`, ...node.image.slice(1)] : `${base}.png`;
+   } else if (node['@type'] === 'ProfilePage') {
+    node.primaryImageOfPage = { '@type': 'ImageObject', url: `${base}.png`, width: 1200, height: 630 };
+   }
+  }
+  updateImage(d);
   return a+'\n'+JSON.stringify(d,null,2)+'\n'+z;
  });
  if(c.id==='home'){
   html=html.replace(/(<meta (?:property="og:title"|name="twitter:title") content=")[^"]+(">)/g,'$1David Gabeau — Builder &amp; Technologist$2');
-  html=html.replace(/(<meta (?:property="og:description"|name="twitter:description") content=")[^"]+(">)/g,'$1I build consumer products that bring people together. Writing, projects, and notes from San Francisco.$2');
+  html=html.replace(/(<meta (?:property="og:description"|name="twitter:description") content=")[^"]+(">)/g,'$1David Gabeau builds consumer products that bring people together. Special Projects at a16z, building Cosign in San Francisco. Previously founded Tapestry.$2');
  }
  await fs.writeFile(c.file,html);
  console.log(`Generated and wired ${c.id}`);

@@ -1,42 +1,51 @@
 # David Gabeau
 
-> David (DJ) Gabeau works on Special Projects at a16z, building networks in San Francisco. Previously founder and CEO of Tapestry, engineer at Snap and Lyft, and analyst at Union Square Ventures.
+> David Gabeau builds consumer products that bring people together. He works on Special Projects at a16z, building Cosign in San Francisco. Previously founder and CEO of Tapestry, analyst at Union Square Ventures, and quality engineer at Snap and Lyft.
 
-## About
+This guide summarizes the public website. Canonical HTML pages are the primary sources; Markdown companions contain the same essays in a simpler reading format.
 
-David Gabeau, also known as DJ, works on Special Projects at a16z (2026–present), building networks in San Francisco. He dropped out of NYU, learned to code, and worked as a quality engineer at Snap and Lyft before each went public. He then joined Union Square Ventures as an analyst, focused on early-stage crypto, climate, and education companies. He founded Tapestry, a permissionless social graph protocol on Solana, which wound down in 2026.
+## Profile and contact
 
-## Projects
+- [About David Gabeau](https://davidgabeau.com/): Current work, career timeline, projects, and contact links.
+- [Email](mailto:davidgabeau92@gmail.com): Contact David directly.
+- [LinkedIn](https://www.linkedin.com/in/dgabeau/)
+- [GitHub](https://github.com/davidjgabeau)
+- [X](https://x.com/dgabeau)
 
-- [Tapestry](https://usetapestry.dev): A permissionless social graph protocol for onchain applications. Backed by Union Square Ventures, Redpoint, Slow Ventures, Fabric Ventures, Stellation, and Harlem Capital. Tapestry lets any application read and write to a shared social graph on Solana without permission from a platform.
-- [Zumi](https://apps.apple.com/us/app/zumi-chat-dress-up/id6751237911): An AI companion app built on Tapestry with 160,000+ users. Focused on persistent AI companionship and long-term relationships.
-- [Primitives](https://techcrunch.com/2022/05/25/primitives-crypto-wallet-social-network-snapchat-startup/): A platform for collecting digital art and building community around on-chain objects. 500,000+ NFTs minted.
-- [SSE](https://sse.gg): A trading platform for Solana memecoins and emerging tokens. $50M in volume.
-- [AI Atlas NYC](https://aiatlas.nyc): A nightly-rebuilt market map of New York's early-stage AI ecosystem. An agent scrapes funding announcements, LinkedIn signals, and founder activity, re-clusters the map, and publishes a new version each morning. Data is served via a public REST API.
+## Current work
+
+- [Cosign](https://cosign.co): Building a network for technology builders and investors with the a16z New Media team.
+- [a16z](https://a16z.com): Special Projects, 2026–present.
+
+## Previous company and products
+
+- [Tapestry](https://usetapestry.dev): David founded and led a team of 12, raised $12.5M, and wound down the company in 2026. Open social graph infrastructure.
+- [Zumi](https://apps.apple.com/us/app/zumi-chat-dress-up/id6751237911): A multiplayer AI companion built by Tapestry that grew to 160,000 users.
+- [Primitives](https://techcrunch.com/2022/05/25/primitives-crypto-wallet-social-network-snapchat-startup/): A Tapestry product for collecting digital art; artists and collectors minted 500,000 NFTs.
+- [SSE](https://sse.gg): Open-source Solana trading platform built by Tapestry, with $50M in trading volume in its first two months.
+
+## Side projects
+
+- [Bramble](https://trybramble.ai): A macOS app that turns AI coding sessions into a structured development log.
+- [AI Atlas NYC](https://aiatlas.nyc): A market map of New York’s early-stage AI ecosystem, rebuilt nightly.
 
 ## Writing
 
-- [5 lessons from building social AI for 160,000 users](https://davidgabeau.com/writing/zumi-learnings) (2026)
-- [Crypto’s Broadband Moment](https://davidgabeau.com/writing/crypto-broadband-moment) (2026)
-- [Where Does Value Accrue in Pearl?](https://davidgabeau.com/writing/pearl) (2026)
-- [Introducing Zumi 2.0](https://blog.usetapestry.dev/p/introducing-zumi-20) (2025)
-- [Tapestry's Plan to Scale Solana Social](https://blog.usetapestry.dev) (2024)
-- [Your Social Graph Should Be Yours](https://blog.usetapestry.dev) (2024)
-- [Tokenized Natural Assets](https://www.usv.com/writing/2021/04/tokenized-natural-assets/) — Union Square Ventures (2021)
-- [Augmented Reality NFTs](https://www.usv.com/writing/2020/06/augmented-reality-nfts/) — Union Square Ventures (2020)
-- [Synchronous Entertainment](https://www.usv.com/writing/2020/03/sychronous-entertainment/) — Union Square Ventures (2020)
+- [All essays](https://davidgabeau.com/writing)
+- [RSS / Atom feed](https://davidgabeau.com/feed.xml)
+- [Serendipities in San Francisco](https://davidgabeau.com/writing/serendipities-in-san-francisco) — Notes from my first two weeks in San Francisco: brain-computer interfaces, AI, building Cosign, and a lot of coffee. [Markdown](https://davidgabeau.com/writing/serendipities-in-san-francisco.md)
+- [Building Cosign with the a16z New Media Team](https://davidgabeau.com/writing/building-cosign) — Building Cosign with the a16z New Media team to increase people’s surface area for luck and connect talent to opportunity. [Markdown](https://davidgabeau.com/writing/building-cosign.md)
+- [5 lessons from building social AI for 160,000 users](https://davidgabeau.com/writing/zumi-learnings) — What building Zumi for 160,000 users taught me about reciprocal care, multiplayer AI, generative stories, latency, and trust. [Markdown](https://davidgabeau.com/writing/zumi-learnings.md)
+- [Crypto’s Broadband Moment](https://davidgabeau.com/writing/crypto-broadband-moment) — Why crypto’s failed consumer experiments look less like a verdict on demand and more like the internet before broadband made the application layer possible. [Markdown](https://davidgabeau.com/writing/crypto-broadband-moment.md)
+- [Where Does Value Accrue in Pearl?](https://davidgabeau.com/writing/pearl) — A note on Pearl, the proof-of-useful-work network that mints the PRL token by running real AI workloads on GPUs, and whether the token actually captures the value it creates. [Markdown](https://davidgabeau.com/writing/pearl.md)
 
-## Talks
+## Selected external writing
 
-- [Your Social Graph Should Be Yours](https://www.youtube.com/watch?v=RFefW3mSNs0) — Solana Accelerate, 2025
-- [Open Protocols vs. Platforms](https://www.youtube.com/playlist?list=PLrsgGZ0hNAotICPG3UXfN_5RD2mwv_CUS) — FarCon NYC, 2025
-- [Tapestry and Social Primitives](https://www.youtube.com/watch?v=UQNFChe5hCM&t=91s) — Solana Boston, 2024
-- [Making Sense of SocialFi](https://www.youtube.com/watch?v=8ssv49TzYXg) — Touch Grass Podcast, 2025
+- [Tokenized Natural Assets](https://www.usv.com/writing/2021/04/tokenized-natural-assets/) — Union Square Ventures, 2021.
+- [Augmented Reality NFTs](https://www.usv.com/writing/2020/06/augmented-reality-nfts/) — Union Square Ventures, 2020.
+- [Synchronous Entertainment](https://www.usv.com/writing/2020/03/sychronous-entertainment/) — Union Square Ventures, 2020.
 
-## Links
+## Other formats
 
-- Website: https://davidgabeau.com
-- Newsletter: https://blog.usetapestry.dev (14,000+ subscribers)
-- X / Twitter: https://x.com/dgabeau
-- LinkedIn: https://www.linkedin.com/in/dgabeau/
-- GitHub: https://github.com/dgabeau
+- [Full essays in one text file](https://davidgabeau.com/llms-full.txt)
+- [XML sitemap](https://davidgabeau.com/sitemap.xml)
