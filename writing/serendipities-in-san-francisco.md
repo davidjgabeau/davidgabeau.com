@@ -6,7 +6,7 @@ Published: 2026-11-01T00:00:00Z
 Canonical URL: https://davidgabeau.com/writing/serendipities-in-san-francisco
 Author: https://davidgabeau.com/
 
-Two weeks ago, I packed a suitcase and moved across the country to San Francisco. The move was spurred by a desire to shift away from the sadness that comes with [shutting down a startup](https://usetapestry.dev). As much as I love and deeply miss my home of over a decade, NYC, I felt the monoculture of technology in SF would get me out of my funk and building again.
+Two weeks ago, I packed a suitcase and moved across the country to San Francisco. The move was spurred by a desire to shift away from the sadness that comes with [shutting down a startup](https://usetapestry.dev). As much as I miss NYC, my home for over a decade, I felt San Francisco's obsession with technology could get me out of my funk and building again.
 
 Two weeks in, I'm feeling excited to build again. I've found that if you seek to connect with other technologists and their ideas, you can do so every day of the week in the Bay Area.
 
