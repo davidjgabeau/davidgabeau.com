@@ -18,7 +18,7 @@ At Conduit’s BCI user test.
 
 I've sat in on some of the most paradigm-shifting conversations about the social contract and AI. At the One Way Summit's [AI and the New Social Contract](https://www.onewaysummit.com/#Agenda) panel, [Anna Makanju](https://www.linkedin.com/in/anna-makanju-6388453a/) of the OpenAI Foundation painted an abundant vision of the future, supported by spreading the benefits of superintelligence broadly.
 
-Anna shared a neurosurgery pilot in The Gambia where connectivity constraints meant using an older AI model instead of the more intelligent ones. Building tools that work for people no matter the conditions they live in is a concrete product challenge - important as work to spread the benefits of superintelligence to the whole world.
+Anna shared a neurosurgery pilot in The Gambia where connectivity constraints meant using an older AI model instead of the more intelligent ones. Building tools that work for people no matter the conditions they live in is a concrete product challenge, and essential to spreading the benefits of superintelligence to the whole world.
 
 [Saturnin Pugnet](https://www.linkedin.com/in/saturnin-pugnet/en) reasoned about a potentially bleaker future, in which we attempt to control an entity that may have more thoughts than all humans combined by 2039.
 
