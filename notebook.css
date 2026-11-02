@@ -168,3 +168,7 @@
 
 /* Keep the school name unambiguous at small sizes. */
 .place-exeter figcaption{font-family:var(--sans)!important;font-style:normal!important;font-size:13px!important;letter-spacing:0}
+
+/* Give the personal invitation a little breathing room beneath the bio. */
+.intro-location{margin-top:24px;font-size:18px;line-height:1.5;color:var(--secondary)}
+.intro-location + .contact-links{margin-top:20px}
