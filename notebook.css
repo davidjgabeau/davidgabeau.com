@@ -175,3 +175,8 @@
 
 /* Keep the career timeline close to the introduction. */
 .intro{min-height:0;padding-bottom:0;margin-bottom:32px}
+
+/* Lead with company work, with side projects available below. */
+#projects .project-subsection{margin-bottom:28px}
+#projects .subsection-label{margin:0 0 14px}
+#projects .project-subsection .meta{display:block;color:var(--secondary);font-size:16px}
