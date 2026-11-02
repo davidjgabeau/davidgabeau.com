@@ -12,6 +12,12 @@ export default function handler() {
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://davidgabeau.com/writing/serendipities-in-san-francisco</loc>
+    <lastmod>2026-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://davidgabeau.com/writing/building-cosign</loc>
     <lastmod>2026-11-01</lastmod>
     <changefreq>monthly</changefreq>
