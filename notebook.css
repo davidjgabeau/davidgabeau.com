@@ -172,3 +172,6 @@
 /* Give the personal invitation a little breathing room beneath the bio. */
 .intro-location{margin-top:24px;font-size:18px;line-height:1.5;color:var(--secondary)}
 .intro-location + .contact-links{margin-top:20px}
+
+/* Keep the career timeline close to the introduction. */
+.intro{min-height:0;padding-bottom:0;margin-bottom:32px}
