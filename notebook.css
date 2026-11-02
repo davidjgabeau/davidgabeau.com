@@ -180,3 +180,8 @@
 #projects .project-subsection{margin-bottom:28px}
 #projects .subsection-label{margin:0 0 14px}
 #projects .project-subsection .meta{display:block;color:var(--secondary);font-size:16px}
+
+/* A pencil underline points from the introduction to the San Francisco essay. */
+.scribble-link{position:relative;display:inline-block;color:var(--ink);text-decoration:none;white-space:nowrap}
+.scribble-link svg{position:absolute;left:-3%;bottom:-7px;width:106%;height:13px;pointer-events:none;fill:none;stroke:var(--blue);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.scribble-link:hover{text-decoration:none;color:var(--blue)}
