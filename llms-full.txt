@@ -69,7 +69,7 @@ AI and the New Social Contract at One Way Summit.
 
 The team at [SF Compute](https://sfcompute.com/) shared ideas about how to prepare for the inevitable compute crunch, suggesting venture firms take responsibility for alleviating the demand from their portfolios.
 
-They described how lenders’ demands for large upfront payments can put compute out of reach even when GPUs are available. A startup can have customers ready to buy its product and still be unable to finance the capacity to serve them.
+The founders, [Evan Conrad](https://www.linkedin.com/in/evan-conrad) and [Ethan Anderson](https://www.linkedin.com/in/ethan-anderson-yc), forewarned that lenders’ demands for large upfront payments will put compute out of reach even when GPUs are available. A startup can (and many will!) have customers excited to buy their product but be unable to finance the capacity to serve them.
 
 ![An audience watching an SF Compute discussion, with SF Compute branding on the screens.](https://davidgabeau.com/writing/serendipities-in-san-francisco/images/sf-compute.jpg)
 
