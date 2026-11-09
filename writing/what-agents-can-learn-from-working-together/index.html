@@ -217,6 +217,41 @@
         }
       ]
     }
+  ],
+  "associatedMedia": [
+    {
+      "@type": "ImageObject",
+      "name": "World of SWECraft — Figure 1",
+      "contentUrl": "https://davidgabeau.com/writing/what-agents-can-learn-from-working-together/images/software-world-overview.webp",
+      "caption": "Agents maintain connected software packages, with improvements measured on software they cannot see.",
+      "width": 1788,
+      "height": 788,
+      "creditText": "Shen et al., World of SWECraft (2026)",
+      "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+      "isBasedOn": "https://arxiv.org/pdf/2610.24061v2#page=1"
+    },
+    {
+      "@type": "ImageObject",
+      "name": "World of SWECraft — Figure 7",
+      "contentUrl": "https://davidgabeau.com/writing/what-agents-can-learn-from-working-together/images/communication-experiment.webp",
+      "caption": "More communication did not automatically improve results.",
+      "width": 1788,
+      "height": 466,
+      "creditText": "Shen et al., World of SWECraft (2026)",
+      "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+      "isBasedOn": "https://arxiv.org/pdf/2610.24061v2#page=8"
+    },
+    {
+      "@type": "ImageObject",
+      "name": "World of SWECraft — Figure 4",
+      "contentUrl": "https://davidgabeau.com/writing/what-agents-can-learn-from-working-together/images/task-discovery.webp",
+      "caption": "Asking models to keep exploring helped some find more work, but gains varied.",
+      "width": 621,
+      "height": 765,
+      "creditText": "Shen et al., World of SWECraft (2026)",
+      "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+      "isBasedOn": "https://arxiv.org/pdf/2610.24061v2#page=6"
+    }
   ]
 }
 </script>
@@ -235,6 +270,13 @@
   <link rel="alternate" type="text/markdown" title="Read as Markdown" href="/writing/what-agents-can-learn-from-working-together.md">
   <link rel="alternate" type="text/plain" title="Site guide" href="/llms.txt">
   <link rel="stylesheet" href="/discovery.css">
+  <style>
+    .article-body .paper-figure { margin-block: 2.25rem; }
+    .paper-figure > a { display: block; }
+    .paper-figure > a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+    .article-body .paper-figure--compact { max-width: 420px; margin-inline: auto; }
+    .paper-figure img { background: #fff; }
+  </style>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -328,13 +370,34 @@
 
           <p>Catherine has been exploring multiplayer agent collaboration. Her research, <a href="https://arxiv.org/abs/2610.24061"><em>World of SWECraft: Agent Collaboration at Scale via Simulated Software Worlds</em></a>, studies what happens when agents are given responsibility for maintaining interconnected software packages, discovering their own tasks, and collaborating with other agents.</p>
 
+          <figure id="figure-software-world" class="paper-figure">
+            <a href="/writing/what-agents-can-learn-from-working-together/images/software-world-overview.webp" target="_blank" rel="noopener" aria-label="Enlarge Figure 1 from World of SWECraft">
+              <img src="/writing/what-agents-can-learn-from-working-together/images/software-world-overview.webp" alt="Figure 1 from World of SWECraft: a diagram of agents maintaining interconnected Python packages beside a graph comparing downstream speedups with and without collaboration." width="1788" height="788" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Agents maintain connected software packages, with improvements measured on software they cannot see. <a href="https://arxiv.org/pdf/2610.24061v2#page=1">Shen et al., <cite>World of SWECraft</cite>, Figure 1</a> (2026). <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>. Click to enlarge.</figcaption>
+          </figure>
+
           <p>My takeaway is that agents work together much like humans: they do well with clear goals and ownership but struggle to allocate shared resources democratically.</p>
 
           <p>More work generally produced better results, but <em>more communication</em> didn't necessarily improve collaboration.</p>
 
           <p>Feedback from other agent maintainers helped agents find bugs they might have missed alone, similar to a good code review.</p>
 
+          <figure id="figure-communication" class="paper-figure">
+            <a href="/writing/what-agents-can-learn-from-working-together/images/communication-experiment.webp" target="_blank" rel="noopener" aria-label="Enlarge Figure 7 from World of SWECraft">
+              <img src="/writing/what-agents-can-learn-from-working-together/images/communication-experiment.webp" alt="Figure 7 from World of SWECraft: interaction networks for forced communication and mixed-model teams, alongside a chart showing no performance gain from forced communication for Sol." width="1788" height="466" loading="lazy" decoding="async">
+            </a>
+            <figcaption>More communication did not automatically improve results. <a href="https://arxiv.org/pdf/2610.24061v2#page=8">Shen et al., <cite>World of SWECraft</cite>, Figure 7</a> (2026). <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>. Click to enlarge.</figcaption>
+          </figure>
+
           <p>Surprisingly, some of the strongest frontier models stopped looking for work even when there was still more to do. Just because a team of agents could solve a problem, it seems, didn't mean they would find one worth solving.</p>
+
+          <figure id="figure-task-discovery" class="paper-figure paper-figure--compact">
+            <a href="/writing/what-agents-can-learn-from-working-together/images/task-discovery.webp" target="_blank" rel="noopener" aria-label="Enlarge Figure 4 from World of SWECraft">
+              <img src="/writing/what-agents-can-learn-from-working-together/images/task-discovery.webp" alt="Figure 4 from World of SWECraft: downstream speedup versus tokens with default and discovery prompts. Some models improve with discovery prompts while Astra remains nearly flat." width="621" height="765" loading="lazy" decoding="async">
+            </a>
+            <figcaption>Asking models to keep exploring helped some find more work, but gains varied. <a href="https://arxiv.org/pdf/2610.24061v2#page=6">Shen et al., <cite>World of SWECraft</cite>, Figure 4</a> (2026). <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>. Click to enlarge.</figcaption>
+          </figure>
 
           <p>The fact agents can already discover meaningful improvements through autonomous collaboration makes me optimistic about what we'll be able to build as these systems improve. Like effective human teams, agents benefit from clear goals, roles, and responsibilities.</p>
 
