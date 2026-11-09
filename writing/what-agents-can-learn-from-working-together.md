@@ -20,7 +20,7 @@ This is changing rapidly.
 
 Catherine has been exploring multiplayer agent collaboration. Her research, [_World of SWECraft: Agent Collaboration at Scale via Simulated Software Worlds_](https://arxiv.org/abs/2610.24061), studies what happens when agents are given responsibility for maintaining interconnected software packages, discovering their own tasks, and collaborating with other agents.
 
-[![Figure 1 from World of SWECraft: a diagram of agents maintaining interconnected Python packages beside a graph comparing downstream speedups with and without collaboration.](https://davidgabeau.com/writing/what-agents-can-learn-from-working-together/images/software-world-overview.webp)](https://davidgabeau.com/writing/what-agents-can-learn-from-working-together/images/software-world-overview.webp)
+[![Figure 1 from World of SWECraft: connected Python packages and speedups with and without collaboration for Gemini 3.8 Flash, Claude Opus 5, Kimi K2.7 Code, GPT-5.6 Sol, and GPT-6 Astra.](https://davidgabeau.com/writing/what-agents-can-learn-from-working-together/images/software-world-overview.webp)](https://davidgabeau.com/writing/what-agents-can-learn-from-working-together/images/software-world-overview.webp)
 
 Agents maintain connected software packages, with improvements measured on software they cannot see. [Shen et al., World of SWECraft, Figure 1](https://arxiv.org/pdf/2610.24061v2#page=1) (2026). [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/). Click to enlarge.
 
@@ -30,13 +30,13 @@ More work generally produced better results, but _more communication_ didn't nec
 
 Feedback from other agent maintainers helped agents find bugs they might have missed alone, similar to a good code review.
 
-[![Figure 7 from World of SWECraft: interaction networks for forced communication and mixed-model teams, alongside a chart showing no performance gain from forced communication for Sol.](https://davidgabeau.com/writing/what-agents-can-learn-from-working-together/images/communication-experiment.webp)](https://davidgabeau.com/writing/what-agents-can-learn-from-working-together/images/communication-experiment.webp)
+[![Figure 7 from World of SWECraft: GPT-5.6 Sol and Claude Opus 5 interaction networks and downstream speedups. Forced communication did not improve Sol’s performance.](https://davidgabeau.com/writing/what-agents-can-learn-from-working-together/images/communication-experiment.webp)](https://davidgabeau.com/writing/what-agents-can-learn-from-working-together/images/communication-experiment.webp)
 
 More communication did not automatically improve results. [Shen et al., World of SWECraft, Figure 7](https://arxiv.org/pdf/2610.24061v2#page=8) (2026). [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/). Click to enlarge.
 
 Surprisingly, some of the strongest frontier models stopped looking for work even when there was still more to do. Just because a team of agents could solve a problem, it seems, didn't mean they would find one worth solving.
 
-[![Figure 4 from World of SWECraft: downstream speedup versus tokens with default and discovery prompts. Some models improve with discovery prompts while Astra remains nearly flat.](https://davidgabeau.com/writing/what-agents-can-learn-from-working-together/images/task-discovery.webp)](https://davidgabeau.com/writing/what-agents-can-learn-from-working-together/images/task-discovery.webp)
+[![Figure 4 from World of SWECraft: default and discovery prompts for GPT-6 Astra, Claude Fable 5.1, and Claude Opus 5.5, with Gemini 3.8 Flash as a reference. Astra remains nearly flat.](https://davidgabeau.com/writing/what-agents-can-learn-from-working-together/images/task-discovery.webp)](https://davidgabeau.com/writing/what-agents-can-learn-from-working-together/images/task-discovery.webp)
 
 Asking models to keep exploring helped some find more work, but gains varied. [Shen et al., World of SWECraft, Figure 4](https://arxiv.org/pdf/2610.24061v2#page=6) (2026). [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/). Click to enlarge.
 
