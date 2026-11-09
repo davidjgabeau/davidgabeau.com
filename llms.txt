@@ -33,6 +33,7 @@ This guide summarizes the public website. Canonical HTML pages are the primary s
 
 - [All essays](https://davidgabeau.com/writing)
 - [RSS / Atom feed](https://davidgabeau.com/feed.xml)
+- [What Agents Can Learn From Working Together](https://davidgabeau.com/writing/what-agents-can-learn-from-working-together) — What building Zumi and Catherine Liang’s World of SWECraft research taught me about AI agents, ownership, and finding worthwhile work. [Markdown](https://davidgabeau.com/writing/what-agents-can-learn-from-working-together.md)
 - [Serendipities in San Francisco](https://davidgabeau.com/writing/serendipities-in-san-francisco) — Notes from my first two weeks in San Francisco: brain-computer interfaces, AI, building Cosign, and a lot of coffee. [Markdown](https://davidgabeau.com/writing/serendipities-in-san-francisco.md)
 - [Building Cosign with the a16z New Media Team](https://davidgabeau.com/writing/building-cosign) — Building Cosign with the a16z New Media team to increase people’s surface area for luck and connect talent to opportunity. [Markdown](https://davidgabeau.com/writing/building-cosign.md)
 - [5 lessons from building social AI for 160,000 users](https://davidgabeau.com/writing/zumi-learnings) — What building Zumi for 160,000 users taught me about reciprocal care, multiplayer AI, generative stories, latency, and trust. [Markdown](https://davidgabeau.com/writing/zumi-learnings.md)
