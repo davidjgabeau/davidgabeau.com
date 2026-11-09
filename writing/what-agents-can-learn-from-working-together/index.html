@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>What Agents Can Learn From Working Together — David Gabeau</title>
-  <meta name="description" content="What building Zumi and Catherine Liang’s World of SWECraft research taught me about AI agents, ownership, and finding worthwhile work.">
+  <meta name="description" content="AI agent collaboration in World of SWECraft, with GPT-6 Astra, GPT-5.6 Sol, Claude, Gemini 3.8 Flash, and Kimi—plus lessons from building Zumi.">
   <meta name="author" content="David Gabeau">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
   <link rel="canonical" href="https://davidgabeau.com/writing/what-agents-can-learn-from-working-together">
@@ -19,7 +19,7 @@
   <meta property="og:site_name" content="David Gabeau">
   <meta property="og:url" content="https://davidgabeau.com/writing/what-agents-can-learn-from-working-together">
   <meta property="og:title" content="What Agents Can Learn From Working Together">
-  <meta property="og:description" content="What building Zumi and Catherine Liang’s World of SWECraft research taught me about AI agents, ownership, and finding worthwhile work.">
+  <meta property="og:description" content="AI agent collaboration in World of SWECraft, with GPT-6 Astra, GPT-5.6 Sol, Claude, Gemini 3.8 Flash, and Kimi—plus lessons from building Zumi.">
   <meta property="og:image" content="https://davidgabeau.com/images/social/agent-collaboration.png">
 
 
@@ -38,11 +38,18 @@
   <meta property="article:tag" content="consumer AI">
   <meta property="article:tag" content="World of SWECraft">
   <meta property="article:tag" content="Zumi">
+  <meta property="article:tag" content="GPT-6 Astra">
+  <meta property="article:tag" content="GPT-5.6 Sol">
+  <meta property="article:tag" content="Claude Opus 5">
+  <meta property="article:tag" content="Claude Opus 5.5">
+  <meta property="article:tag" content="Claude Fable 5.1">
+  <meta property="article:tag" content="Gemini 3.8 Flash">
+  <meta property="article:tag" content="Kimi K2.7 Code">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@dgabeau">
   <meta name="twitter:creator" content="@dgabeau">
   <meta name="twitter:title" content="What Agents Can Learn From Working Together">
-  <meta name="twitter:description" content="What building Zumi and Catherine Liang’s World of SWECraft research taught me about AI agents, ownership, and finding worthwhile work.">
+  <meta name="twitter:description" content="AI agent collaboration in World of SWECraft, with GPT-6 Astra, GPT-5.6 Sol, Claude, Gemini 3.8 Flash, and Kimi—plus lessons from building Zumi.">
   <meta name="twitter:image" content="https://davidgabeau.com/images/social/agent-collaboration.png">
   <meta name="twitter:image:alt" content="A notebook illustration of four AI agents exchanging messages around a shared software world, beside the essay title.">
 
@@ -51,7 +58,7 @@
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": "What Agents Can Learn From Working Together",
-  "description": "What building Zumi and Catherine Liang’s World of SWECraft research taught me about AI agents, ownership, and finding worthwhile work.",
+  "description": "AI agent collaboration in World of SWECraft, with GPT-6 Astra, GPT-5.6 Sol, Claude, Gemini 3.8 Flash, and Kimi—plus lessons from building Zumi.",
   "image": "https://davidgabeau.com/images/social/agent-collaboration.png",
   "author": {
     "@type": "Person",
@@ -81,7 +88,14 @@
     "multi-agent collaboration",
     "consumer AI",
     "World of SWECraft",
-    "Zumi"
+    "Zumi",
+    "GPT-6 Astra",
+    "GPT-5.6 Sol",
+    "Claude Opus 5",
+    "Claude Opus 5.5",
+    "Claude Fable 5.1",
+    "Gemini 3.8 Flash",
+    "Kimi K2.7 Code"
   ],
   "@id": "https://davidgabeau.com/writing/what-agents-can-learn-from-working-together#article",
   "url": "https://davidgabeau.com/writing/what-agents-can-learn-from-working-together",
@@ -131,17 +145,102 @@
       "applicationCategory": "AI companion"
     },
     {
-      "@type": "SoftwareApplication",
-      "name": "GPT-6 Astra",
-      "url": "https://openai.com/index/gpt-6-astra/",
-      "applicationCategory": "Artificial intelligence"
-    },
-    {
       "@type": "SoftwareSourceCode",
       "name": "Software World",
       "alternateName": "World of SWECraft",
       "url": "https://www.swecraft.world/",
       "codeRepository": "https://github.com/software-worlds/swecraft-launcher"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://openai.com/index/gpt-6-astra/",
+      "name": "GPT-6 Astra",
+      "alternateName": "gpt-6-astra",
+      "identifier": "gpt-6-astra",
+      "url": "https://openai.com/index/gpt-6-astra/",
+      "applicationCategory": "Artificial intelligence model",
+      "publisher": {
+        "@type": "Organization",
+        "name": "OpenAI"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+      "name": "GPT-5.6 Sol",
+      "alternateName": "gpt-5.6-sol",
+      "identifier": "gpt-5.6-sol",
+      "url": "https://developers.openai.com/api/docs/models/gpt-5.6-sol",
+      "applicationCategory": "Artificial intelligence model",
+      "publisher": {
+        "@type": "Organization",
+        "name": "OpenAI"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.anthropic.com/news/claude-opus-5",
+      "name": "Claude Opus 5",
+      "alternateName": "claude-opus-5",
+      "identifier": "claude-opus-5",
+      "url": "https://www.anthropic.com/news/claude-opus-5",
+      "applicationCategory": "Artificial intelligence model",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Anthropic"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.anthropic.com/claude-opus-5-5",
+      "name": "Claude Opus 5.5",
+      "alternateName": "claude-opus-5-5",
+      "identifier": "claude-opus-5-5",
+      "url": "https://www.anthropic.com/claude-opus-5-5",
+      "applicationCategory": "Artificial intelligence model",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Anthropic"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "name": "Claude Fable 5.1",
+      "alternateName": "claude-fable-5-1",
+      "identifier": "claude-fable-5-1",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "applicationCategory": "Artificial intelligence model",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Anthropic"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://deepmind.google/models/model-cards/gemini-3-8-flash/",
+      "name": "Gemini 3.8 Flash",
+      "alternateName": "gemini-3.8-flash",
+      "identifier": "gemini-3.8-flash",
+      "url": "https://deepmind.google/models/model-cards/gemini-3-8-flash/",
+      "applicationCategory": "Artificial intelligence model",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Google DeepMind"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
+      "name": "Kimi K2.7 Code",
+      "alternateName": "kimi-k2.7-code",
+      "identifier": "kimi-k2.7-code",
+      "url": "https://huggingface.co/moonshotai/Kimi-K2.7-Code",
+      "applicationCategory": "Artificial intelligence model",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Moonshot AI"
+      }
     }
   ],
   "citation": [
@@ -228,7 +327,24 @@
       "height": 788,
       "creditText": "Shen et al., World of SWECraft (2026)",
       "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-      "isBasedOn": "https://arxiv.org/pdf/2610.24061v2#page=1"
+      "isBasedOn": "https://arxiv.org/pdf/2610.24061v2#page=1",
+      "about": [
+        {
+          "@id": "https://openai.com/index/gpt-6-astra/"
+        },
+        {
+          "@id": "https://developers.openai.com/api/docs/models/gpt-5.6-sol"
+        },
+        {
+          "@id": "https://www.anthropic.com/news/claude-opus-5"
+        },
+        {
+          "@id": "https://deepmind.google/models/model-cards/gemini-3-8-flash/"
+        },
+        {
+          "@id": "https://huggingface.co/moonshotai/Kimi-K2.7-Code"
+        }
+      ]
     },
     {
       "@type": "ImageObject",
@@ -239,7 +355,15 @@
       "height": 466,
       "creditText": "Shen et al., World of SWECraft (2026)",
       "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-      "isBasedOn": "https://arxiv.org/pdf/2610.24061v2#page=8"
+      "isBasedOn": "https://arxiv.org/pdf/2610.24061v2#page=8",
+      "about": [
+        {
+          "@id": "https://developers.openai.com/api/docs/models/gpt-5.6-sol"
+        },
+        {
+          "@id": "https://www.anthropic.com/news/claude-opus-5"
+        }
+      ]
     },
     {
       "@type": "ImageObject",
@@ -250,7 +374,21 @@
       "height": 765,
       "creditText": "Shen et al., World of SWECraft (2026)",
       "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
-      "isBasedOn": "https://arxiv.org/pdf/2610.24061v2#page=6"
+      "isBasedOn": "https://arxiv.org/pdf/2610.24061v2#page=6",
+      "about": [
+        {
+          "@id": "https://openai.com/index/gpt-6-astra/"
+        },
+        {
+          "@id": "https://www.anthropic.com/claude-opus-5-5"
+        },
+        {
+          "@id": "https://www.anthropic.com/claude-fable-and-mythos-5-1"
+        },
+        {
+          "@id": "https://deepmind.google/models/model-cards/gemini-3-8-flash/"
+        }
+      ]
     }
   ]
 }
@@ -372,7 +510,7 @@
 
           <figure id="figure-software-world" class="paper-figure">
             <a href="/writing/what-agents-can-learn-from-working-together/images/software-world-overview.webp" target="_blank" rel="noopener" aria-label="Enlarge Figure 1 from World of SWECraft">
-              <img src="/writing/what-agents-can-learn-from-working-together/images/software-world-overview.webp" alt="Figure 1 from World of SWECraft: a diagram of agents maintaining interconnected Python packages beside a graph comparing downstream speedups with and without collaboration." width="1788" height="788" loading="lazy" decoding="async">
+              <img src="/writing/what-agents-can-learn-from-working-together/images/software-world-overview.webp" alt="Figure 1 from World of SWECraft: connected Python packages and speedups with and without collaboration for Gemini 3.8 Flash, Claude Opus 5, Kimi K2.7 Code, GPT-5.6 Sol, and GPT-6 Astra." width="1788" height="788" loading="lazy" decoding="async">
             </a>
             <figcaption>Agents maintain connected software packages, with improvements measured on software they cannot see. <a href="https://arxiv.org/pdf/2610.24061v2#page=1">Shen et al., <cite>World of SWECraft</cite>, Figure 1</a> (2026). <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>. Click to enlarge.</figcaption>
           </figure>
@@ -385,7 +523,7 @@
 
           <figure id="figure-communication" class="paper-figure">
             <a href="/writing/what-agents-can-learn-from-working-together/images/communication-experiment.webp" target="_blank" rel="noopener" aria-label="Enlarge Figure 7 from World of SWECraft">
-              <img src="/writing/what-agents-can-learn-from-working-together/images/communication-experiment.webp" alt="Figure 7 from World of SWECraft: interaction networks for forced communication and mixed-model teams, alongside a chart showing no performance gain from forced communication for Sol." width="1788" height="466" loading="lazy" decoding="async">
+              <img src="/writing/what-agents-can-learn-from-working-together/images/communication-experiment.webp" alt="Figure 7 from World of SWECraft: GPT-5.6 Sol and Claude Opus 5 interaction networks and downstream speedups. Forced communication did not improve Sol’s performance." width="1788" height="466" loading="lazy" decoding="async">
             </a>
             <figcaption>More communication did not automatically improve results. <a href="https://arxiv.org/pdf/2610.24061v2#page=8">Shen et al., <cite>World of SWECraft</cite>, Figure 7</a> (2026). <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>. Click to enlarge.</figcaption>
           </figure>
@@ -394,7 +532,7 @@
 
           <figure id="figure-task-discovery" class="paper-figure paper-figure--compact">
             <a href="/writing/what-agents-can-learn-from-working-together/images/task-discovery.webp" target="_blank" rel="noopener" aria-label="Enlarge Figure 4 from World of SWECraft">
-              <img src="/writing/what-agents-can-learn-from-working-together/images/task-discovery.webp" alt="Figure 4 from World of SWECraft: downstream speedup versus tokens with default and discovery prompts. Some models improve with discovery prompts while Astra remains nearly flat." width="621" height="765" loading="lazy" decoding="async">
+              <img src="/writing/what-agents-can-learn-from-working-together/images/task-discovery.webp" alt="Figure 4 from World of SWECraft: default and discovery prompts for GPT-6 Astra, Claude Fable 5.1, and Claude Opus 5.5, with Gemini 3.8 Flash as a reference. Astra remains nearly flat." width="621" height="765" loading="lazy" decoding="async">
             </a>
             <figcaption>Asking models to keep exploring helped some find more work, but gains varied. <a href="https://arxiv.org/pdf/2610.24061v2#page=6">Shen et al., <cite>World of SWECraft</cite>, Figure 4</a> (2026). <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>. Click to enlarge.</figcaption>
           </figure>
@@ -407,6 +545,10 @@
         <footer class="article-footer">
           <p class="author-context"><a href="/" rel="author">David Gabeau</a> builds consumer products that bring people together. He works on Special Projects at a16z, building <a href="https://cosign.co">Cosign</a> in San Francisco. <a href="mailto:davidgabeau92@gmail.com">Say hi →</a></p>
           <p class="author-context">Related: <a href="/writing/zumi-learnings">5 lessons from building social AI for 160,000 users</a></p>
+          <div class="article-models" aria-label="Models in the paper figures">
+            <span class="article-byline">Models in the paper figures</span>
+            <p class="author-context"><a href="https://openai.com/index/gpt-6-astra/" title="gpt-6-astra">GPT-6 Astra</a> · <a href="https://developers.openai.com/api/docs/models/gpt-5.6-sol" title="gpt-5.6-sol">GPT-5.6 Sol</a> · <a href="https://www.anthropic.com/news/claude-opus-5" title="claude-opus-5">Claude Opus 5</a> · <a href="https://www.anthropic.com/claude-opus-5-5" title="claude-opus-5-5">Claude Opus 5.5</a> · <a href="https://www.anthropic.com/claude-fable-and-mythos-5-1" title="claude-fable-5-1">Claude Fable 5.1</a> · <a href="https://deepmind.google/models/model-cards/gemini-3-8-flash/" title="gemini-3.8-flash">Gemini 3.8 Flash</a> · <a href="https://huggingface.co/moonshotai/Kimi-K2.7-Code" title="kimi-k2.7-code">Kimi K2.7 Code</a></p>
+          </div>
           <span class="article-byline">Written by <a href="/" rel="author">David Gabeau</a> · November 9, 2026</span>
           <div class="article-share">
             <a href="https://twitter.com/intent/tweet?text=What%20Agents%20Can%20Learn%20From%20Working%20Together&amp;url=https%3A%2F%2Fdavidgabeau.com%2Fwriting%2Fwhat-agents-can-learn-from-working-together" target="_blank" rel="noopener noreferrer">Share on X</a>
