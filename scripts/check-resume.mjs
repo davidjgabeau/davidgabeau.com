@@ -42,7 +42,11 @@ for (const method of ['GET', 'HEAD']) {
 }
 
 const home = await fs.readFile('index.html', 'utf8');
-assert(/<nav aria-label="Main navigation">[\s\S]*?href="\/resume">Resume<\/a>[\s\S]*?<\/nav>/.test(home));
+// The resume stays publicly indexable without a promotional link in the site header.
+for (const page of [home, html]) {
+  const navigation = page.match(/<nav aria-label="Main navigation">([\s\S]*?)<\/nav>/)[1];
+  assert(!navigation.includes('href="/resume"'));
+}
 for (const [, href] of html.matchAll(/(?:href|src)="([^"\s]+)"/g)) {
   if (!href.startsWith('/')) continue;
   const [pathname, fragment] = href.split('#');
