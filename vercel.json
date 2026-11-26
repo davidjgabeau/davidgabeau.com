@@ -10,10 +10,10 @@
     },
     {
       "source": "/resume",
-      "destination": "/resume.pdf"
+      "destination": "/api/resume"
     }
   ],
-  "buildCommand": "npm run build:discovery && npm run check:discovery",
+  "buildCommand": "npm run build:discovery && npm run check:discovery && node scripts/check-resume.mjs",
   "trailingSlash": false,
   "redirects": [
     {
@@ -79,6 +79,32 @@
         {
           "key": "X-Robots-Tag",
           "value": "noindex"
+        }
+      ]
+    },
+    {
+      "source": "/David_Gabeau_Resume.pdf",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"David_Gabeau_Resume.pdf\""
+        },
+        {
+          "key": "Link",
+          "value": "<https://davidgabeau.com/resume>; rel=\"canonical\""
+        }
+      ]
+    },
+    {
+      "source": "/resume.pdf",
+      "headers": [
+        {
+          "key": "Content-Disposition",
+          "value": "attachment; filename=\"David_Gabeau_Resume.pdf\""
+        },
+        {
+          "key": "Link",
+          "value": "<https://davidgabeau.com/resume>; rel=\"canonical\""
         }
       ]
     }

@@ -6,6 +6,7 @@ This guide summarizes the public website. Canonical HTML pages are the primary s
 
 ## Profile and contact
 
+- [Resume](https://davidgabeau.com/resume): Professional experience, technical writing, and a downloadable PDF.
 - [About David Gabeau](https://davidgabeau.com/): Current work, career timeline, projects, and contact links.
 - [Email](mailto:davidgabeau92@gmail.com): Contact David directly.
 - [LinkedIn](https://www.linkedin.com/in/dgabeau/)

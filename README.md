@@ -91,6 +91,12 @@ ANTHROPIC_API_KEY=     # Used by the Anthropic playbook page demos
 
 ## Deployment
 
+The public resume at `/resume` is server-rendered by `api/resume.js` from
+`lib/resume-page.js`, using the site's shared fonts and navigation. Update that
+content and `David_Gabeau_Resume.pdf` together; keep `resume.pdf` identical for
+existing PDF links. The discovery build adds the canonical HTML page to the sitemap.
+Run `node scripts/check-resume.mjs` alongside the discovery checks before publishing.
+
 Deployed to Vercel. Every push to `main` triggers an automatic production deployment.
 
 ```bash

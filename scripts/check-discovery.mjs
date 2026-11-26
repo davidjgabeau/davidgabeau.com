@@ -50,7 +50,8 @@ for(const slug of await fs.readdir('writing')){
  }
  count++;
 }
-assert(count>=5);assert.equal((sitemap.match(/<url>/g)||[]).length,count+2);
+assert(count>=5);assert.equal((sitemap.match(/<url>/g)||[]).length,count+3);
+assert(sitemap.includes('<loc>'+origin+'/resume</loc>'));
 assert(!sitemap.includes('/anthropic')&&!sitemap.includes('/portfolio')&&!sitemap.includes('/sample'));
 assert(feed.includes('xmlns="http://www.w3.org/2005/Atom"'));
 const api=await read('api/sitemap.js');assert.equal(JSON.parse(api.match(/const sitemap = (.*);/)[1]),sitemap);
