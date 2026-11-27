@@ -378,7 +378,7 @@
         },
         {
           "id": "portfolio-products",
-          "text": "Built and led the Tapestry team behind Solana Social Explorer, which recorded $50M in trading volume in its first two months, and Primitives, where artists and collectors minted 500K NFTs.",
+          "text": "Built and led the Tapestry team behind Solana Social Explorer, which recorded $50M in trading volume in its first two months, and Primitives, where artists and collectors minted 500K NFTs. SSE coverage: Memecoin Daily; token profile: CoinMarketCap.",
           "emphasis": [
             "$50M in trading volume",
             "first two months",
@@ -392,6 +392,14 @@
             {
               "label": "Primitives",
               "work": "primitives"
+            },
+            {
+              "label": "Memecoin Daily",
+              "work": "sseCoverage"
+            },
+            {
+              "label": "CoinMarketCap",
+              "work": "sseToken"
             }
           ]
         }
@@ -1010,6 +1018,14 @@
     "brilliantInvestment": {
       "url": "https://www.usv.com/portfolio/company/brilliant",
       "title": "USV's Brilliant investment: Series B, 2020"
+    },
+    "sseCoverage": {
+      "url": "https://memecoindaily.io/what-is-solana-social-explorer-sse-and-why-is-this-meme-coin-going-up-so-much-today/",
+      "title": "Solana Social Explorer coverage in Memecoin Daily"
+    },
+    "sseToken": {
+      "url": "https://coinmarketcap.com/currencies/solana-social-explorer/",
+      "title": "Solana Social Explorer token profile on CoinMarketCap"
     }
   },
   "summaryLinks": [

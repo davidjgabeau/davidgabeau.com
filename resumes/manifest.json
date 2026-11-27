@@ -1,22 +1,22 @@
 {
-  "dataSha256": "96f2d8b2370e2e32a96b2fc384ca24e930b68abca273d1a77aefed5404efb314",
+  "dataSha256": "cfb12cc62e5a22c900928ca97858c7de3489adf932c82be0048c872af9713c93",
   "templateSha256": "c424fe74204562fc56bf73a4d841c6da843034379d938720abda2ed27372bd60",
   "builderSha256": "061fcfc30baa7fe3f5789781a884cb46787d875326d56de86719627f93618488",
   "pdfs": {
     "combined": {
       "file": "resumes/David_Gabeau_Resume_Combined.pdf",
       "pages": 2,
-      "sha256": "124018cc7033a21c5a3503d8e5d0565dc94e7b4a18a6b9fc62a39d3ab11ca54e"
+      "sha256": "1ee54b5812693bfcde9083573353cfee856145238edd672b2d467276e6da5a96"
     },
     "product": {
       "file": "resumes/David_Gabeau_Resume_Product.pdf",
       "pages": 2,
-      "sha256": "cca6e3ef5e1abf34122efca12e9908e9a997211fb5c8d46f3b7da979aacccf65"
+      "sha256": "c7b406b27203f576ef3f6caa0c6a59a52a8cfa0aaba9c05489da0bfeaa4773df"
     },
     "investor": {
       "file": "resumes/David_Gabeau_Resume_Investor.pdf",
       "pages": 2,
-      "sha256": "4b407c623cbd95f9973fd33787ca699ed84f367b5952e13f11022e6e5fe7b05c"
+      "sha256": "572107d2674a2c007e64de659cbfa98fa08257339314333a12bb9d6f526eaa3d"
     }
   }
 }
