@@ -93,7 +93,17 @@
         "agent memory",
         "capability, quality, latency, and cost tradeoffs"
       ],
-      "pdf": "LLM evaluation and selection, multimodal AI, inference optimization, routing and caching, context design, agent memory"
+      "pdf": "LLM evaluation and selection, multimodal AI, inference optimization, routing and caching, context design, agent memory",
+      "links": [
+        {
+          "label": "agent memory",
+          "publication": "memory"
+        },
+        {
+          "label": "multimodal AI",
+          "work": "zumiLaunch"
+        }
+      ]
     },
     {
       "id": "developers",
@@ -105,7 +115,17 @@
         "technical enablement",
         "ecosystem growth"
       ],
-      "pdf": "API design, developer experience, documentation, enablement, ecosystem growth"
+      "pdf": "API design, developer experience, documentation, enablement, ecosystem growth",
+      "links": [
+        {
+          "label": "API design",
+          "work": "protocol"
+        },
+        {
+          "label": "documentation",
+          "work": "starterKit"
+        }
+      ]
     },
     {
       "id": "investment",
@@ -192,7 +212,10 @@
       "bullets": [],
       "organizationName": "Andreessen Horowitz",
       "organizationAlias": "a16z",
-      "organizationUrl": "https://a16z.com/"
+      "organizationUrl": "https://a16z.com/",
+      "pdfEmphasis": [
+        "Cosign"
+      ]
     },
     {
       "id": "tapestry",
@@ -214,6 +237,12 @@
             "59K",
             "17-minute",
             "4.8 App Store rating"
+          ],
+          "links": [
+            {
+              "label": "Zumi",
+              "work": "zumi"
+            }
           ]
         },
         {
@@ -224,6 +253,12 @@
             "LLM evaluations",
             "generation costs by ~90%",
             "voice latency by 400ms"
+          ],
+          "links": [
+            {
+              "label": "memory retrieval",
+              "publication": "memory"
+            }
           ]
         },
         {
@@ -234,6 +269,16 @@
             "1.84M",
             "244% quarter-over-quarter user growth",
             "40% more messages per active user"
+          ],
+          "links": [
+            {
+              "label": "1.84M",
+              "publication": "zumi"
+            },
+            {
+              "label": "generative stories",
+              "work": "zumiLaunch"
+            }
           ]
         },
         {
@@ -243,6 +288,12 @@
           "emphasis": [
             "inference latency",
             "explicit privacy boundaries"
+          ],
+          "links": [
+            {
+              "label": "inference latency",
+              "publication": "zumi"
+            }
           ]
         },
         {
@@ -254,6 +305,20 @@
             "74-team",
             "96%",
             "12.5K"
+          ],
+          "links": [
+            {
+              "label": "API",
+              "work": "protocol"
+            },
+            {
+              "label": "documentation",
+              "work": "starterKit"
+            },
+            {
+              "label": "74-team hackathon",
+              "work": "hackathon"
+            }
           ]
         },
         {
@@ -273,7 +338,41 @@
             "10 TikTok partners",
             "millions of views",
             "tens of thousands of app installs"
+          ],
+          "links": [
+            {
+              "label": "creator-led",
+              "publication": "zumi"
+            }
           ]
+        }
+      ],
+      "links": [
+        {
+          "label": "Tapestry",
+          "work": "tapestry"
+        },
+        {
+          "label": "social-graph API",
+          "work": "whitepaper"
+        },
+        {
+          "label": "Zumi",
+          "work": "zumi"
+        }
+      ],
+      "resources": [
+        {
+          "label": "Whitepaper",
+          "work": "whitepaper"
+        },
+        {
+          "label": "Protocol code",
+          "work": "protocol"
+        },
+        {
+          "label": "Series A announcement",
+          "work": "seriesA"
         }
       ]
     },
@@ -295,6 +394,12 @@
           "emphasis": [
             "Uniswap's Series A",
             "Coinbase and Uniswap served distinct markets"
+          ],
+          "links": [
+            {
+              "label": "Uniswap's Series A",
+              "work": "uniswapSeriesA"
+            }
           ]
         },
         {
@@ -502,17 +607,20 @@
     {
       "id": "accelerate",
       "event": "Solana Accelerate 2025",
-      "title": "Your Social Graph Should Be Yours"
+      "title": "Your Social Graph Should Be Yours",
+      "url": "https://www.youtube.com/watch?v=RFefW3mSNs0"
     },
     {
       "id": "farcon",
       "event": "FarCon NYC",
-      "title": "Fireside chat with Dan Romero, co-founder of Farcaster, on open protocols vs. platforms"
+      "title": "Fireside chat with Dan Romero, co-founder of Farcaster, on open protocols vs. platforms",
+      "url": "https://blog.usetapestry.dev/p/farcon-event-recap"
     },
     {
       "id": "boston",
-      "event": "Solana Boston 2025",
-      "title": "David Gabeau on Tapestry and Social Primitives"
+      "event": "Solana Boston 2024",
+      "title": "David Gabeau on Tapestry and Social Primitives",
+      "url": "https://www.youtube.com/watch?v=UQNFChe5hCM"
     }
   ],
   "education": [
@@ -797,5 +905,61 @@
         ]
       }
     }
-  }
+  },
+  "workLinks": {
+    "tapestry": {
+      "url": "https://usetapestry.dev",
+      "title": "Tapestry"
+    },
+    "zumi": {
+      "url": "https://apps.apple.com/us/app/zumi-chat-dress-up/id6751237911",
+      "title": "Zumi on the App Store"
+    },
+    "protocol": {
+      "url": "https://github.com/Primitives-xyz/primitives-protocol",
+      "title": "Tapestry protocol source code"
+    },
+    "whitepaper": {
+      "url": "https://assets.usetapestry.dev/whitepaper.pdf",
+      "title": "Tapestry whitepaper"
+    },
+    "starterKit": {
+      "url": "https://github.com/Primitives-xyz/solana-starter-kit",
+      "title": "Tapestry Solana starter kit"
+    },
+    "zumiLaunch": {
+      "url": "https://blog.usetapestry.dev/p/introducing-zumi-20",
+      "title": "Introducing Zumi 2.0"
+    },
+    "hackathon": {
+      "url": "https://blog.usetapestry.dev/p/solana-graveyard-hackathon",
+      "title": "Graveyard Hackathon results"
+    },
+    "seriesA": {
+      "url": "https://blog.usetapestry.dev/p/tapestry-series-a",
+      "title": "Tapestry Series A announcement"
+    },
+    "uniswapSeriesA": {
+      "url": "https://blog.uniswap.org/uniswap-raise",
+      "title": "Uniswap Series A announcement"
+    }
+  },
+  "summaryLinks": [
+    {
+      "label": "Cosign",
+      "url": "https://cosign.co"
+    },
+    {
+      "label": "Zumi",
+      "work": "zumi"
+    },
+    {
+      "label": "Tapestry's API",
+      "work": "protocol"
+    },
+    {
+      "label": "Uniswap's Series A",
+      "work": "uniswapSeriesA"
+    }
+  ]
 }

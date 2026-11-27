@@ -58,6 +58,11 @@
   .resume-views a { flex: 1; padding-inline: 10px; }
   .resume-download { gap: 14px; }
 }
+.resume-summary a, .resume-job > p a, .resume-job li a, .resume-skills a, .resume-speaking a {
+  text-decoration: underline; text-decoration-color: #aeb5ab; text-underline-offset: 3px;
+}
+.resume-summary a:hover, .resume-job a:hover, .resume-skills a:hover, .resume-speaking a:hover { text-decoration-color: var(--ink); }
+.resume-work-links { display: flex; flex-wrap: wrap; gap: 5px 10px; margin-top: 12px; font-size: 14px; }
 @media print {
   @page { size: letter; margin: 0.6in; }
   html { scroll-behavior: auto; }

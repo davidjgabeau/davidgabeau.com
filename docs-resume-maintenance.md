@@ -15,6 +15,10 @@
 
 These facts follow the latest verified product and NVIDIA corporate-development resumes and explicit corrections provided on November 26, 2026. Older source documents do not override them.
 
+## Work sample links
+
+`workLinks` holds verified artifact URLs. Inline `links` can reference a `work`, `publication`, or `project` ID, or an explicit URL. The HTML renderer and PDF builder preserve emphasis inside linked phrases. Speaking entries use a verified `url` when available. Do not link private financial work to generic material or present a partial financing announcement as proof of cumulative fundraising.
+
 ## Views and URLs
 
 - `/resume` (default) or `/resume?view=combined`

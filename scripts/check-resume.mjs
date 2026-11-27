@@ -3,7 +3,7 @@ import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
 import path from 'node:path';
 import handler from '../api/resume.js';
-import { renderResume, resumeMetadata, resumeData as data, normalizeView, pdfUrl, escapeHtml } from '../lib/resume-page.js';
+import { renderResume, resumeMetadata, resumeData as data, normalizeView, pdfUrl, escapeHtml, resolveWorkLink } from '../lib/resume-page.js';
 
 const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
 const config = JSON.parse(await fs.readFile('vercel.json', 'utf8'));
@@ -32,6 +32,15 @@ assert.equal(normalizeView(null),'combined');
 assert.equal(normalizeView('PRODUCT'),'product');
 assert.equal(renderResume('bad'),renderResume('combined'));
 const allAccomplishments = data.experience.flatMap(job=>job.bullets.map(b=>`${job.id}-${b.id}`)).sort();
+const workUrls = new Set();
+function collectWorkLinks(value) {
+  if (Array.isArray(value)) { for (const item of value) collectWorkLinks(item); return; }
+  if (!value || typeof value !== 'object') return;
+  if (value.label && (value.work || value.publication || value.project || value.url)) workUrls.add(resolveWorkLink(value));
+  for (const item of Object.values(value)) collectWorkLinks(item);
+}
+collectWorkLinks(data);
+assert(workUrls.size >= 10);
 const home = await fs.readFile('index.html','utf8');
 const headlinePositions = [];
 for (const [key,view] of Object.entries(data.views)) {
@@ -39,8 +48,11 @@ for (const [key,view] of Object.entries(data.views)) {
   assert.equal((html.match(/<h1\b/g)||[]).length,1);
   assert(html.includes('<h1>David Gabeau</h1>'));
   assert(html.includes(`<p class="resume-position">${escapeHtml(view.headline)}</p>`));
-  assert(html.includes(escapeHtml(view.summary)));
+  assert(html.replace(/<[^>]*>/g,'').includes(escapeHtml(view.summary)));
   assert(html.includes(`data-resume-view="${key}"`));
+  for (const url of workUrls) assert(html.includes(`href="${escapeHtml(url)}"`), `Missing work sample ${url} in ${key}`);
+  for (const talk of data.speaking.filter(talk=>talk.url)) assert(html.includes(`href="${escapeHtml(talk.url)}"`));
+  assert(html.includes('<a href="https://davidgabeau.com/writing/zumi-learnings"><strong>1.84M</strong></a>'));
   assert(html.includes('<title>'+escapeHtml(view.title)+'</title>'));
   assert(html.includes('rel="canonical" href="https://davidgabeau.com/resume"'));
   assert(html.includes('name="robots" content="index, follow'));
