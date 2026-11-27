@@ -234,3 +234,10 @@
  .camera-veil::after,.camera-input-row button{transition:none!important}
  .camera-roll[data-camera-state="open"] .camera-veil::after{transform:translateX(-18%) rotate(-7deg)}
 }
+
+/* Keep drawings pale while their readable captions retain sufficient contrast. */
+@media(min-width:701px){
+ .place-studies .margin-study,.career .skyline{opacity:1}
+ .place-studies .margin-study img{opacity:.72}
+ .career .skyline img{opacity:.75}
+}

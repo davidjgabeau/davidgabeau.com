@@ -1,6 +1,6 @@
 # David Gabeau
 
-> David Gabeau builds consumer products that bring people together. He works on Special Projects at a16z, building Cosign in San Francisco. Previously founder and CEO of Tapestry, analyst at Union Square Ventures, and quality engineer at Snap and Lyft.
+> David Gabeau is an AI product and strategy leader, technology founder, and former USV investor based in San Francisco. He leads Cosign on the a16z New Media team as Product Lead, Cosign (Contract). Previously founder and CEO of Tapestry, analyst at Union Square Ventures, and quality engineer at Snap and Lyft.
 
 This guide summarizes the public website. Canonical HTML pages are the primary sources; Markdown companions contain the same essays in a simpler reading format.
 
@@ -23,7 +23,7 @@ This guide summarizes the public website. Canonical HTML pages are the primary s
 - [Tapestry](https://usetapestry.dev): David founded and led a team of 12, raised $12.5M, and wound down the company in 2026. Open social graph infrastructure.
 - [Zumi](https://apps.apple.com/us/app/zumi-chat-dress-up/id6751237911): A multiplayer AI companion built by Tapestry that grew to 160,000 users.
 - [Primitives](https://techcrunch.com/2022/05/25/primitives-crypto-wallet-social-network-snapchat-startup/): A Tapestry product for collecting digital art; artists and collectors minted 500,000 NFTs.
-- [SSE](https://sse.gg): Open-source Solana trading platform built by Tapestry, with $50M in trading volume in its first two months.
+- [SSE](https://coinmarketcap.com/currencies/solana-social-explorer/): Open-source Solana trading platform built by Tapestry, with $50M in trading volume in its first two months.
 
 ## Side projects
 

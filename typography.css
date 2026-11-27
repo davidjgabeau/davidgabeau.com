@@ -62,3 +62,6 @@ th, dt { font-weight: 500; }
   letter-spacing:0 !important;
   text-transform:none;
 }
+
+/* Small reading-page links and copyright text stay within the paper palette. */
+.writing-post .article-share a,.writing-post .footer-links a,.writing-post .footer-copy{color:var(--muted)}

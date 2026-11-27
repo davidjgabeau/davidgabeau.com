@@ -47,6 +47,8 @@ assert.equal(head.status, 200); assert.equal(head.body, undefined);
 assert((await call(camera, { method: 'DELETE', cookie })).headers['Set-Cookie'].includes('Max-Age=0'));
 await assert.rejects(fs.access('public-site/private'));
 await assert.rejects(fs.access('public-site/api'));
+await assert.rejects(fs.access('public-site/lib'));
+await assert.rejects(fs.access('public-site/docs-camera-roll.md'));
 const html = await fs.readFile('public-site/index.html', 'utf8');
 assert.equal((html.match(/data-src="\/api\/camera-photo\?/g) || []).length, 22);
 assert(!html.includes('src="/images/notebook/sf.webp"'));
