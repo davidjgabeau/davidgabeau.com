@@ -1,0 +1,801 @@
+{
+  "version": 1,
+  "updated": "2026-11-26",
+  "person": {
+    "name": "David Gabeau",
+    "location": "San Francisco, CA",
+    "email": "davidgabeau92@gmail.com",
+    "phone": "(240) 593-3853",
+    "phoneUrl": "tel:+12405933853",
+    "website": "https://davidgabeau.com",
+    "linkedin": "https://www.linkedin.com/in/dgabeau/",
+    "github": "https://github.com/primitives-xyz",
+    "sameAs": [
+      "https://www.linkedin.com/in/dgabeau/",
+      "https://github.com/davidjgabeau",
+      "https://x.com/dgabeau"
+    ],
+    "address": {
+      "name": "San Francisco, California",
+      "city": "San Francisco",
+      "region": "CA",
+      "country": "US"
+    },
+    "knowsAbout": [
+      "AI product strategy",
+      "Multimodal AI",
+      "LLM evaluation",
+      "Developer platforms",
+      "Venture investing",
+      "Financial modeling",
+      "Commercial and technical due diligence",
+      "AI infrastructure economics"
+    ]
+  },
+  "metrics": {
+    "users": {
+      "text": "160K+ Zumi users",
+      "pdf": "160K+ users"
+    },
+    "mau": {
+      "text": "59K monthly active users",
+      "pdf": "59K MAU"
+    },
+    "developers": {
+      "text": "1,000+ Tapestry developers",
+      "pdf": "1,000+ developers"
+    },
+    "cost": {
+      "text": "~90% lower AI generation cost",
+      "pdf": "~90% lower AI cost"
+    },
+    "raised": {
+      "text": "$12.5M raised as a founder",
+      "pdf": "$12.5M raised"
+    },
+    "sourcing": {
+      "text": "2 of USV's 8 investments in 2020 sourced",
+      "pdf": "25% of USV's 2020 investments sourced"
+    },
+    "engagement": {
+      "text": "17-minute daily sessions",
+      "pdf": "17-minute daily sessions"
+    },
+    "growth": {
+      "text": "244% quarter-over-quarter user growth",
+      "pdf": "244% QoQ user growth"
+    }
+  },
+  "skills": [
+    {
+      "id": "product",
+      "name": "Product leadership",
+      "items": [
+        "0-to-1 products",
+        "strategy and roadmaps",
+        "prioritization",
+        "customer discovery",
+        "experimentation",
+        "adoption metrics",
+        "cross-functional execution"
+      ],
+      "pdf": "0-to-1 products, strategy and roadmaps, customer discovery, experimentation, adoption metrics, cross-functional execution"
+    },
+    {
+      "id": "models",
+      "name": "AI models & inference",
+      "items": [
+        "LLM evaluation and selection",
+        "multimodal AI",
+        "inference optimization",
+        "routing and caching",
+        "context engineering",
+        "agent memory",
+        "capability, quality, latency, and cost tradeoffs"
+      ],
+      "pdf": "LLM evaluation and selection, multimodal AI, inference optimization, routing and caching, context design, agent memory"
+    },
+    {
+      "id": "developers",
+      "name": "Developer platforms",
+      "items": [
+        "API design",
+        "developer experience",
+        "documentation",
+        "technical enablement",
+        "ecosystem growth"
+      ],
+      "pdf": "API design, developer experience, documentation, enablement, ecosystem growth"
+    },
+    {
+      "id": "investment",
+      "name": "Investments & financial analysis",
+      "items": [
+        "financial modeling",
+        "DCF valuation",
+        "venture return modeling",
+        "investment sourcing and evaluation",
+        "cap table analysis",
+        "financing structures",
+        "term sheet negotiations",
+        "investment committee presentations"
+      ],
+      "pdf": "Financial modeling, DCF valuation, venture return modeling, sourcing and evaluation, cap table analysis, financing structures, term sheet negotiations, investment committee presentations"
+    },
+    {
+      "id": "strategy",
+      "name": "Strategy & due diligence",
+      "items": [
+        "commercial and technical due diligence",
+        "competitive landscape analysis",
+        "emerging technology assessment",
+        "market mapping",
+        "strategic partnerships",
+        "AI infrastructure economics"
+      ],
+      "pdf": "Commercial and technical due diligence, competitive landscapes, emerging technology assessment, market mapping, partnerships, AI infrastructure economics"
+    },
+    {
+      "id": "leadership",
+      "name": "Company leadership",
+      "items": [
+        "executive communication",
+        "cross-functional leadership",
+        "investor relations",
+        "venture fundraising",
+        "founder and co-investor coordination",
+        "external legal counsel coordination"
+      ],
+      "pdf": "Executive communication, cross-functional leadership, investor relations, venture fundraising, founder and legal coordination"
+    },
+    {
+      "id": "technical",
+      "name": "Technical",
+      "items": [
+        "Claude",
+        "OpenAI",
+        "Gemini",
+        "Minimax",
+        "Claude Code",
+        "Codex",
+        "LangChain",
+        "LlamaIndex",
+        "OpenRouter",
+        "Python",
+        "SQL",
+        "Node.js",
+        "Supabase",
+        "Statsig",
+        "Vercel",
+        "Cloudflare"
+      ],
+      "pdf": "Claude, OpenAI, Gemini, Minimax, Claude Code, Codex, Python, SQL, APIs"
+    }
+  ],
+  "experience": [
+    {
+      "id": "a16z",
+      "company": "Andreessen Horowitz (a16z)",
+      "pdfCompany": "ANDREESSEN HOROWITZ (a16z)",
+      "title": "Product Lead, Cosign (Contract)",
+      "team": "New Media Team",
+      "start": "2026-10",
+      "end": null,
+      "overview": "Lead 0-to-1 product development for Cosign, an a16z New Media initiative surfacing opportunities, emerging talent, and technology projects. Translate ambiguous opportunities and early adopter feedback from builders and investors into product direction and execution.",
+      "pdfOverview": "Lead 0-to-1 development for Cosign, an a16z New Media initiative surfacing talent and technology projects. Translate builder and investor feedback into product direction and execution.",
+      "links": [
+        {
+          "label": "Cosign",
+          "url": "https://cosign.co"
+        }
+      ],
+      "bullets": [],
+      "organizationName": "Andreessen Horowitz",
+      "organizationAlias": "a16z",
+      "organizationUrl": "https://a16z.com/"
+    },
+    {
+      "id": "tapestry",
+      "company": "Tapestry (Zumi)",
+      "pdfCompany": "TAPESTRY (ZUMI)",
+      "title": "Founder, CEO & Product Lead",
+      "location": "Brooklyn, NY",
+      "start": "2022-01",
+      "end": "2026-08",
+      "overview": "Founded Tapestry, a social-graph API, and Zumi, a multimodal AI product spanning chat, stories, voice, and image/video generation, with hundreds of thousands of generated images and videos. Led a 12-person cross-functional team with five direct reports across Product, Design, Engineering, Marketing, and Business Development. Owned company strategy, fundraising, product development, launch, go-to-market, and ecosystem partnerships.",
+      "pdfOverview": "Founded Zumi, a multimodal AI app for chat, stories, voice, and image/video, and Tapestry, a social-graph API. Led a 12-person team with five direct reports, owning strategy, fundraising, product development, and partnerships.",
+      "bullets": [
+        {
+          "id": "scale",
+          "text": "Built Zumi from concept to 160K+ registered users and 59K monthly active users within six months, with 17-minute daily sessions and a 4.8 App Store rating.",
+          "pdfText": "Scaled Zumi to 160K+ users and 59K MAU within six months, with 17-minute daily sessions and a 4.8 App Store rating.",
+          "emphasis": [
+            "160K+",
+            "59K",
+            "17-minute",
+            "4.8 App Store rating"
+          ]
+        },
+        {
+          "id": "models",
+          "text": "Led LLM evaluations of conversation quality, memory retrieval, and product behavior to inform model selection and context design. Built routing and caching across Claude, OpenAI, Gemini, and Minimax, reducing generation costs by ~90% and voice latency by 400ms while maintaining quality.",
+          "pdfText": "Led LLM evaluations, routing, and caching across Claude, OpenAI, Gemini, and Minimax; cut generation costs by ~90% and voice latency by 400ms while maintaining quality.",
+          "emphasis": [
+            "LLM evaluations",
+            "generation costs by ~90%",
+            "voice latency by 400ms"
+          ]
+        },
+        {
+          "id": "growth",
+          "text": "Identified an emerging market opportunity in persistent, multiplayer AI companions. Analyzed 1.84M user messages to shape shared AI worlds, agent interactions, and generative stories. Launched multiplayer engagement systems that drove 244% quarter-over-quarter user growth and 40% more messages per active user.",
+          "pdfText": "Used insights from 1.84M messages to shape multiplayer AI companions and generative stories, driving 244% quarter-over-quarter user growth and 40% more messages per active user.",
+          "emphasis": [
+            "1.84M",
+            "244% quarter-over-quarter user growth",
+            "40% more messages per active user"
+          ]
+        },
+        {
+          "id": "interaction",
+          "text": "Designed asynchronous generative experiences around inference latency and natural interaction flows, balancing model capabilities with user trust through content safeguards and explicit privacy boundaries between personal and shared AI experiences.",
+          "pdfText": "Designed asynchronous multimodal experiences around inference latency, with content safeguards and explicit privacy boundaries between personal and shared AI worlds.",
+          "emphasis": [
+            "inference latency",
+            "explicit privacy boundaries"
+          ]
+        },
+        {
+          "id": "developers",
+          "text": "Used structured developer feedback and technical enablement to improve Tapestry's API, documentation, and adoption across 1,000+ developers. Ran a 74-team hackathon where 96% shipped public repositories and a three-week accelerator reaching 12.5K demo-day viewers.",
+          "pdfText": "Grew Tapestry to 1,000+ developers through API improvements, documentation, and enablement; ran a 74-team hackathon (96% shipped public repos) and an accelerator reaching 12.5K viewers.",
+          "emphasis": [
+            "1,000+ developers",
+            "74-team",
+            "96%",
+            "12.5K"
+          ]
+        },
+        {
+          "id": "financing",
+          "text": "Raised $12.5M in venture financing from USV, Redpoint, Slow Ventures, Fabric Ventures, Stellation, and Harlem Capital; negotiated financing term sheets and managed investor relationships.",
+          "pdfText": "Raised $12.5M from USV, Redpoint, Slow Ventures, Fabric Ventures, Stellation, and Harlem Capital; negotiated financing term sheets and managed investor relationships.",
+          "emphasis": [
+            "Raised $12.5M",
+            "negotiated financing term sheets"
+          ]
+        },
+        {
+          "id": "distribution",
+          "text": "Built a creator-led acquisition program with 10 TikTok partners, generating millions of views and tens of thousands of app installs while establishing a repeatable go-to-market playbook.",
+          "pdfText": "Built creator-led distribution with 10 TikTok partners, generating millions of views and tens of thousands of app installs.",
+          "emphasis": [
+            "10 TikTok partners",
+            "millions of views",
+            "tens of thousands of app installs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "usv",
+      "company": "Union Square Ventures",
+      "pdfCompany": "UNION SQUARE VENTURES (USV)",
+      "title": "Analyst",
+      "location": "New York, NY",
+      "start": "2020-03",
+      "end": "2021-12",
+      "overview": "Evaluated early-stage companies on product-market fit, technical architecture, market structure, scalability, and venture-scale investment potential.",
+      "pdfOverview": "",
+      "bullets": [
+        {
+          "id": "thesis",
+          "text": "Led diligence on Uniswap's Series A; developed the investment thesis that Coinbase and Uniswap served distinct markets, securing partner approval.",
+          "pdfText": "Led diligence on Uniswap's Series A; developed the thesis that Coinbase and Uniswap served distinct markets, securing partner approval.",
+          "emphasis": [
+            "Uniswap's Series A",
+            "Coinbase and Uniswap served distinct markets"
+          ]
+        },
+        {
+          "id": "sourcing",
+          "text": "Sourced and supported two of USV's eight investments in 2020, including Brilliant and Uniswap; evaluated market structure, technical architecture, founder capabilities, and venture-scale returns.",
+          "pdfText": "Sourced and supported 2 of USV's 8 investments in 2020, including Brilliant and Uniswap; evaluated market structure, technical architecture, founder capabilities, and venture-scale returns.",
+          "emphasis": [
+            "two of USV's eight investments in 2020",
+            "2 of USV's 8 investments in 2020"
+          ]
+        },
+        {
+          "id": "modeling",
+          "text": "Conducted financial modeling and valuation, including discounted cash flow (DCF), venture return modeling, cap table analysis, and financing structure assessments.",
+          "emphasis": [
+            "financial modeling",
+            "discounted cash flow (DCF)",
+            "venture return modeling",
+            "cap table analysis"
+          ]
+        },
+        {
+          "id": "diligence",
+          "text": "Performed commercial and technical due diligence on competitive landscapes, market opportunities, product differentiation, and business scalability.",
+          "emphasis": [
+            "commercial and technical due diligence"
+          ]
+        },
+        {
+          "id": "committee",
+          "text": "Presented recommendations to the investment committee; coordinated with founders, co-investors, and external legal counsel throughout investment evaluation and transactions.",
+          "emphasis": [
+            "investment committee",
+            "external legal counsel"
+          ]
+        },
+        {
+          "id": "portfolio",
+          "text": "Supported portfolio company founders and attended board meetings alongside investment partners.",
+          "emphasis": [
+            "portfolio company founders",
+            "attended board meetings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lyft",
+      "company": "Lyft",
+      "pdfCompany": "LYFT",
+      "title": "Quality Engineer, Rider Experience",
+      "location": "New York, NY",
+      "start": "2018-08",
+      "end": "2020-02",
+      "overview": "Among Lyft's first NYC engineers, through IPO. Sole quality engineer for the rider-collaboration pod.",
+      "bullets": [
+        {
+          "id": "releases",
+          "text": "Owned release readiness for rider-driver connection features used by millions of daily riders, defining release criteria in partnership with Product, Engineering, and Design.",
+          "pdfText": "Owned release readiness for rider-driver features used by millions, partnering with Product, Engineering, and Design.",
+          "emphasis": [
+            "millions of daily riders",
+            "release readiness"
+          ]
+        },
+        {
+          "id": "quality",
+          "text": "Drove an 18% reduction in critical bugs by tightening the release process across teams.",
+          "emphasis": [
+            "18% reduction in critical bugs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "snap",
+      "company": "Snapchat",
+      "pdfCompany": "SNAPCHAT",
+      "title": "QA Engineer, Stories",
+      "location": "Los Angeles, CA",
+      "start": "2015-12",
+      "end": "2018-03",
+      "overview": "Employee #490 (pre-IPO). Filled the de facto PM role for the 30-person Stories pod before Snap had PMs, coordinating sprint and bug planning with engineering leaders.",
+      "pdfOverview": "Employee #490 (pre-IPO). Served as de facto PM for the 30-person Stories pod, coordinating engineering priorities and release planning.",
+      "bullets": [
+        {
+          "id": "executive",
+          "text": "Resolved Evan Spiegel's Stories product escalations and reported outcomes directly to him.",
+          "emphasis": [
+            "Evan Spiegel"
+          ]
+        },
+        {
+          "id": "planning",
+          "text": "Drove sprint and release planning for 200+ features across a team of 30 engineers.",
+          "emphasis": [
+            "200+ features",
+            "30 engineers"
+          ]
+        },
+        {
+          "id": "automation",
+          "text": "Built the team's automated testing framework with Capybara and Selenium, replacing manual smoke tests each release and cutting hot fixes 80% year-over-year.",
+          "pdfText": "Built automated testing with Capybara and Selenium, replacing manual smoke tests and cutting hot fixes 80% year-over-year.",
+          "emphasis": [
+            "hot fixes 80%"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "huffpost",
+      "company": "The Huffington Post",
+      "pdfCompany": "THE HUFFINGTON POST",
+      "title": "Software Engineer",
+      "location": "New York, NY",
+      "start": "2015-05",
+      "end": "2015-12",
+      "overview": "Built automated testing systems in Ruby and Selenium for the web platform, improving release speed and reliability.",
+      "bullets": []
+    }
+  ],
+  "projects": [
+    {
+      "id": "atlas",
+      "name": "AI Atlas NYC",
+      "url": "https://aiatlas.nyc",
+      "role": "Sole Builder",
+      "start": "2026-03",
+      "end": null,
+      "description": "Built an open-source, automated AI market intelligence platform tracking startups, venture funding, and founder signals across NYC's AI ecosystem. Developed an agent-powered research pipeline, nightly refreshes, and a hosted backend API to maintain an evolving map of the AI market.",
+      "pdfText": "Built an open-source AI market intelligence platform tracking NYC startups, funding, and founder signals, with an agent-powered nightly research pipeline and hosted backend API."
+    },
+    {
+      "id": "bramble",
+      "name": "Bramble",
+      "url": "https://trybramble.ai",
+      "role": "Sole Builder",
+      "start": "2026-05",
+      "end": null,
+      "description": "Built a local-first macOS application for Claude Code and Codex that captures prompts, tool calls, edits, and model responses as structured, searchable development logs. A context and memory tool for AI-assisted developer workflows; data stays local unless shared.",
+      "pdfText": "Built a local-first macOS context and memory tool turning Claude Code and Codex sessions into searchable development logs."
+    }
+  ],
+  "publications": [
+    {
+      "id": "agents",
+      "title": "What Agents Can Learn From Working Together",
+      "date": "2026-11",
+      "publisher": "David Gabeau",
+      "category": "AI research",
+      "url": "https://davidgabeau.com/writing/what-agents-can-learn-from-working-together",
+      "description": "Analyzed World of SWECraft research on autonomous task discovery and multi-agent coordination, connecting frontier model capabilities to limitations encountered building Zumi."
+    },
+    {
+      "id": "zumi",
+      "title": "5 Lessons From Building Social AI for 160,000 Users",
+      "date": "2026-09",
+      "publisher": "David Gabeau",
+      "category": "AI product research",
+      "url": "https://davidgabeau.com/writing/zumi-learnings",
+      "description": "Product lessons from 1.84M messages: shared AI worlds, inference latency, persistent identity, and trust."
+    },
+    {
+      "id": "memory",
+      "title": "Public, Structured Agent Memory",
+      "date": "2025-07",
+      "publisher": "Tapestry",
+      "category": "AI research",
+      "url": "https://blog.usetapestry.dev/p/structured-agent-memory",
+      "description": "Explored interoperable agent memory through shared ontologies, knowledge graphs, and persistent worlds."
+    },
+    {
+      "id": "assets",
+      "title": "Tokenized Natural Assets",
+      "date": "2021-04",
+      "publisher": "Union Square Ventures",
+      "pdfPublisher": "USV",
+      "category": "Investment research",
+      "url": "https://www.usv.com/writing/tokenized-natural-assets",
+      "description": "Examined tokenization, market design, and financial incentives for natural assets."
+    },
+    {
+      "id": "ar",
+      "title": "Augmented Reality NFTs",
+      "date": "2020-06",
+      "publisher": "Union Square Ventures",
+      "pdfPublisher": "USV",
+      "category": "Investment research",
+      "url": "https://www.usv.com/writing/2020/06/augmented-reality-nfts/",
+      "description": "Analyzed digital ownership, virtual asset economics, and emerging consumer applications."
+    },
+    {
+      "id": "synchronous",
+      "title": "Synchronous Entertainment",
+      "date": "2020-03",
+      "publisher": "Union Square Ventures",
+      "pdfPublisher": "USV",
+      "category": "Investment research",
+      "url": "https://www.usv.com/writing/2020/03/sychronous-entertainment/",
+      "description": "Explored real-time social entertainment and opportunities for creators to connect audiences."
+    }
+  ],
+  "speaking": [
+    {
+      "id": "accelerate",
+      "event": "Solana Accelerate 2025",
+      "title": "Your Social Graph Should Be Yours"
+    },
+    {
+      "id": "farcon",
+      "event": "FarCon NYC",
+      "title": "Fireside chat with Dan Romero, co-founder of Farcaster, on open protocols vs. platforms"
+    },
+    {
+      "id": "boston",
+      "event": "Solana Boston 2025",
+      "title": "David Gabeau on Tapestry and Social Primitives"
+    }
+  ],
+  "education": [
+    {
+      "institution": "New York University",
+      "qualification": "Coursework toward Bachelor of Science"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Future of AI",
+      "issuer": "BlueDot Impact",
+      "issued": "2026-10"
+    }
+  ],
+  "community": [
+    {
+      "organization": "Code Nation",
+      "title": "Volunteer Teacher",
+      "location": "New York, NY",
+      "start": "2015-09",
+      "end": null
+    }
+  ],
+  "views": {
+    "combined": {
+      "label": "Combined",
+      "headline": "AI Product & Strategy Leader | Technology Founder & Venture Investor.",
+      "title": "David Gabeau Resume | AI Product & Strategy Leader",
+      "description": "David Gabeau is an AI product and strategy leader, technology founder, and former USV investor in San Francisco, currently leading Cosign at a16z.",
+      "summary": "AI product and strategy leader, technology founder, and former Union Square Ventures investor based in San Francisco, currently leading Cosign at Andreessen Horowitz. Connects emerging technology opportunities with investment judgment and hands-on product execution. Raised $12.5M as a founder; built Zumi to 160K+ users and Tapestry's API to 1,000+ developers; and sourced Brilliant and Uniswap's Series A, two of USV's eight investments in 2020. Combines financial analysis and commercial and technical due diligence with experience building, financing, and scaling AI products.",
+      "metrics": [
+        "raised",
+        "users",
+        "developers",
+        "sourcing"
+      ],
+      "skills": [
+        "product",
+        "strategy",
+        "investment",
+        "models",
+        "developers",
+        "leadership",
+        "technical"
+      ],
+      "priorities": {
+        "tapestry": [
+          "scale",
+          "financing",
+          "models",
+          "growth",
+          "developers",
+          "distribution",
+          "interaction"
+        ],
+        "usv": [
+          "thesis",
+          "sourcing",
+          "modeling",
+          "diligence",
+          "committee",
+          "portfolio"
+        ]
+      },
+      "projects": [
+        "atlas",
+        "bramble"
+      ],
+      "publications": [
+        "agents",
+        "zumi",
+        "memory",
+        "assets",
+        "ar",
+        "synchronous"
+      ],
+      "pdf": {
+        "filename": "David_Gabeau_Resume_Combined.pdf",
+        "headline": "AI PRODUCT & STRATEGY LEADER | TECHNOLOGY FOUNDER & VENTURE INVESTOR",
+        "summary": "AI product and strategy leader, technology founder, and former USV investor, currently leading Cosign at a16z in San Francisco. Raised $12.5M, built Zumi to 160K+ users and Tapestry's API to 1,000+ developers, and sourced two of USV's eight investments in 2020. Combines financial analysis and due diligence with hands-on experience building, financing, and scaling AI products.",
+        "skills": [
+          "product",
+          "investment",
+          "models"
+        ],
+        "bullets": {
+          "tapestry": [
+            "scale",
+            "financing",
+            "models",
+            "growth",
+            "developers",
+            "distribution"
+          ],
+          "usv": [
+            "thesis",
+            "sourcing",
+            "modeling",
+            "diligence",
+            "committee",
+            "portfolio"
+          ]
+        },
+        "publications": [
+          "agents",
+          "zumi",
+          "assets",
+          "ar"
+        ]
+      }
+    },
+    "product": {
+      "label": "Product",
+      "headline": "AI Product Leader | Models, Applications & Developer Platforms",
+      "title": "David Gabeau Resume | AI Product Leader in San Francisco",
+      "description": "AI product leader David Gabeau builds multimodal applications and developer platforms. Founder with 160K+ users, now Product Lead, Cosign (Contract) at a16z.",
+      "summary": "Technical product leader and technology founder in San Francisco, with engineering experience at Snapchat and Lyft, now leading Cosign at a16z. Connects user needs with emerging AI capabilities and leads products from early exploration through sustained adoption. Built multimodal AI experiences spanning chat, voice, stories, and image/video generation, reaching 160K+ Zumi users, and grew Tapestry's API to 1,000+ developers. Hands-on with model evaluation, context design, and inference optimization, balancing capability, quality, latency, and cost; brings venture investment experience from Union Square Ventures.",
+      "metrics": [
+        "users",
+        "mau",
+        "developers",
+        "cost"
+      ],
+      "skills": [
+        "product",
+        "models",
+        "developers",
+        "technical",
+        "strategy",
+        "leadership",
+        "investment"
+      ],
+      "priorities": {
+        "tapestry": [
+          "scale",
+          "models",
+          "growth",
+          "interaction",
+          "developers",
+          "distribution",
+          "financing"
+        ],
+        "usv": [
+          "thesis",
+          "sourcing",
+          "diligence",
+          "modeling",
+          "committee",
+          "portfolio"
+        ]
+      },
+      "projects": [
+        "bramble",
+        "atlas"
+      ],
+      "publications": [
+        "agents",
+        "zumi",
+        "memory",
+        "assets",
+        "ar",
+        "synchronous"
+      ],
+      "pdf": {
+        "filename": "David_Gabeau_Resume_Product.pdf",
+        "headline": "AI PRODUCT LEADER | MODELS, APPLICATIONS & DEVELOPER PLATFORMS",
+        "summary": "Technical product leader and founder, currently leading Cosign at a16z in San Francisco. Built Zumi, a multimodal AI app with 160K+ users, and Tapestry, a social-graph API used by 1,000+ developers. Hands-on with model evaluation, context design, and inference optimization; combines product judgment with engineering experience at Snapchat and Lyft and venture investing at USV.",
+        "skills": [
+          "product",
+          "models",
+          "developers",
+          "technical"
+        ],
+        "bullets": {
+          "tapestry": [
+            "scale",
+            "models",
+            "growth",
+            "interaction",
+            "developers",
+            "distribution",
+            "financing"
+          ],
+          "usv": [
+            "thesis",
+            "sourcing",
+            "diligence"
+          ]
+        },
+        "publications": [
+          "agents",
+          "zumi",
+          "memory"
+        ]
+      }
+    },
+    "investor": {
+      "label": "Investor",
+      "headline": "Venture Investor & AI Strategy Leader | Technology Founder",
+      "title": "David Gabeau Resume | Venture Investor & AI Strategy Leader",
+      "description": "Former USV investor and AI founder David Gabeau combines financial modeling, commercial and technical diligence, and operating experience in San Francisco.",
+      "summary": "Former Union Square Ventures investor and AI technology founder, currently leading Cosign at Andreessen Horowitz. Combines financial modeling, valuation, commercial and technical due diligence, and financing negotiations with firsthand AI operating experience. Sourced Brilliant and Uniswap's Series A, two of USV's eight investments in 2020, and raised $12.5M as a founder. Brings investment judgment and technical depth to evaluating strategic investments, partnerships, and growth opportunities across AI and emerging technologies.",
+      "metrics": [
+        "sourcing",
+        "raised",
+        "users",
+        "developers"
+      ],
+      "skills": [
+        "investment",
+        "strategy",
+        "leadership",
+        "models",
+        "product",
+        "developers",
+        "technical"
+      ],
+      "priorities": {
+        "tapestry": [
+          "financing",
+          "models",
+          "growth",
+          "scale",
+          "developers",
+          "distribution",
+          "interaction"
+        ],
+        "usv": [
+          "thesis",
+          "sourcing",
+          "modeling",
+          "diligence",
+          "committee",
+          "portfolio"
+        ]
+      },
+      "projects": [
+        "atlas",
+        "bramble"
+      ],
+      "publications": [
+        "assets",
+        "ar",
+        "synchronous",
+        "agents",
+        "zumi",
+        "memory"
+      ],
+      "pdf": {
+        "filename": "David_Gabeau_Resume_Investor.pdf",
+        "headline": "VENTURE INVESTOR & AI STRATEGY LEADER | TECHNOLOGY FOUNDER",
+        "summary": "Former Union Square Ventures investor and AI technology founder, currently leading Cosign at Andreessen Horowitz. Combines financial modeling, valuation, commercial and technical due diligence, and financing negotiations with firsthand AI operating experience. Sourced Brilliant and Uniswap's Series A, two of USV's eight investments in 2020, and raised $12.5M as a founder. Brings investment judgment and technical depth to evaluating strategic investments, partnerships, and growth opportunities across AI and emerging technologies.",
+        "skills": [
+          "investment",
+          "strategy",
+          "leadership"
+        ],
+        "bullets": {
+          "tapestry": [
+            "financing",
+            "models",
+            "growth",
+            "scale",
+            "developers"
+          ],
+          "usv": [
+            "thesis",
+            "sourcing",
+            "modeling",
+            "diligence",
+            "committee",
+            "portfolio"
+          ]
+        },
+        "publications": [
+          "assets",
+          "ar",
+          "synchronous",
+          "agents",
+          "memory"
+        ]
+      }
+    }
+  }
+}

@@ -43,3 +43,38 @@
   .resume-contact { gap: 10px 16px; }
   .resume-metrics { grid-template-columns: 1fr; }
 }
+
+/* The existing paper, Geist, and Instrument Serif system carries through all views. */
+.resume-views { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 26px; padding: 4px; width: fit-content; border: 1px solid var(--line); }
+.resume-views a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 9px 20px; font-size: 14px; }
+.resume-views a[aria-current="page"] { background: var(--ink); color: var(--paper) !important; }
+.resume-views a:hover { text-decoration: none; box-shadow: inset 0 -1px currentColor; }
+.resume-views + .resume-actions { margin-top: 20px; }
+.resume-speaking li span { display: block; }
+.resume-main { overflow-wrap: break-word; }
+.resume-position { max-width: 760px; line-height: 1.4; }
+@media (max-width: 360px) {
+  .resume-views { width: 100%; }
+  .resume-views a { flex: 1; padding-inline: 10px; }
+  .resume-download { gap: 14px; }
+}
+@media print {
+  @page { size: letter; margin: 0.6in; }
+  html { scroll-behavior: auto; }
+  body.resume-page { background: white; color: #111; font-size: 10.5pt; line-height: 1.4; }
+  .resume-page::before, .resume-page .site-header, .resume-page .site-footer,
+  .resume-views, .resume-actions, .resume-bottom-download, .skip-link { display: none !important; }
+  .resume-main { max-width: none; margin: 0; padding: 0; }
+  .resume-intro h1 { font-size: 28pt !important; margin: 10pt 0; }
+  .resume-position { font-size: 14pt; }
+  .resume-summary { margin: 14pt 0; }
+  .resume-section { margin-top: 20pt; padding-top: 12pt; }
+  .resume-section h2 { font-size: 17pt !important; margin-bottom: 12pt; }
+  .resume-main h3 { font-size: 11pt !important; }
+  .resume-main a { color: #111; text-decoration: none; }
+  .resume-job-header, .resume-section h2, .resume-main h3 { break-after: avoid; }
+  .resume-job + .resume-job { margin-top: 18pt; }
+  .resume-job-header { display: flex; gap: 12pt; }
+  .resume-skills > div { grid-template-columns: 135pt minmax(0, 1fr); gap: 12pt; }
+  .resume-main p, .resume-main li { orphans: 2; widows: 2; }
+}

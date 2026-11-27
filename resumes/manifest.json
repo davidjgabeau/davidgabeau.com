@@ -1,0 +1,22 @@
+{
+  "dataSha256": "7cd79a3fc1b8857e824c7ed6f33eec7d2d98dc76ab168dfcfda7ff453a891bf5",
+  "templateSha256": "c424fe74204562fc56bf73a4d841c6da843034379d938720abda2ed27372bd60",
+  "builderSha256": "b3043cf3be12acb7b5aefbc5e9f91f1679ba59c22f4f55ef7cb97666c666c18a",
+  "pdfs": {
+    "combined": {
+      "file": "resumes/David_Gabeau_Resume_Combined.pdf",
+      "pages": 2,
+      "sha256": "014e52ba6873d770a6db0ad4b39084edd12f06beeb44267a1232546861ffa924"
+    },
+    "product": {
+      "file": "resumes/David_Gabeau_Resume_Product.pdf",
+      "pages": 2,
+      "sha256": "0b4e4175c5a022cd9a014872cc64fb903078d2de18bb2aa3c88c9481c25e1be9"
+    },
+    "investor": {
+      "file": "resumes/David_Gabeau_Resume_Investor.pdf",
+      "pages": 2,
+      "sha256": "eb9338f2aaae10f381a4b8e02e63486748f55c243441ec7d024241d2ef7ce0b9"
+    }
+  }
+}
