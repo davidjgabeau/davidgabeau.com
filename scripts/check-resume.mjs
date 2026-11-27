@@ -23,6 +23,11 @@ assert.equal(data.experience[0].title,'Product Lead, Cosign (Contract)');
 assert.equal(data.experience[1].end,'2026-08');
 assert.equal(data.experience[2].start,'2020-03');
 assert.equal(data.experience[2].end,'2021-12');
+assert.equal(data.experience.find(job=>job.id==='lyft').bullets.length,1);
+assert(data.experience.find(job=>job.id==='lyft').bullets[0].text.includes('18%'));
+assert(data.experience.find(job=>job.id==='a16z').bullets[0].text.includes('30K+ people'));
+assert(data.experience.find(job=>job.id==='usv').bullets.find(b=>b.id==='portfolio').text.includes('10-company portfolio'));
+assert(!data.experience.find(job=>job.id==='tapestry').bullets.find(b=>b.id==='growth').text.includes('drove'));
 assert(!JSON.stringify(data).includes('annual investments'));
 assert(!JSON.stringify(data).includes('participated in board'));
 assert(!/[\u2013\u2014]/.test(JSON.stringify(data)));
@@ -65,7 +70,7 @@ for (const [key,view] of Object.entries(data.views)) {
   }
   for (const publication of data.publications) assert(html.includes(escapeHtml(publication.title)));
   for (const talk of data.speaking) assert(html.includes(escapeHtml(talk.title)));
-  for (const required of ['17-minute','4.8 App Store','244%','40%','multimodal','image/video','LLM evaluations','400ms','~90%','1,000+','10 TikTok partners','financial modeling','discounted cash flow (DCF)','venture return modeling','cap table analysis','commercial and technical due diligence','investment committee','external legal counsel','financing term sheets','Coinbase and Uniswap served distinct markets','Future of AI','BlueDot Impact','Coursework toward Bachelor of Science']) assert(html.includes(required),`Missing ${required} in ${key}`);
+  for (const required of ['77% wrote','Graveyard Hackathon track','30K+ people','10-company portfolio','$50M in trading volume','500K NFTs','18%','17-minute','4.8 App Store','244%','40%','multimodal','image/video','LLM evaluations','400ms','~90%','1,000+','10 TikTok partners','financial modeling','discounted cash flow (DCF)','venture return modeling','cap table analysis','commercial and technical due diligence','investment committee','external legal counsel','financing term sheets','Coinbase and Uniswap served distinct markets','Future of AI','BlueDot Impact','Coursework toward Bachelor of Science']) assert(html.includes(required),`Missing ${required} in ${key}`);
   assert.equal((html.match(new RegExp(`download="${view.pdf.filename}"`,'g'))||[]).length,2);
   assert.equal((html.match(/aria-current="page"/g)||[]).length,2); // view nav and footer
   const firstSkill=html.match(/data-skill="([^"]+)"/)[1];assert.equal(firstSkill,view.skills[0]);

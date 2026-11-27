@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated": "2026-11-26",
+  "updated": "2026-11-27",
   "person": {
     "name": "David Gabeau",
     "location": "San Francisco, CA",
@@ -54,7 +54,7 @@
       "pdf": "$12.5M raised"
     },
     "sourcing": {
-      "text": "2 of USV's 8 investments in 2020 sourced",
+      "text": "25% of USV's 2020 investments sourced (2 of 8)",
       "pdf": "25% of USV's 2020 investments sourced"
     },
     "engagement": {
@@ -202,14 +202,29 @@
       "start": "2026-10",
       "end": null,
       "overview": "Lead 0-to-1 product development for Cosign, an a16z New Media initiative surfacing opportunities, emerging talent, and technology projects. Translate ambiguous opportunities and early adopter feedback from builders and investors into product direction and execution.",
-      "pdfOverview": "Lead 0-to-1 development for Cosign, an a16z New Media initiative surfacing talent and technology projects. Translate builder and investor feedback into product direction and execution.",
+      "pdfOverview": "Lead 0-to-1 product development for Cosign on a16z's New Media team.",
       "links": [
         {
           "label": "Cosign",
           "url": "https://cosign.co"
         }
       ],
-      "bullets": [],
+      "bullets": [
+        {
+          "id": "waitlist",
+          "text": "Helped grow Cosign's waitlist to 30K+ people while incorporating feedback from early builders and investors into product direction.",
+          "pdfText": "Helped grow Cosign's waitlist to 30K+ people.",
+          "emphasis": [
+            "30K+ people"
+          ],
+          "links": [
+            {
+              "label": "Cosign",
+              "url": "https://cosign.co"
+            }
+          ]
+        }
+      ],
       "organizationName": "Andreessen Horowitz",
       "organizationAlias": "a16z",
       "organizationUrl": "https://a16z.com/",
@@ -263,8 +278,8 @@
         },
         {
           "id": "growth",
-          "text": "Identified an emerging market opportunity in persistent, multiplayer AI companions. Analyzed 1.84M user messages to shape shared AI worlds, agent interactions, and generative stories. Launched multiplayer engagement systems that drove 244% quarter-over-quarter user growth and 40% more messages per active user.",
-          "pdfText": "Used insights from 1.84M messages to shape multiplayer AI companions and generative stories, driving 244% quarter-over-quarter user growth and 40% more messages per active user.",
+          "text": "Identified an emerging opportunity in persistent, multiplayer AI companions. Analyzed 1.84M user messages to shape shared AI worlds, agent interactions, and generative stories. The product recorded 244% quarter-over-quarter user growth and 40% more messages per active user.",
+          "pdfText": "Used insights from 1.84M messages to shape multiplayer AI companions and generative stories; the product recorded 244% quarter-over-quarter user growth and 40% more messages per active user.",
           "emphasis": [
             "1.84M",
             "244% quarter-over-quarter user growth",
@@ -298,12 +313,13 @@
         },
         {
           "id": "developers",
-          "text": "Used structured developer feedback and technical enablement to improve Tapestry's API, documentation, and adoption across 1,000+ developers. Ran a 74-team hackathon where 96% shipped public repositories and a three-week accelerator reaching 12.5K demo-day viewers.",
-          "pdfText": "Grew Tapestry to 1,000+ developers through API improvements, documentation, and enablement; ran a 74-team hackathon (96% shipped public repos) and an accelerator reaching 12.5K viewers.",
+          "text": "Turned structured developer feedback into API and documentation improvements for Tapestry's 1,000+ developer community. Led Tapestry's 74-project Graveyard Hackathon track: 96% shipped public repositories and 77% wrote to the social graph. A three-week accelerator reached 12.5K demo-day viewers.",
+          "pdfText": "Improved API and documentation for 1,000+ developers; led Tapestry's 74-project hackathon track (96% shipped repos; 77% wrote to the social graph) and an accelerator reaching 12.5K viewers.",
           "emphasis": [
-            "1,000+ developers",
-            "74-team",
+            "1,000+",
+            "74-project",
             "96%",
+            "77% wrote",
             "12.5K"
           ],
           "links": [
@@ -316,7 +332,21 @@
               "work": "starterKit"
             },
             {
-              "label": "74-team hackathon",
+              "label": "Graveyard Hackathon track",
+              "work": "hackathon"
+            }
+          ],
+          "pdfLinks": [
+            {
+              "label": "API",
+              "work": "protocol"
+            },
+            {
+              "label": "documentation",
+              "work": "starterKit"
+            },
+            {
+              "label": "74-project hackathon track",
               "work": "hackathon"
             }
           ]
@@ -343,6 +373,25 @@
             {
               "label": "creator-led",
               "publication": "zumi"
+            }
+          ]
+        },
+        {
+          "id": "portfolio-products",
+          "text": "Built and led the Tapestry team behind Solana Social Explorer, which recorded $50M in trading volume in its first two months, and Primitives, where artists and collectors minted 500K NFTs.",
+          "emphasis": [
+            "$50M in trading volume",
+            "first two months",
+            "500K NFTs"
+          ],
+          "links": [
+            {
+              "label": "Solana Social Explorer",
+              "work": "sse"
+            },
+            {
+              "label": "Primitives",
+              "work": "primitives"
             }
           ]
         }
@@ -389,26 +438,36 @@
       "bullets": [
         {
           "id": "thesis",
-          "text": "Led diligence on Uniswap's Series A; developed the investment thesis that Coinbase and Uniswap served distinct markets, securing partner approval.",
-          "pdfText": "Led diligence on Uniswap's Series A; developed the thesis that Coinbase and Uniswap served distinct markets, securing partner approval.",
+          "text": "Led diligence for USV's participation in Uniswap's $11M Series A; developed the investment thesis that Coinbase and Uniswap served distinct markets, securing partner approval.",
+          "pdfText": "Led USV diligence on Uniswap's $11M Series A; wrote the thesis that Coinbase and Uniswap served distinct markets, securing partner approval.",
           "emphasis": [
-            "Uniswap's Series A",
+            "Uniswap's $11M Series A",
             "Coinbase and Uniswap served distinct markets"
           ],
           "links": [
             {
-              "label": "Uniswap's Series A",
+              "label": "Uniswap's $11M Series A",
               "work": "uniswapSeriesA"
             }
           ]
         },
         {
           "id": "sourcing",
-          "text": "Sourced and supported two of USV's eight investments in 2020, including Brilliant and Uniswap; evaluated market structure, technical architecture, founder capabilities, and venture-scale returns.",
-          "pdfText": "Sourced and supported 2 of USV's 8 investments in 2020, including Brilliant and Uniswap; evaluated market structure, technical architecture, founder capabilities, and venture-scale returns.",
+          "text": "Sourced and supported two of USV's eight investments in 2020 (25%), including Brilliant's Series B and Uniswap's Series A; evaluated market structure, technical architecture, founder capabilities, and venture-scale returns.",
+          "pdfText": "Sourced 2 of USV's 8 investments in 2020 (25%), including Brilliant's Series B and Uniswap's Series A; assessed markets, technology, founders, and returns.",
           "emphasis": [
             "two of USV's eight investments in 2020",
             "2 of USV's 8 investments in 2020"
+          ],
+          "links": [
+            {
+              "label": "Brilliant's Series B",
+              "work": "brilliantInvestment"
+            },
+            {
+              "label": "Uniswap's Series A",
+              "work": "uniswapSeriesA"
+            }
           ]
         },
         {
@@ -438,11 +497,12 @@
         },
         {
           "id": "portfolio",
-          "text": "Supported portfolio company founders and attended board meetings alongside investment partners.",
+          "text": "Supported a USV investment partner's 10-company portfolio through founder support and board meeting attendance alongside partners.",
           "emphasis": [
-            "portfolio company founders",
+            "10-company portfolio",
             "attended board meetings"
-          ]
+          ],
+          "pdfText": "Supported a partner's 10-company portfolio and attended board meetings alongside partners."
         }
       ]
     },
@@ -458,18 +518,11 @@
       "bullets": [
         {
           "id": "releases",
-          "text": "Owned release readiness for rider-driver connection features used by millions of daily riders, defining release criteria in partnership with Product, Engineering, and Design.",
-          "pdfText": "Owned release readiness for rider-driver features used by millions, partnering with Product, Engineering, and Design.",
+          "text": "Coordinated release readiness and tightened release criteria with Product, Engineering, and Design for rider-driver features used by millions of daily riders, helping reduce critical bugs by 18%.",
+          "pdfText": "Coordinated rider-feature release readiness across Product, Engineering, and Design; tightened release criteria, helping reduce critical bugs by 18%.",
           "emphasis": [
             "millions of daily riders",
-            "release readiness"
-          ]
-        },
-        {
-          "id": "quality",
-          "text": "Drove an 18% reduction in critical bugs by tightening the release process across teams.",
-          "emphasis": [
-            "18% reduction in critical bugs"
+            "reduce critical bugs by 18%"
           ]
         }
       ]
@@ -494,7 +547,7 @@
         },
         {
           "id": "planning",
-          "text": "Drove sprint and release planning for 200+ features across a team of 30 engineers.",
+          "text": "Coordinated sprint and release planning for 200+ shipped Stories features across a team of 30 engineers.",
           "emphasis": [
             "200+ features",
             "30 engineers"
@@ -518,7 +571,7 @@
       "location": "New York, NY",
       "start": "2015-05",
       "end": "2015-12",
-      "overview": "Built automated testing systems in Ruby and Selenium for the web platform, improving release speed and reliability.",
+      "overview": "Automated web-platform release checks in Ruby and Selenium, making release verification repeatable.",
       "bullets": []
     }
   ],
@@ -530,7 +583,7 @@
       "role": "Sole Builder",
       "start": "2026-03",
       "end": null,
-      "description": "Built an open-source, automated AI market intelligence platform tracking startups, venture funding, and founder signals across NYC's AI ecosystem. Developed an agent-powered research pipeline, nightly refreshes, and a hosted backend API to maintain an evolving map of the AI market.",
+      "description": "Automated nightly research on NYC AI startups, venture funding, and founder signals to keep an open-source market map current. Built and host the backend API that publishes the evolving dataset.",
       "pdfText": "Built an open-source AI market intelligence platform tracking NYC startups, funding, and founder signals, with an agent-powered nightly research pipeline and hosted backend API."
     },
     {
@@ -540,7 +593,7 @@
       "role": "Sole Builder",
       "start": "2026-05",
       "end": null,
-      "description": "Built a local-first macOS application for Claude Code and Codex that captures prompts, tool calls, edits, and model responses as structured, searchable development logs. A context and memory tool for AI-assisted developer workflows; data stays local unless shared.",
+      "description": "Built a local-first macOS context and memory tool that turns Claude Code and Codex prompts, tool calls, edits, and responses into structured, searchable development logs. Developers can reference prior coding sessions while keeping data local unless they choose to share it.",
       "pdfText": "Built a local-first macOS context and memory tool turning Claude Code and Codex sessions into searchable development logs."
     }
   ],
@@ -651,7 +704,7 @@
       "headline": "AI Product & Strategy Leader | Technology Founder & Venture Investor.",
       "title": "David Gabeau Resume | AI Product & Strategy Leader",
       "description": "David Gabeau is an AI product and strategy leader, technology founder, and former USV investor in San Francisco, currently leading Cosign at a16z.",
-      "summary": "AI product and strategy leader, technology founder, and former Union Square Ventures investor based in San Francisco, currently leading Cosign at Andreessen Horowitz. Connects emerging technology opportunities with investment judgment and hands-on product execution. Raised $12.5M as a founder; built Zumi to 160K+ users and Tapestry's API to 1,000+ developers; and sourced Brilliant and Uniswap's Series A, two of USV's eight investments in 2020. Combines financial analysis and commercial and technical due diligence with experience building, financing, and scaling AI products.",
+      "summary": "AI product and strategy leader, technology founder, and former Union Square Ventures investor based in San Francisco, currently leading Cosign at Andreessen Horowitz and helping grow a waitlist of 30K+ people. Connects emerging technology opportunities with investment judgment and hands-on product execution. Raised $12.5M as a founder; built Zumi to 160K+ users and Tapestry's API to 1,000+ developers; and sourced Brilliant and Uniswap's Series A, two of USV's eight investments in 2020. Combines financial analysis and commercial and technical due diligence with experience building, financing, and scaling AI products.",
       "metrics": [
         "raised",
         "users",
@@ -674,6 +727,7 @@
           "models",
           "growth",
           "developers",
+          "portfolio-products",
           "distribution",
           "interaction"
         ],
@@ -738,7 +792,7 @@
       "headline": "AI Product Leader | Models, Applications & Developer Platforms",
       "title": "David Gabeau Resume | AI Product Leader in San Francisco",
       "description": "AI product leader David Gabeau builds multimodal applications and developer platforms. Founder with 160K+ users, now Product Lead, Cosign (Contract) at a16z.",
-      "summary": "Technical product leader and technology founder in San Francisco, with engineering experience at Snapchat and Lyft, now leading Cosign at a16z. Connects user needs with emerging AI capabilities and leads products from early exploration through sustained adoption. Built multimodal AI experiences spanning chat, voice, stories, and image/video generation, reaching 160K+ Zumi users, and grew Tapestry's API to 1,000+ developers. Hands-on with model evaluation, context design, and inference optimization, balancing capability, quality, latency, and cost; brings venture investment experience from Union Square Ventures.",
+      "summary": "Technical product leader and technology founder in San Francisco, with engineering experience at Snapchat and Lyft, now leading Cosign at a16z and helping grow a waitlist of 30K+ people. Connects user needs with emerging AI capabilities and leads products from early exploration through sustained adoption. Built multimodal AI experiences spanning chat, voice, stories, and image/video generation, reaching 160K+ Zumi users, and grew Tapestry's API to 1,000+ developers. Hands-on with model evaluation, context design, and inference optimization, balancing capability, quality, latency, and cost; brings venture investment experience from Union Square Ventures.",
       "metrics": [
         "users",
         "mau",
@@ -761,6 +815,7 @@
           "growth",
           "interaction",
           "developers",
+          "portfolio-products",
           "distribution",
           "financing"
         ],
@@ -823,7 +878,7 @@
       "headline": "Venture Investor & AI Strategy Leader | Technology Founder",
       "title": "David Gabeau Resume | Venture Investor & AI Strategy Leader",
       "description": "Former USV investor and AI founder David Gabeau combines financial modeling, commercial and technical diligence, and operating experience in San Francisco.",
-      "summary": "Former Union Square Ventures investor and AI technology founder, currently leading Cosign at Andreessen Horowitz. Combines financial modeling, valuation, commercial and technical due diligence, and financing negotiations with firsthand AI operating experience. Sourced Brilliant and Uniswap's Series A, two of USV's eight investments in 2020, and raised $12.5M as a founder. Brings investment judgment and technical depth to evaluating strategic investments, partnerships, and growth opportunities across AI and emerging technologies.",
+      "summary": "Former Union Square Ventures investor and AI technology founder, currently leading Cosign at Andreessen Horowitz and helping grow a waitlist of 30K+ people. Combines financial modeling, valuation, commercial and technical due diligence, and financing negotiations with firsthand AI operating experience. Sourced Brilliant and Uniswap's Series A, two of USV's eight investments in 2020, and raised $12.5M as a founder. Brings investment judgment and technical depth to evaluating strategic investments, partnerships, and growth opportunities across AI and emerging technologies.",
       "metrics": [
         "sourcing",
         "raised",
@@ -846,6 +901,7 @@
           "growth",
           "scale",
           "developers",
+          "portfolio-products",
           "distribution",
           "interaction"
         ],
@@ -942,6 +998,18 @@
     "uniswapSeriesA": {
       "url": "https://blog.uniswap.org/uniswap-raise",
       "title": "Uniswap Series A announcement"
+    },
+    "sse": {
+      "url": "https://github.com/Primitives-xyz/explorer",
+      "title": "Solana Social Explorer source code"
+    },
+    "primitives": {
+      "url": "https://davidgabeau.com/writing/crypto-broadband-moment",
+      "title": "Primitives product lessons and mint activity"
+    },
+    "brilliantInvestment": {
+      "url": "https://www.usv.com/portfolio/company/brilliant",
+      "title": "USV's Brilliant investment: Series B, 2020"
     }
   },
   "summaryLinks": [
