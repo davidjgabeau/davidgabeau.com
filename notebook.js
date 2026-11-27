@@ -1,9 +1,14 @@
 // Native links and disclosures work without JavaScript; motion is progressive enhancement.
 const track = document.querySelector('#camera-track');
+const cameraRoll = document.querySelector('#camera-roll');
 const controls = [...document.querySelectorAll('[data-scroll]')];
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 function updateControls() {
   if (!track) return;
+  if (cameraRoll?.dataset.cameraState !== 'open') {
+    controls.forEach(button => { button.disabled = true; });
+    return;
+  }
   const max = track.scrollWidth - track.clientWidth;
   for (const button of controls) {
     button.disabled = Number(button.dataset.scroll) < 0 ? track.scrollLeft <= 2 : track.scrollLeft >= max - 2;
@@ -130,6 +135,7 @@ const mobileRevealed = new WeakSet();
 let photoObserver;
 function observeMobilePhotos() {
   photoObserver?.disconnect();
+  if (cameraRoll?.dataset.cameraState !== 'open') return;
   if (!mobileView.matches || reducedMotion.matches || !('IntersectionObserver' in window)) return;
   photoObserver = new IntersectionObserver(entries => {
     for (const entry of entries) {
@@ -146,3 +152,7 @@ function observeMobilePhotos() {
 mobileView.addEventListener('change', observeMobilePhotos);
 reducedMotion.addEventListener('change', observeMobilePhotos);
 observeMobilePhotos();
+cameraRoll?.addEventListener('camera:unlocked', () => {
+  updateControls();
+  observeMobilePhotos();
+});

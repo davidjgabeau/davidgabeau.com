@@ -13,7 +13,7 @@
       "destination": "/api/resume"
     }
   ],
-  "buildCommand": "npm run build:discovery && npm run check:discovery && node scripts/check-resume.mjs",
+  "buildCommand": "npm run build:discovery && npm run check:discovery && node scripts/check-resume.mjs && node scripts/build-public.mjs && node scripts/check-camera-roll.mjs",
   "trailingSlash": false,
   "redirects": [
     {
@@ -148,5 +148,10 @@
       ]
     }
   ],
-  "outputDirectory": "."
+  "outputDirectory": "public-site",
+  "functions": {
+    "api/camera-photo.js": {
+      "includeFiles": "private/camera-roll/**"
+    }
+  }
 }

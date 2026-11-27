@@ -188,3 +188,49 @@
 
 /* Keep the primary links visible when Resume is added to narrow navigation. */
 @media(max-width:520px){.site-header{flex-wrap:wrap;gap:14px}.site-header nav{flex-wrap:wrap;gap:18px}}
+
+/* A sheet of warm glass over the camera roll, lifted for familiar faces. */
+.camera-roll{--camera-ease:cubic-bezier(.22,1,.36,1)}
+.camera-stage{position:relative;isolation:isolate;min-height:354px;margin-top:18px}
+.camera-stage::before{content:'';position:absolute;inset:18px 0 22px;z-index:-1;background:url('/images/notebook/camera-preview.webp') center/cover no-repeat;opacity:.65;mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);transition:opacity 260ms var(--camera-ease);pointer-events:none}
+.camera-roll[data-camera-state="locked"] .camera-track{visibility:hidden}
+.camera-roll[data-camera-state="open"] .camera-stage::before{opacity:0}
+.camera-veil{position:absolute;inset:0;z-index:2;display:grid;place-items:center;overflow:hidden;border:1px solid rgba(255,255,255,.64);border-radius:3px;background:linear-gradient(118deg,rgba(255,255,255,.64),rgba(248,247,243,.72) 35%,rgba(255,255,255,.86) 53%,rgba(248,247,243,.6));box-shadow:inset 0 1px 0 #fff9,inset 0 -1px 0 #d3d2ca55;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);transition:opacity 260ms var(--camera-ease)}
+.camera-veil::after{content:'';position:absolute;inset:-35% -30%;z-index:-1;pointer-events:none;background:linear-gradient(110deg,transparent 32%,#fff7 47%,#fffb 49%,transparent 63%);transform:translateX(-18%) rotate(-7deg);transition:transform 260ms var(--camera-ease),opacity 260ms var(--camera-ease)}
+.camera-invitation{text-align:center;padding:26px 24px 22px;max-width:420px;width:100%;position:relative}
+.camera-doodle{display:block;width:57px;height:41px;margin:0 auto 9px;color:var(--blue);transform:rotate(-5deg)}
+.camera-doodle svg{width:100%;height:100%;stroke:currentColor;stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
+.camera-eyebrow{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:.11em;color:var(--muted);margin-bottom:5px}
+.camera-invitation h2{font-family:var(--serif);font-size:39px;line-height:1.1;letter-spacing:-.6px;margin-bottom:10px}
+.camera-gate-copy{font-family:var(--sans);font-size:14px;line-height:1.55;color:var(--secondary)}
+.camera-form{margin:19px auto 0;max-width:294px}
+.camera-input-row{display:flex;align-items:center;border-bottom:1px solid #8a918b;padding:0 0 5px;gap:8px;text-align:left}
+.camera-input-row:focus-within{border-color:var(--ink)}
+.camera-input-row input{font-family:var(--sans);font-size:16px;color:var(--ink);background:transparent;border:0;outline:none;min-width:0;width:100%;padding:8px 3px;border-radius:0;height:44px;box-shadow:none}
+.camera-input-row input::placeholder{font-size:14px;color:var(--muted);opacity:1}
+.camera-input-row input:focus-visible{outline:1px solid var(--blue);outline-offset:1px}
+.camera-input-row button{display:grid;place-items:center;flex:0 0 44px;width:44px;height:44px;padding:0;border:1px solid #a4aaa1;border-radius:50%;background:transparent;cursor:pointer;font-size:24px;line-height:1;transition:transform 160ms var(--camera-ease),opacity 160ms var(--camera-ease)}
+.camera-input-row button:active:not(:disabled){transform:scale(.97)}
+.camera-input-row button:disabled{opacity:.4;cursor:wait}
+.camera-error{font-family:var(--sans);font-size:12px;line-height:1.4;color:#914a3c;text-align:left;margin-top:8px;min-height:17px}
+.camera-signoff{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--muted);transform:rotate(-3deg);margin-top:5px}
+.camera-close{font-family:var(--mono);font-size:10px;padding:10px 0;border:0;border-bottom:1px solid var(--line);background:none;cursor:pointer;white-space:nowrap;margin-left:auto}
+.camera-close[hidden]{display:none}
+.camera-roll[data-camera-state="open"] .camera-heading .handnote{margin-left:0}
+.camera-roll[data-camera-state="open"] .camera-veil{opacity:0;pointer-events:none}
+.camera-roll[data-camera-state="open"] .camera-veil::after{transform:translateX(24%) rotate(-7deg);opacity:0}
+@media(hover:hover) and (pointer:fine){.camera-input-row button:hover:not(:disabled){background:#f8f7f380;transform:translate(1px,-1px)}}
+@media(max-width:700px){
+ .camera-stage{min-height:384px;margin-top:20px}
+ .camera-invitation{padding:28px 22px;max-width:355px}
+ .camera-invitation h2{font-size:36px}
+ .camera-form{max-width:260px}
+ .camera-roll[data-camera-state="open"] .camera-heading .handnote{display:none}
+ .camera-close{font-size:9px}
+ .camera-roll[data-camera-state="open"] .scroll-controls{margin-left:0}
+}
+@media(prefers-reduced-motion:reduce){
+ .camera-veil,.camera-stage::before{transition:opacity 160ms linear!important}
+ .camera-veil::after,.camera-input-row button{transition:none!important}
+ .camera-roll[data-camera-state="open"] .camera-veil::after{transform:translateX(-18%) rotate(-7deg)}
+}
