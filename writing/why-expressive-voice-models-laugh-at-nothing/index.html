@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Why Expressive Voice Models Laugh at Nothing — David Gabeau</title>
+  <meta name="description" content="What voice design reveals about reward hacking, expressive speech, and evaluating AI companions across a full conversation.">
+  <meta name="author" content="David Gabeau">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <link rel="canonical" href="https://davidgabeau.com/writing/why-expressive-voice-models-laugh-at-nothing">
+
+  <link rel="icon" href="/favicon-notebook.png?v=2" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon.svg?v=20261009-notebook" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+  <meta name="theme-color" content="#f8f7f3">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="David Gabeau">
+  <meta property="og:url" content="https://davidgabeau.com/writing/why-expressive-voice-models-laugh-at-nothing">
+  <meta property="og:title" content="Why Expressive Voice Models Laugh at Nothing">
+  <meta property="og:description" content="What voice design reveals about reward hacking, expressive speech, and evaluating AI companions across a full conversation.">
+  <meta property="og:image" content="https://davidgabeau.com/images/social/expressive-voice-models.png">
+            <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A notebook illustration of a voice waveform and speech bubbles beside the title Why Expressive Voice Models Laugh at Nothing.">
+  <meta property="article:published_time" content="2026-11-27">
+  <meta property="article:modified_time" content="2026-11-27">
+  <meta property="article:author" content="https://davidgabeau.com/">
+  <meta property="article:section" content="Essay">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@dgabeau">
+  <meta name="twitter:creator" content="@dgabeau">
+  <meta name="twitter:title" content="Why Expressive Voice Models Laugh at Nothing">
+  <meta name="twitter:description" content="What voice design reveals about reward hacking, expressive speech, and evaluating AI companions across a full conversation.">
+  <meta name="twitter:image" content="https://davidgabeau.com/images/social/expressive-voice-models.png">
+  <meta name="twitter:image:alt" content="A notebook illustration of a voice waveform and speech bubbles beside the title Why Expressive Voice Models Laugh at Nothing.">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Why Expressive Voice Models Laugh at Nothing",
+  "description": "What voice design reveals about reward hacking, expressive speech, and evaluating AI companions across a full conversation.",
+  "image": "https://davidgabeau.com/images/social/expressive-voice-models.png",
+  "author": {
+    "@type": "Person",
+    "@id": "https://davidgabeau.com/#person",
+    "name": "David Gabeau",
+    "url": "https://davidgabeau.com/",
+    "sameAs": [
+      "https://www.linkedin.com/in/dgabeau/",
+      "https://github.com/davidjgabeau",
+      "https://x.com/dgabeau"
+    ]
+  },
+  "publisher": {
+    "@type": "Person",
+    "@id": "https://davidgabeau.com/#person",
+    "name": "David Gabeau",
+    "url": "https://davidgabeau.com/"
+  },
+  "datePublished": "2026-11-27",
+  "dateModified": "2026-11-27",
+  "inLanguage": "en",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://davidgabeau.com/writing/why-expressive-voice-models-laugh-at-nothing"
+  },
+  "keywords": [
+    "voice AI",
+    "voice design",
+    "AI companions",
+    "reinforcement learning",
+    "reward hacking",
+    "evaluation"
+  ],
+  "@id": "https://davidgabeau.com/writing/why-expressive-voice-models-laugh-at-nothing#article",
+  "url": "https://davidgabeau.com/writing/why-expressive-voice-models-laugh-at-nothing",
+  "isPartOf": {
+    "@type": "Blog",
+    "@id": "https://davidgabeau.com/writing#blog",
+    "url": "https://davidgabeau.com/writing",
+    "name": "Writing by David Gabeau"
+  },
+  "isAccessibleForFree": true,
+  "wordCount": 1242,
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "Voice design"
+    },
+    {
+      "@type": "Thing",
+      "name": "Speech synthesis"
+    },
+    {
+      "@type": "Thing",
+      "name": "AI evaluation"
+    }
+  ],
+  "citation": [
+    "https://nishnik.com/tts/",
+    "https://openai.com/index/introducing-gpt-live-1-in-the-api/",
+    "https://about.fb.com/news/2026/11/introducing-muse-ai-voice-expressive-avatars/"
+  ],
+  "mentions": [
+    {
+      "@type": "Person",
+      "name": "Nishant Nikhil",
+      "url": "https://nishnik.com/"
+    },
+    {
+      "@type": "Person",
+      "name": "Dante Everaert",
+      "url": "https://www.linkedin.com/in/dante-everaert/"
+    },
+    {
+      "@type": "Person",
+      "name": "Timothy Luong",
+      "url": "https://www.linkedin.com/in/timluong/"
+    }
+  ]
+}
+</script>
+
+  <link rel="stylesheet" href="/style.css?v=20261009-paper">
+  <script>
+    (function(){
+      var saved = localStorage.getItem('theme');
+      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = saved || (prefersDark ? 'dark' : 'light');
+      if (theme === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    })();
+  </script>
+  <link rel="stylesheet" href="/typography.css">
+  <link rel="alternate" type="application/atom+xml" title="David Gabeau — Essays" href="/feed.xml">
+  <link rel="alternate" type="text/markdown" title="Read as Markdown" href="/writing/why-expressive-voice-models-laugh-at-nothing.md">
+  <link rel="alternate" type="text/plain" title="Site guide" href="/llms.txt">
+  <link rel="stylesheet" href="/discovery.css">
+  <link rel="stylesheet" href="/writing/why-expressive-voice-models-laugh-at-nothing/article.css">
+  <link rel="preload" href="/fonts/geist-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/instrument-serif-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "David Gabeau",
+      "item": "https://davidgabeau.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Writing",
+      "item": "https://davidgabeau.com/writing"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Why Expressive Voice Models Laugh at Nothing",
+      "item": "https://davidgabeau.com/writing/why-expressive-voice-models-laugh-at-nothing"
+    }
+  ]
+}
+</script>
+  <script src="/essay-share.js" defer></script>
+</head>
+<body class="writing-post voice-post">
+  <header>
+    <div class="container header-inner">
+      <a href="/" class="header-name-link">
+        <span class="header-name">David Gabeau</span>
+      </a>
+      <div class="header-right">
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="post-main">
+    <div class="container">
+      <a href="/writing" class="post-back">
+        <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9,3 5,7 9,11"/></svg>
+        All writing
+      </a>
+
+      <article>
+        <header class="article-header">
+          <div class="article-topline">
+            <span class="article-eyebrow">Essay</span>
+            <button class="essay-share" type="button" hidden aria-label="Share this essay">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 16V3m-4 4 4-4 4 4M5 13v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"/></svg>
+              <span>Share</span>
+            </button>
+          </div>
+          <span class="essay-share-status" role="status" aria-live="polite"></span>
+          <h1 class="article-title">Why Expressive Voice Models Laugh at Nothing</h1>
+          <div class="article-meta">
+            <a href="/" rel="author">David Gabeau</a>
+            <span class="sep" aria-hidden="true">·</span>
+            <time datetime="2026-11-27">November 27, 2026</time>
+            <span class="sep" aria-hidden="true">·</span>
+            <span>6 min read</span>
+          </div>
+        </header>
+
+        <div class="article-body">
+          <p>I attended <a href="https://luma.com/j3ddfdsw">Decagon’s Voice and Audio Research Night</a> a few weeks ago.</p>
+          <p>Iterations of voice agents have been interesting to me since building the AI companion, <a href="/writing/zumi-learnings">Zumi</a>. Adding and improving voice in Zumi gave us our single largest retention boost. At the time, Zumi ran on OpenAI’s <a href="https://developers.openai.com/api/docs/models/gpt-realtime-2.1">gpt-realtime-2.1</a>, a frontier voice model from this summer with a <a href="https://openai.com/index/introducing-gpt-live-1-in-the-api/">published turn-taking latency of 1.41 seconds</a>. This was much more immersive than earlier versions, and some users spent hours a day talking to their Zumi in voice mode.</p>
+          <p>Under a year later, however, the industry has already pushed well past those benchmarks - conversation with AI can feel almost as natural as with a human.</p>
+          <p>To unpack where things are heading, Decagon brought together three researchers exploring voice from different angles:</p>
+          <ul>
+          <li><a href="https://www.linkedin.com/in/dante-everaert/">Dante Everaert</a> <a href="https://decagon.ai/">(Decagon)</a> on conversational voice-agent architecture.</li>
+          <li><a href="https://nishnik.com/">Nishant Nikhil</a> (<a href="https://ai.meta.com/">Meta Superintelligence Labs</a>) on designing synthetic voices for characters.</li>
+          <li><a href="https://www.linkedin.com/in/timluong/">Timothy Luong</a> <a href="https://cartesia.ai/">(Cartesia)</a> on evaluating voice models in real conversations.</li>
+          </ul>
+          <p>For this piece, I’m focusing on Nishant Nikhil’s work turning text into customizable voices for <a href="https://about.fb.com/news/2026/11/introducing-muse-ai-voice-expressive-avatars/">Meta’s Muse app</a>. He was kind enough to publish his talk on his personal website <a href="https://nishnik.com/tts/">here</a>.</p>
+          <p>Meta is one of the few major companies building voice agents for entertainment rather than pure productivity. You might assume that a playful context gives voice models more grace with humans when they don’t quite feel right, but the opposite is often true. When talking to an embodied character, the bar is actually higher for users because any flaw immediately breaks immersion.</p>
+          <p>That pressure for voice models to feel lifelike pushes the training frontier, sometimes to surprising results: Nishant shared that when researchers train voice models to be more expressive, the models often overcorrect by learning to laugh frequently, even when nothing funny has happened. The voice itself might sound more human, but the conversation feels distinctly less natural.</p>
+          <h2>How voice design breaks standard Text-To-Speech assumptions</h2>
+          <p>Nishant came to Meta’s Superintelligence Lab through the <a href="https://nishnik.com/">acquisition of PlayAI</a>, where he spent his early career building text-to-speech models (TTS). Today he focuses on voice design, which means taking simple prompts like a user typing &quot;gruff, scary pirate&quot; and generating a voice that nails the accent and pitch, sure, but more impressively, the emotion of said pirate.</p>
+          <p>Under the hood, the architecture is straightforward: a frozen text encoder like <a href="https://www.llama.com/">Llama</a> or <a href="https://research.google/blog/exploring-transfer-learning-with-t5-the-text-to-text-transfer-transformer/">T5</a> reads the voice description and <a href="https://arxiv.org/abs/1706.03762">cross-attends</a> to the transcript to produce the audio. Keeping the encoder frozen saves on training compute, and the setup works well enough on paper. According to Nishant, the bottleneck is the data and how you train the model.</p>
+          <p>Compared to standard TTS datasets, datasets for voice design are tiny. Most researchers try to bridge that gap by running existing audio through an LLM to bin speakers into attribute labels (e.g., &quot;slow, monotone, low pitch&quot;). That can bootstrap supervised fine-tuning well enough, but quickly runs into the limits of real-world voice data when applied, like:</p>
+          <ul>
+          <li><strong>Unique speaker traits:</strong> A naturally speedy talker rarely has slow samples in their training set, so the model may struggle to separate a speaker&#x27;s identity from their default pacing.</li>
+          <li><strong>Missing edge cases:</strong> Combinations like a very high-pitched adult man or a very low-pitched adult woman are rare in natural data (but not rare amongst 8b people!). Prompts can also inherit real-world biases, like defaulting to a female voice whenever a user asks for a &quot;nurse&quot; or a male when prompted with “firefighter.”</li>
+          <li><strong>Rigid Characters:</strong> The model handles simple tweaks like &quot;talk slowly&quot; without much trouble, but can hit a wall when asked to invent a brand new character or archetype. If it has only seen pirates and villains in training, asking for a fairy is a tall order.</li>
+          </ul>
+          <p>Users building fictional characters actively want edge cases to build the uniqueness of their fantasies. Standard data distributions fight against inherent human creativity.</p>
+          <h2>The Reinforcement Learning trap and Confounding Rewards</h2>
+          <p>Due to the relatively few voice design datasets, teams will turn to synthetic data to train voice models. However, synthetically labeled Supervised Fine Tuning (SFT) data also quickly hits a ceiling. Teams then turn to <a href="https://spinningup.openai.com/en/latest/spinningup/rl_intro.html">reinforcement learning</a> to push the synthetic data quality further.</p>
+          <p>In standard TTS training, RL is relatively clean. You optimize for a few clear, independent signals: word or character accuracy, speaker similarity, consistency, and human preference.</p>
+          <p>But voice design breaks that playbook in a couple of ways.</p>
+          <p>First, you don&#x27;t want one singular “accurate” target. If a user prompts the model for a &quot;pirate voice&quot; five times, it should generate five distinct voices that could all fit the description without ever repeating voices.</p>
+          <p>Second, the reward signals can actively fight each other. In voice design, you are juggling pitch, pacing, accent, emotion, character style, etc. all at once, all while using reward models that weren&#x27;t originally built for voice design.</p>
+          <p>If you push the model to be more expressive, it quickly learns that laughing is an easy way to game the expressiveness score, so it starts laughing at inappropriate moments or dropping words. Push for more emotion, and you accidentally warp pitch because excited human speech naturally shifts higher. These are the tradeoffs voice researchers are making when building for voice design.</p>
+          <p>Nishant noted that the <a href="https://openai.com/index/faulty-reward-functions/">reward hacking</a> surface area in voice design is massive. Most of his team&#x27;s work now goes into structuring the RL environment itself. By using staged RL and strict gating so that when the model is being rewarded on one attribute, conflicting reward signals are turned off, they are able to simulate the training environment they need for voice design.</p>
+          <figure class="voice-figure" aria-labelledby="reward-caption"><p class="voice-figure-label">01 / The reward can pull the wrong way</p><div class="voice-reward-row"><div><span class="voice-small-label">Target</span><p>More expression</p></div><span class="voice-arrow" aria-hidden="true">↗</span><div><span class="voice-small-label">Shortcut</span><p>Laughter at the wrong moment</p></div></div><div class="voice-reward-row"><div><span class="voice-small-label">Target</span><p>More emotion</p></div><span class="voice-arrow" aria-hidden="true">↗</span><div><span class="voice-small-label">Side effect</span><p>Unintended changes in pitch</p></div></div><figcaption id="reward-caption">A conceptual illustration: improving one voice attribute can change another. The reward is a proxy for the experience.</figcaption></figure>
+          <h2>From clip benchmarks to trajectory evals</h2>
+          <p>During the Q&amp;A, Nishant made a point that I remember learning firsthand from my time shipping voice in production with Zumi. The most important qualities of a speech system are naturalness and intelligibility, yet consistent evaluation is difficult because there are few universally agreed objective criteria.</p>
+          <p>Today, most teams default to metrics like <a href="https://huggingface.co/learn/audio-course/en/chapter5/evaluation">word error rate</a> that are easy to measure on a leaderboard but insufficient to judge if the system is working. It is a classic case of <a href="https://arxiv.org/abs/1803.04585">Goodhart&#x27;s law</a>: when a measure becomes a target, it ceases to be a good measure. &quot;The model spoke in complete sentences&quot; should be the floor for a good user experience.</p>
+          <p>Voice today looks a lot like coding models a year ago. In software engineering, unit testing alone cannot verify the functionality of a piece of software; it only ensures that the building blocks work independently from each other. Coding evals eventually moved past unit tests to judge the <a href="https://nishnik.com/tts/#trajreward">entire trajectory</a> a model takes to solve a problem. Voice evals need a similar shift; testing how the pieces integrate and hold up as a full system should be the standard.</p>
+          <figure class="voice-figure voice-figure--trajectory" aria-labelledby="trajectory-caption"><p class="voice-figure-label">02 / Listen beyond the clip</p><div class="voice-eval-grid"><div class="voice-eval-card"><span class="voice-small-label">A single clip</span><svg viewBox="0 0 180 52" fill="none" aria-hidden="true"><path d="M2 26h12l4-8 5 16 6-24 7 34 7-26 6 16 5-8h14l4-16 6 32 7-36 6 40 7-29 6 17 5-8h12l5-11 5 22 6-33 7 40 6-26 5 8h15"/></svg><h3>Does it sound right?</h3><p>Intelligible words. A voice that fits the prompt.</p></div><div class="voice-eval-card"><span class="voice-small-label">The whole conversation</span><div class="voice-turns" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><h3>Does it hold up?</h3><p>Natural timing. Consistency across turns. Emotion that fits the moment.</p></div></div><figcaption id="trajectory-caption">Conceptual evaluation views, not measured results. A good clip is one building block; immersion depends on how the conversation holds together.</figcaption></figure>
+          <p>Right now, if a model feels odd twelve turns into a real conversation, then it doesn’t matter if it can ace a five-second clip benchmark. People are inclined to look for personality cues even when interacting with computers, just as we do in human social interactions, and they can feel a strong sense of aversion when the conversation feels slightly off.</p>
+          <p>Whether you are building a support agent or an embodied character like Muse or Zumi, a fun-sounding voice is only half the product. A strong eval framework that captures nuance is necessary to reflect real conversation. The greater the suspension of disbelief, the greater the degree of presence achieved. The real test is whether the model can hold up across a full, nuanced conversation without breaking the spell.</p>
+        </div>
+
+        <footer class="article-footer">
+          <p class="author-context"><a href="/" rel="author">David Gabeau</a> builds consumer products that bring people together. He works on Special Projects at a16z, building <a href="https://cosign.co">Cosign</a> in San Francisco. <a href="mailto:davidgabeau92@gmail.com">Say hi →</a></p>
+          <p class="author-context">Related reading: <a href="/writing/zumi-learnings">5 lessons from building social AI for 160,000 users</a> and <a href="/writing/what-agents-can-learn-from-working-together">What Agents Can Learn From Working Together</a>.</p>
+          <span class="article-byline">Written by <a href="/" rel="author">David Gabeau</a> · November 27, 2026</span>
+          <div class="article-share">
+            <a href="https://twitter.com/intent/tweet?text=Why%20Expressive%20Voice%20Models%20Laugh%20at%20Nothing&amp;url=https%3A%2F%2Fdavidgabeau.com%2Fwriting%2Fwhy-expressive-voice-models-laugh-at-nothing" target="_blank" rel="noopener noreferrer">Share on X</a>
+            <a href="/writing">All writing →</a>
+          </div>
+        </footer>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-links">
+        <a href="https://blog.usetapestry.dev" target="_blank" rel="noopener noreferrer">Blog</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="https://github.com/davidjgabeau" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="https://www.linkedin.com/in/dgabeau/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <span class="sep" aria-hidden="true">·</span>
+        <a href="https://x.com/dgabeau" target="_blank" rel="noopener noreferrer">X</a>
+      </div>
+      <div class="footer-ornament" aria-hidden="true">✦</div>
+      <p class="footer-copy">© 2026 David Gabeau</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      const next = isDark ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+
+    const bar = document.createElement('div');
+    bar.className = 'progress-bar';
+    document.body.prepend(bar);
+    window.addEventListener('scroll', () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = 'scaleX(' + (max > 0 ? window.scrollY / max : 0) + ')';
+    }, { passive: true });
+  </script>
+</body>
+</html>

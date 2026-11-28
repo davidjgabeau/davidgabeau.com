@@ -34,6 +34,7 @@ This guide summarizes the public website. Canonical HTML pages are the primary s
 
 - [All essays](https://davidgabeau.com/writing)
 - [RSS / Atom feed](https://davidgabeau.com/feed.xml)
+- [Why Expressive Voice Models Laugh at Nothing](https://davidgabeau.com/writing/why-expressive-voice-models-laugh-at-nothing) — What voice design reveals about reward hacking, expressive speech, and evaluating AI companions across a full conversation. [Markdown](https://davidgabeau.com/writing/why-expressive-voice-models-laugh-at-nothing.md)
 - [What Agents Can Learn From Working Together](https://davidgabeau.com/writing/what-agents-can-learn-from-working-together) — AI agent collaboration in World of SWECraft, with GPT-6 Astra, GPT-5.6 Sol, Claude, Gemini 3.8 Flash, and Kimi—plus lessons from building Zumi. [Markdown](https://davidgabeau.com/writing/what-agents-can-learn-from-working-together.md)
 - [Serendipities in San Francisco](https://davidgabeau.com/writing/serendipities-in-san-francisco) — Notes from my first two weeks in San Francisco: brain-computer interfaces, AI, building Cosign, and a lot of coffee. [Markdown](https://davidgabeau.com/writing/serendipities-in-san-francisco.md)
 - [Building Cosign with the a16z New Media Team](https://davidgabeau.com/writing/building-cosign) — Building Cosign with the a16z New Media team to increase people’s surface area for luck and connect talent to opportunity. [Markdown](https://davidgabeau.com/writing/building-cosign.md)
