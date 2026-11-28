@@ -62,7 +62,7 @@ To unpack where things are heading, Decagon brought together three researchers e
 -   [Nishant Nikhil](https://nishnik.com/) ([Meta Superintelligence Labs](https://ai.meta.com/)) on designing synthetic voices for characters.
 -   [Timothy Luong](https://www.linkedin.com/in/timluong/) [(Cartesia)](https://cartesia.ai/) on evaluating voice models in real conversations.
 
-For this piece, I’m focusing on Nishant Nikhil’s work turning text into customizable voices for [Meta’s Muse app](https://about.fb.com/news/2026/11/introducing-muse-ai-voice-expressive-avatars/). He was kind enough to publish his talk on his personal website [here](https://nishnik.com/tts/).
+For this piece, I’m focusing on Nishant Nikhil’s work turning text into customizable voices for [Meta’s Muse app](https://about.fb.com/news/2026/11/introducing-muse-ai-voice-expressive-avatars/). He was kind enough to publish [his talk](https://nishnik.com/tts/) on his personal website here.
 
 Meta is one of the few major companies building voice agents for entertainment rather than pure productivity. You might assume that a playful context gives voice models more grace with humans when they don’t quite feel right, but the opposite is often true. When talking to an embodied character, the bar is actually higher for users because any flaw immediately breaks immersion.
 
